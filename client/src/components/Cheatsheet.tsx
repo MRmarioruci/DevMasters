@@ -98,7 +98,7 @@ function CheatsheetComponent() {
 							</div>
 							<div className="float--right">
 								<HighlighterThemeSelector />
-								<a className="btn btn__inverted btn__md" href="https://github.com/MRmarioruci/seMastery" target='_blank' rel="noreferrer">
+								<a className="btn btn__inverted btn__md" href="#" target='_blank' rel="noreferrer">
 									<span className="material-icons font__20 mright--5">
 									
 										chat_bubble_outline
@@ -106,12 +106,6 @@ function CheatsheetComponent() {
 									Suggest Changes
 								</a>
 								<LayoutSelector />
-								{/* <div className="btn btn__primary btn__md" href="https://github.com/MRmarioruci/seMastery" target='_blank'>
-									<span className="material-icons font__20 mright--5">
-										add
-									</span>
-									Add cheatsheet
-								</div> */}
 							</div>
 						</div>
 					</div>
