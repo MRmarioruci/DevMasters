@@ -15,9 +15,9 @@ type MenuGroup = {
 
 function Main() {
 	const interviewMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Interview Cheatsheets');
-	const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
+	/* const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
 	const juniorMistakesMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Junior Mistakes');
-	const leetcodeMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Leetcode');
+	const leetcodeMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Leetcode'); */
 	return (
 		<>
 			<div className="main">
@@ -72,7 +72,7 @@ function Main() {
 						</button> */}
 					</div>
 				</div>
-				<div className="main__contents">
+				{/* <div className="main__contents">
 					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Junior Mistakes</div>
 					<div className="text__center text__muted">
 						Mistakes can happen in the code whether you are a junior or senior engineer. Don't worry about it, here is a technology specific list of mistakes that will make you a pro.
@@ -116,7 +116,7 @@ function Main() {
 							)
 						})}
 					</div>
-				</div>
+				</div> */}
 				<div className="main__contents">
 					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">How to?</div>
 					<div className="text__center text__muted">
