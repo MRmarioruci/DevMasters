@@ -1,0 +1,99 @@
+{
+	"collectionName": "oopCheatsheet",
+	"title": "Object Oriented Programming",
+	"icon": "https://api.iconify.design/logos:jest.svg",
+	"color": "99425B",
+	"highlighter": "tsx",
+	"groups": [
+		{
+			"title": "General",
+			"docs": [
+				{
+					"title": "What is OOP?",
+					"description": "Object-Oriented Programming (OOP) is a programming paradigm that uses objects and classes to model real-world entities and their interactions. It promotes the organization of code into reusable and modular structures.",
+					"code": ""
+				},
+				{
+					"title": "What are the four fundamental OOP principles?",
+					"description": "The four fundamental principles of OOP are:<br>1. Encapsulation<br>2. Inheritance<br>3. Polymorphism<br>4. Abstraction",
+					"code": ""
+				},
+				{
+					"title": "What is a class in OOP?",
+					"description": "A class in OOP is a blueprint or template for creating objects. It defines the attributes (data) and methods (functions) that objects of the class will have. A class serves as a blueprint for creating multiple instances (objects) that share the same structure and behavior.",
+					"code": ""
+				},
+				{
+					"title": "What is an object in OOP?",
+					"description": "An object in OOP is an instance of a class. It represents a real-world entity with specific attributes and behavior defined by the class. Objects are the building blocks of OOP, and they encapsulate data and behavior into a single entity.",
+					"code": ""
+				}
+			]
+		},
+		{
+			"title": "Four Fundamental OOP Principles",
+			"docs": [
+				{
+					"title": "Encapsulation",
+					"description": "Encapsulation is the principle of bundling data (attributes) and methods (functions) that operate on the data into a single unit called a class. It restricts direct access to some of an object's components and prevents unintended interference and misuse.",
+					"code": "// Example of Encapsulation in JavaScript\n\nclass Employee {\n    constructor(name, id) {\n        // Private variables (encapsulated data)\n        let _name = name;\n        let _id = id;\n\n        // Public methods (getters and setters)\n        this.getName = () => _name;\n        this.getId = () => _id;\n        this.setName = (newName) => {\n            if (typeof newName === 'string') {\n                _name = newName;\n            } else {\n                throw new Error('Name must be a string.');\n            }\n        };\n    }\n}\n\n// Usage\nconst employee = new Employee('John Doe', 12345);\n\n// Outputs: Employee Name: John Doeconsole.log('Employee Name:', employee.getName()); \n// Outputs: Employee ID: 12345\nconsole.log('Employee ID:', employee.getId()); \n\n// Attempting to directly access encapsulated data (private variables)\n// Outputs: undefined\nconsole.log('_name:', employee._name); \n\n// Modifying data through setters\nemployee.setName('Jane Smith');\nconsole.log('Updated Employee Name:', employee.getName()); // Outputs: Updated Employee Name: Jane Smith\nemployee.setName(123); // Throws an error: Name must be a string.\n"
+				},
+				{
+					"title": "Inheritance",
+					"description": "Inheritance allows a new class (subclass or derived class) to inherit properties and methods from an existing class (superclass or base class). It promotes code reuse and hierarchy.",
+					"code": "// Example of Inheritance in JavaScript\n\nclass Animal {\n    constructor(name) {\n        this.name = name;\n    }\n\n    // Method common to all animals\n    eat(food) {\n        console.log(`${this.name} is eating ${food}.`);\n    }\n}\n\nclass Dog extends Animal {\n    // Additional properties for dogs\n    constructor(name, breed) {\n        super(name);\n        this.breed = breed;\n    }\n\n    // Method specific to dogs\n    bark() {\n        console.log(`${this.name} is barking.`);\n    }\n}\n\nclass Cat extends Animal {\n    // Additional properties for cats\n    constructor(name, color) {\n        super(name);\n        this.color = color;\n    }\n\n    // Method specific to cats\n    meow() {\n        console.log(`${this.name} is meowing.`);\n    }\n}\n\n// Usage\nconst dog = new Dog('Buddy', 'Golden Retriever');\nconst cat = new Cat('Whiskers', 'White');\n\ndog.eat('dog food'); // Outputs: Buddy is eating dog food.\ndog.bark(); // Outputs: Buddy is barking.\n\ncat.eat('cat food'); // Outputs: Whiskers is eating cat food.\ncat.meow(); // Outputs: Whiskers is meowing.\n"
+				},
+				{
+					"title": "Polymorphism",
+					"description": "Polymorphism allows objects of different classes to be treated as objects of a common base class. It enables flexibility and extensibility in code by providing a way to work with objects generically.",
+					"code": "// Example of Polymorphism in JavaScript\n\nclass Animal {\n    constructor(name) {\n        this.name = name;\n    }\n\n    // A method to make a sound\n    makeSound() {\n        return 'Some generic sound';\n    }\n}\n\nclass Dog extends Animal {\n    makeSound() {\n        return 'Woof!';\n    }\n}\n\nclass Cat extends Animal {\n    makeSound() {\n        return 'Meow!';\n    }\n}\n\nclass Bird extends Animal {\n    makeSound() {\n        return 'Tweet!';\n    }\n}\n\n// Function that takes any Animal object and makes it sound\nfunction animalMakesSound(animal) {\n    console.log(animal.name + ' says ' + animal.makeSound());\n}\n\n// Usage\nconst dog = new Dog('Buddy');\nconst cat = new Cat('Whiskers');\nconst bird = new Bird('Sparrow');\n\nanimalMakesSound(dog); // Outputs: Buddy says Woof!\nanimalMakesSound(cat); // Outputs: Whiskers says Meow!\nanimalMakesSound(bird); // Outputs: Sparrow says Tweet!\n"
+				},
+				{
+					"title": "Abstraction",
+					"description": "Abstraction is the process of simplifying complex reality by modeling classes based on relevant characteristics. It hides the unnecessary details and exposes only what is essential for interaction.",
+					"code": "// Example of Abstraction in JavaScript\n\nclass Animal {\n    constructor(name) {\n        this.name = name;\n    }\n\n    // Abstract method for making a sound\n    makeSound() {\n        throw new Error('Subclasses must implement the makeSound method.');\n    }\n}\n\nclass Dog extends Animal {\n    makeSound() {\n        return 'Woof!';\n    }\n}\n\nclass Cat extends Animal {\n    makeSound() {\n        return 'Meow!';\n    }\n}\n\nclass Bird extends Animal {\n    makeSound() {\n        return 'Tweet!';\n    }\n}\n\n// Usage\nconst dog = new Dog('Buddy');\nconst cat = new Cat('Whiskers');\nconst bird = new Bird('Sparrow');\n\nconsole.log(dog.name + ' says ' + dog.makeSound());\nconsole.log(cat.name + ' says ' + cat.makeSound());\nconsole.log(bird.name + ' says ' + bird.makeSound());"
+				}
+			]
+		},
+		{
+            "title": "SOLID Principles",
+            "docs": [
+                {
+                    "title": "What are the SOLID principles?",
+                    "description": "SOLID is an acronym that represents a set of five design principles for writing maintainable and scalable software. The SOLID principles are:\n\n<br>1. Single Responsibility Principle (SRP)\n<br>2. Open-Closed Principle (OCP)\n<br>3. Liskov Substitution Principle (LSP)\n<br>4. Interface Segregation Principle (ISP)\n<br>5. Dependency Inversion Principle (DIP)",
+                    "code": ""
+                },
+				{
+                    "title": "What does it achieve?",
+					"description": "<p><strong>Writing solid code <a>(properly)</a></strong>, helps you achieve several important goals in software development:</p>\n<ul>\n  <li><strong>Maintainability:</strong> Solid code is easier to maintain and extend. It's structured in a way that makes it clear how different components of the code interact and where to make changes when needed. This reduces the risk of introducing bugs while making updates.</li>\n  <li><strong>Readability:</strong> Solid code is easy to read and understand. It follows consistent naming conventions, has clear and concise functions and classes, and includes comments and documentation as needed. This helps developers (including your future self) quickly grasp the code's purpose and behavior.</li>\n  <li><strong>Scalability:</strong> Solid code is designed to handle changes and growth in a graceful manner. When you need to add new features or scale your application, a solid codebase provides a solid foundation to build upon, minimizing the risk of unexpected side effects or system instability.</li>\n  <li><strong>Reusability:</strong> Solid code promotes code reuse. By following principles like DRY (Don't Repeat Yourself) and creating modular, well-encapsulated components, you can reuse code in different parts of your application or even across projects, reducing duplication and saving development time.</li>\n  <li><strong>Testability:</strong> Solid code is designed with testing in mind. It's easier to write unit tests for well-structured code, which in turn helps you catch and fix issues early in the development process. This leads to higher code quality and reduces the likelihood of defects in production.</li>\n  <li><strong>Reduced Technical Debt:</strong> Solid code minimizes technical debt. Technical debt refers to the accumulated cost of shortcuts, poor design choices, and suboptimal code that may need to be paid off in the future. Writing solid code from the start reduces technical debt and the effort required for future maintenance.</li>\n  <li><strong>Collaboration:</strong> Solid code facilitates collaboration among team members. When everyone follows consistent coding practices and adheres to design principles, team members can work more seamlessly together, understand each other's code, and collaborate effectively.</li>\n  <li><strong>Adaptability:</strong> Solid code is adaptable to changing requirements. It's designed with flexibility in mind, making it easier to accommodate new features, business rules, or changes in technology without major code rewrites.</li>\n  <li><strong>Performance:</strong> Solid code often leads to better performance. By optimizing algorithms and data structures, avoiding unnecessary computations, and following best practices, you can create code that performs efficiently, even under high loads.</li>\n  <li><strong>User Satisfaction:</strong> Ultimately, solid code contributes to a better user experience. It reduces the chances of application crashes, slow performance, and unexpected behavior, leading to happier users and stakeholders.</li>\n</ul>",
+                    "code": ""
+                },
+                {
+                    "title": "Single Responsibility Principle (SRP).",
+                    "description": "The Single Responsibility Principle (SRP) states that a class should have only one reason to change, or in other words, it should have only one responsibility or job. This principle encourages the separation of concerns, where each class or module focuses on a specific aspect of the system. By adhering to SRP, code becomes more maintainable, reusable, and easier to understand.",
+                    "code": "// Example of SRP in JavaScript\n\nclass Employee {\n    constructor(name, id) {\n        this.name = name;\n        this.id = id;\n    }\n}\n\nclass SalaryCalculator {\n    calculateSalary(employee) {\n        // Calculate employee's salary here\n    }\n}\n\nclass ReportGenerator {\n    generateReport(employee) {\n        // Generate employee's report here\n    }\n}"
+                },
+                {
+                    "title": "Open-Closed Principle (OCP).",
+                    "description": "The Open-Closed Principle (OCP) suggests that software entities (classes, modules, functions) should be open for extension but closed for modification. This means that you should be able to add new functionality or behavior to a system without changing the existing code. You achieve this by using techniques like inheritance, interfaces, and abstraction to allow for extension through the creation of new classes or modules.",
+                    "code": "// Abstract Shape class that defines a common interface\n\nclass Shape {\n    constructor() {}\n\n    // A method to calculate the area (to be implemented by concrete shapes)\n    calculateArea() {}\n}\n\nclass Circle extends Shape {\n    constructor(radius) {\n        super();\n        this.radius = radius;\n    }\n\n    // Implement the calculateArea method for circles\n    calculateArea() {\n        return Math.PI * this.radius * this.radius;\n    }\n}\n\nclass Square extends Shape {\n    constructor(sideLength) {\n        super();\n        this.sideLength = sideLength;\n    }\n\n    // Implement the calculateArea method for squares\n    calculateArea() {\n        return this.sideLength * this.sideLength;\n    }\n}\n\n// Function that calculates the total area of an array of shapes without modifying existing code\nfunction calculateTotalArea(shapes) {\n    let totalArea = 0;\n\n    for (const shape of shapes) {\n        totalArea += shape.calculateArea();\n    }\n\n    return totalArea;\n}\n\n// Usage example\nconst shapes = [new Circle(5), new Square(4)];\nconst totalArea = calculateTotalArea(shapes);\nconsole.log(`Total area of shapes: ${totalArea}`);"
+                },
+                {
+                    "title": "Liskov Substitution Principle (LSP).",
+                    "description": "The Liskov Substitution Principle (LSP) states that subtypes (derived classes) must be substitutable for their base types (superclasses) without altering the correctness of the program. In other words, if a program works with objects of a base class, it should also work with objects of any derived class without causing unexpected behavior or violating the expected behavior of the base class.",
+                    "code": "// Example of LSP in JavaScript\n\nclass Bird {\n    fly() {\n        // Common flying behavior for all birds\n    }\n}\n\nclass Sparrow extends Bird {\n    fly() {\n        // Flying behavior specific to sparrows\n    }\n}\n\nclass Ostrich extends Bird {\n    fly() {\n        // Ostriches cannot fly, so we raise an exception\n        throw new Error('Ostriches cannot fly');\n    }\n}"
+                },
+                {
+                    "title": "Interface Segregation Principle (ISP).",
+                    "description": "The Interface Segregation Principle (ISP) suggests that clients (classes or modules) should not be forced to depend on interfaces they do not use. It encourages the creation of smaller, more specific interfaces tailored to the needs of clients. By following ISP, you prevent clients from being burdened with unnecessary methods or dependencies.",
+                    "code": "// Example of ISP in JavaScript\n\nclass Worker {\n    work() {\n        // Common work behavior\n    }\n}\n\nclass Eater {\n    eat() {\n        // Common eating behavior\n    }\n}\n\nclass SuperWorker extends Worker, Eater {\n    work() {\n        // SuperWorker combines work and eat behaviors\n    }\n}\n\nclass MinimalWorker extends Worker {\n    work() {\n        // MinimalWorker only has work behavior\n    }\n}"
+                },
+                {
+                    "title": "Dependency Inversion Principle (DIP).",
+                    "description": "The Dependency Inversion Principle (DIP) states that high-level modules should not depend on low-level modules; both should depend on abstractions. Furthermore, abstractions should not depend on details; details should depend on abstractions. DIP promotes decoupling and the use of interfaces or abstract classes to define dependencies, making the system more flexible and easier to change.",
+                    "code": "// Example of DIP in JavaScript\n\nclass LightBulb {\n    turnOn() {\n        // Code to turn on the light bulb\n    }\n}\n\nclass Fan {\n    start() {\n        // Code to start the fan\n    }\n}\n\nclass SwitchableDevice {\n    operate() {\n        // Common interface for switchable devices\n    }\n}\n\nclass SmartSwitch {\n    constructor(device) {\n        this.device = device;\n    }\n\n    operateDevice() {\n        // Operate any switchable device\n        this.device.operate();\n    }\n}"
+                }
+            ]
+        }
+	]
+}

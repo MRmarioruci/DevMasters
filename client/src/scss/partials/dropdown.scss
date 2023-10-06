@@ -1,0 +1,124 @@
+@import 'vars';
+@import 'functions';
+
+@import 'vars';
+@import 'functions';
+
+.dropdown {
+	display: inline-flex;
+	position: relative;
+	vertical-align: top;
+	width: 100%;
+
+	.dropdown__title {
+		font-weight: 600;
+		padding: rem(1) rem(5);
+	}
+}
+
+.dropdown.active .dropdown__menu {
+	display: flex;
+	animation: move 0.2s ease-in-out
+}
+
+.dropdown.is-right .dropdown__menu {
+	left: auto;
+	top: 40px;
+	right: 0;
+}
+
+.dropdown.is-up .dropdown__menu {
+	bottom: 100%;
+	padding-bottom: 4px;
+	padding-top: initial;
+	top: auto
+}
+
+.dropdown__menu {
+	display: none;
+	left: 0;
+	min-width: 300px;
+	padding-top: 4px;
+	position: absolute;
+	top: 100%;
+	z-index: 9999;
+}
+
+.dropdown__content {
+	background-color: var(--light);
+	border: 1px solid RGBA(var(--textColor-rgb) / 10%);
+	border-radius: 4px;
+	box-shadow: 0 .5em 1em -.125em RGBA(10, 10, 10, .1), 0 0 0 1px RGBA(10, 10, 10, .02);
+	padding-bottom: .5rem;
+	padding-top: .5rem;
+	display: flex;
+	z-index: 9999;
+	flex-direction: column;
+	overflow: hidden;
+	width: 100%;
+}
+
+.dropdown__item {
+	color: var(--textColor) !important;
+	display: block;
+	font-size: 1rem;
+	line-height: 1.5;
+	padding: 10px 15px;
+	position: relative;
+	width: 100%;
+	cursor: pointer;
+
+	form {
+		button {
+			border: 0;
+			background: transparent;
+		}
+	}
+
+	&:hover {
+		background: RGBA(var(--primary-rgb) / 20%)
+	}
+}
+
+a.dropdown__item,
+button.dropdown__item {
+	padding-right: 3rem;
+	text-align: left;
+	white-space: nowrap;
+	width: 100%
+}
+
+a.dropdown__item:hover,
+button.dropdown__item:hover {
+	background-color: var(--secondary);
+	color: RGBA(var(--textColor), 0.8);
+}
+
+a.dropdown__item.active,
+button.dropdown__item.active {
+	background-color: var(--primary);
+	color: var(--light)
+}
+
+.dropdown__divider {
+	background-color: var(--secondary);
+	border: none;
+	display: block;
+	height: 1px;
+	margin: .5rem 0
+}
+
+@keyframes move {
+	0% {
+		transform: scale(0) rotate(0deg);
+	}
+
+	100% {
+		transform: scale(1) rotate(0.1deg);
+	}
+}
+
+.dropdown__item-active {
+	background: RGBA(var(--primary-rgb) / 20%);
+	border-left: 2px solid var(--primary);
+}

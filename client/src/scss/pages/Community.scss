@@ -1,0 +1,12 @@
+@import "../partials/vars";
+
+.community {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--textColor);
+	color: var(--background);
+	backdrop-filter: blur(12px);
+	padding: 100px 20px;
+	text-align: center;
+}

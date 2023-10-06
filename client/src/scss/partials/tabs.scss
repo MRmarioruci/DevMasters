@@ -1,0 +1,37 @@
+@import 'vars';
+
+.tabs{
+	display: flex;
+
+	.tabs__item{
+		padding: 10px 20px;
+		color: RGBA(var(--textColor-rgb) / 80%) !important;
+		cursor: pointer;
+		border: 1px solid transparent;
+
+		&:hover{
+			border-bottom: 1px solid var(--primary);
+			background: RGBA(var(--light-rgb) / 30%);
+			color: var(--textColor);
+			font-weight: bold;
+		}
+	}
+	.tabs__item-active{
+		color: var(--primary) !important;
+		//border-top: 1px solid var(--primary);
+		border-bottom: 1px solid var(--primary);
+		background: RGBA(var(--light-rgb) / 30%);
+	}
+	.tabs__item-activeTransparent{
+		background: var(--background);
+		font-weight: bold;
+	}
+	.tabs__item-md{
+		font-size: 12px;
+		padding: 5px 12px;
+	}
+	.tabs__item-sm{
+		font-size: 11px;
+		padding: 5px 9px;
+	}
+}

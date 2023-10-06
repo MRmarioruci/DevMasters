@@ -1,0 +1,310 @@
+.flex{
+	display: flex;
+}
+.inline--flex{
+	display: inline-flex;
+	justify-content: space-between;
+}
+.inline--block{
+	display: inline-block;
+	vertical-align: middle;
+}
+.flex--column{
+	flex-direction: column;
+}
+.flex--wrap{
+	flex-wrap: wrap;
+}
+.justify--center{
+	justify-content: center;
+}
+.align--center {
+	align-items: center;
+}
+.vm--align{
+	vertical-align: middle;
+}
+.svg-inline--fa{
+	vertical-align: middle;
+}
+.separator{
+	width: 1px;
+	height: 35px;
+	margin: 5px;
+	background: RGB(var(--textColor-rgb) / 20%);
+	display: inline-flex;
+	vertical-align: middle;
+}
+.no--padding{
+	padding: 0rem !important;
+}
+.float--right{
+	margin-left: auto;
+	margin-right: 10px;
+}
+.mtop--5{
+	margin-top: 5px;
+}
+.mtop--10{
+	margin-top: 10px;
+}
+.mtop--15{
+	margin-top: 15px;
+}
+.mtop--20{
+	margin-top: 20px;
+}
+.mtop--25{
+	margin-top: 25px;
+}
+.mtop--30{
+	margin-top: 30px;
+}
+.mtop--35{
+	margin-top: 35px;
+}
+
+.mright--5{
+	margin-right: 5px;
+}
+.mright--10{
+	margin-right: 10px;
+}
+.mright--15{
+	margin-right: 15px;
+}
+.mright--20{
+	margin-right: 20px;
+}
+.mright--25{
+	margin-right: 25px;
+}
+.mright--30{
+	margin-right: 30px;
+}
+.mright--35{
+	margin-right: 35px;
+}
+
+.mleft--5{
+	margin-left: 5px;
+}
+.mleft--10{
+	margin-left: 10px;
+}
+.mleft--15{
+	margin-left: 15px;
+}
+.mleft--20{
+	margin-left: 20px;
+}
+.mleft--25{
+	margin-left: 25px;
+}
+.mleft--30{
+	margin-left: 30px;
+}
+.mleft--35{
+	margin-left: 35px;
+}
+
+.mbottom--5{
+	margin-bottom: 5px;
+}
+.mbottom--10{
+	margin-bottom: 10px;
+}
+.mbottom--15{
+	margin-bottom: 15px;
+}
+.mbottom--20{
+	margin-bottom: 20px;
+}
+.mbottom--25{
+	margin-bottom: 25px;
+}
+.mbottom--30{
+	margin-bottom: 30px;
+}
+.mbottom--35{
+	margin-bottom: 35px;
+}
+
+.visible--xs{
+	display: none;
+
+	@media screen and (max-width: 768px) {
+		display: inline-block;
+	}
+}
+.hidden-xs{
+	display: inline-block;
+
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
+}
+
+.flex--1{
+	flex-grow: 1;
+}
+.flex--2{
+	flex-grow: 2;
+}
+.flex--3{
+	flex-grow: 3;
+}
+.flex--50{
+	flex-basis: 50%;
+}
+.flex__33{
+	flex-basis: 33%;
+}
+
+.flex--column{
+	flex-direction: column;
+}
+.flex--row{
+	flex-direction: row;
+}
+
+.disabled{
+	opacity: 0.5;
+	pointer-events: none;
+}
+.pointer{
+	cursor: pointer;
+}
+.row{
+	width: 100%;
+}
+.no--shadow{
+	box-shadow: unset !important;
+}
+
+/*Flex basis*/
+.flex--basis-50{
+	flex-basis: 49%;
+}
+.info__message{
+	padding: 10px;
+	border-radius: var(--radius);
+	border: 1px solid var(--primary);
+	color: var(--primary);
+	background: RGB(var(--primary-rgb) / 10%);
+}
+.warning__message{
+	padding: 10px;
+	border-radius: var(--radius);
+	border: 1px solid var(--warning);
+	border-left: 4px solid var(--warning);
+	color: var(--warning);
+	background: RGB(var(--warning-rgb) / 10%);
+}
+.height--100{
+	height: 100%;
+}
+
+.ptop--5{
+	margin-top: 5px;
+}
+.ptop--10{
+	margin-top: 10px;
+}
+.ptop--15{
+	margin-top: 15px;
+}
+.ptop--20{
+	margin-top: 20px;
+}
+.ptop--25{
+	margin-top: 25px;
+}
+.ptop--30{
+	margin-top: 30px;
+}
+.ptop--35{
+	margin-top: 35px;
+}
+
+.pright--5{
+	margin-right: 5px;
+}
+.pright--10{
+	margin-right: 10px;
+}
+.pright--15{
+	margin-right: 15px;
+}
+.pright--20{
+	margin-right: 20px;
+}
+.pright--25{
+	margin-right: 25px;
+}
+.pright--30{
+	margin-right: 30px;
+}
+.pright--35{
+	margin-right: 35px;
+}
+
+.pleft--5{
+	margin-left: 5px;
+}
+.pleft--10{
+	margin-left: 10px;
+}
+.pleft--15{
+	margin-left: 15px;
+}
+.pleft--20{
+	margin-left: 20px;
+}
+.pleft--25{
+	margin-left: 25px;
+}
+.pleft--30{
+	margin-left: 30px;
+}
+.pleft--35{
+	margin-left: 35px;
+}
+
+.pbottom--5{
+	margin-bottom: 5px;
+}
+.pbottom--10{
+	margin-bottom: 10px;
+}
+.pbottom--15{
+	margin-bottom: 15px;
+}
+.pbottom--20{
+	margin-bottom: 20px;
+}
+.pbottom--25{
+	margin-bottom: 25px;
+}
+.pbottom--30{
+	margin-bottom: 30px;
+}
+.pbottom--35{
+	margin-bottom: 35px;
+}
+.transparent{
+	background: transparent !important;
+}
+
+.flex__right{
+	margin-left: auto;
+}
+.w__100{
+	width: 100% !important;
+}
+.w__50 {
+	width: 50% !important;
+}
+.w__75 {
+	width: 75% !important;
+}

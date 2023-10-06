@@ -1,0 +1,186 @@
+@import 'vars';
+a{
+	color: var(--primary);
+	cursor: pointer;
+}
+/* TYPOGRAPHY */
+h1{
+	font-size: 4rem;
+	margin: 0.1rem;
+}
+h2{
+	font-size: 3rem;
+	margin: 0.1rem;
+}
+h3{
+	font-size: 2rem;
+	margin: 0.1rem;
+}
+h4{
+	font-size: 1.5rem;
+	margin: 0.1rem;
+}
+h5{
+	font-size: 1rem;
+	margin: 0.1rem;
+}
+h6{
+	font-size: 0.8rem;
+	margin: 0.1rem;
+}
+p{
+	font-size: 1rem;
+}
+div{
+	font-size: 1rem;
+}
+label{
+	font-weight: 550
+}
+.text__bold{
+	font-weight: bold;
+}
+.text__boldest{
+	font-weight: 900;
+}
+.text__normal{
+	font-weight: 450 !important;
+	color: var(--textColor) !important;
+}
+.text__muted{
+	opacity: 0.6;
+}
+.text__semi-muted{
+	opacity: 0.7;
+}
+.text__link{
+	color: var(--primary) !important;
+}
+.text__label{
+	color: var(--textColor) !important;
+	font-weight: bold !important;
+}
+.text__primary{
+	color: var(--primary) !important;
+}
+.text__secondary{
+	color: var(--secondary) !important;
+}
+.text__light{
+	color: var(--light) !important;
+}
+.text__success{
+	color: var(--success) !important;
+}
+.text__danger{
+	color: var(--danger) !important;
+}
+.text__warning{
+	color: var(--warning) !important;
+}
+.font__10{
+	font-size: 10px;
+}
+.font__11{
+	font-size: 11px;
+}
+.font__12{
+	font-size: 12px;
+}
+.font__13{
+	font-size: 13px;
+}
+.font__14{
+	font-size: 14px;
+}
+.font__15{
+	font-size: 15px;
+}
+.font__16{
+	font-size: 16px;
+}
+.font__17{
+	font-size: 17px;
+}
+.font__18{
+	font-size: 18px;
+}
+.font__19{
+	font-size: 19px;
+}
+.font__20{
+	font-size: 20px;
+}
+.font__21{
+	font-size: 21px;
+}
+.font__22{
+	font-size: 22px;
+}
+.font__23{
+	font-size: 23px;
+}
+.font__24{
+	font-size: 24px;
+}
+.font__25{
+	font-size: 25px;
+}
+.font__26{
+	font-size: 26px;
+}
+.font__27{
+	font-size: 27px;
+}
+.font__28{
+	font-size: 28px;
+}
+.font__29{
+	font-size: 29px;
+}
+.font__30{
+	font-size: 30px;
+}
+.font__31{
+	font-size: 32px;
+}
+.font__32{
+	font-size: 32px;
+}
+.font__33{
+	font-size: 33px;
+}
+.font__34{
+	font-size: 34px;
+}
+.font__35{
+	font-size: 35px;
+}
+.font__40{
+	font-size: 40px;
+}
+.font__45{
+	font-size: 45px;
+}
+.font__55{
+	font-size: 55px;
+}
+.text__center{
+	text-align: center;
+	align-self: center;
+}
+.text__left{
+	text-align: left;
+}
+.text__right{
+	text-align: right;
+}
+.capitalize{
+	text-transform: capitalize;
+}
+.uppercase{
+	text-transform: uppercase;
+}
+.lowercase{
+	text-transform: lowercase;
+}

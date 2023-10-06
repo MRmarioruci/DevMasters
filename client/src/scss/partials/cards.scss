@@ -1,0 +1,142 @@
+@import "vars";
+.card{
+	width: auto;
+	height: auto;
+	padding: 15px;
+	border-radius: var(--radius);
+	background: var(--light);
+	margin: 5px;
+	position: relative;
+	word-break: break-word;
+	border: none;
+
+	.card__header{
+		padding: 10px;
+		display: flex;
+		flex-direction: row;
+		//border-bottom: 1px solid RGBA(var(--textColor-rgb) / 5%);
+		font-size: 1.2rem;
+		font-weight: bold;
+	}
+	.card__body{
+		padding: 10px;
+		word-break: break-word;
+	}
+	.card__footer{
+		padding: 10px;
+		//border-top: 1px solid RGBA(var(--textColor-rgb) / 5%);
+		display: flex;
+		flex-direction: row;
+	}
+}
+.card__glass{
+	-webkit-backdrop-filter: blur(50px);
+	backdrop-filter: blur(50px);
+}
+.card__rounded{
+	border-radius: var(--borderRadiusRounded)
+}
+.card__bordered{
+	border: 1px solid RGBA(var(--textColor-rgb) / 15%);
+}
+.card__transparent{
+	background: transparent;
+}
+.card--100{
+	width: 100%;
+}
+.card__active{
+	border: 2px solid RGBA(var(--primary-rgb) / 50%);
+	box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px  RGBA(var(--primary-rgb) / 20%);
+}
+.card__normal-shadow{
+	box-shadow: RGBA(var(--background-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--background-rgb) / 50%) 0px 4px 6px -2px;
+}
+.card__normal-bordered{
+	border: 1px solid RGBA(var(--textColor-rgb) / 15%);
+}
+.card__primary{
+	border-top: 1px solid var(--primary);
+	background: RGBA(var(--primary-rgb) / 20%)
+}
+.card__primary-shadow{
+	box-shadow: RGBA(var(--primary-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--primary-rgb) / 50%) 0px 4px 6px -2px;
+}
+.card__primary-bordered{
+	border: 1px solid var(--primary);
+}
+.card__secondary{
+	//border-top: 1px solid var(--secondary);
+	background: RGBA(var(--secondary-rgb) / 20%)
+}
+.card__secondary-bordered{
+	border: 1px solid var(--secondary);
+}
+.card__secondary-shadow{
+	box-shadow: RGBA(var(--secondary-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--secondary-rgb) / 50%) 0px 4px 6px -2px;
+}
+.card__success{
+	border-top: 1px solid var(--success);
+	background: RGBA(var(--success-rgb) / 20%)
+}
+.card__success-shadow{
+	box-shadow: RGBA(var(--success-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--success-rgb) / 50%) 0px 4px 6px -2px;
+}
+.card__success-bordered{
+	border: 1px solid var(--success);
+}
+.card__danger{
+	border-top: 1px solid var(--danger);
+	background: RGBA(var(--danger-rgb) / 20%)
+}
+.card__danger-shadow{
+	box-shadow: RGBA(var(--danger-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--danger-rgb) / 50%) 0px 4px 6px -2px;
+}
+.card__danger-bordered{
+	border: 1px solid var(--danger);
+}
+.card__warning{
+	border-top: 1px solid var(--warning);
+	background: RGBA(var(--warning-rgb) / 20%)
+}
+.card__warning-shadow{
+	box-shadow: RGBA(var(--warning-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--warning-rgb) / 50%) 0px 4px 6px -2px;
+}
+.card__warning-bordered{
+	border: 1px solid var(--warning);
+}
+.card__inverted{
+	border-top: 1px solid RGBA(var(--textColor-rgb) / 15%);
+	background: RGBA(var(--textColor-rgb) / 90%);
+	color: var(--background);
+}
+.card__inverted-shadow{
+	box-shadow: RGBA(var(--textColor-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--textColor-rgb) / 50%) 0px 4px 6px -2px;
+}
+.card__inverted-bordered{
+	border: 1px solid var(--textColor);
+}
+.card__gradient{
+	background: linear-gradient(270deg, var(--secondary), var(--light));
+    background-size: 400% 400% 400%;
+
+    -webkit-animation: gradientBackground 30s ease infinite;
+    -moz-animation: gradientBackground 30s ease infinite;
+    animation: gradientBackground 30s ease infinite;
+
+	@-webkit-keyframes gradientBackground {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@-moz-keyframes gradientBackground {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+	@keyframes gradientBackground {
+		0%{background-position:0% 50%}
+		50%{background-position:100% 50%}
+		100%{background-position:0% 50%}
+	}
+}

@@ -1,0 +1,225 @@
+{
+	"collectionName": "jestCheatsheet",
+	"title": "Jest",
+	"icon": "https://api.iconify.design/logos:jest.svg",
+	"color": "99425B",
+	"highlighter": "tsx",
+	"groups": [
+        {
+			"title": "General",
+			"docs": [
+                {
+                    "title": "describe",
+                    "description": "Use the describe function to create test suites.",
+                    "code": "describe('My Module', () => {\n// Test cases go here\n});"
+                },
+                {
+                    "title": "test / it",
+                    "description": "Use the test or it function to define test cases",
+                    "code": "test('Should do something', () => {\n// Test logic here\n});"
+                },
+                {
+                    "title": "Run tests",
+                    "description": "",
+                    "code": "npx jest or npm test"
+                },
+                {
+                    "title": "Run tests in a specific file",
+                    "description": "",
+                    "code": "npx jest myModule.test.js"
+                },
+                {
+                    "title": "Asynchronous Testing",
+                    "description": "",
+                    "code": "test('Async test', async () => {\n  const result = await asyncFunction();\n  expect(result).toBe(expectedValue);\n});"
+                },
+                {
+                    "title": "Mocking",
+                    "description": "",
+                    "code": "jest.mock('./myModule');"
+                },
+                {
+                    "title": "Spies",
+                    "description": "",
+                    "code": "const spyFunction = jest.spyOn(myModule, 'myFunction');\nexpect(spyFunction).toHaveBeenCalledWith(arg1, arg2);"
+                },
+                {
+                    "title": "Setup and Teardown",
+                    "description": "",
+                    "code": "beforeAll(() => {\n});\nafterEach(() => {\n// Teardown code\n});"
+                },
+                {
+                    "title": "Mock Timers",
+                    "description": "",
+                    "code": "jest.useFakeTimers();\n jest.advanceTimersByTime(1000);\n // Advance timers by 1 second"
+                },
+                {
+                    "title": "Snapshot Testing",
+                    "description": "",
+                    "code": "const component = renderer.create(<MyComponent />);\n const tree = component.toJSON();\n expect(tree).toMatchSnapshot();"
+                },
+                {
+                    "title": "Custom Matchers",
+                    "description": "",
+                    "code": "expect.extend({ toBeEven(received) {\n const pass = received % 2 === 0;\n if (pass) {\n   return {\n message: () => `Expected ${received} not to be even`, pass: true,\n };\n } else {\n return {\n message: () => `Expected ${received} to be even`, pass: false,\n };\n }\n },\n });"
+                }
+            ]
+        },
+		{
+			"title": "Matchers",
+			"docs": [
+                {
+                    "title": "toBe(expected)",
+                    "description": "Checks if a value is strictly equal (===) to the expected value.",
+                    "code": "expect(value).toBe(expected);"
+                },
+                {
+                    "title": "toEqual(expected)",
+                    "description": "Compares objects and arrays recursively for equality.",
+                    "code": "expect(value).toEqual(expected);"
+                },
+                {
+                    "title": "toBeNull()",
+                    "description": "Checks if the value is null.",
+                    "code": "expect(value).toBeNull();"
+                },
+                {
+                    "title": "toBeUndefined()",
+                    "description": "Checks if the value is undefined.",
+                    "code": "expect(value).toBeUndefined();"
+                },
+                {
+                    "title": "toBeDefined()",
+                    "description": "Checks if the value is defined (not undefined).",
+                    "code": "expect(value).toBeDefined();"
+                },
+                {
+                    "title": "toBeTruthy()",
+                    "description": "Checks if the value is considered truthy in a boolean context.",
+                    "code": "expect(value).toBeTruthy();"
+                },
+                {
+                    "title": "toBeFalsy()",
+                    "description": "Checks if the value is considered falsy in a boolean context.",
+                    "code": "expect(value).toBeFalsy();"
+                },
+                {
+                    "title": "toContain(item)",
+                    "description": "Checks if an array or string contains the specified item.",
+                    "code": "expect(arrayOrString).toContain(item);"
+                },
+                {
+                    "title": "toHaveLength(expectedLength)",
+                    "description": "Checks if an array or string has the expected length.",
+                    "code": "expect(arrayOrString).toHaveLength(expectedLength);"
+                },
+                {
+                    "title": "toBeGreaterThan(expected)",
+                    "description": "Checks if a number is greater than the expected value.",
+                    "code": "expect(number).toBeGreaterThan(expected);"
+                },
+                {
+                    "title": "toBeLessThan(expected)",
+                    "description": "Checks if a number is less than the expected value.",
+                    "code": "expect(number).toBeLessThan(expected);"
+                },
+                {
+                    "title": "toBeGreaterThanOrEqual(expected)",
+                    "description": "Checks if a number is greater than or equal to the expected value.",
+                    "code": "expect(number).toBeGreaterThanOrEqual(expected);"
+                },
+                {
+                    "title": "toBeLessThanOrEqual(expected)",
+                    "description": "Checks if a number is less than or equal to the expected value.",
+                    "code": "expect(number).toBeLessThanOrEqual(expected);"
+                },
+                {
+                    "title": "toBeCloseTo(expected, numDigits)",
+                    "description": "Checks if a floating-point number is close to the expected value within a specified number of decimal places.",
+                    "code": "expect(number).toBeCloseTo(expected, numDigits);"
+                },
+                {
+                    "title": "toMatch(pattern)",
+                    "description": "Checks if a string matches a regular expression pattern.",
+                    "code": "expect(string).toMatch(pattern);"
+                },
+                {
+                    "title": "toThrow(error?)",
+                    "description": "Checks if a function throws an error. You can also specify the expected error message or error class.",
+                    "code": "expect(() => someFunction()).toThrow(expectedError);"
+                },
+                {
+                    "title": "toHaveBeenCalled()",
+                    "description": "Checks if a mocked function has been called at least once.",
+                    "code": "expect(mockFunction).toHaveBeenCalled();"
+                },
+                {
+                    "title": "toHaveBeenCalledWith(arg1, arg2, ...)",
+                    "description": "Checks if a mocked function has been called with specific arguments.",
+                    "code": "expect(mockFunction).toHaveBeenCalledWith(arg1, arg2, ...);"
+                },
+                {
+                    "title": "toHaveBeenCalledTimes(expected)",
+                    "description": "Checks the number of times a mocked function has been called.",
+                    "code": "expect(mockFunction).toHaveBeenCalledTimes(expected);"
+                },
+                {
+                    "title": "toHaveBeenLastCalledWith(arg1, arg2, ...)",
+                    "description": "Checks the arguments of the last call to a mocked function.",
+                    "code": "expect(mockFunction).toHaveBeenLastCalledWith(arg1, arg2, ...);"
+                },
+                {
+                    "title": "toHaveReturned()",
+                    "description": "Checks if a mocked function has returned a value.",
+                    "code": "expect(mockFunction).toHaveReturned();"
+                },
+                {
+                    "title": "toHaveReturnedTimes(expected)",
+                    "description": "Checks the number of times a mocked function has returned a value.",
+                    "code": "expect(mockFunction).toHaveReturnedTimes(expected);"
+                },
+                {
+                    "title": "toHaveReturnedWith(expected)",
+                    "description": "Checks if a mocked function has returned a specific value.",
+                    "code": "expect(mockFunction).toHaveReturnedWith(expected);"
+                },
+                {
+                    "title": "toHaveLastReturnedWith(expected)",
+                    "description": "Checks the value returned by the last call to a mocked function.",
+                    "code": "expect(mockFunction).toHaveLastReturnedWith(expected);"
+                },
+                {
+                    "title": "toHaveProperty(path, value?)",
+                    "description": "Checks if an object has a specific property. You can also check the property's value if provided.",
+                    "code": "expect(object).toHaveProperty(path, value);"
+                },
+                {
+                    "title": "toBeInstanceOf(expectedClass)",
+                    "description": "Checks if an object is an instance of a specific class.",
+                    "code": "expect(object).toBeInstanceOf(expectedClass);"
+                },
+                {
+                    "title": "toContainEqual(expected)",
+                    "description": "Checks if an array or iterable contains an element that matches the expected value (deep equality).",
+                    "code": "expect(arrayOrIterable).toContainEqual(expected);"
+                },
+                {
+                    "title": "toEqual(expect.arrayContaining(expected))",
+                    "description": "Checks if an array contains all elements from another array (deep equality).",
+                    "code": "expect(array).toEqual(expect.arrayContaining(expected));"
+                },
+                {
+                    "title": "toEqual(expect.objectContaining(expected))",
+                    "description": "Checks if an object contains all key-value pairs from another object (deep equality).",
+                    "code": "expect(object).toEqual(expect.objectContaining(expected));"
+                },
+                {
+                    "title": "toBeNaN()",
+                    "description": "Checks if a value is NaN.",
+                    "code": "expect(value).toBeNaN();"
+                }
+            ]
+            
+		}
+	]
+}

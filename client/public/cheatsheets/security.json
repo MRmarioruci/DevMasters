@@ -1,0 +1,114 @@
+{
+	"collectionName": "securityCheatsheet",
+	"title": "Security",
+	"icon": "https://api.iconify.design/fluent-emoji-high-contrast:locked-with-key.svg",
+	"color": "08C052",
+	"highlighter": "tsx",
+	"groups": [
+		{
+			"title": "Web",
+			"docs": [
+				{
+					"title": "Authentication",
+					"description": "Authentication is the process of verifying the identity of users, ensuring they are who they claim to be. It is typically achieved through methods like passwords, multi-factor authentication (MFA), or biometrics.",
+					"code": ""
+				},
+				{
+					"title": "Authorization",
+					"description": "Authorization determines what actions and resources a user is allowed to access after they've been authenticated. This is often managed using role-based access control (RBAC) and permissions.",
+					"code": ""
+				},
+				{
+					"title": "Encryption",
+					"description": "Encryption converts data into a secure format to prevent unauthorized access. SSL/TLS is used for encrypting data transmitted over the network. For example, <code>https://</code> in a URL indicates a secure connection.",
+					"code": ""
+				},
+				{
+					"title": "Cross-Site Scripting (XSS) Prevention",
+					"description": "XSS prevention involves measures to prevent attackers from injecting malicious scripts into web pages viewed by other users. Input validation and output encoding are key techniques to mitigate this risk.",
+					"code": ""
+				},
+				{
+					"title": "Cross-Site Request Forgery (CSRF) Protection",
+					"description": "CSRF protection safeguards against attackers tricking users into performing unwanted actions on a different website without their knowledge or consent. It often involves using tokens in forms.",
+					"code": ""
+				},
+				{
+					"title": "SQL Injection Prevention",
+					"description": "SQL injection prevention protects against malicious SQL queries by sanitizing user inputs and using parameterized queries or prepared statements. For example, in PHP: <code>$stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username');</code>",
+					"code": ""
+				},
+				{
+					"title": "Security Headers",
+					"description": "Security headers like Content Security Policy (CSP), X-Content-Type-Options, and X-Frame-Options help mitigate various web security risks by setting policies for how the browser should handle content and requests.",
+					"code": ""
+				},
+				{
+					"title": "Session Management",
+					"description": "Proper session management involves using secure tokens and ensuring session data is not exposed or tampered with. For example, storing session data securely on the server.",
+					"code": ""
+				},
+				{
+					"title": "Input Validation",
+					"description": "Input validation validates and sanitizes all user inputs to prevent malicious data from being processed by the application. For example, validating email addresses and filtering out harmful characters.",
+					"code": ""
+				},
+				{
+					"title": "Error Handling",
+					"description": "Error handling mechanisms should be in place to avoid exposing sensitive information and providing attackers with clues about the system's architecture. For example, displaying generic error messages.",
+					"code": ""
+				},
+				{
+					"title": "File Upload Security",
+					"description": "File upload security involves scanning uploaded files for malware, restricting allowed file types, and storing them in secure locations to prevent security vulnerabilities. For example, using antivirus software to scan uploads.",
+					"code": ""
+				},
+				{
+					"title": "API Security",
+					"description": "API security protects APIs against unauthorized access and abuse using techniques like API keys, OAuth, and rate limiting. For example, using API tokens for authentication.",
+					"code": ""
+				},
+				{
+					"title": "Security Patch Management",
+					"description": "Security patch management entails keeping all software and libraries up to date with the latest security patches to prevent known vulnerabilities from being exploited. For example, regularly updating server software.",
+					"code": ""
+				},
+				{
+					"title": "Logging and Monitoring",
+					"description": "Robust logging and monitoring systems help detect and respond to security incidents in real-time. For example, using intrusion detection systems to monitor network traffic.",
+					"code": ""
+				},
+				{
+					"title": "Password Security",
+					"description": "Password security involves enforcing strong password policies, hashing and salting passwords, and providing users with password recovery mechanisms. For example, storing passwords securely using bcrypt.",
+					"code": ""
+				},
+				{
+					"title": "Security Training and Awareness",
+					"description": "Security training and awareness programs educate developers, users, and administrators about security best practices and potential risks.",
+					"code": ""
+				},
+				{
+					"title": "Security Audits and Penetration Testing",
+					"description": "Security audits and penetration testing are conducted regularly to identify and address vulnerabilities proactively. For example, hiring ethical hackers to assess system security.",
+					"code": ""
+				},
+				{
+					"title": "Data Privacy and Compliance",
+					"description": "Ensuring compliance with data protection regulations (e.g., GDPR, HIPAA) and safeguarding sensitive user information is critical. For example, implementing data encryption and user consent mechanisms.",
+					"code": ""
+				},
+				{
+					"title": "Firewalls and Intrusion Detection/Prevention Systems",
+					"description": "Implementing firewalls and intrusion detection/prevention systems at the network level helps filter and monitor incoming and outgoing traffic to protect against external threats.",
+					"code": ""
+				},
+				{
+					"title": "Business Continuity and Disaster Recovery",
+					"description": "Developing plans and procedures for business continuity and disaster recovery ensures system availability and data integrity in the event of a security breach or disaster. For example, regular data backups and offsite storage.",
+					"code": ""
+				}
+			]
+		}
+	]
+}

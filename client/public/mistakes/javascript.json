@@ -1,0 +1,119 @@
+{
+	"collectionName": "javascript",
+	"title": "Javascript",
+	"icon": "https://api.iconify.design/logos:javascript.svg",
+	"color": "F7DF1E",
+	"highlighter": "js",
+	"groups": [
+		{
+			"title": "All",
+			"docs": [
+				{
+                    "title": "Not Using Meaningful Variable Names",
+                    "description": "Using vague or short variable names like `x`, `data`, or `temp` can make code less readable and understandable.",
+                    "solution": "Use descriptive and meaningful variable names that convey the purpose of the variable, making your code self-documenting.",
+                    "codeBefore": "let x = 10;\nlet temp = 'Hello';",
+                    "codeAfter": "const itemCount = 10;\nconst greetingMessage = 'Hello';"
+                },
+                {
+                    "title": "Not Using 'const' and 'let' Properly",
+                    "description": "Overusing `var` or using `let` for variables that should be constants can lead to unintentional variable reassignment and bugs.",
+                    "solution": "Use `const` for variables that should not be reassigned and `let` for variables that need to be mutable.",
+                    "codeBefore": "var total = 100;\ntotal = 200; // Mutable",
+                    "codeAfter": "const total = 100; // Immutable"
+                },
+                {
+                    "title": "Ignoring Error Handling",
+                    "description": "Neglecting to handle errors and exceptions properly can lead to unexpected crashes and issues in your application.",
+                    "solution": "Implement error handling using try-catch blocks or use Promises with proper `.catch()` statements to handle errors gracefully.",
+                    "codeBefore": "try {\n    // Code that may throw an error\n} catch (error) {\n    // No error handling\n}",
+                    "codeAfter": "try {\n    // Code that may throw an error\n} catch (error) {\n    // Handle the error gracefully\n    console.error(error);\n}"
+                },
+                {
+                    "title": "Excessive Nesting",
+                    "description": "Creating deeply nested if-else statements or loops can make code harder to read and understand.",
+                    "solution": "Refactor code to reduce nesting. Use early returns and break out of loops when appropriate.",
+                    "codeBefore": "if (condition1) {\n    if (condition2) {\n        // Code here\n    }\n}",
+                    "codeAfter": "if (condition1 && condition2) {\n    // Code here\n}"
+                },
+                {
+                    "title": "Not Handling Asynchronous Code Correctly",
+                    "description": "Not understanding promises, callbacks, or async/await properly can lead to callback hell or unhandled promises.",
+                    "solution": "Learn and apply promises, async/await, and proper error handling for asynchronous operations.",
+                    "codeBefore": "fetchData()\n    .then(data => {\n        // Use data here\n    });",
+                    "codeAfter": "try {\n    const data = await fetchData();\n    // Use data here\n} catch (error) {\n    console.error(error);\n}"
+                },
+                {
+                    "title": "Neglecting Code Comments",
+                    "description": "Failing to add comments to explain complex logic or assumptions can make it difficult for others to understand your code.",
+                    "solution": "Use comments to clarify code, especially in places where the logic might not be immediately obvious.",
+                    "codeBefore": "// Calculate the result\nlet r = a + b; // Add a and b",
+                    "codeAfter": "// Calculate the sum of a and b\nlet result = a + b;"
+                },
+                {
+                    "title": "Not Using Strict Equality ('===')",
+                    "description": "Using loose equality ('==') instead of strict equality ('===') for comparisons can lead to unexpected type coercion issues.",
+                    "solution": "Always use strict equality to avoid unexpected type coercion issues.",
+                    "codeBefore": "if (variable == 5) {\n    // Code\n}",
+                    "codeAfter": "if (variable === 5) {\n    // Code\n}"
+                },
+                {
+                    "title": "Not Modularizing Code",
+                    "description": "Writing large, monolithic functions or scripts can make code harder to read, maintain, and debug.",
+                    "solution": "Modularize your code by breaking it into smaller, reusable functions or modules. Each function should have a single responsibility.",
+                    "codeBefore": "function monolithicFunction() {\n    // Large block of code\n}",
+                    "codeAfter": "function reusableFunction1() {\n    // Code for a specific task\n}\n\nfunction reusableFunction2() {\n    // Code for another task\n}"
+                },
+                {
+                    "title": "Not Using Proper Scope",
+                    "description": "Not understanding variable scope and unintentionally polluting the global scope can lead to unexpected behavior.",
+                    "solution": "Use block scope with `let` and `const` to limit variable visibility to the intended scope.",
+                    "codeBefore": "function scopeExample() {\n    if (true) {\n        var localVar = 10; // Not block-scoped\n    }\n    console.log(localVar);\n}",
+                    "codeAfter": "function scopeExample() {\n    if (true) {\n        let localVar = 10; // Block-scoped\n    }\n    // localVar is not accessible here\n}"
+                },
+                {
+                    "title": "Not Handling Memory Leaks",
+                    "description": "Creating memory leaks by not cleaning up event listeners or references can lead to performance issues.",
+                    "solution": "Remove event listeners, clear intervals, and release references when they are no longer needed.",
+                    "codeBefore": "// Code with potential memory leaks (no cleanup)",
+                    "codeAfter": "// Code with proper cleanup (removing event listeners, clearing intervals, etc.)"
+                },
+                {
+                    "title": "Not Using ES6 Features",
+                    "description": "Avoiding modern JavaScript features like arrow functions, destructuring, and template literals can lead to less concise and less readable code.",
+                    "solution": "Embrace ES6 features to write cleaner, more concise code.",
+                    "codeBefore": "function oldFunction(name) {\n    return 'Hello, ' + name;\n}",
+                    "codeAfter": "const newFunction = (name) => `Hello, ${name}`;"
+                },
+                {
+                    "title": "Copy-Pasting Code",
+                    "description": "Reusing code by copy-pasting instead of creating reusable functions or components can lead to redundancy and maintenance challenges.",
+                    "solution": "Create reusable functions or components to avoid redundancy and make code more maintainable.",
+                    "codeBefore": "function calculateArea1(radius) {\n    return 3.14 * radius * radius;\n}\n\nfunction calculateArea2(radius) {\n    return 3.14 * radius * radius; // Identical code\n}",
+                    "codeAfter": "function calculateArea(radius) {\n    return 3.14 * radius * radius;\n}"
+                },
+                {
+                    "title": "Not Using Testing Frameworks",
+                    "description": "Neglecting to write unit tests or perform testing can lead to uncaught bugs and decreased code quality.",
+                    "solution": "Embrace testing frameworks like Mocha, Jest, or Jasmine to ensure code quality and catch bugs early.",
+                    "codeBefore": "// No testing code sample (testing requires a testing framework)",
+                    "codeAfter": "// Write tests using a testing framework to validate code behavior"
+                },
+                {
+                    "title": "Not Using Linting Tools",
+                    "description": "Skipping code linting can result in inconsistent code style and potential errors.",
+                    "solution": "Integrate linting tools like ESLint to enforce coding standards and catch common mistakes.",
+                    "codeBefore": "// No linting applied (inconsistent code style)",
+                    "codeAfter": "// Apply ESLint to enforce coding standards"
+                },
+                {
+                    "title": "Not Using Version Control",
+                    "description": "Not using version control systems like Git can lead to loss of code, collaboration issues, and difficulty tracking changes.",
+                    "solution": "Start using Git and version control systems to track changes, collaborate effectively, and ensure code history.",
+                    "codeBefore": "// No version control applied (no commit history)",
+                    "codeAfter": "// Use Git to track changes and maintain a commit history"
+                }
+			]
+		}
+	]
+}
