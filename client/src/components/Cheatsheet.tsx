@@ -60,7 +60,8 @@ function CheatsheetComponent() {
 		const m = menu.find( (menuItem) => menuItem.title === 'Interview Cheatsheets');
 		const c = m?.items.find( item => item.href === id);
 		if(!c) throw new Error(`Could not find the requested ${id} menu item`);
-
+		setJsonData([]);
+		setSelectedGroup(null);
 		setCheatsheet(c);
 		fetchData();
 	}, [id, fetchData])

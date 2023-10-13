@@ -94,7 +94,7 @@ export const menu = [
 			},
 		]
 	},
-	/* {
+	{
 		"title": "Project Based Learning",
 		"items": [
 			{
@@ -138,5 +138,5 @@ export const menu = [
 				icon: '',
 			},
 		]
-	} */
+	}
 ]
