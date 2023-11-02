@@ -92,6 +92,11 @@ export const menu = [
 				href: 'fp',
 				icon: '',
 			},
+			{
+				title: 'Git',
+				href: 'git',
+				icon: '',
+			},
 		]
 	},
 	{

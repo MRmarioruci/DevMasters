@@ -1,0 +1,124 @@
+{
+	"collectionName": "git",
+	"title": "Git",
+	"icon": "",
+	"color": "B11C1E",
+	"highlighter": "js",
+	"groups": [
+		{
+			"title": "Git Basics",
+			"docs": [
+				{
+					"title": "What is Git?",
+					"description": "Git is a distributed version control system that allows multiple people to collaborate on software development projects. It tracks changes in the source code, enables team coordination, and helps in managing project versions effectively. Git works by creating a repository to store the project's files and their complete history. It allows developers to work on different branches simultaneously and merge their changes later, making it easier to manage complex projects with multiple contributors.",
+					"code": ""
+				},
+				{
+					"title": "Why use Git?",
+					"description": "Git helps in keeping track of changes made to the codebase, facilitates collaboration among team members, allows for easy branching and merging, and provides a backup of the project. It also enables developers to work offline and merge their changes when they are back online.",
+					"code": ""
+				},
+				{
+					"title": "Git Workflow",
+					"description": "In a typical Git workflow, developers start by initializing a Git repository using the 'git init' command. They then create or clone a repository from a remote source using 'git clone <repository URL>'. Developers work on their local copies, making changes to files and staging those changes using 'git add <file>'. After staging changes, they commit them using 'git commit -m 'Your commit message here''. Commits create a snapshot of the changes, preserving the project's history. To share changes with others, developers use 'git push' to upload changes to a remote repository and 'git pull' to fetch changes from a remote repository and merge them into their local branch. Branches are used to work on different features or fixes independently. Branches can be created with 'git branch <branch name>' and switched using 'git checkout <branch name>' or in recent Git versions, 'git switch <branch name>'. Merging changes from one branch to another is done using 'git merge <branch name>'.",
+					"code": ""
+				},
+				{
+					"title": ".gitignore File",
+					"description": "The .gitignore file is used to specify intentionally untracked files that Git should ignore. These files can be build artifacts, temporary files, or any other files that are not meant to be committed. By adding patterns to the .gitignore file, you can ensure that these files do not clutter your repository and are not accidentally committed.",
+					"code": ""
+				}
+			]
+		},
+		{
+			"title": "Git Commands",
+			"docs": [
+				{
+					"title": "git init",
+					"description": "Initializes a new Git repository in the current directory.",
+					"code": "$ git init"
+				},
+				{
+					"title": "git clone",
+					"description": "Creates a copy of a remote repository on your local machine.",
+					"code": "$ git clone <repository URL>"
+				},
+				{
+					"title": "git add",
+					"description": "Stages changes for commit. It tells Git that you want to include updates to specific files in the next commit.",
+					"code": "$ git add <file>"
+				},
+				{
+					"title": "git commit",
+					"description": "Records changes to the repository with a message describing the changes.",
+					"code": "$ git commit -m 'Your commit message here'"
+				},
+				{
+					"title": "git push",
+					"description": "Uploads local changes to a remote repository.",
+					"code": "$ git push origin <branch>"
+				},
+				{
+					"title": "git pull",
+					"description": "Fetches changes from a remote repository and merges them into the current branch.",
+					"code": "$ git pull origin <branch>"
+				},
+				{
+					"title": "git branch",
+					"description": "Lists all branches in the repository.",
+					"code": "$ git branch"
+				},
+				{
+					"title": "git merge",
+					"description": "Combines changes from one branch into another branch.",
+					"code": "$ git merge <branch>"
+				},
+				{
+					"title": "git status",
+					"description": "Shows the status of changes as untracked, modified, or staged.",
+					"code": "$ git status"
+				},
+				{
+					"title": "git log",
+					"description": "Displays a log of commits in the current branch.",
+					"code": "$ git log"
+				},
+				{
+					"title": "git log --author",
+					"description": "Displays commits by a specific author.",
+					"code": "$ git log --author=<author>"
+				},
+				{
+					"title": "git log --since",
+					"description": "Displays commits since a specific date.",
+					"code": "$ git log --since=<yyyy-mm-dd>"
+				},
+				{
+					"title": "git log --until",
+					"description": "Displays commits until a specific date.",
+					"code": "$ git log --until=<yyyy-mm-dd>"
+				},
+				{
+					"title": "git log --oneline",
+					"description": "Displays each commit as a single line, useful for a concise view of commit history.",
+					"code": "$ git log --oneline"
+				},
+				{
+					"title": "git pull --rebase",
+					"description": "Fetches changes from a remote repository and rebases your changes on top of the fetched changes. Useful to maintain a linear project history.",
+					"code": "$ git pull --rebase origin <branch>"
+				},
+				{
+					"title": "git reset",
+					"description": "Unstages changes, preserving the changes in your working directory.",
+					"code": "$ git reset <file>"
+				},
+				{
+					"title": "git stash",
+					"description": "Saves changes that are not ready to be committed yet. Useful when you need to switch to another branch or work on something else temporarily.",
+					"code": "$ git stash"
+				}
+			]
+		}
+	]
+}
