@@ -45,13 +45,6 @@ function Nav() {
 							</span>
 						}
 					</div>
-					<div className="btn btn__inverted btn__md mtop--10" style={{height: '38px'}}>
-						<span className="material-icons">
-							dashboard
-						</span>
-						&nbsp;
-						My Board
-					</div>
 				</div>
 			</div>
 		</nav>	

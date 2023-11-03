@@ -102,7 +102,7 @@ export const menu = [
 	{
 		"title": "Project Based Learning",
 		"items": [
-			{
+			/* {
 				title: 'Web Frontend Master',
 				href: 'webFrontend',
 				icon: '',
@@ -111,23 +111,23 @@ export const menu = [
 				title: 'Web Backend Master',
 				href: 'webBackend',
 				icon: '',
-			}
+			} */
 		]
 	},
 	{
 		"title": "Junior Mistakes",
 		"items": [
-			{
+			/* {
 				title: 'Web Frontend Master',
 				href: 'webFrontend',
 				icon: '',
-			},
+			}, */
 		]
 	},
 	{
 		"title": "Leetcode",
 		"items": [
-			{
+			/* {
 				title: 'DSA',
 				href: 'dsa',
 				icon: '',
@@ -141,7 +141,7 @@ export const menu = [
 				title: 'Problems',
 				href: 'leetcodeProblems',
 				icon: '',
-			},
+			}, */
 		]
 	}
 ]

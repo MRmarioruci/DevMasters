@@ -18,7 +18,7 @@ function Footer() {
 					A platform for software engineers to find educational material. Best practices, cheatsheets and more.
 				</div>
 				<div className="text__muted font__13 text__center">
-					@copyright semastery.com
+					@Copyright {new Date().getFullYear()} DevMasters
 				</div>
 			</div>
 		</div>

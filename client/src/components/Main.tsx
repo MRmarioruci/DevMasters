@@ -72,65 +72,26 @@ function Main() {
 						</button> */}
 					</div>
 				</div>
-				{/* <div className="main__contents">
-					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Junior Mistakes</div>
-					<div className="text__center text__muted">
-						Mistakes can happen in the code whether you are a junior or senior engineer. Don't worry about it, here is a technology specific list of mistakes that will make you a pro.
-					</div>
-					<div className="main__contents-menu">
-						{juniorMistakesMenu?.items.map((item:MenuItem, index) => {
-							return (
-								<a href={`/projects/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
-									<b className="text__primary font__10">{'/'}</b> {item.title}
-								</a>
-							)
-						})}
-					</div>
-				</div>
 				<div className="main__contents">
 					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Project Based Learning</div>
-					<div className="text__center text__muted">
-						From zero to hero. Learning new technologies is a must in our profession. The only good way to learn them is by doing. Start from level 1 to the last level and then you can call yourself a pro.
+					<div className="text__center text__muted mtop--20 mbottom--20">
+						Learn by doing. Project based learning is the way to go in this profession <br/>and here you will find a list of projects to complete with instructions, based on your level
 					</div>
-					<div className="main__contents-menu">
-						{projectsMenu?.items.map((item:MenuItem, index) => {
-							return (
-								<a href={`/projects/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
-									<b className="text__primary font__10">{'/'}</b> {item.title}
-								</a>
-							)
-						})}
-					</div>
+					<h4 className="text__center">Coming soon</h4>
 				</div>
 				<div className="main__contents">
-					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Leetcode Style Problems</div>
-					<div className="text__center text__muted">
-						From zero to hero. Learning new technologies is a must in our profession. The only good way to learn them is by doing. Start from level 1 to the last level and then you can call yourself a pro.
+					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Junior Mistakes</div>
+					<div className="text__center text__muted mtop--20 mbottom--20">
+						Here you will find anti-patterns and coding mistakes every junior falls into. Don't worry, we've got you.
 					</div>
-					<div className="main__contents-menu">
-						{leetcodeMenu?.items.map((item:MenuItem, index) => {
-							return (
-								<a href={`/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
-									<b className="text__primary font__10">{'/'}</b> {item.title}
-								</a>
-							)
-						})}
-					</div>
-				</div> */}
+					<h4 className="text__center">Coming soon</h4>
+				</div>
 				<div className="main__contents">
-					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">How to?</div>
-					<div className="text__center text__muted">
-						
+					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Leetcode</div>
+					<div className="text__center text__muted mtop--20 mbottom--20">
+						Practice for the leetcode-style problems. Learn DSA, Algorithms and Solving patterns. Be a pro.
 					</div>
-					<div className="main__contents-menu">
-						{/* {leetcodeMenu.map((item, index) => {
-							return (
-								<a href={`/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
-									<b className="text__primary font__10">{'/'}</b> {item.title}
-								</a>
-							)
-						})} */}
-					</div>
+					<h4 className="text__center">Coming soon</h4>
 				</div>
 				<div className="main__contents">
 					<div className="text__center">
@@ -141,11 +102,14 @@ function Main() {
 							style={{ width: '350px', height: '350px', margin: 'auto' }}
 							className='newsletter__animation'
 						/>
-						<h4>Join our newsletter</h4>
-						<div>Be the first to know about our latest material.</div>
-						<div className="input__wrap mtop--10 contact__email">
+						<h4>Give us your feedback</h4>
+						<div>Your opinion matters here. A platform from engineers, for engineers.</div>
+						<a  href="mailto: contact@marioruci.com" className="btn btn__inverted btn__rounded btn__nohover">
+							contact@marioruci.com
+						</a>
+						{/* <div className="input__wrap mtop--10 contact__email">
 							<input type="text" placeholder="Enter your email here..."/>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>

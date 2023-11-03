@@ -7,15 +7,15 @@ function Community() {
 			<h2>Community</h2>
 			<div className="font__20">Your support is much appreciated. Every bit of extra knowledge that can be added to this platform is valuable for everyone.</div>
 			<div>
-				You can contribute with code or fill in on the material.
+				Very soon we will be enabling community support and you can contribute to the resources provided by this platform.
 			</div>
 			<div className="flex flex__row text__center">
-				<div className="btn btn__secondary btn__md">
+				{/* <div className="btn btn__secondary btn__md">
 					Github Repo
 				</div>
 				<div className="btn btn__secondary btn__md">
 					contact@marioruci.com
-				</div>
+				</div> */}
 			</div>
 		</div>
 	)

@@ -99,13 +99,13 @@ function CheatsheetComponent() {
 							</div>
 							<div className="float--right">
 								<HighlighterThemeSelector />
-								<a className="btn btn__inverted btn__md" href="#" target='_blank' rel="noreferrer">
+								{/* <a className="btn btn__inverted btn__md" href="#" target='_blank' rel="noreferrer">
 									<span className="material-icons font__20 mright--5">
 									
 										chat_bubble_outline
 									</span>
 									Suggest Changes
-								</a>
+								</a> */}
 								<LayoutSelector />
 							</div>
 						</div>
@@ -114,11 +114,11 @@ function CheatsheetComponent() {
 			}
 			{jsonData.length > 0 &&
 				<div className='cheatsheets__menu tabs'>
-					{/* <div className={`btn ${selectedGroup === 'board' ? 'btn__primary-soft' : 'btn__transparent'}`} onClick={() => setSelectedGroup('board')}>
+					<div className={`btn ${!selectedGroup ? 'btn__primary-soft' : 'btn__transparent'}`} onClick={() => setSelectedGroup(null)}>
 						My Board
 					</div>
 					<div className="separator">
-					</div> */}
+					</div>
 					{jsonData?.map((group, idx) => {
 						return (
 							<div className={`tabs__item ${selectedGroup?.title === group.title && 'tabs__item-active'} `} key={`group_${idx}`} onClick={() => setSelectedGroup(group)}>
