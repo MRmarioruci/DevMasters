@@ -51,11 +51,11 @@ function CheatsheetItem(props: CheatsheetItemProps) {
 				
 			</div>
 			<div className="cheatsheets__board-itemFooter">
-				{/* <button className="btn btn__secondary text__muted btn__md">
+				<button className="btn btn__secondary text__muted btn__md">
 					<span className="material-icons">
 						favorite_border
 					</span>
-				</button> */}
+				</button>
 			</div>
 		</div>
     )
