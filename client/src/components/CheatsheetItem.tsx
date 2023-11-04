@@ -1,9 +1,11 @@
 import React from 'react'
 import { Highlight, themes } from "prism-react-renderer";
 import { CheatsheetItemProps } from '../types/index';
+import useLocalStorage from '../utils/useLocalStorage';
 
 function CheatsheetItem(props: CheatsheetItemProps) {
-	const {toggleCheatsheet, item, highlighter, highlighterTheme} = props;
+	const {getFromLocalStorage, addToLocalStorage} = useLocalStorage(null);
+	const {toggleCheatsheet, item, highlighter, highlighterTheme, groupIndex, index} = props;
 	const highlighterThemeKey = highlighterTheme as keyof typeof themes
 	const createMarkup = (htmlContent:string) => {
 		return { __html: htmlContent };
@@ -51,11 +53,13 @@ function CheatsheetItem(props: CheatsheetItemProps) {
 				
 			</div>
 			<div className="cheatsheets__board-itemFooter">
-				<button className="btn btn__secondary text__muted btn__md">
-					<span className="material-icons">
-						favorite_border
-					</span>
-				</button>
+				{(index && (groupIndex !== undefined)) ?
+					<button className="btn btn__secondary text__muted btn__md" onClick={() => addToLocalStorage(groupIndex, index) }>
+						<span className="material-icons">
+							favorite_border
+						</span>
+					</button> : ''
+				}
 			</div>
 		</div>
     )

@@ -29,7 +29,7 @@ function HighlighterThemeSelector() {
         setOption(existingTheme ? existingTheme : 'vsDark')
     }, [setOption])
     return (
-        <select onChange={e => {setOption(e.target.value)}} style={{height: '38px', marginTop: '4px'}}>
+        <select onChange={e => {setOption(e.target.value)}} style={{height: '38px', marginTop: '4px', borderRadius: '20px'}}>
             { options.map((option: Option) => {
                 return (
                     <option key={option.key} value={option.value}>{option.key}</option>

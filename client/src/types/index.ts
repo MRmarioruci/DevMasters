@@ -27,7 +27,9 @@ export interface CheatsheetItemProps {
 	item: Cheatsheet,
     highlighter: Highlighter,
     highlighterTheme: string,
-	toggleCheatsheet: ToggleCheatsheetFunction
+	toggleCheatsheet: ToggleCheatsheetFunction,
+    groupIndex?: number | null,
+    index?: number | null,
 }
 export interface CheatsheetModalItemProps {
 	item: Cheatsheet | null,

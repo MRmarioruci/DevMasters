@@ -15,6 +15,8 @@ import HighlighterThemeSelector from './HighlighterThemeSelector';
 import LayoutSelector from './LayoutSelector';
 import { useCustomContext } from '../contexts/theme-context';
 import StaticNavigation from './utils/StaticNavigation';
+import useLocalStorage from '../utils/useLocalStorage';
+import { group } from 'console';
 
 function CheatsheetComponent() {
 	const { id } = useParams();
@@ -22,6 +24,7 @@ function CheatsheetComponent() {
 	const [cheatsheet, setCheatsheet] = useState<any>(null);
 	const [jsonData, setJsonData] = useState<CheatSheetGroup[]>([]);
 	const [selectedGroup, setSelectedGroup] = useState<CheatSheetGroup | null>(null);
+	const [selectedGroupIndex, setSelectedGroupIndex] = useState<number>(0);
 	const [title, setTitle] = useState<string>('');
 	const [icon, setIcon] = useState<string>('');
 	const [showModal, setShowModal] = useState<boolean>(false);
@@ -68,8 +71,12 @@ function CheatsheetComponent() {
 	useEffect(() => {
 		if(!selectedGroup){
 			setSelectedGroup(jsonData?.[0]);
+		}else{
+			const groupIdx = jsonData.indexOf(selectedGroup);
+			if(groupIdx !== -1) setSelectedGroupIndex(groupIdx);	
 		}
 	}, [jsonData, selectedGroup])
+	useLocalStorage(`${id}_cheatsheets`);
 	return (
 		<div className="cheatsheets">
 			<StaticNavigation />
@@ -84,11 +91,11 @@ function CheatsheetComponent() {
 						</div>
 						<div className='flex flex__row mtop--20'>
 							<div>
-								<div className="btn btn__secondary btn__md" onClick={goBack}>
-									<span className="material-icons font__20">
+								<div className="btn btn__secondary btn__md cheatsheet__back" onClick={goBack}>
+									<i className="material-icons font__20">
 										arrow_back_ios
-									</span>
-									Back
+									</i>
+									<span>Back</span>
 								</div>
 								{/* <div className="btn btn__inverted btn__md text__secondary">
 									<span className="material-icons font__20">
@@ -136,7 +143,14 @@ function CheatsheetComponent() {
 					{selectedGroup?.docs?.map((item:Cheatsheet, idx:number) => {
 						return (
 							<div className="animate__animated animate__fadeIn" style={{ animationDelay: `${idx * 30}ms` }} key={`group_item_${idx}`}>
-								<CheatsheetItem item={item} toggleCheatsheet={toggleCheatsheet} highlighter={highlighter} highlighterTheme={state.highlighterTheme} />
+								<CheatsheetItem 
+									item={item}
+									toggleCheatsheet={toggleCheatsheet}
+									highlighter={highlighter}
+									highlighterTheme={state.highlighterTheme}
+									index={idx}	
+									groupIndex={selectedGroupIndex}
+								/>
 							</div>
 						)
 					})}
@@ -154,7 +168,12 @@ function CheatsheetComponent() {
 					<h5 className="text__muted">Please be patient my lord.</h5>
 				</div>
 			}
-			{showModal && <CheatsheetItemModal item={selectedCheatSheet} toggleCheatsheet={toggleCheatsheet} highlighter={highlighter} highlighterTheme={state.highlighterTheme} />}
+			{showModal && <CheatsheetItemModal
+				item={selectedCheatSheet}
+				toggleCheatsheet={toggleCheatsheet}
+				highlighter={highlighter}
+				highlighterTheme={state.highlighterTheme}
+			/>}
 		</div>
 	)
 }
