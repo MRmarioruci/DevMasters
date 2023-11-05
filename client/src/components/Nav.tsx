@@ -41,9 +41,9 @@ function Nav() {
 							</span>
 						}
 					</div>
-					<div className='mtop--5'>
+					{/* <div className='mtop--5'>
 						<ShareModal url={window.location.href} />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</nav>	
