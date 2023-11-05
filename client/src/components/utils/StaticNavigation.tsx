@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { menu } from './NavItems';
 import '../../scss/partials/StaticNavigation.scss';
 
@@ -7,7 +7,7 @@ function StaticNavigation() {
 	const {pathname} = useLocation();
 	const navigate = useNavigate();
 	const [mappedMenu, setMappedMenu] = useState(menu.map((menuItem) => {
-		return {...menuItem, open: false}
+		return {...menuItem, open: true}
 	}))
 	const [menuOpen, setMenuOpen] = useState(false);
 	const isActive = (href:string):boolean => {
@@ -48,7 +48,7 @@ function StaticNavigation() {
 									<div className="mtop__10 animate__animated animate__fadeIn">
 										{item.items.map((subItem, subIdx) => {
 											return (
-												<div onClick={() => goTo(`/${subItem.href}`)} className={`navigation__menu-item text__normal ${isActive(subItem.href) && `navigation__menu-itemActive`}`} key={`subnav__${subIdx}`}>
+												<div onClick={() => goTo(`/cheatsheets/${subItem.href}`)} className={`navigation__menu-item text__normal ${isActive(subItem.href) && `navigation__menu-itemActive`}`} key={`subnav__${subIdx}`}>
 													{subItem.title}
 												</div>
 											)

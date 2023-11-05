@@ -6,7 +6,7 @@ function LayoutSelector() {
 		dispatch({ "type": "SET_COLUMNS", "payload": state.columns === 2 ? 3 : 2})
 	}
     return (
-		<div className="btn btn__transparent btn__md text__primary" onClick={setColumns}>
+		<div className="btn btn__transparent btn__md text__primary layout__selector" onClick={setColumns}>
 			{ state.columns === 2 &&
 				<span className="material-icons">
 					grid_view

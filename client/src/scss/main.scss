@@ -152,7 +152,7 @@ a {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 10;
+	z-index: 100;
 	width: 100%;
 	background-color: RGBA(var(--background-rgb) / 50%);
 	backdrop-filter: blur(12px);
@@ -169,9 +169,6 @@ a {
 	-webkit-filter: grayscale(.6);
 }
 [data-theme="theme-dark"]{
-	.logo{
-		filter: invert(100%);
-	}
 	.main__header-rightLottie{
 		filter: invert(100%);
 	}

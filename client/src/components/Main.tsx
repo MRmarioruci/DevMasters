@@ -1,7 +1,9 @@
+import {useEffect, useState} from 'react';
 import mainAnimation from '../animations/main.json';
 import Lottie from 'react-lottie-player'
 import {menu} from './utils/NavItems';
 import contactAnimation from '../animations/contact.json';
+import { Link } from 'react-router-dom';
 
 type MenuItem = {
 	title: string;
@@ -14,12 +16,17 @@ type MenuGroup = {
 }
 
 function Main() {
+	const [loading, setLoading] = useState<boolean>(true);
 	const interviewMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Interview Cheatsheets');
 	/* const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
 	const juniorMistakesMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Junior Mistakes');
 	const leetcodeMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Leetcode'); */
+	useEffect(() => {
+		setTimeout(() => setLoading(false), 1000 );
+	}, [])
 	return (
 		<>
+			{loading && <div className="loader__full"><div className="loader"></div></div>}
 			<div className="main">
 				<div className="main__header">
 					<div className="main__header-left">
@@ -57,9 +64,9 @@ function Main() {
 					<div className="main__contents-menu">
 						{interviewMenu?.items.map((item:MenuItem, index) => {
 							return (
-								<a href={`/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
+								<Link to={`/cheatsheets/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
 									<b className="text__primary font__10">{'/'}</b> {item.title}
-								</a>
+								</Link>
 							)
 						})}
 					</div>

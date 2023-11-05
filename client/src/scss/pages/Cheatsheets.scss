@@ -25,7 +25,16 @@
 		padding: 4px 0px;
 		border-top: 1px solid RGBA(var(--textColor-rgb) / 10%);
 		border-bottom: 1px solid RGBA(var(--textColor-rgb) / 10%);
-		padding-bottom: 0px;
+		padding-bottom: 5px;
+		flex-wrap: nowrap;
+
+		.tabs__item{
+			min-width: 130px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			margin-bottom: -5px;
+		}
 	}
 	.cheatsheets__board{
 		width: 1200px;
@@ -46,7 +55,6 @@
 			display: inline-block;
 			width: 100%;
 			
-
 			.cheatsheets__board-itemHeader{
 				display: flex;
 				flex-direction: row;
@@ -125,6 +133,11 @@
 		}
 		@media(max-width: 700px){
 			columns: 1 !important;
+		}
+	}
+	@media(max-width: 955px){
+		.layout__selector{
+			display: none;
 		}
 	}
 }

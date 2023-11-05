@@ -53,13 +53,13 @@ function CheatsheetItem(props: CheatsheetItemProps) {
 				
 			</div>
 			<div className="cheatsheets__board-itemFooter">
-				{(index && (groupIndex !== undefined)) ?
+				{/* {(index && (groupIndex !== undefined)) ?
 					<button className="btn btn__secondary text__muted btn__md" onClick={() => addToLocalStorage(groupIndex, index) }>
 						<span className="material-icons">
 							favorite_border
 						</span>
 					</button> : ''
-				}
+				} */}
 			</div>
 		</div>
     )

@@ -1,6 +1,8 @@
 import {useEffect, useMemo} from 'react'
-import logo from '../images/logo.png';
+import logoDark from '../images/logo_dark.png';
+import logoLight from '../images/logo_light.png';
 import { useCustomContext, ThemeType } from '../contexts/theme-context';
+import ShareModal from './utils/ShareModal';
 
 function Nav() {
 	const {state, dispatch} = useCustomContext();
@@ -24,15 +26,9 @@ function Nav() {
 		<nav className="nav">
 			<div className="nav__inner">
 				<a className="flex flex__row justify__center logo" href="/">
-					<img src={logo} height="60" alt="logo" />
+					<img src={isLight ? logoDark : logoLight} height="60" alt="logo" />
 				</a>
 				<div className="float--right flex flex__row">
-					{/* <div className="btn btn__primary-soft btn__md">
-						Login	
-					</div>
-					<div className="btn btn__secondary btn__md">
-						Register
-					</div> */}
 					<div onClick={switchTheme} className="justify__center btn">
 						{isLight &&
 							<span className="material-icons mright__5">
@@ -44,6 +40,9 @@ function Nav() {
 								light_mode
 							</span>
 						}
+					</div>
+					<div className='mtop--5'>
+						<ShareModal url={window.location.href} />
 					</div>
 				</div>
 			</div>

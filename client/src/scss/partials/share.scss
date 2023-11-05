@@ -1,0 +1,83 @@
+@use './vars.scss';
+
+.share {
+    .share__copy {
+        position: relative;
+        margin-top: 20px;
+
+        .share__copy-button {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+    }
+
+    .share__social {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+
+        .share__round-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--textColor);
+            background-color: var(--secondary);
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .share__round-buttonFacebook {
+            background-color: #1974EC;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .share__round-buttonLinkedin {
+            background-color: #007AB5;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .share__round-buttonTwitter {
+            background-color: #1C96E8;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .share__qr {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        margin-top: 20px;
+    }
+}
+
+.btn__share-static {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    .btn__open {
+        width: 200px !important;
+    }
+
+    .material-icons {
+        font-size: 25px !important;
+    }
+}

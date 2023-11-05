@@ -16,7 +16,7 @@ import LayoutSelector from './LayoutSelector';
 import { useCustomContext } from '../contexts/theme-context';
 import StaticNavigation from './utils/StaticNavigation';
 import useLocalStorage from '../utils/useLocalStorage';
-import { group } from 'console';
+import ShareModal from './utils/ShareModal';
 
 function CheatsheetComponent() {
 	const { id } = useParams();
@@ -31,6 +31,7 @@ function CheatsheetComponent() {
 	const [highlighter, setHighlighter] = useState<Highlighter>('js');
 	const [themeColor, setThemeColor] = useState<string | null | undefined>(null);
 	const [selectedCheatSheet, setSelectedCheatsheet] = useState<null | Cheatsheet>(null);
+	const [loading, setLoading] = useState<boolean>(true);
 
 	useMemo(() => {
 		const darkThemeElement = document.querySelector<HTMLElement>('[data-theme]');
@@ -41,14 +42,19 @@ function CheatsheetComponent() {
 	}, [themeColor])
 
 	const fetchData = useCallback(async () => {
-		const data: CheatsheetDoc = await getCheatsheet(id || '');
-		if(!data) return;
-
+		setLoading(true);
+		const data: void | CheatsheetDoc = await getCheatsheet(id || '').catch(() => setLoading(false));
+		if(!data){
+			setLoading(false);
+			return;
+		}
+		
 		setIcon(data.icon);
 		setTitle(data?.title);
 		setJsonData(data.groups);
 		setHighlighter(data.highlighter);
 		setThemeColor(data.color);
+		setTimeout(() => setLoading(false), 1000);
 		
 	}, [id]);
 	const goBack = () => {
@@ -79,12 +85,11 @@ function CheatsheetComponent() {
 	useLocalStorage(`${id}_cheatsheets`);
 	return (
 		<div className="cheatsheets">
+			{loading && <div className="loader__full"><div className="loader"></div></div>}
 			<StaticNavigation />
 			{cheatsheet &&
 				<div className={`cheatsheet__${cheatsheet.href}`}>
 					<div className="cheatsheet__inner">
-						{/* <h3>{cheatsheet.pageTitle}</h3>
-						<h5 className='text__muted'>{cheatsheet.pageSubtitle}</h5> */}
 						<div className="flex flex__row">
 							{icon && <img alt="Icon" src={icon} width={40}/>}
 							{title && <h3 className="mtop--10">{title}</h3>}
@@ -97,12 +102,6 @@ function CheatsheetComponent() {
 									</i>
 									<span>Back</span>
 								</div>
-								{/* <div className="btn btn__inverted btn__md text__secondary">
-									<span className="material-icons font__20">
-										download
-									</span>
-									Download
-								</div> */}
 							</div>
 							<div className="float--right">
 								<HighlighterThemeSelector />
@@ -114,6 +113,7 @@ function CheatsheetComponent() {
 									Suggest Changes
 								</a> */}
 								<LayoutSelector />
+								<ShareModal url={window.location.href} />
 							</div>
 						</div>
 					</div>
@@ -121,18 +121,18 @@ function CheatsheetComponent() {
 			}
 			{jsonData.length > 0 &&
 				<div className='cheatsheets__menu tabs'>
-					<div className={`btn ${!selectedGroup ? 'btn__primary-soft' : 'btn__transparent'}`} onClick={() => setSelectedGroup(null)}>
+					{/* <div className={`tabs__item ${selectedGroup?.title === 'My Board' && 'tabs__item-active'} `} onClick={() => setSelectedGroup(null)}>
 						My Board
 					</div>
 					<div className="separator">
-					</div>
+					</div> */}
 					{jsonData?.map((group, idx) => {
 						return (
 							<div className={`tabs__item ${selectedGroup?.title === group.title && 'tabs__item-active'} `} key={`group_${idx}`} onClick={() => setSelectedGroup(group)}>
 								<span className="material-icons">
 									{selectedGroup?.title === group.title ? 'radio_button_checked' : 'check_box_outline_blank'}
 								</span>
-								&nbsp;{group.title}
+								{group.title}
 							</div>
 						)
 					})}
