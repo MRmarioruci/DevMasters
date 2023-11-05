@@ -109,6 +109,51 @@
 					"code": ""
 				}
 			]
+		},
+		{
+			"title": "Session Auth",
+			"docs": [
+				{
+					"title": "What is it?",
+					"description": "Sessions are one of the most common methods of handling user authentication and maintaining user state in web applications. Especially helpful for applications where security is a top priority. However, they require server-side storage, which can be a challenge in distributed or horizontally scaled systems",
+					"code": ""
+				},
+				{
+					"title": "User Authentication",
+					"description": "When a user logs in, their credentials (usually a username and password) are verified by the server. If the credentials are correct, the server creates a unique session identifier, often called a session ID.",
+					"code": ""
+				},
+				{
+					"title": "Session Creation",
+					"description": "The server stores the user's session ID and any relevant user data in a session store. This can be an in-memory store, a database, or an external caching system. The session ID is sent to the client and stored in a cookie or as a URL parameter.",
+					"code": ""
+				},
+				{
+					"title": "Session Management",
+					"description": "For each subsequent request, the client sends the session ID back to the server. The server uses the session ID to look up the corresponding user session in the session store. This allows the server to identify the user and maintain their state across multiple requests.",
+					"code": ""
+				},
+				{
+					"title": "Session Expiration",
+					"description": "Sessions have a limited lifespan. They can expire after a certain period of inactivity or be set to expire after a specific duration, such as 30 minutes or 24 hours. When a session expires, the user is typically required to log in again to create a new session.",
+					"code": ""
+				},
+				{
+					"title": "Logout",
+					"description": "When a user logs out, the server invalidates the session associated with the user. Any subsequent requests with the expired session ID will not be authenticated.",
+					"code": ""
+				},
+				{
+					"title": "Python Sample Code",
+					"description": "",
+					"code": "from flask import Flask, request, session, redirect, url_for\napp = Flask(__name__)\napp.secret_key = 'your_secret_key_here'\n@app.route('/login', methods=['POST'])\ndef login():\n    username = request.form['username']\n    password = request.form['password']\n    if username == 'example' and password == 'password':\n        session['username'] = username\n        return redirect(url_for('dashboard'))\n    else:\n        return 'Invalid credentials'\n@app.route('/dashboard')\ndef dashboard():\n    if 'username' in session:\n        username = session['username']\n        return f'Welcome, {username}! This is your dashboard.'\n    else:\n        return redirect(url_for('login'))\n@app.route('/logout')\ndef logout():\n    session.pop('username', None)\n    return redirect(url_for('login'))\nif __name__ == '__main__':\n    app.run(debug=True)"
+				},
+				{
+					"title": "Javascript Sample Code",
+					"description": "",
+					"code": "const express = require('express');\nconst session = require('express-session');\nconst app = express();\napp.use(session({ secret: 'your_secret_key_here', resave: false, saveUninitialized: true }));\napp.post('/login', (req, res) => {\n    const { username, password } = req.body;\n    if (username === 'example' && password === 'password') {\n        req.session.username = username;\n        res.redirect('/dashboard');\n    } else {\n        res.send('Invalid credentials');\n    }\n});\napp.get('/dashboard', (req, res) => {\n    if (req.session.username) {\n        res.send(`Welcome, ${req.session.username}! This is your dashboard.`);\n    } else {\n        res.redirect('/login');\n    }\n});\napp.get('/logout', (req, res) => {\n    req.session.destroy(() => {\n        res.redirect('/login');\n    });\n});\napp.listen(3000, () => {\n    console.log('Server is running on port 3000');\n});"
+				}
+			]
 		}
 	]
 }
