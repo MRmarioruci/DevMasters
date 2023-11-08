@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 type MenuItem = {
 	title: string;
 	href: string;
-	icon: string ;
+	icon: string;
+	hasContent: boolean
 }
 type MenuGroup = {
 	title: string;
@@ -66,6 +67,7 @@ function Main() {
 							return (
 								<Link to={`/cheatsheets/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
 									<b className="text__primary font__10">{'/'}</b> {item.title}
+									{!item.hasContent && <div className="main__contents-cardUnderConstruction">Under Construction</div>}
 								</Link>
 							)
 						})}

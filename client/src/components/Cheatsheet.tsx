@@ -79,7 +79,7 @@ function CheatsheetComponent() {
 			setSelectedGroup(jsonData?.[0]);
 		}else{
 			const groupIdx = jsonData.indexOf(selectedGroup);
-			if(groupIdx !== -1) setSelectedGroupIndex(groupIdx);	
+			if(groupIdx !== -1) setSelectedGroupIndex(groupIdx);
 		}
 	}, [jsonData, selectedGroup])
 	useLocalStorage(`${id}_cheatsheets`);
@@ -92,7 +92,11 @@ function CheatsheetComponent() {
 					<div className="cheatsheet__inner">
 						<div className="flex flex__row">
 							{icon && <img alt="Icon" src={icon} width={40}/>}
-							{title && <h3 className="mtop--10">{title}</h3>}
+							{title && 
+								<h3 className="mtop--10 cheatsheet__title">{title}
+									<span className="text__muted">/{selectedGroup?.title}</span>
+								</h3>
+							}
 						</div>
 						<div className='flex flex__row mtop--20'>
 							<div>

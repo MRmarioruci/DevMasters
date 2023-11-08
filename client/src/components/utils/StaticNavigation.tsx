@@ -11,6 +11,7 @@ function StaticNavigation() {
 	}))
 	const [menuOpen, setMenuOpen] = useState(false);
 	const isActive = (href:string):boolean => {
+		console.log(href, pathname);
 		return `/${href}` === pathname;
 	}
 	const toggleMenuItem = (targetIdx:number) => {
@@ -48,8 +49,9 @@ function StaticNavigation() {
 									<div className="mtop__10 animate__animated animate__fadeIn">
 										{item.items.map((subItem, subIdx) => {
 											return (
-												<div onClick={() => goTo(`/cheatsheets/${subItem.href}`)} className={`navigation__menu-item text__normal ${isActive(subItem.href) && `navigation__menu-itemActive`}`} key={`subnav__${subIdx}`}>
+												<div onClick={() => goTo(`/${item.id}/${subItem.href}`)} className={`navigation__menu-item text__normal ${isActive(`${item.id}/${subItem.href}`) && `navigation__menu-itemActive`}`} key={`subnav__${subIdx}`}>
 													{subItem.title}
+													{!subItem.hasContent &&  <div className="navigation__menu-itemPill">Under construction</div>}
 												</div>
 											)
 										})}

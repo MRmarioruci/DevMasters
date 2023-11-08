@@ -5,16 +5,17 @@
 	display: flex;
 	flex-direction: column;
 	padding-top: 100px;
-
-	/* .cheatsheet__javascript{
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-	} */
+	
 	.cheatsheet__inner{
 		width: 1200px;
 		margin: auto;
 		max-width: 100%;
+	}
+	.cheatsheet__title{
+		margin-left: 10px;
+		@media(max-width: 800px){
+			font-size: 1.5em;
+		}
 	}
 	.cheatsheets__menu{
 		width: 1200px;
