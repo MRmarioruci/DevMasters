@@ -1,7 +1,7 @@
 /* Cheatsheets */
 
 export type Cheatsheet = {
-    "title"?: string,
+    "title": string,
     "description"?: any,
     "code"?: string,
     "image"?: string

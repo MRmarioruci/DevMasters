@@ -20,7 +20,7 @@ function CheatsheetItem(props: CheatsheetItemProps) {
 						fullscreen
 					</span>
 				</div>
-				<code className="text__bold font__16 cheatsheets__board-itemHeaderText">{item?.title}</code>
+				<code className="text__bold font__16 cheatsheets__board-itemHeaderText" dangerouslySetInnerHTML={createMarkup(item.title)}></code>
 			</div>
 			<div className="cheatsheets__board-itemBody">
 				<div className="text__muted" dangerouslySetInnerHTML={createMarkup(item.description)}></div>

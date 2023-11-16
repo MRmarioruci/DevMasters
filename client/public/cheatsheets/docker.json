@@ -1,0 +1,236 @@
+{
+	"collectionName": "docker",
+	"title": "Docker",
+	"icon": "https://api.iconify.design/logos:docker-icon.svg",
+	"color": "2396ED",
+	"highlighter": "js",
+	"groups": [
+		{
+			"title": "Basics",
+			"docs": [
+				{
+					"title": "What is Docker?",
+					"description": "Docker is an open-source platform that automates the deployment, scaling, and management of applications inside lightweight, portable containers. Containers encapsulate an application and its dependencies, ensuring consistency across different environments.",
+					"code": ""
+				},
+				{
+					"title": "Why Docker?",
+					"description": "Docker simplifies the development and deployment process by providing a consistent environment from development to production. It enhances scalability, isolates applications, and accelerates the development cycle by eliminating the 'it works on my machine' problem.",
+					"code": ""
+				},
+				{
+                    "title": "docker build",
+                    "description": "Builds a Docker image from a Dockerfile.",
+                    "code": "docker build -t my-image:latest ."
+                },
+                {
+                    "title": "docker run",
+                    "description": "Runs a Docker container from an image.",
+                    "code": "docker run -d -p 8080:80 my-image:latest"
+                },
+                {
+                    "title": "docker ps",
+                    "description": "Lists running containers.",
+                    "code": "docker ps"
+                },
+                {
+                    "title": "docker stop",
+                    "description": "Stops a running container.",
+                    "code": "docker stop container-id"
+                },
+                {
+                    "title": "docker rm",
+                    "description": "Removes one or more containers.",
+                    "code": "docker rm container-id"
+                },
+                {
+                    "title": "docker images",
+                    "description": "Lists all Docker images on the machine.",
+                    "code": "docker images"
+                },
+                {
+                    "title": "docker rmi",
+                    "description": "Removes one or more images.",
+                    "code": "docker rmi image-id"
+                },
+                {
+                    "title": "docker exec",
+                    "description": "Runs a command in a running container.",
+                    "code": "docker exec -it container-id /bin/bash"
+                },
+                {
+                    "title": "docker-compose up",
+                    "description": "Creates and starts containers defined in the docker-compose.yml file.",
+                    "code": "docker-compose up -d"
+                },
+                {
+                    "title": "docker-compose down",
+                    "description": "Stops and removes containers started with docker-compose up.",
+                    "code": "docker-compose down"
+                }
+			]
+		},
+		{
+			"title": "Docker Images",
+			"docs": [
+				{
+					"title": "Building Docker Images",
+					"description": "Docker images are built using Dockerfiles, which contain instructions for creating the image. Here's an example Dockerfile for a basic Node.js application.",
+					"code": "# Dockerfile\n\n# Use an official Node.js runtime as a base image\nFROM node:14\n\n# Set the working directory\nWORKDIR /usr/src/app\n\n# Copy package.json and package-lock.json to the working directory\nCOPY package*.json ./\n\n# Install dependencies\nRUN npm install\n\n# Copy the application code\nCOPY . .\n\n# Expose the port the app runs on\nEXPOSE 3000\n\n# Define the command to run the application\nCMD [\"npm\", \"start\"]"
+				},
+                {
+                    "title": "Dockerfile Commands Explanation",
+                    "description": "An explanation of various Dockerfile commands with comments.",
+                    "code": "# Dockerfile Commands Explanation\n\n# Specify the base image\nFROM ubuntu:20.04\n\n# Set the working directory\nWORKDIR /app\n\n# Copy files from the host to the container\nCOPY . .\n\n# Execute commands within the container\nRUN apt-get update && apt-get install -y python3\n\n# Expose a port for networking\nEXPOSE 8080\n\n# Set environment variables\nENV APP_NAME=myapp\n\n# Define a default command to run when the container starts\nCMD [\"python3\", \"app.py\"]\n\n# Add metadata to the image\nLABEL version=\"1.0\" maintainer=\"dockeruser@example.com\"\n\n# Set a user to run the container\nUSER myuser\n\n# Create a mount point\nVOLUME /data\n\n# Specify multiple build stages\nFROM builder as build\nCOPY . .\nRUN make\n\n# Use a health check to test the container health\nHEALTHCHECK CMD curl -f http://localhost/ || exit 1\n\n# ARG: Define a build-time variable\nARG version=latest\n\n# COPY: Copy files or directories from the source to the destination in the image\nCOPY src/ /app/src/\nCOPY file.txt /app/file.txt\n\n# ADD: Similar to COPY but supports URLs and can extract tarballs\nADD https://example.com/file.tar.gz /app/\n\n# ENV: Sets environment variables in the image\nENV NODE_ENV=production\n\n# RUN: Executes commands in a new layer on top of the current image and commits the result\nRUN apt-get update && apt-get install -y python3\n\n# LABEL: Adds metadata to an image\nLABEL version=\"1.0\" maintainer=\"dockeruser@example.com\"\n\n# USER: Sets the user that the image should run as\nUSER myuser\n\n# WORKDIR: Sets the working directory for subsequent instructions\nWORKDIR /app\n\n# VOLUME: Creates a mount point for externally mounted volumes\nVOLUME /data\n\n# HEALTHCHECK: Defines a command to test the container's health\nHEALTHCHECK CMD curl -f http://localhost/ || exit 1"
+                },                
+                {
+                    "title": "React Sample App",
+                    "description": "A Dockerfile for building and serving a React app using Nginx.",
+                    "code": "# Dockerfile for a React app\n\n# Stage 1: Build React app\nFROM node:14 as build\n\nWORKDIR /app\n\nCOPY package*.json ./\nRUN npm install\n\nCOPY . .\n\nRUN npm run build\n\n# Stage 2: Serve React app using Nginx\nFROM nginx:alpine\nCOPY --from=build /app/build /usr/share/nginx/html\nEXPOSE 80\nCMD [\"nginx\", \"-g\", \"daemon off;\"]"
+                },
+                {
+                    "title": "Python Sample App",
+                    "description": "A Dockerfile for a Python application.",
+                    "code": "# Dockerfile for a Python app\n\nFROM python:3.9\n\nWORKDIR /app\n\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\n\nCOPY . .\n\nCMD [\"python\", \"app.py\"]"
+                },
+                {
+                    "title": "Java Spring Boot Sample App",
+                    "description": "A Dockerfile for a Java Spring Boot application.",
+                    "code": "# Dockerfile for a Java Spring Boot app\n\nFROM openjdk:11\n\nWORKDIR /app\n\nCOPY target/myapp.jar .\n\nEXPOSE 8080\n\nCMD [\"java\", \"-jar\", \"myapp.jar\"]"
+                },
+                {
+                    "title": "Go Sample App",
+                    "description": "A Dockerfile for a Go application.",
+                    "code": "# Dockerfile for a Go app\n\nFROM golang:1.16\n\nWORKDIR /app\n\nCOPY . .\n\nRUN go build -o myapp .\n\nEXPOSE 8080\n\nCMD [\"./myapp\"]"
+                }
+			]
+		},
+		{
+			"title": "Docker Containers",
+			"docs": [
+                {
+                    "title": "What are Docker Containers",
+                    "description": "<p>Docker containers are lightweight, portable, and self-sufficient units that can run applications and their dependencies in isolated environments. They encapsulate an application and its dependencies into a single package, ensuring consistency and reproducibility across different environments.</p> <p><strong>Key characteristics of Docker containers include:</strong></p> <ul> <li><strong>Isolation:</strong> Containers encapsulate an application and its dependencies, isolating it from the underlying system and other containers. This isolation ensures that the application runs consistently across various environments.</li> <li><strong>Portability:</strong> Docker containers can run consistently on any system that supports Docker, whether it's a developer's laptop, a test server, or a production environment. This portability simplifies the process of deploying and scaling applications.</li> <li><strong>Efficiency:</strong> Containers share the host operating system's kernel, making them more lightweight compared to traditional virtual machines. This shared kernel allows for faster startup times and more efficient use of system resources.</li> <li><strong>Versioning and Reproducibility:</strong> Docker containers can be versioned, allowing developers to track changes and roll back to previous versions if needed. This versioning, combined with Dockerfiles (scripts used to create Docker images), enables the reproducibility of environments.</li> <li><strong>Scalability:</strong> Docker containers can be easily scaled horizontally to handle increased loads. Container orchestration tools like Kubernetes help manage and scale containerized applications in a distributed environment.</li> <li><strong>Flexibility:</strong> Containers can run various types of applications, regardless of the underlying technology stack. This flexibility makes it easy to containerize applications written in different programming languages or using different frameworks.</li> </ul> <p>The core components of Docker containers include Docker images, Dockerfiles, and the Docker runtime. Docker images serve as the blueprint for containers, Dockerfiles define the instructions to build images, and the Docker runtime is responsible for running and managing containers on a host system.</p> <p>Overall, Docker containers provide a consistent and reliable way to package, distribute, and run applications, simplifying the development, deployment, and maintenance processes.</p>",
+                    "code": ""
+                },                
+				{
+					"title": "Running Docker Containers",
+					"description": "To run a Docker container based on the previously created image, use the following command:",
+					"code": "# Run a Docker container\ndocker run -d -p 3000:3000 my-node-app"
+				},
+				{
+					"title": "Container Lifecycle",
+					"description": "Understanding the lifecycle of a Docker container is crucial. Containers can be created, started, stopped, and restarted.",
+					"code": "// Basic container lifecycle commands\n// Create a container\ndocker create -it --name my-container my-image\n\n// Start a container\ndocker start my-container\n\n// Stop a running container\ndocker stop my-container\n\n// Restart a container\ndocker restart my-container"
+				}
+			]
+		},
+		{
+			"title": "Docker Compose",
+			"docs": [
+				{
+                    "title": "What is Docker Compose",
+                    "description": "<p>Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define a multi-container environment in a single file, specifying how different services, networks, and volumes interact with each other.</p><p>With Docker Compose, you can manage your entire application stack as code, making it easy to share, replicate, and scale. It simplifies the process of setting up complex development environments and deploying applications across different environments.</p>",
+                    "code": ""
+                },
+                {
+                    "title": "Docker Compose Example",
+                    "description": "<p>Here's a simple example of a Docker Compose file for a web application using a web service and a database:</p>",
+                    "code": "version: '3'\nservices:\n  web:\n    image: nginx:latest\n    ports:\n      - '8080:80'\n  db:\n    image: postgres:latest\n    environment:\n      POSTGRES_PASSWORD: mysecretpassword"
+                },
+                {
+                    "title": "Docker Compose with Multiple Files",
+                    "description": "<p>Docker Compose allows you to split your configuration into multiple files for better organization. Here's an example with a separate configuration file for services and another for networks:</p>",
+                    "code": "# docker-compose.yml\nversion: '3'\nservices:\n  web:\n    image: nginx:latest\n    ports:\n      - '8080:80'\n  db:\n    image: postgres:latest\n    environment:\n      POSTGRES_PASSWORD: mysecretpassword",
+                    "codeExtended": "# docker-compose.networks.yml\nnetworks:\n  frontend:\n    driver: bridge\n  backend:\n    driver: bridge\nservices:\n  web:\n    networks:\n      - frontend\n  db:\n    networks:\n      - backend"
+                },
+                {
+                    "title": "Docker Compose Commands",
+                    "description": "",
+                    "code": "{\n  \"docker-compose up\": \"Start the services defined in the Docker Compose file.\",\n  \"docker-compose down\": \"Stop and remove the services, networks, and volumes.\",\n  \"docker-compose ps\": \"List the status of services.\",\n  \"docker-compose logs\": \"View output from services.\",\n  \"docker-compose exec\": \"Run commands in a running service container.\"\n}"
+                },
+                {
+                    "title": "Example 1: Basic web service<br>docker-compose-yml",
+                    "description": "",
+                    "code": "{\n\t\"version\": \"3\",\n\t\"services\": {\n\t\t\"web\": {\n\t\t\t\"image\": \"nginx:latest\",\n\t\t\t\"ports\": [\"8080:80\"]\n\t\t}\n\t}\n}"
+                },
+                {
+                    "title": "Example 2: Multiple services with dependencies<br>docker-compose-yml",
+                    "description": "",
+                    "code": "{\n\t\"version\": \"3\",\n\t\"services\": {\n\t\t\"web\": {\n\t\t\t\"image\": \"nginx:latest\"\n\t\t},\n\t\t\"app\": {\n\t\t\t\"build\": \"./app\",\n\t\t\t\"depends_on\": [\"db\"]\n\t\t},\n\t\t\"db\": {\n\t\t\t\"image\": \"postgres:latest\"\n\t\t}\n\t}\n}"
+                },
+                {
+                    "title": "Example 3: Using environment variables<br>docker-compose-yml",
+                    "description": "",
+                    "code": "{\n\t\"version\": \"3\",\n\t\"services\": {\n\t\t\"web\": {\n\t\t\t\"image\": \"nginx:latest\",\n\t\t\t\"environment\": [\"NGINX_PORT=8080\"]\n\t\t}\n\t}\n}"
+                },
+                {
+                    "title": "Example 4: Docker Compose with volumes<br>docker-compose-yml",
+                    "description": "",
+                    "code": "{\n\t\"version\": \"3\",\n\t\"services\": {\n\t\t\"web\": {\n\t\t\t\"image\": \"nginx:latest\",\n\t\t\t\"volumes\": [\"./html:/usr/share/nginx/html\"]\n\t\t},\n\t\t\"db\": {\n\t\t\t\"image\": \"postgres:latest\",\n\t\t\t\"volumes\": [\"postgres_data:/var/lib/postgresql/data\"]\n\t\t}\n\t},\n\t\"volumes\": {\n\t\t\"postgres_data\": {}\n\t}\n}"
+                }
+                
+			]
+		},
+		{
+			"title": "Docker Networking",
+			"docs": [
+				{
+					"title": "Coming soon...",
+					"description": "",
+					"code": ""
+				}
+			]
+		},
+		{
+			"title": "Docker Registry and Repositories",
+			"docs": [
+				{
+					"title": "Coming soon...",
+					"description": "",
+					"code": ""
+				}
+			]
+		},
+		{
+			"title": "Docker Swarm (optional)",
+			"docs": [
+				{
+					"title": "Coming soon...",
+					"description": "",
+					"code": ""
+				}
+			]
+		},
+		{
+			"title": "Security and Best Practices",
+			"docs": [
+				{
+					"title": "Coming soon...",
+					"description": "",
+					"code": ""
+				}
+			]
+		},
+		{
+			"title": "Monitoring and Logging (optional)",
+			"docs": [
+				{
+					"title": "Coming soon...",
+					"description": "",
+					"code": ""
+				}
+			]
+		},
+		{
+			"title": "Docker on Cloud Platforms (optional)",
+			"docs": [
+				{
+					"title": "Coming soon...",
+					"description": "",
+					"code": ""
+				}
+			]
+		}
+	]
+}

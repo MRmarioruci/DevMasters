@@ -1,7 +1,7 @@
 {
 	"collectionName": "git",
 	"title": "Git",
-	"icon": "",
+	"icon": "https://api.iconify.design/logos:branch-icon.svg",
 	"color": "E84E31",
 	"highlighter": "js",
 	"groups": [
