@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './scss/main.scss';
 import 'animate.css';
@@ -8,8 +9,20 @@ import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Community from "./components/Community";
 import ThemeContextProvider from './contexts/theme-context';
+import useDatabase from "./utils/useDatabase";
 
-function App() {
+function App() {		
+	const {getFromDatabase, addNewsletter} = useDatabase('newsletter');
+	const asd = async () => {
+		const a = await addNewsletter({
+			email: 'john@doess.com',
+			category: 'cheatsheets'
+		})
+		const d = await getFromDatabase();
+	}
+	useEffect(() => {
+		asd();
+	}, [])
 	return (
 		<ThemeContextProvider>
 			<BrowserRouter>
