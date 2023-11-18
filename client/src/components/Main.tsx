@@ -2,8 +2,8 @@ import {useEffect, useState} from 'react';
 import mainAnimation from '../animations/main.json';
 import Lottie from 'react-lottie-player'
 import {menu} from './utils/NavItems';
-import contactAnimation from '../animations/contact.json';
 import { Link } from 'react-router-dom';
+import Newsletter from './Newsletter';
 
 type MenuItem = {
 	title: string;
@@ -17,11 +17,13 @@ type MenuGroup = {
 }
 
 function Main() {
+
 	const [loading, setLoading] = useState<boolean>(true);
 	const interviewMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Interview Cheatsheets');
 	/* const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
 	const juniorMistakesMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Junior Mistakes');
 	const leetcodeMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Leetcode'); */
+
 	useEffect(() => {
 		setTimeout(() => setLoading(false), 1000 );
 	}, [])
@@ -102,25 +104,7 @@ function Main() {
 					</div>
 					<h4 className="text__center">Coming soon</h4>
 				</div>
-				<div className="main__contents">
-					<div className="text__center">
-						<Lottie
-							loop
-							animationData={contactAnimation}
-							play
-							style={{ width: '350px', height: '350px', margin: 'auto' }}
-							className='newsletter__animation'
-						/>
-						<h4>Give us your feedback</h4>
-						<div>Your opinion matters here. A platform from engineers, for engineers.</div>
-						<a  href="mailto: contact@marioruci.com" className="btn btn__inverted btn__rounded btn__nohover">
-							contact@marioruci.com
-						</a>
-						{/* <div className="input__wrap mtop--10 contact__email">
-							<input type="text" placeholder="Enter your email here..."/>
-						</div> */}
-					</div>
-				</div>
+				<Newsletter />
 			</div>
 		</>
 	)

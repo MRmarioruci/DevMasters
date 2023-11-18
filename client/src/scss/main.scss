@@ -190,9 +190,41 @@ a {
 	}
 }
 .contact__email{
-	border-radius: 25px !important;
+	border-radius: 25px;
 	overflow: hidden;
+	padding: 4px;
+	position: relative;
+
+	input{
+		height: 100%;
+		flex-basis: 60%;
+	}
+	select{
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 150px;
+		z-index:2;
+		background-color: var(--background);
+		font-size: 12px;
+	}
 }
+.newsletter__wrapper{
+	display: flex;
+	flex-direction: row;
+	
+	@media(max-width: 450px){
+		flex-direction: column;
+
+		.btn__circle{
+			width: 100%;
+			border-radius: 25px;
+			width: 100%;
+		}
+	}
+}
+
 .cheatsheet__back{
 	@media(max-width: 400px){
 		span{

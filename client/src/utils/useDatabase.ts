@@ -3,7 +3,7 @@ import { collection, getDocs, addDoc, serverTimestamp, FieldValue } from "fireba
 
 interface INewsletterDocument{
 	email: string,
-	category: 'cheatsheets' | 'leetcode' | 'projects'
+	category:  'Cheatsheets' | 'Projects' | 'Anti-patterns' | 'Leetcode' | string
 	creationDate?: FieldValue,
 }
 
@@ -47,6 +47,7 @@ function useDatabase(targetCollection: string) {
 		} catch (error) {
 			console.error('Error adding newsletter item:', error);
 		}
+		return null;
 	}
 	return {
 		getFromDatabase,
