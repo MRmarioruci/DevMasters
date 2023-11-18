@@ -16,6 +16,7 @@ const firebaseConfig = {
 export const fb = initializeApp(firebaseConfig);
 export const db = initializeFirestore(fb, {})
 if (db instanceof Error) {
+	
 	console.error('Error connecting to Firestore:', db.message);
 } else {
 	console.log('Firestore connected successfully!');
