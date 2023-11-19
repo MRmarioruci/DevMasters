@@ -162,6 +162,11 @@
 					"title": "Mapped Types",
 					"description": "Create new types by transforming each property of an existing type.",
 					"code": "type Person = { name: string; age: number };\ntype PartialPerson = { [K in keyof Person]?: Person[K] };\nlet partialPerson: PartialPerson = { name: 'Bob' };\n"
+				},
+				{
+					"title": "Generics",
+					"description": "Create reusable components that work with a variety of types.",
+					"code": "function identity<T>(arg: T): T {\n    return arg;\n}\n\nlet result: number = identity(5);\n"
 				}
 			]
 		},

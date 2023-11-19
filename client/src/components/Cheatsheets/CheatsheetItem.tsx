@@ -1,11 +1,11 @@
 import React from 'react'
 import { Highlight, themes } from "prism-react-renderer";
-import { CheatsheetItemProps } from '../types/index';
-import useLocalStorage from '../utils/useLocalStorage';
+import { CheatsheetItemProps } from '../../types/index';
+/* import useLocalStorage from '../utils/useLocalStorage'; */
 
 function CheatsheetItem(props: CheatsheetItemProps) {
-	const {getFromLocalStorage, addToLocalStorage} = useLocalStorage(null);
-	const {toggleCheatsheet, item, highlighter, highlighterTheme, groupIndex, index} = props;
+	/* const {getFromLocalStorage, addToLocalStorage} = useLocalStorage(null); */
+	const {toggleCheatsheet, item, highlighter, highlighterTheme /* groupIndex, index */} = props;
 	const highlighterThemeKey = highlighterTheme as keyof typeof themes
 	const createMarkup = (htmlContent:string) => {
 		return { __html: htmlContent };

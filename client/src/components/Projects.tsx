@@ -8,7 +8,6 @@ import '../scss/pages/Projects.scss';
 import { getProjects } from '../api/Projectsapi';
 import Lottie from 'react-lottie-player';
 import ProjectItem from './Projects/ProjectItem';
-import CheatsheetItemModal from './CheatsheetItemModal';
 import { ProjectType, ProjectDocType, ProjectGroupType, Highlighter, ToggleProjectFunction } from '../types/index';
 import { hexToRGB } from '../utils/color';
 import HighlighterThemeSelector from './HighlighterThemeSelector';

@@ -2,21 +2,21 @@
 //import Lottie from 'react-lottie-player'
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { menu } from './utils/NavItems';
-import rocketAnimation from '../animations/rocket.json';
-import '../scss/pages/Cheatsheets.scss';
-import { getCheatsheet } from '../api/Cheatsheetsapi';
+import { menu } from '../utils/NavItems';
+import rocketAnimation from '../../animations/rocket.json';
+import '../../scss/pages/Cheatsheets.scss';
+import { getCheatsheet } from '../../api/Cheatsheetsapi';
 import Lottie from 'react-lottie-player';
 import CheatsheetItem from './CheatsheetItem';
 import CheatsheetItemModal from './CheatsheetItemModal';
-import { Cheatsheet, CheatsheetDoc, CheatSheetGroup, Highlighter, ToggleCheatsheetFunction } from '../types/index';
-import { hexToRGB } from '../utils/color';
-import HighlighterThemeSelector from './HighlighterThemeSelector';
-import LayoutSelector from './LayoutSelector';
-import { useCustomContext } from '../contexts/theme-context';
-import StaticNavigation from './utils/StaticNavigation';
-import useLocalStorage from '../utils/useLocalStorage';
-import ShareModal from './utils/ShareModal';
+import { Cheatsheet, CheatsheetDoc, CheatSheetGroup, Highlighter, ToggleCheatsheetFunction } from '../../types/index';
+import { hexToRGB } from '../../utils/color';
+import HighlighterThemeSelector from '../HighlighterThemeSelector';
+import LayoutSelector from '../LayoutSelector';
+import { useCustomContext } from '../../contexts/theme-context';
+import StaticNavigation from '../utils/StaticNavigation';
+import useLocalStorage from '../../utils/useLocalStorage';
+import ShareModal from '../utils/ShareModal';
 
 function CheatsheetComponent() {
 	const { id } = useParams();

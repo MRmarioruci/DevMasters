@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react'
-import {CheatsheetModalItemProps} from '../types/index';
+import {CheatsheetModalItemProps} from '../../types/index';
 import CheatsheetItem from './CheatsheetItem';
 import html2canvas from "html2canvas";
 

@@ -154,6 +154,56 @@
 					"code": "const express = require('express');\nconst session = require('express-session');\nconst app = express();\napp.use(session({ secret: 'your_secret_key_here', resave: false, saveUninitialized: true }));\napp.post('/login', (req, res) => {\n    const { username, password } = req.body;\n    if (username === 'example' && password === 'password') {\n        req.session.username = username;\n        res.redirect('/dashboard');\n    } else {\n        res.send('Invalid credentials');\n    }\n});\napp.get('/dashboard', (req, res) => {\n    if (req.session.username) {\n        res.send(`Welcome, ${req.session.username}! This is your dashboard.`);\n    } else {\n        res.redirect('/login');\n    }\n});\napp.get('/logout', (req, res) => {\n    req.session.destroy(() => {\n        res.redirect('/login');\n    });\n});\napp.listen(3000, () => {\n    console.log('Server is running on port 3000');\n});"
 				}
 			]
+		},
+		{
+			"title": "JWT Auth",
+			"docs": [
+				{
+					"title": "What is it?",
+					"description": "JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties. They are often used for authentication and information exchange in web development.",
+					"code": ""
+				},
+				{
+					"title": "Token Structure",
+					"description": "A JWT is a string that consists of three parts: a header, a payload, and a signature. These parts are separated by dots, and the final token looks like 'xxxxx.yyyyy.zzzzz'.",
+					"code": ""
+				},
+				{
+					"title": "User Authentication",
+					"description": "When a user logs in, the server creates a JWT containing user-specific information (claims) and signs it using a secret key. This token is then sent to the client.",
+					"code": "// Code related to user authentication with JWT\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  console.error('Token verification failed:', error.message);\n}"
+				},
+				{
+					"title": "Token Storage",
+					"description": "The client typically stores the JWT, often in a browser cookie or local storage. On each subsequent request, the client includes the JWT in the request headers for authentication.",
+					"code": ""
+				},
+				{
+					"title": "Token Verification",
+					"description": "Upon receiving a request, the server verifies the integrity of the received JWT using the secret key. If the verification is successful, the server extracts the claims and processes the request.",
+					"code": "// Code related to JWT verification on the server side\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\nconst verifyToken = (token) => {\n  try {\n    const decoded = jwt.verify(token, secretKey);\n    console.log('Decoded Token:', decoded);\n    return decoded;\n  } catch (error) {\n    console.error('Token verification failed:', error.message);\n    return null;\n  }\n};\n\n// Example usage\nconst tokenFromClient = 'xxxxx.yyyyy.zzzzz';\nconst decodedToken = verifyToken(tokenFromClient);\nif (decodedToken) {\n  // Process the request\n} else {\n  // Handle authentication failure\n}"
+				},
+				{
+					"title": "Token Expiration",
+					"description": "JWTs can have an expiration time, after which they are no longer considered valid. This helps in enhancing security by limiting the time a token is valid.",
+					"code": "// Code related to JWT expiration handling\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token with expiration time\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token with expiration check\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  if (error.name === 'TokenExpiredError') {\n    console.error('Token has expired');\n  } else {\n    console.error('Token verification failed:', error.message);\n  }\n}"
+				},
+				{
+					"title": "Logout (Token Revocation)",
+					"description": "Unlike traditional session-based authentication, JWTs are stateless. To invalidate a JWT and force reauthentication, the server can either use token revocation lists or short expiration times.",
+					"code": ""
+				},
+				{
+					"title": "Sample Code - Node.js (jsonwebtoken)",
+					"description": "",
+					"code": "// Code example using 'jsonwebtoken' library in Node.js\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  console.error('Token verification failed:', error.message);\n}"
+				},
+				{
+					"title": "Sample Code - Python (PyJWT)",
+					"description": "",
+					"code": "import jwt\nsecret_key = 'your_secret_key_here'\n\n# Create a token\ntoken = jwt.encode({'userId': '123', 'username': 'example'}, secret_key, algorithm='HS256')\n\n# Verify a token\ntry:\n    decoded = jwt.decode(token, secret_key, algorithms=['HS256'])\n    print('Decoded Token:', decoded)\nexcept jwt.ExpiredSignatureError:\n    print('Token has expired')\nexcept jwt.InvalidTokenError as e:\n    print('Token verification failed:', str(e))"
+				}
+			]
 		}
 	]
 }
