@@ -17,10 +17,11 @@ type MenuGroup = {
 }
 
 function Main() {
-
 	const [loading, setLoading] = useState<boolean>(true);
+	
 	const interviewMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Interview Cheatsheets');
-	/* const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
+	const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
+	/* 
 	const juniorMistakesMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Junior Mistakes');
 	const leetcodeMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Leetcode'); */
 
@@ -74,21 +75,22 @@ function Main() {
 							)
 						})}
 					</div>
-					<div className="text__center">
-						{/* <button className="btn btn__secondary text__normal btn__rounded">
-							<span className="material-icons">
-								add
-							</span>
-							Suggest an addition
-						</button> */}
-					</div>
 				</div>
 				<div className="main__contents">
 					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Project Based Learning</div>
 					<div className="text__center text__muted mtop--20 mbottom--20">
 						Learn by doing. Project based learning is the way to go in this profession <br/>and here you will find a list of projects to complete with instructions, based on your level
 					</div>
-					<h4 className="text__center">Coming soon</h4>
+					<div className="main__contents-menu">
+						{projectsMenu?.items.map((item:MenuItem, index) => {
+							return (
+								<Link to={`/projects/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
+									<b className="text__primary font__10">{'/'}</b> {item.title}
+									{!item.hasContent && <div className="main__contents-cardUnderConstruction">Under Construction</div>}
+								</Link>
+							)
+						})}
+					</div>
 				</div>
 				<div className="main__contents">
 					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Junior Mistakes</div>

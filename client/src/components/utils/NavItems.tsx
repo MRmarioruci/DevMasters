@@ -123,16 +123,18 @@ export const menu = [
 		"title": "Project Based Learning",
 		"id": 'pbl',
 		"items": [
-			/* {
+			{
 				title: 'Web Frontend Master',
 				href: 'webFrontend',
 				icon: '',
+				hasContent: true
 			},
 			{
 				title: 'Web Backend Master',
 				href: 'webBackend',
 				icon: '',
-			} */
+				hasContent: false
+			}
 		]
 	},
 	{

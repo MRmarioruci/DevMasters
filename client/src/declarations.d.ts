@@ -14,3 +14,4 @@ declare module 'use-react-screenshot' {
     export function useScreenshot(): [string, () => Promise<void>];
 }
 declare module 'react-copy-to-clipboard';
+declare module 'react-lottie-player';
