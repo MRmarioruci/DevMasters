@@ -13,4 +13,11 @@
 		max-width: 100%;
 		margin: auto;
 	}
+	.footer__sub{
+		padding: 10px 20px;
+		border-top: 1px solid var(--primary);
+		border-bottom: 1px solid var(--primary);
+		margin: 10px auto;
+		width: 150px;
+	}
 }

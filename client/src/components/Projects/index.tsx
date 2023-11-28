@@ -10,6 +10,10 @@ import { getProjects } from '../../api/Projectsapi';
 import { hexToRGB } from '../../utils/color';
 import Lottie from 'react-lottie-player';
 import rocketAnimation from '../../animations/rocket.json';
+import ProjectItem from './ProjectItem';
+import { IProjectItem, IToggleProject } from './Projects.types';
+import { Highlighter } from '../../types';
+import ProjectItemModal from './ProjectItemModal';
 
 function Projects() {
 	const { id } = useParams();
@@ -18,9 +22,11 @@ function Projects() {
 	const [jsonData, setJsonData] = useState<any[]>([]);
 	const [selectedGroup, setSelectedGroup] = useState<any | null>(null);
 	const [selectedGroupIndex, setSelectedGroupIndex] = useState<number>(0);
+	const [highlighter, setHighlighter] = useState<Highlighter>('js');
 	const [title, setTitle] = useState<string>('');
 	const [icon, setIcon] = useState<string>('');
 	const [showModal, setShowModal] = useState<boolean>(false);
+	const [selectedProject, setSelectedProject] = useState<IProjectItem | null>(null);
 	const [themeColor, setThemeColor] = useState<string | null | undefined>(null);
 	const [loading, setLoading] = useState<boolean>(true);
 
@@ -43,7 +49,11 @@ function Projects() {
 	const goBack = () => {
 		window.history.back();
 	}
-	
+	const toggleProject: IToggleProject = (project: IProjectItem | null) => {
+		setShowModal( prev => !prev);
+		setSelectedProject(project);
+	}
+
 	useEffect(() => {
 		if(!id) return;
 		const m = menu.find( (menuItem) => menuItem.title === 'Project Based Learning');
@@ -105,11 +115,6 @@ function Projects() {
 			}
 			{jsonData.length > 0 &&
 				<div className='projects__menu tabs'>
-					{/* <div className={`tabs__item ${selectedGroup?.title === 'My Board' && 'tabs__item-active'} `} onClick={() => setSelectedGroup(null)}>
-						My Board
-					</div>
-					<div className="separator">
-					</div> */}
 					{jsonData?.map((group, idx) => {
 						return (
 							<div className={`tabs__item ${selectedGroup?.title === group.title && 'tabs__item-active'} `} key={`group_${idx}`} onClick={() => setSelectedGroup(group)}>
@@ -128,26 +133,12 @@ function Projects() {
 						<div className="btn btn__primary-soft text__normal btn__rounded timeline__label">Start here</div>
 					</div>
 					<section id="cd-timeline" className="cd-container">
-						{selectedGroup?.docs?.map((item:any, idx:number) => {
-							return (
-								<div className="cd-timeline-block" key={`project__${idx}`}>
-									<div className="cd-timeline-img cd-movie">
-										{idx+1}
-									</div>
-									<div className="cd-timeline-content">
-										<h5>{item.title}</h5>
-										<br />
-										<div>{item.description}</div>
-										<span className="text__muted">
-											{item.concepts}
-										</span>
-										<div className="card card__secondary card__md font__12">
-											{item.technologies}
-										</div>
-										<button disabled className="btn btn__primary btn__rounded btn__sm mtop--20">View Instructions</button>
-									</div>
-								</div>
-							)
+						{selectedGroup?.docs?.map((item:IProjectItem, idx:number) => {
+							return <ProjectItem
+								item={item}
+								index={idx}
+								toggleProject={toggleProject}
+							/>
 						})}
 					</section>
 					<div className="text__center">
@@ -167,6 +158,12 @@ function Projects() {
 					<h5 className="text__muted">Please be patient my lord.</h5>
 				</div>
 			}
+			{showModal && <ProjectItemModal
+				item={selectedProject}
+				toggleProject={toggleProject}
+				highlighter={highlighter}
+				highlighterTheme={state.highlighterTheme}
+			/>}
 		</div>
 	)
 }

@@ -39,7 +39,6 @@ export interface CheatsheetModalItemProps {
 }
 
 
-
 /* Projects */
 export type ProjectType = {
     title: string,

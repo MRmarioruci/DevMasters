@@ -2,7 +2,7 @@
     "collectionName": "webFrontend",
     "title": "Web Frontend Master",
     "icon": "https://api.iconify.design/noto:paintbrush.svg",
-    "color": "CB66A3",
+    "color": "da211b",
     "highlighter": "js",
     "groups": [
         {
