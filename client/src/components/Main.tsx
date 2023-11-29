@@ -4,6 +4,7 @@ import Lottie from 'react-lottie-player'
 import {menu} from './utils/NavItems';
 import { Link } from 'react-router-dom';
 import Newsletter from './Newsletter';
+import NewsletterModal from './NewsletterModal';
 
 type MenuItem = {
 	title: string;
@@ -18,6 +19,8 @@ type MenuGroup = {
 
 function Main() {
 	const [loading, setLoading] = useState<boolean>(true);
+	console.log(!!localStorage.getItem('devmasters__newsletter-modal'));
+	const [newsletterModal, setNewsletterModal] = useState<boolean>(!(!!localStorage.getItem('devmasters__newsletter-modal')) ?? true);
 	
 	const interviewMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Interview Cheatsheets');
 	const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
@@ -108,6 +111,7 @@ function Main() {
 				</div>
 				<Newsletter />
 			</div>
+			{ newsletterModal && <NewsletterModal setModal={setNewsletterModal}/>}
 		</>
 	)
 }
