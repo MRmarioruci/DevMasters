@@ -69,3 +69,14 @@ export interface ProjectModalItemProps {
 	item: ProjectType | null,
 	toggleProject: ToggleProjectFunction
 }
+
+/* KEEP */
+export type IDoc = {
+    "collectionName": string,
+	"title": string,
+	"icon": string,
+    "color"?: string,
+	"groups": CheatSheetGroup[] | ProjectGroupType[],
+    "highlighter": Highlighter,
+    "href": string
+}

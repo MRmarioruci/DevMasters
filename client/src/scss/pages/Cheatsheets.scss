@@ -1,42 +1,44 @@
 @import "../partials/vars";
 
-.cheatsheets{
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	padding-top: 100px;
-	
-	.cheatsheet__inner{
+.page__menu{
+	width: 1200px;
+	margin: 20px auto;
+	max-width: 100%;
+	overflow-x: auto;
+	overflow-y: none;
+	padding: 4px 0px;
+	border-top: 1px solid RGBA(var(--textColor-rgb) / 10%);
+	border-bottom: 1px solid RGBA(var(--textColor-rgb) / 10%);
+	padding-bottom: 5px;
+	flex-wrap: nowrap;
+
+	.tabs__item{
+		min-width: 160px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		margin-bottom: -5px;
+	}
+}
+.page__menu-meta{
+	.page__menu-metaInner{
 		width: 1200px;
 		margin: auto;
 		max-width: 100%;
 	}
-	.cheatsheet__title{
+	.page__menu-metaTitle{
 		margin-left: 10px;
 		@media(max-width: 800px){
 			font-size: 1.5em;
 		}
 	}
-	.cheatsheets__menu{
-		width: 1200px;
-		margin: 20px auto;
-		max-width: 100%;
-		overflow-x: auto;
-		overflow-y: none;
-		padding: 4px 0px;
-		border-top: 1px solid RGBA(var(--textColor-rgb) / 10%);
-		border-bottom: 1px solid RGBA(var(--textColor-rgb) / 10%);
-		padding-bottom: 5px;
-		flex-wrap: nowrap;
+}
+.cheatsheets{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 100px;
 
-		.tabs__item{
-			min-width: 130px;
-			overflow: hidden;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			margin-bottom: -5px;
-		}
-	}
 	.cheatsheets__board{
 		width: 1200px;
 		margin: 20px auto;
