@@ -1,381 +1,446 @@
 {
-	"collectionName": "javascript",
-	"title": "Javascript",
-	"icon": "https://api.iconify.design/logos:javascript.svg",
-	"color": "F7DF1E",
-	"highlighter": "js",
-	"groups": [
-		{
-			"title": "Basics",
-			"docs": [
-				{
-					"title": "What is Javascript?",
-					"description": "JavaScript is a high-level, interpreted programming language primarily used for web development. It is often executed in web browsers and allows developers to create interactive and dynamic web applications. ",
-					"image": "",
-					"code": ""
-				},
-				{
-					"title": "Difference between let, const and var",
-					"description": "All 3 are used for variable declaration. \n <p><strong>var:</strong> Function-scoped and are hoisted to the top of their containing function or global scope. They can be redeclared within the same scope, and their values can be reassigned.<\/p> <p><strong>let:<\/strong> Block-scoped, which means they are confined to the nearest enclosing block (e.g., a loop or an if statement). They are also hoisted but are not initialized until they are declared. let variables cannot be redeclared in the same scope but can have their values reassigned.<\/p> <p><strong>const:<\/strong> Variables declared with const are also block-scoped, and they cannot be reassigned after they are assigned a value. This makes const suitable for defining constants.<\/p>",
-					"image": "",
-					"code": ""
-				},
-				{
-					"title": "Coercion",
-					"description": "Coercion is the process of converting a value from one data type to another. This can happen implicitly or explicitly. Implicitly: Javascript automatically converts types, Explicitly: You order the conversion",
-					"image": "",
-					"code": ""
-				},
-				{
-					"title": "Scope",
-					"description": "Each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name",
-					"image": "",
-					"code": ""
-				},
-				{
-					"title": "use strict",
-					"description": "Directive enforces stricter error-checking and helps catch common coding mistakes.",
-					"image": "",
-					"code": "// Without \"use strict\"\nfunction duplicateParams(a, a) {\n  return a + a;\n}\n\n// With \"use strict\"\n\"use strict\";\nfunction strictDuplicateParams(a, a) {\n  // Throws a SyntaxError\n  return a + a;\n}"
-				},
-				{
-					"title": "Difference between == & ===",
-					"description": "<p>== (loose equality): This operator compares values for equality after performing type coercion. It converts the operands to the same type before making the comparison. For example, \"5\" == 5 would evaluate to true because the string is coerced to a number.</p><p>=== (strict equality): This operator compares both the values and the types of the operands. It returns true if both the values and types are the same. For example, \"5\" === 5 would evaluate to false because the types are different.</p>",
-					"image": "",
-					"code": "// Loose Equality (==)\nconsole.log('5' == 5); // Outputs: true because of type coercion\n// Strict Equality (===)\nconsole.log('5' === 5);\n// Outputs: false because types are different"
-				},
-				{
-					"title": "null vs undefined",
-					"description": "undefined: Something hasn't been initialized, null: Something is currently unavailable",
-					"image": "",
-					"code": ""
-				},
-				{
-					"title": "Immediately Invoked Function Expressions",
-					"description": "Allows you to define and execute a function immediately after its creation. It's often used to encapsulate variables and functions, creating a private scope for them",
-					"image": "",
-					"code": "(function () {\n  // This code is inside the IIFE and is executed immediately\n  let message = 'Hello, I am inside an IIFE!';\n  console.log(message);\n})();\n// Outside the IIFE, you can't access the 'message' variable"
-				},
-				{
-					"title": "Closures",
-					"description": "<b>A closure in JavaScript is a function that has access to variables from its containing (enclosing) function</b>, even after the enclosing function has finished executing. Closures work because functions in JavaScript 'remember' their lexical scope, which means they remember the environment in which they were created. This allows you to create private variables and encapsulated functionality. Closures are often used to create modular and maintainable code.",
-					"image": "",
-					"code": "function outerFunction() {\n  let outerVar = 'I am from outerFunction';\n  function innerFunction() {\n    console.log(outerVar);\n  }\n  return innerFunction;\n}\n\nconst closure = outerFunction();\nclosure();\n// This will print 'I am from outerFunction' because innerFunction still has access to outerVar even though outerFunction has finished executing."
-				},
-				{
-					"title": "Event loop",
-					"description": "The event loop is a mechanism that enables JavaScript to execute code asynchronously, handle events, and manage I/O operations without blocking the main execution thread. It ensures that tasks are processed in a timely and efficient manner. Great visual article here: <a href='https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke' target='_blank'>dev.to</a>",
-					"image": "",
-					"code": ""
-				},
-				{
-					"title": "Higher Order Functions",
-					"description": "Functions that can take other functions as arguments or return functions as their results.",
-					"image": "",
-					"code": "const add = (x) => x + 2;\nconst multiply = (x) => x * 3;\nconst composedFunction = (x) => multiply(add(x));\nconst result = composedFunction(5);\n// result is 21 (5 + 2 = 7, 7 * 3 = 21)"
-				},
-				{
-					"title": "Hoisting",
-					"description": "Hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means you can use a variable or function before it's declared in your code without raising an error. Functions are stored with a reference to the entire function, variables with the var keyword with the value of undefined, and variables with the let and const keyword are stored uninitialized.",
-					"image": "",
-					"code": "console.log(x); // Outputs: undefined\nvar x = 10;"
-				},
-				{
-					"title": "Function declaration vs function expression?",
-					"description": "Function Declaration: A statement that defines a named function with the function keyword, Function Expression: A function that is assigned to a variable. Difference is hoisting",
-					"image": "",
-					"code": "// Function declaration \nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\n\n// Function expression \nconst greet = function (name) {\n  return `Hello, ${name}!`;\n};\n"
-				},
-				{
-					"title": "Rest parameter vs spread operator",
-					"description": "Rest: Allows a function to accept indefinite amount oa parameter, Spread: Allows iterables to be expanded into single arguments/elements",
-					"image": "",
-					"code": "// Rest \nfunction sum(...numbers) {\n  return numbers.reduce((total, num) => total + num, 0);\n}\n\nconsole.log(sum(1, 2, 3, 4, 5)); // 15\n// Spread operator \nconst arr1 = [1, 2, 3];\nconst arr2 = [4, 5, 6];\nconst combinedArray = [...arr1, ...arr2]; // Combines the arrays\nconsole.log(combinedArray); // [1, 2, 3, 4, 5, 6]\n"
-				},
-				{
-					"title": "Callback function",
-					"description": "A callback function is a function that is passed to another function as an argument and is executed after some operation has been completed",
-					"image": "",
-					"code": "function modifyArray(arr, callback) {\n  // do something to arr here\n  arr.push(100);\n  // then execute the callback function that was passed\n  callback();\n}\n\nconst arr = [1, 2, 3, 4, 5];\nmodifyArray(arr, () => {\n  console.log('array has been modified', arr);\n});\n"
-				},
-				{
-					"title": "Event bubbling",
-					"description": "Event bubbling is the concept in which an event triggers at the deepest possible element, and triggers on parent elements in nesting order. As a result, when clicking on a child element one may exhibit the handler of the parent activating.",
-					"image": "",
-					"code": ""
-				}
-			]
-		},
-		{
-			"title": "Promises/Async",
-			"docs": [
-				{
-					"title": "What is a Promise in JavaScript?",
-					"description": "A Promise is a JavaScript object representing the eventual completion or failure of an asynchronous operation. It provides a way to handle asynchronous operations more easily and avoid callback hell.",
-					"code": "// Create a function that returns a Promise\nfunction fetchData() {\n  return new Promise((resolve, reject) => {\n    // Simulate an asynchronous operation (e.g., fetching data from a server)\n    setTimeout(() => {\n      const data = { message: \"Data fetched successfully\" };\n      // Resolve the Promise with the data\n      resolve(data);\n      \n      // Uncomment the following line to simulate an error:\n      // reject(\"Error: Unable to fetch data\");\n    }, 2000); // Simulate a 2-second delay\n  });\n}\n\n// Use the Promise\nfetchData()\n  .then((result) => {\n    console.log(result.message); // Data fetched successfully\n  })\n  .catch((error) => {\n    console.error(error); // Handle errors here\n  });"
-				},
-				{
-					"title": "How do you create a Promise in JavaScript?",
-					"description": "You can create a Promise using the `Promise` constructor. It takes a single argument, a function (executor), which has two parameters: `resolve` and `reject`. You call `resolve` when the asynchronous operation is successful and `reject` when it fails.",
-					"code": "const myPromise = new Promise((resolve, reject) => {\n  // Perform some asynchronous operation\n  if (/* operation successful */) {\n    resolve(result);\n  } else {\n    reject(error);\n  }\n});"
-				},
-				{
-					"title": "What is the purpose of `async/await` in JavaScript?",
-					"description": "The `async/await` syntax is used to simplify working with Promises. It allows you to write asynchronous code that looks more like synchronous code, making it easier to read and maintain. The `async` keyword defines a function as asynchronous, and `await` is used inside such a function to wait for a Promise to resolve or reject.",
-					"code": ""
-				},
-				{
-					"title": "How do you define an `async` function in JavaScript?",
-					"description": "You can define an `async` function using the `async` keyword before the function declaration. An `async` function always returns a Promise.",
-					"code": "async function myAsyncFunction() {\n  // Asynchronous code using await\n  const result = await somePromise;\n  return result;\n}"
-				},
-				{
-					"title": "What is the difference between `Promise.all()` and `Promise.race()`?",
-					"description": "`Promise.all()` waits for all Promises in an array to resolve, and it returns an array of their results. In contrast, `Promise.race()` waits for any one of the Promises in an array to resolve or reject, and it returns the result or error of the first Promise that settles.",
-					"code": ""
-				},
-				{
-					"title": "How do you handle errors in `async/await`?",
-					"description": "You can use a `try/catch` block to handle errors in `async/await`. If an error occurs within the `try` block or any awaited Promise rejects, control is passed to the `catch` block, where you can handle the error.",
-					"code": "async function myAsyncFunction() {\n  try {\n    const result = await somePromise;\n    // Code if successful\n  } catch (error) {\n    // Handle the error\n  }\n}"
-				},
-				{
-					"title": "What is Promise chaining?",
-					"description": "Promise chaining is a technique where you chain multiple asynchronous operations together using the `.then()` method. It allows you to perform a series of asynchronous tasks sequentially.",
-					"code": "myPromise.then((result1) => {\n  // Code to handle result1\n  return result2Promise;\n}).then((result2) => {\n  // Code to handle result2\n});"
-				},
-				{
-					"title": "Explain the event loop in the context of asynchronous JavaScript.",
-					"description": "The event loop is a fundamental concept in JavaScript's concurrency model. It allows asynchronous code to run efficiently by handling tasks in a non-blocking manner. When a Promise is resolved, its `.then()` callbacks are placed in the event queue and executed when the call stack is empty.",
-					"code": ""
-				},
-				{
-					"title": "Explain the difference between microtasks and macrotasks in the context of the event loop.",
-					"description": "Microtasks (e.g., Promise callbacks) are executed before macrotasks (e.g., `setTimeout` callbacks) in the event loop. Understanding this order of execution is crucial for handling async code effectively.",
-					"code": ""
-				},
-				{
-					"title": "How can you achieve parallel execution of Promises?",
-					"description": "You can use `Promise.all()` to execute multiple Promises in parallel. Each Promise in the array runs concurrently, and you get the results in the same order as the Promises.",
-					"code": "const promises = [promise1, promise2, promise3];\nPromise.all(promises).then((results) => {\n  // Handle results\n});"
-				},
-				{
-					"title": "Explain what happens when a Promise is in a 'pending' state.",
-					"description": "A Promise is 'pending' when it's neither resolved nor rejected. It stays in this state until one of these events occurs. The event loop continues executing other tasks until the Promise settles.",
-					"code": ""
-				},
-				{
-					"title": "How can you cancel a Promise or cleanup resources when it's no longer needed?",
-					"description": "You can use an `AbortController` and the `abort` method to cancel a Promise or cleanup resources associated with it. The Promise can catch the `AbortError` and handle it gracefully.",
-					"code": "const controller = new AbortController();\nconst signal = controller.signal;\n\nconst myPromise = new Promise((resolve, reject) => {\n  // Asynchronous operation\n  // Listen for abort signal\n  signal.addEventListener('abort', () => {\n    reject(new DOMException('Aborted', 'AbortError'));\n    // Cleanup resources\n  });\n});\n\n// To cancel the Promise\ncontroller.abort();"
-				},
-				{
-					"title": "How can you implement retry logic using Promises?",
-					"description": "You can implement retry logic by recursively calling a function that returns a Promise. In each iteration, you can retry or reject the Promise based on specific conditions.",
-					"code": "function retryOperation(maxRetries) {\n  return someAsyncOperation()\n    .catch((error) => {\n      if (maxRetries > 0) {\n        console.log('Retrying...');\n        return retryOperation(maxRetries - 1);\n      }\n      throw error; // Max retries reached\n    });\n}"
-				},
-				{
-					"title": "Explain the concept of 'Promise.race()' and provide a use case for it.",
-					"description": "`Promise.race()` resolves or rejects as soon as any of the Promises in the array settles. It's useful for implementing timeout logic. For example, you can use it to set a maximum execution time for an asynchronous operation.",
-					"code": "Promise.race([myPromise, timeoutPromise]).then((result) => {\n  // Handle result (myPromise resolved within timeout)\n}).catch((error) => {\n  // Handle error (myPromise took too long)\n});"
-				},
-				{
-					"title": "Promise.allSettled()",
-					"description": "This method is similar to Promise.all, but it doesn't short-circuit if one of the promises rejects. It waits for all promises to settle (either resolve or reject) and returns an array of objects describing the outcome of each promise.",
-					"code": "const promises = [promise1, promise2, promise3];\nPromise.allSettled(promises).then(results => {\n  // Handle the results\n});"
-				},
-				{
-					"title": "Promise.race()",
-					"description": "This method returns a new promise that settles as soon as one of the input promises settles, either by resolving or rejecting. It can be useful when you want to get a result as quickly as possible from multiple promises.",
-					"code": "const promises = [promise1, promise2, promise3];\nPromise.race(promises).then(result => {\n  // Handle the first settled promise\n});"
-				},
-				{
-					"title": "Promise.any()",
-					"description": "Introduced in ES2021, Promise.any resolves as soon as any of the input promises resolves. It's similar to Promise.race, but it doesn't reject if all promises reject.",
-					"code": "const promises = [promise1, promise2, promise3];\nPromise.any(promises).then(result => {\n  // Handle the first resolved promise\n});"
-				},
-				{
-					"title": "for...of Loop",
-					"description": "You can also use a for...of loop to iterate through an array of promises and await each one in turn",
-					"code": "async function iterateAndAwait(promises) {\n  for (const promise of promises) {\n    const result = await promise;\n    // Handle each result\n  }\n}"
-				}
-			]
-		},
-		{
-			"title": "Array Methods",
-			"docs": [
-				{
-					"title": "push()",
-					"description": "Adds one or more elements to the end of an array and returns the new length of the array. Useful for appending elements to an existing array.",
-					"code": "const fruits = ['apple', 'banana'];\nfruits.push('cherry');\n// Result: fruits is now ['apple', 'banana', 'cherry']"
-				},
-				{
-					"title": "pop()",
-					"description": "Removes the last element from an array and returns that element. Helpful for extracting and using the last item in an array.",
-					"code": "const fruits = ['apple', 'banana', 'cherry'];\nconst removedFruit = fruits.pop();\n// Result: removedFruit is 'cherry', fruits is now ['apple', 'banana']"
-				},
-				{
-					"title": "shift()",
-					"description": "Removes the first element from an array and returns that element. Ideal for dequeuing items from a queue-like data structure.",
-					"code": "const fruits = ['apple', 'banana', 'cherry'];\nconst removedFruit = fruits.shift();\n// Result: removedFruit is 'apple', fruits is now ['banana', 'cherry']"
-				},
-				{
-					"title": "unshift()",
-					"description": "Adds one or more elements to the beginning of an array and returns the new length of the array. Good for prepending items to an array.",
-					"code": "const fruits = ['banana', 'cherry'];\nfruits.unshift('apple');\n// Result: fruits is now ['apple', 'banana', 'cherry']"
-				},
-				{
-					"title": "concat()",
-					"description": "Combines two or more arrays and returns a new array without modifying the original arrays. Useful for creating a merged copy of arrays.",
-					"code": "const fruits1 = ['apple', 'banana'];\nconst fruits2 = ['cherry', 'orange'];\nconst combinedFruits = fruits1.concat(fruits2);\n// Result: combinedFruits is ['apple', 'banana', 'cherry', 'orange']"
-				},
-				{
-					"title": "slice()",
-					"description": "Returns a shallow copy of a portion of an array into a new array. Great for extracting specific sections of an array without altering the original.",
-					"code": "const fruits = ['apple', 'banana', 'cherry', 'orange'];\nconst slicedFruits = fruits.slice(1, 3);\n// Result: slicedFruits is ['banana', 'cherry']"
-				},
-				{
-					"title": "splice()",
-					"description": "Changes the contents of an array by removing, replacing, or adding elements. Useful for precise control over array modification.",
-					"code": "const fruits = ['apple', 'banana', 'cherry'];\nfruits.splice(1, 1, 'orange');\n// Result: fruits is now ['apple', 'orange', 'cherry']"
-				},
-				{
-					"title": "forEach()",
-					"description": "Executes a provided function once for each array element. Perfect for iterating through arrays and performing actions on each item.",
-					"code": "const numbers = [1, 2, 3];\nnumbers.forEach((number) => {\n  console.log(number * 2);\n});\n// Result: Prints 2, 4, 6"
-				},
-				{
-					"title": "map()",
-					"description": "Creates a new array by applying a function to each element of an existing array. Great for transforming one array into another.",
-					"code": "const numbers = [1, 2, 3];\nconst doubledNumbers = numbers.map((number) => number * 2);\n// Result: doubledNumbers is [2, 4, 6]"
-				},
-				{
-					"title": "filter()",
-					"description": "Creates a new array with all elements that pass a provided test. Useful for selectively extracting elements based on a condition.",
-					"code": "const numbers = [1, 2, 3, 4, 5];\nconst evenNumbers = numbers.filter((number) => number % 2 === 0);\n// Result: evenNumbers is [2, 4]"
-				},
-				{
-					"title": "reduce()",
-					"description": "Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.",
-					"code": "const array = [1, 2, 3, 4, 5];\n\nconst sum = array.reduce(function(accumulator, currentValue) {\n    return accumulator + currentValue;\n}, 0);\n\n// The 'sum' variable now contains the total sum of all elements in 'array'."
-				},
-				{
-					"title": "some()",
-					"description": "Checks if at least one element in the array satisfies a provided condition.",
-					"code": "const array = [10, 20, 30, 40, 50];\n\nconst isGreaterThan25 = array.some(function(element) {\n    return element > 25;\n});\n\n// 'isGreaterThan25' is true because at least one element (30, 40, and 50) is greater than 25."
-				},
-				{
-					"title": "every()",
-					"description": "Checks if all elements in the array satisfy a provided condition.",
-					"code": "const array = [5, 10, 15, 20, 25];\n\nconst isMultipleOf5 = array.every(function(element) {\n    return element % 5 === 0;\n});\n\n// 'isMultipleOf5' is true because all elements are multiples of 5."
-				}
-			]
-		},
-		{
-			"title": "String Methods",
-			"docs": [
-				{
-					"title": "length",
-					"description": "Returns the length of a string.",
-					"code": "const text = 'Hello, World!';\nconst length = text.length;\n// Result: length is 13"
-				},
-				{
-					"title": "charAt(index)",
-					"description": "Returns the character at the specified index in a string.",
-					"code": "const text = 'JavaScript';\nconst char = text.charAt(2);\n// Result: char is 'v'"
-				},
-				{
-					"title": "concat(string1, string2, ...)",
-					"description": "Combines two or more strings and returns a new string.",
-					"code": "const str1 = 'Hello';\nconst str2 = 'World';\nconst result = str1.concat(', ', str2);\n// Result: result is 'Hello, World'"
-				},
-				{
-					"title": "toUpperCase()",
-					"description": "Converts a string to uppercase.",
-					"code": "const text = 'Hello, World!';\nconst upperCase = text.toUpperCase();\n// Result: upperCase is 'HELLO, WORLD!'"
-				},
-				{
-					"title": "toLowerCase()",
-					"description": "Converts a string to lowercase.",
-					"code": "const text = 'Hello, World!';\nconst lowerCase = text.toLowerCase();\n// Result: lowerCase is 'hello, world!'"
-				},
-				{
-					"title": "indexOf(substring)",
-					"description": "Returns the index of the first occurrence of a substring in a string.",
-					"code": "const text = 'Hello, World!';\nconst firstIndex = text.indexOf('o');\n// Result: firstIndex is 4"
-				},
-				{
-					"title": "lastIndexOf(substring)",
-					"description": "Returns the index of the last occurrence of a substring in a string.",
-					"code": "const text = 'Hello, World!';\nconst lastIndex = text.lastIndexOf('o');\n// Result: lastIndex is 8"
-				},
-				{
-					"title": "replace(searchValue, replaceValue)",
-					"description": "Replaces a specified substring with another substring in a string.",
-					"code": "const text = 'Hello, World!';\nconst newText = text.replace('World', 'Universe');\n// Result: newText is 'Hello, Universe!'"
-				},
-				{
-					"title": "split(separator)",
-					"description": "Splits a string into an array of substrings based on a specified separator.",
-					"code": "const text = 'apple,banana,cherry';\nconst fruits = text.split(',');\n// Result: fruits is ['apple', 'banana', 'cherry']"
-				},
-				{
-					"title": "trim()",
-					"description": "Removes whitespace characters from the beginning and end of a string.",
-					"code": "const text = '  Hello, World!  ';\nconst trimmedText = text.trim();\n// Result: trimmedText is 'Hello, World!'"
-				}
-			]
-		},
-		{
-			"title": "Object Methods",
-			"docs": [
-				{
-					"title": "Object.keys(obj)",
-					"description": "Returns an array of a given object's own enumerable property names.",
-					"code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nconst keys = Object.keys(person);\n// Result: keys is ['name', 'age', 'job']"
-				},
-				{
-					"title": "Object.values(obj)",
-					"description": "Returns an array of a given object's own enumerable property values.",
-					"code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nconst values = Object.values(person);\n// Result: values is ['John', 30, 'Engineer']"
-				},
-				{
-					"title": "Object.entries(obj)",
-					"description": "Returns an array of a given object's own enumerable property [key, value] pairs.",
-					"code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nconst entries = Object.entries(person);\n// Result: entries is [['name', 'John'], ['age', 30], ['job', 'Engineer']]"
-				},
-				{
-					"title": "Object.assign(target, source1, source2, ...)",
-					"description": "Copies the values of all enumerable own properties from one or more source objects to a target object.",
-					"code": "const target = {};\nconst source1 = { name: 'John' };\nconst source2 = { age: 30 };\nObject.assign(target, source1, source2);\n// Result: target is { name: 'John', age: 30 }"
-				},
-				{
-					"title": "Object.keys(obj).forEach(key => ...)",
-					"description": "Iterates through the keys of an object and performs an action for each key.",
-					"code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nObject.keys(person).forEach(key => {\n  console.log(key, person[key]);\n});\n// Result: Prints 'name John', 'age 30', 'job Engineer'"
-				},
-				{
-					"title": "Object.freeze(obj)",
-					"description": "Freezes an object, preventing new properties from being added or existing properties from being modified or removed.",
-					"code": "const person = { name: 'John' };\nObject.freeze(person);\nperson.age = 30; // This operation has no effect\n// 'person' remains { name: 'John' }"
-				},
-				{
-					"title": "Object.seal(obj)",
-					"description": "Seals an object, preventing new properties from being added and making existing properties non-configurable.",
-					"code": "const person = { name: 'John' };\nObject.seal(person);\ndelete person.name; // This operation has no effect\n// 'person' remains { name: 'John' }"
-				},
-				{
-					"title": "Object.getOwnPropertyNames(obj)",
-					"description": "Returns an array of all properties (enumerable or not) found directly upon a given object.",
-					"code": "const person = { name: 'John' };\nconst propertyNames = Object.getOwnPropertyNames(person);\n// Result: propertyNames is ['name']"
-				},
-				{
-					"title": "Object.getOwnPropertyDescriptor(obj, prop)",
-					"description": "Returns a property descriptor for a named property on an object (if it exists).",
-					"code": "const person = { name: 'John' };\nconst descriptor = Object.getOwnPropertyDescriptor(person, 'name');\n// Result: descriptor is { value: 'John', writable: true, enumerable: true, configurable: true }"
-				}
-			]
-		}
-		
-	]
+    "collectionName": "javascript",
+    "title": "Javascript",
+    "icon": "https://api.iconify.design/logos:javascript.svg",
+    "color": "F7DF1E",
+    "highlighter": "js",
+    "groups": [
+        {
+            "title": "Basics",
+            "docs": [
+                {
+                    "title": "What is Javascript?",
+                    "description": "JavaScript is a high-level, interpreted programming language primarily used for web development. It is often executed in web browsers and allows developers to create interactive and dynamic web applications. ",
+                    "image": "",
+                    "code": "",
+                    "id": "687e47d5-644d-4e31-9727-9cbe7e048d78"
+                },
+                {
+                    "title": "Difference between let, const and var",
+                    "description": "All 3 are used for variable declaration. \n <p><strong>var:</strong> Function-scoped and are hoisted to the top of their containing function or global scope. They can be redeclared within the same scope, and their values can be reassigned.</p> <p><strong>let:</strong> Block-scoped, which means they are confined to the nearest enclosing block (e.g., a loop or an if statement). They are also hoisted but are not initialized until they are declared. let variables cannot be redeclared in the same scope but can have their values reassigned.</p> <p><strong>const:</strong> Variables declared with const are also block-scoped, and they cannot be reassigned after they are assigned a value. This makes const suitable for defining constants.</p>",
+                    "image": "",
+                    "code": "",
+                    "id": "2052162b-64ea-43d5-838e-daca191435dc"
+                },
+                {
+                    "title": "Coercion",
+                    "description": "Coercion is the process of converting a value from one data type to another. This can happen implicitly or explicitly. Implicitly: Javascript automatically converts types, Explicitly: You order the conversion",
+                    "image": "",
+                    "code": "",
+                    "id": "7394ed4d-69b1-45fb-84b0-b36db1e05dc2"
+                },
+                {
+                    "title": "Scope",
+                    "description": "Each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name",
+                    "image": "",
+                    "code": "",
+                    "id": "350741b0-1185-44b1-a701-4d74922c47a0"
+                },
+                {
+                    "title": "use strict",
+                    "description": "Directive enforces stricter error-checking and helps catch common coding mistakes.",
+                    "image": "",
+                    "code": "// Without \"use strict\"\nfunction duplicateParams(a, a) {\n  return a + a;\n}\n\n// With \"use strict\"\n\"use strict\";\nfunction strictDuplicateParams(a, a) {\n  // Throws a SyntaxError\n  return a + a;\n}",
+                    "id": "90e62f67-1e0d-458a-9d33-92114ec8c36c"
+                },
+                {
+                    "title": "Difference between == & ===",
+                    "description": "<p>== (loose equality): This operator compares values for equality after performing type coercion. It converts the operands to the same type before making the comparison. For example, \"5\" == 5 would evaluate to true because the string is coerced to a number.</p><p>=== (strict equality): This operator compares both the values and the types of the operands. It returns true if both the values and types are the same. For example, \"5\" === 5 would evaluate to false because the types are different.</p>",
+                    "image": "",
+                    "code": "// Loose Equality (==)\nconsole.log('5' == 5); // Outputs: true because of type coercion\n// Strict Equality (===)\nconsole.log('5' === 5);\n// Outputs: false because types are different",
+                    "id": "a111110e-7380-45b3-8085-22f975730492"
+                },
+                {
+                    "title": "null vs undefined",
+                    "description": "undefined: Something hasn't been initialized, null: Something is currently unavailable",
+                    "image": "",
+                    "code": "",
+                    "id": "ebc9426a-cadd-417d-be60-addffc8bdbe8"
+                },
+                {
+                    "title": "Immediately Invoked Function Expressions",
+                    "description": "Allows you to define and execute a function immediately after its creation. It's often used to encapsulate variables and functions, creating a private scope for them",
+                    "image": "",
+                    "code": "(function () {\n  // This code is inside the IIFE and is executed immediately\n  let message = 'Hello, I am inside an IIFE!';\n  console.log(message);\n})();\n// Outside the IIFE, you can't access the 'message' variable",
+                    "id": "3e74a546-f9c5-4285-8299-c1e53b0f70c3"
+                },
+                {
+                    "title": "Closures",
+                    "description": "<b>A closure in JavaScript is a function that has access to variables from its containing (enclosing) function</b>, even after the enclosing function has finished executing. Closures work because functions in JavaScript 'remember' their lexical scope, which means they remember the environment in which they were created. This allows you to create private variables and encapsulated functionality. Closures are often used to create modular and maintainable code.",
+                    "image": "",
+                    "code": "function outerFunction() {\n  let outerVar = 'I am from outerFunction';\n  function innerFunction() {\n    console.log(outerVar);\n  }\n  return innerFunction;\n}\n\nconst closure = outerFunction();\nclosure();\n// This will print 'I am from outerFunction' because innerFunction still has access to outerVar even though outerFunction has finished executing.",
+                    "id": "0c3d304c-2b0e-4921-a8a3-e5b17ad0f374"
+                },
+                {
+                    "title": "Event loop",
+                    "description": "The event loop is a mechanism that enables JavaScript to execute code asynchronously, handle events, and manage I/O operations without blocking the main execution thread. It ensures that tasks are processed in a timely and efficient manner. Great visual article here: <a href='https://dev.to/lydiahallie/javascript-visualized-promises-async-await-5gke' target='_blank'>dev.to</a>",
+                    "image": "",
+                    "code": "",
+                    "id": "a12ea349-2a6b-4cd5-9dd9-690c8a6ee5cb"
+                },
+                {
+                    "title": "Higher Order Functions",
+                    "description": "Functions that can take other functions as arguments or return functions as their results.",
+                    "image": "",
+                    "code": "const add = (x) => x + 2;\nconst multiply = (x) => x * 3;\nconst composedFunction = (x) => multiply(add(x));\nconst result = composedFunction(5);\n// result is 21 (5 + 2 = 7, 7 * 3 = 21)",
+                    "id": "6f082740-9ff4-4636-bd68-414633fe0245"
+                },
+                {
+                    "title": "Hoisting",
+                    "description": "Hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means you can use a variable or function before it's declared in your code without raising an error. Functions are stored with a reference to the entire function, variables with the var keyword with the value of undefined, and variables with the let and const keyword are stored uninitialized.",
+                    "image": "",
+                    "code": "console.log(x); // Outputs: undefined\nvar x = 10;",
+                    "id": "374da789-afb4-422b-87a0-a06221e9122b"
+                },
+                {
+                    "title": "Function declaration vs function expression?",
+                    "description": "Function Declaration: A statement that defines a named function with the function keyword, Function Expression: A function that is assigned to a variable. Difference is hoisting",
+                    "image": "",
+                    "code": "// Function declaration \nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\n\n// Function expression \nconst greet = function (name) {\n  return `Hello, ${name}!`;\n};\n",
+                    "id": "fe55b854-aff8-4155-974c-f6e4cbea8070"
+                },
+                {
+                    "title": "Rest parameter vs spread operator",
+                    "description": "Rest: Allows a function to accept indefinite amount oa parameter, Spread: Allows iterables to be expanded into single arguments/elements",
+                    "image": "",
+                    "code": "// Rest \nfunction sum(...numbers) {\n  return numbers.reduce((total, num) => total + num, 0);\n}\n\nconsole.log(sum(1, 2, 3, 4, 5)); // 15\n// Spread operator \nconst arr1 = [1, 2, 3];\nconst arr2 = [4, 5, 6];\nconst combinedArray = [...arr1, ...arr2]; // Combines the arrays\nconsole.log(combinedArray); // [1, 2, 3, 4, 5, 6]\n",
+                    "id": "ce1a0974-4116-4b0e-8324-a4306e43ec99"
+                },
+                {
+                    "title": "Callback function",
+                    "description": "A callback function is a function that is passed to another function as an argument and is executed after some operation has been completed",
+                    "image": "",
+                    "code": "function modifyArray(arr, callback) {\n  // do something to arr here\n  arr.push(100);\n  // then execute the callback function that was passed\n  callback();\n}\n\nconst arr = [1, 2, 3, 4, 5];\nmodifyArray(arr, () => {\n  console.log('array has been modified', arr);\n});\n",
+                    "id": "d0e2cda8-ed3a-4d31-819b-255ca3ae556e"
+                },
+                {
+                    "title": "Event bubbling",
+                    "description": "Event bubbling is the concept in which an event triggers at the deepest possible element, and triggers on parent elements in nesting order. As a result, when clicking on a child element one may exhibit the handler of the parent activating.",
+                    "image": "",
+                    "code": "",
+                    "id": "e49a7b88-4eb5-4739-aa65-1ef46b690cd6"
+                }
+            ]
+        },
+        {
+            "title": "Promises/Async",
+            "docs": [
+                {
+                    "title": "What is a Promise in JavaScript?",
+                    "description": "A Promise is a JavaScript object representing the eventual completion or failure of an asynchronous operation. It provides a way to handle asynchronous operations more easily and avoid callback hell.",
+                    "code": "// Create a function that returns a Promise\nfunction fetchData() {\n  return new Promise((resolve, reject) => {\n    // Simulate an asynchronous operation (e.g., fetching data from a server)\n    setTimeout(() => {\n      const data = { message: \"Data fetched successfully\" };\n      // Resolve the Promise with the data\n      resolve(data);\n      \n      // Uncomment the following line to simulate an error:\n      // reject(\"Error: Unable to fetch data\");\n    }, 2000); // Simulate a 2-second delay\n  });\n}\n\n// Use the Promise\nfetchData()\n  .then((result) => {\n    console.log(result.message); // Data fetched successfully\n  })\n  .catch((error) => {\n    console.error(error); // Handle errors here\n  });",
+                    "id": "a7899ff8-3d31-41f5-a2d3-33f52323d038"
+                },
+                {
+                    "title": "How do you create a Promise in JavaScript?",
+                    "description": "You can create a Promise using the `Promise` constructor. It takes a single argument, a function (executor), which has two parameters: `resolve` and `reject`. You call `resolve` when the asynchronous operation is successful and `reject` when it fails.",
+                    "code": "const myPromise = new Promise((resolve, reject) => {\n  // Perform some asynchronous operation\n  if (/* operation successful */) {\n    resolve(result);\n  } else {\n    reject(error);\n  }\n});",
+                    "id": "fec7cbc8-d3e2-45f6-be7b-2eb1225d51ca"
+                },
+                {
+                    "title": "What is the purpose of `async/await` in JavaScript?",
+                    "description": "The `async/await` syntax is used to simplify working with Promises. It allows you to write asynchronous code that looks more like synchronous code, making it easier to read and maintain. The `async` keyword defines a function as asynchronous, and `await` is used inside such a function to wait for a Promise to resolve or reject.",
+                    "code": "",
+                    "id": "40280dc0-94fc-4a85-b0dd-c4b9d83ef3e3"
+                },
+                {
+                    "title": "How do you define an `async` function in JavaScript?",
+                    "description": "You can define an `async` function using the `async` keyword before the function declaration. An `async` function always returns a Promise.",
+                    "code": "async function myAsyncFunction() {\n  // Asynchronous code using await\n  const result = await somePromise;\n  return result;\n}",
+                    "id": "ca92a8a3-56c5-43ea-92ac-34f4ec5925ff"
+                },
+                {
+                    "title": "What is the difference between `Promise.all()` and `Promise.race()`?",
+                    "description": "`Promise.all()` waits for all Promises in an array to resolve, and it returns an array of their results. In contrast, `Promise.race()` waits for any one of the Promises in an array to resolve or reject, and it returns the result or error of the first Promise that settles.",
+                    "code": "",
+                    "id": "f9bd8746-ac85-4dc1-9847-65d56692d0e9"
+                },
+                {
+                    "title": "How do you handle errors in `async/await`?",
+                    "description": "You can use a `try/catch` block to handle errors in `async/await`. If an error occurs within the `try` block or any awaited Promise rejects, control is passed to the `catch` block, where you can handle the error.",
+                    "code": "async function myAsyncFunction() {\n  try {\n    const result = await somePromise;\n    // Code if successful\n  } catch (error) {\n    // Handle the error\n  }\n}",
+                    "id": "7681edd8-7d97-4c59-a878-5c94ae33280f"
+                },
+                {
+                    "title": "What is Promise chaining?",
+                    "description": "Promise chaining is a technique where you chain multiple asynchronous operations together using the `.then()` method. It allows you to perform a series of asynchronous tasks sequentially.",
+                    "code": "myPromise.then((result1) => {\n  // Code to handle result1\n  return result2Promise;\n}).then((result2) => {\n  // Code to handle result2\n});",
+                    "id": "805220d6-fcab-42ee-9e49-868d6a4aa085"
+                },
+                {
+                    "title": "Explain the event loop in the context of asynchronous JavaScript.",
+                    "description": "The event loop is a fundamental concept in JavaScript's concurrency model. It allows asynchronous code to run efficiently by handling tasks in a non-blocking manner. When a Promise is resolved, its `.then()` callbacks are placed in the event queue and executed when the call stack is empty.",
+                    "code": "",
+                    "id": "a2359ae1-e744-471c-9d7d-f978c1ec7dca"
+                },
+                {
+                    "title": "Explain the difference between microtasks and macrotasks in the context of the event loop.",
+                    "description": "Microtasks (e.g., Promise callbacks) are executed before macrotasks (e.g., `setTimeout` callbacks) in the event loop. Understanding this order of execution is crucial for handling async code effectively.",
+                    "code": "",
+                    "id": "77121681-49b1-4a63-9b0d-29506c4f16d0"
+                },
+                {
+                    "title": "How can you achieve parallel execution of Promises?",
+                    "description": "You can use `Promise.all()` to execute multiple Promises in parallel. Each Promise in the array runs concurrently, and you get the results in the same order as the Promises.",
+                    "code": "const promises = [promise1, promise2, promise3];\nPromise.all(promises).then((results) => {\n  // Handle results\n});",
+                    "id": "43d80248-cdfb-443b-99e2-ad54af76b276"
+                },
+                {
+                    "title": "Explain what happens when a Promise is in a 'pending' state.",
+                    "description": "A Promise is 'pending' when it's neither resolved nor rejected. It stays in this state until one of these events occurs. The event loop continues executing other tasks until the Promise settles.",
+                    "code": "",
+                    "id": "9565a814-b684-485b-b857-e52b4d1b4648"
+                },
+                {
+                    "title": "How can you cancel a Promise or cleanup resources when it's no longer needed?",
+                    "description": "You can use an `AbortController` and the `abort` method to cancel a Promise or cleanup resources associated with it. The Promise can catch the `AbortError` and handle it gracefully.",
+                    "code": "const controller = new AbortController();\nconst signal = controller.signal;\n\nconst myPromise = new Promise((resolve, reject) => {\n  // Asynchronous operation\n  // Listen for abort signal\n  signal.addEventListener('abort', () => {\n    reject(new DOMException('Aborted', 'AbortError'));\n    // Cleanup resources\n  });\n});\n\n// To cancel the Promise\ncontroller.abort();",
+                    "id": "373c98df-b518-4875-a9e5-c458ef3b990d"
+                },
+                {
+                    "title": "How can you implement retry logic using Promises?",
+                    "description": "You can implement retry logic by recursively calling a function that returns a Promise. In each iteration, you can retry or reject the Promise based on specific conditions.",
+                    "code": "function retryOperation(maxRetries) {\n  return someAsyncOperation()\n    .catch((error) => {\n      if (maxRetries > 0) {\n        console.log('Retrying...');\n        return retryOperation(maxRetries - 1);\n      }\n      throw error; // Max retries reached\n    });\n}",
+                    "id": "7a5ec79b-5e2d-4485-b175-6c4329f7ed52"
+                },
+                {
+                    "title": "Explain the concept of 'Promise.race()' and provide a use case for it.",
+                    "description": "`Promise.race()` resolves or rejects as soon as any of the Promises in the array settles. It's useful for implementing timeout logic. For example, you can use it to set a maximum execution time for an asynchronous operation.",
+                    "code": "Promise.race([myPromise, timeoutPromise]).then((result) => {\n  // Handle result (myPromise resolved within timeout)\n}).catch((error) => {\n  // Handle error (myPromise took too long)\n});",
+                    "id": "e266201d-59c6-41bc-b046-786cb8091891"
+                },
+                {
+                    "title": "Promise.allSettled()",
+                    "description": "This method is similar to Promise.all, but it doesn't short-circuit if one of the promises rejects. It waits for all promises to settle (either resolve or reject) and returns an array of objects describing the outcome of each promise.",
+                    "code": "const promises = [promise1, promise2, promise3];\nPromise.allSettled(promises).then(results => {\n  // Handle the results\n});",
+                    "id": "269bc4d3-14bb-4eca-b903-cb0e3ef300df"
+                },
+                {
+                    "title": "Promise.race()",
+                    "description": "This method returns a new promise that settles as soon as one of the input promises settles, either by resolving or rejecting. It can be useful when you want to get a result as quickly as possible from multiple promises.",
+                    "code": "const promises = [promise1, promise2, promise3];\nPromise.race(promises).then(result => {\n  // Handle the first settled promise\n});",
+                    "id": "4d0807d9-edaa-42de-9dba-4b43b0a58515"
+                },
+                {
+                    "title": "Promise.any()",
+                    "description": "Introduced in ES2021, Promise.any resolves as soon as any of the input promises resolves. It's similar to Promise.race, but it doesn't reject if all promises reject.",
+                    "code": "const promises = [promise1, promise2, promise3];\nPromise.any(promises).then(result => {\n  // Handle the first resolved promise\n});",
+                    "id": "3c0d7473-0c1e-433e-8d51-912a0780abf3"
+                },
+                {
+                    "title": "for...of Loop",
+                    "description": "You can also use a for...of loop to iterate through an array of promises and await each one in turn",
+                    "code": "async function iterateAndAwait(promises) {\n  for (const promise of promises) {\n    const result = await promise;\n    // Handle each result\n  }\n}",
+                    "id": "d5e1a51b-3f14-4f02-916f-e173ab3eeda3"
+                }
+            ]
+        },
+        {
+            "title": "Array Methods",
+            "docs": [
+                {
+                    "title": "push()",
+                    "description": "Adds one or more elements to the end of an array and returns the new length of the array. Useful for appending elements to an existing array.",
+                    "code": "const fruits = ['apple', 'banana'];\nfruits.push('cherry');\n// Result: fruits is now ['apple', 'banana', 'cherry']",
+                    "id": "90012c67-7478-4848-9080-84f240b65d52"
+                },
+                {
+                    "title": "pop()",
+                    "description": "Removes the last element from an array and returns that element. Helpful for extracting and using the last item in an array.",
+                    "code": "const fruits = ['apple', 'banana', 'cherry'];\nconst removedFruit = fruits.pop();\n// Result: removedFruit is 'cherry', fruits is now ['apple', 'banana']",
+                    "id": "c2aa7648-8246-481e-b9f9-ea2b586455a1"
+                },
+                {
+                    "title": "shift()",
+                    "description": "Removes the first element from an array and returns that element. Ideal for dequeuing items from a queue-like data structure.",
+                    "code": "const fruits = ['apple', 'banana', 'cherry'];\nconst removedFruit = fruits.shift();\n// Result: removedFruit is 'apple', fruits is now ['banana', 'cherry']",
+                    "id": "1ef743e0-5ab6-4706-97cd-0eda8daaedec"
+                },
+                {
+                    "title": "unshift()",
+                    "description": "Adds one or more elements to the beginning of an array and returns the new length of the array. Good for prepending items to an array.",
+                    "code": "const fruits = ['banana', 'cherry'];\nfruits.unshift('apple');\n// Result: fruits is now ['apple', 'banana', 'cherry']",
+                    "id": "03e3e2fb-3850-4596-b97d-96fb30fef18d"
+                },
+                {
+                    "title": "concat()",
+                    "description": "Combines two or more arrays and returns a new array without modifying the original arrays. Useful for creating a merged copy of arrays.",
+                    "code": "const fruits1 = ['apple', 'banana'];\nconst fruits2 = ['cherry', 'orange'];\nconst combinedFruits = fruits1.concat(fruits2);\n// Result: combinedFruits is ['apple', 'banana', 'cherry', 'orange']",
+                    "id": "b87b96c6-493a-477a-8432-ab36c04c80fa"
+                },
+                {
+                    "title": "slice()",
+                    "description": "Returns a shallow copy of a portion of an array into a new array. Great for extracting specific sections of an array without altering the original.",
+                    "code": "const fruits = ['apple', 'banana', 'cherry', 'orange'];\nconst slicedFruits = fruits.slice(1, 3);\n// Result: slicedFruits is ['banana', 'cherry']",
+                    "id": "691c57fc-3ffc-420b-ba16-75578b6e27ea"
+                },
+                {
+                    "title": "splice()",
+                    "description": "Changes the contents of an array by removing, replacing, or adding elements. Useful for precise control over array modification.",
+                    "code": "const fruits = ['apple', 'banana', 'cherry'];\nfruits.splice(1, 1, 'orange');\n// Result: fruits is now ['apple', 'orange', 'cherry']",
+                    "id": "b49d8e31-f0b9-4f50-ae04-21530ffc8ade"
+                },
+                {
+                    "title": "forEach()",
+                    "description": "Executes a provided function once for each array element. Perfect for iterating through arrays and performing actions on each item.",
+                    "code": "const numbers = [1, 2, 3];\nnumbers.forEach((number) => {\n  console.log(number * 2);\n});\n// Result: Prints 2, 4, 6",
+                    "id": "f3fa95cc-9fc4-40e9-a50e-47a7ec27c5b0"
+                },
+                {
+                    "title": "map()",
+                    "description": "Creates a new array by applying a function to each element of an existing array. Great for transforming one array into another.",
+                    "code": "const numbers = [1, 2, 3];\nconst doubledNumbers = numbers.map((number) => number * 2);\n// Result: doubledNumbers is [2, 4, 6]",
+                    "id": "3f0e3cee-62d0-40aa-bd56-7bc3da185646"
+                },
+                {
+                    "title": "filter()",
+                    "description": "Creates a new array with all elements that pass a provided test. Useful for selectively extracting elements based on a condition.",
+                    "code": "const numbers = [1, 2, 3, 4, 5];\nconst evenNumbers = numbers.filter((number) => number % 2 === 0);\n// Result: evenNumbers is [2, 4]",
+                    "id": "4dc605ec-7d37-40f4-9ccf-992d133779b4"
+                },
+                {
+                    "title": "reduce()",
+                    "description": "Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.",
+                    "code": "const array = [1, 2, 3, 4, 5];\n\nconst sum = array.reduce(function(accumulator, currentValue) {\n    return accumulator + currentValue;\n}, 0);\n\n// The 'sum' variable now contains the total sum of all elements in 'array'.",
+                    "id": "786ab987-954c-4fa9-9fbc-755f0f0f582b"
+                },
+                {
+                    "title": "some()",
+                    "description": "Checks if at least one element in the array satisfies a provided condition.",
+                    "code": "const array = [10, 20, 30, 40, 50];\n\nconst isGreaterThan25 = array.some(function(element) {\n    return element > 25;\n});\n\n// 'isGreaterThan25' is true because at least one element (30, 40, and 50) is greater than 25.",
+                    "id": "e2b860e3-3b55-459d-9731-52b45856029f"
+                },
+                {
+                    "title": "every()",
+                    "description": "Checks if all elements in the array satisfy a provided condition.",
+                    "code": "const array = [5, 10, 15, 20, 25];\n\nconst isMultipleOf5 = array.every(function(element) {\n    return element % 5 === 0;\n});\n\n// 'isMultipleOf5' is true because all elements are multiples of 5.",
+                    "id": "2596c5df-353f-4ab6-85c9-ba7bb76c7004"
+                }
+            ]
+        },
+        {
+            "title": "String Methods",
+            "docs": [
+                {
+                    "title": "length",
+                    "description": "Returns the length of a string.",
+                    "code": "const text = 'Hello, World!';\nconst length = text.length;\n// Result: length is 13",
+                    "id": "8c31f56d-6f51-4d4d-8d9e-2459d4505a5e"
+                },
+                {
+                    "title": "charAt(index)",
+                    "description": "Returns the character at the specified index in a string.",
+                    "code": "const text = 'JavaScript';\nconst char = text.charAt(2);\n// Result: char is 'v'",
+                    "id": "e44ca05d-4189-4dda-ac40-7dcf82a3bf13"
+                },
+                {
+                    "title": "concat(string1, string2, ...)",
+                    "description": "Combines two or more strings and returns a new string.",
+                    "code": "const str1 = 'Hello';\nconst str2 = 'World';\nconst result = str1.concat(', ', str2);\n// Result: result is 'Hello, World'",
+                    "id": "c877d55f-b013-4d4c-9720-4dd3b9fdd153"
+                },
+                {
+                    "title": "toUpperCase()",
+                    "description": "Converts a string to uppercase.",
+                    "code": "const text = 'Hello, World!';\nconst upperCase = text.toUpperCase();\n// Result: upperCase is 'HELLO, WORLD!'",
+                    "id": "e95e6d90-0f2a-42c8-8e52-66877cd92535"
+                },
+                {
+                    "title": "toLowerCase()",
+                    "description": "Converts a string to lowercase.",
+                    "code": "const text = 'Hello, World!';\nconst lowerCase = text.toLowerCase();\n// Result: lowerCase is 'hello, world!'",
+                    "id": "7b0ae2e1-b74c-4490-9cd1-0a7f013888b2"
+                },
+                {
+                    "title": "indexOf(substring)",
+                    "description": "Returns the index of the first occurrence of a substring in a string.",
+                    "code": "const text = 'Hello, World!';\nconst firstIndex = text.indexOf('o');\n// Result: firstIndex is 4",
+                    "id": "6fa50bf6-920f-4133-9dd6-577898d9702f"
+                },
+                {
+                    "title": "lastIndexOf(substring)",
+                    "description": "Returns the index of the last occurrence of a substring in a string.",
+                    "code": "const text = 'Hello, World!';\nconst lastIndex = text.lastIndexOf('o');\n// Result: lastIndex is 8",
+                    "id": "3a48c74f-c681-409f-b477-97f5e419bcb6"
+                },
+                {
+                    "title": "replace(searchValue, replaceValue)",
+                    "description": "Replaces a specified substring with another substring in a string.",
+                    "code": "const text = 'Hello, World!';\nconst newText = text.replace('World', 'Universe');\n// Result: newText is 'Hello, Universe!'",
+                    "id": "3692e141-8061-4d59-99a4-505846054241"
+                },
+                {
+                    "title": "split(separator)",
+                    "description": "Splits a string into an array of substrings based on a specified separator.",
+                    "code": "const text = 'apple,banana,cherry';\nconst fruits = text.split(',');\n// Result: fruits is ['apple', 'banana', 'cherry']",
+                    "id": "849bf26c-0efa-4493-a31b-3f5be5298a10"
+                },
+                {
+                    "title": "trim()",
+                    "description": "Removes whitespace characters from the beginning and end of a string.",
+                    "code": "const text = '  Hello, World!  ';\nconst trimmedText = text.trim();\n// Result: trimmedText is 'Hello, World!'",
+                    "id": "85fe36dc-edcf-4989-bba9-24fceb078a72"
+                }
+            ]
+        },
+        {
+            "title": "Object Methods",
+            "docs": [
+                {
+                    "title": "Object.keys(obj)",
+                    "description": "Returns an array of a given object's own enumerable property names.",
+                    "code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nconst keys = Object.keys(person);\n// Result: keys is ['name', 'age', 'job']",
+                    "id": "f15cc64b-8fbe-44f4-84a2-df365c5dd0dd"
+                },
+                {
+                    "title": "Object.values(obj)",
+                    "description": "Returns an array of a given object's own enumerable property values.",
+                    "code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nconst values = Object.values(person);\n// Result: values is ['John', 30, 'Engineer']",
+                    "id": "8f24c0ec-50f6-492d-b0a7-ee70713978ba"
+                },
+                {
+                    "title": "Object.entries(obj)",
+                    "description": "Returns an array of a given object's own enumerable property [key, value] pairs.",
+                    "code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nconst entries = Object.entries(person);\n// Result: entries is [['name', 'John'], ['age', 30], ['job', 'Engineer']]",
+                    "id": "ff97d059-9c90-416a-be68-a49f521229af"
+                },
+                {
+                    "title": "Object.assign(target, source1, source2, ...)",
+                    "description": "Copies the values of all enumerable own properties from one or more source objects to a target object.",
+                    "code": "const target = {};\nconst source1 = { name: 'John' };\nconst source2 = { age: 30 };\nObject.assign(target, source1, source2);\n// Result: target is { name: 'John', age: 30 }",
+                    "id": "6f765671-f042-4301-ac08-f3c7f6163192"
+                },
+                {
+                    "title": "Object.keys(obj).forEach(key => ...)",
+                    "description": "Iterates through the keys of an object and performs an action for each key.",
+                    "code": "const person = { name: 'John', age: 30, job: 'Engineer' };\nObject.keys(person).forEach(key => {\n  console.log(key, person[key]);\n});\n// Result: Prints 'name John', 'age 30', 'job Engineer'",
+                    "id": "10d1043a-e9a8-4aa3-8f11-3204f72a7adc"
+                },
+                {
+                    "title": "Object.freeze(obj)",
+                    "description": "Freezes an object, preventing new properties from being added or existing properties from being modified or removed.",
+                    "code": "const person = { name: 'John' };\nObject.freeze(person);\nperson.age = 30; // This operation has no effect\n// 'person' remains { name: 'John' }",
+                    "id": "c7798c1c-e9b0-42cf-b095-adc9e5a4ebd6"
+                },
+                {
+                    "title": "Object.seal(obj)",
+                    "description": "Seals an object, preventing new properties from being added and making existing properties non-configurable.",
+                    "code": "const person = { name: 'John' };\nObject.seal(person);\ndelete person.name; // This operation has no effect\n// 'person' remains { name: 'John' }",
+                    "id": "e42284de-2ddf-410a-b6d2-b30f0f1c0b30"
+                },
+                {
+                    "title": "Object.getOwnPropertyNames(obj)",
+                    "description": "Returns an array of all properties (enumerable or not) found directly upon a given object.",
+                    "code": "const person = { name: 'John' };\nconst propertyNames = Object.getOwnPropertyNames(person);\n// Result: propertyNames is ['name']",
+                    "id": "5e2dcce9-d115-4c6f-8331-bf19cd235a95"
+                },
+                {
+                    "title": "Object.getOwnPropertyDescriptor(obj, prop)",
+                    "description": "Returns a property descriptor for a named property on an object (if it exists).",
+                    "code": "const person = { name: 'John' };\nconst descriptor = Object.getOwnPropertyDescriptor(person, 'name');\n// Result: descriptor is { value: 'John', writable: true, enumerable: true, configurable: true }",
+                    "id": "febb3f3f-b60b-4493-ada0-b244232fc9e4"
+                }
+            ]
+        }
+    ]
 }

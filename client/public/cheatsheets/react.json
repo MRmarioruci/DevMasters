@@ -1,286 +1,333 @@
 {
-	"collectionName": "reactCheatsheet",
-	"title": "React.js",
-	"icon": "https://api.iconify.design/logos:react.svg",
-	"color": "00D8FF",
-	"highlighter": "tsx",
-	"groups": [
-		{
-			"title": "General",
-			"docs": [
-				{
-					"title": "What is React and how does it work?",
-					"description": "React is a JavaScript library for building user interfaces using a virtual DOM. Commonly used for creating interactive and dynamic web applications.",
-					"code": ""
-				},
-				{
-					"title": "Pros of React",
-					"description": "<ul><li><strong>Component-Based:</strong> React uses a component-based architecture that promotes reusability and maintainability.</li><li><strong>Virtual DOM:</strong> React's Virtual DOM minimizes DOM manipulation, improving performance and efficiency.</li><li><strong>Declarative:</strong> React's declarative syntax makes it easier to describe how a UI should look based on state.</li><li><strong>Large Community:</strong> React has a vast and active community with a wealth of resources and third-party libraries.</li><li><strong>React Hooks:</strong> React Hooks simplify state and lifecycle management in functional components.</li></ul>",
-					"code": ""
-				},
-				{
-					"title": "Cons of React",
-					"description": " <li><strong>Learning Curve:</strong> React has a learning curve, especially for beginners, due to its component-based architecture and JSX syntax.</li><li><strong>Boilerplate:</strong> React projects may require additional setup and boilerplate code, which can be time-consuming.</li><li><strong>Complex State Management:</strong> For complex state management, you might need to integrate external libraries like Redux, adding complexity to the project.</li><li><strong>SEO Challenges:</strong> React applications may require extra effort for search engine optimization (SEO) because search engines may not fully index client-rendered content.</li><li><strong>Tooling Choices:</strong> The React ecosystem offers various tools and libraries, which can be overwhelming when making choices for routing, state management, and other aspects of development.</li>",
-					"code": ""
-				},
-				{
-					"title": "What are React components?",
-					"description": "React components are the building blocks of a React application. They are reusable, self-contained, and encapsulate a piece of user interface (UI) or functionality within a web application",
-					"code": ""
-				},
-				{
-					"title": "Class components",
-					"description": "Class components in React are a type of React component defined using ES6 classes. They are sometimes referred to as 'stateful' or 'smart' components because they can manage their own internal state.",
-					"code": "import React, { Component } from 'react';\nclass Counter extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      count: 0\n    };\n  }\n\n  incrementCount = () => {\n    this.setState({ count: this.state.count + 1 });\n  }\n\n  render() {\n    return (\n      <div>\n        <p>Count: {this.state.count}</p>\n        <button onClick={this.incrementCount}>Increment</button>\n      </div>\n    );\n  }\n}\n\nexport default Counter;"
-				},
-				{
-					"title": "Function components",
-					"description": "Function components in React are a type of component that are defined as JavaScript functions. They are sometimes referred to as 'stateless' or 'dumb' components because they don't manage their own internal state. Function components have become increasingly popular in React development, especially after the introduction of React Hooks in React 16.8.",
-					"code": "import React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  const incrementCount = () => {\n    setCount(count + 1);\n  };\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={incrementCount}>Increment</button>\n    </div>\n  );\n}\n\nexport default Counter;"
-				},
-				{
-					"title": "What is JSX and why is it used in React?",
-					"description": "JSX is a syntax extension for JavaScript that allows React components to be written in a familiar HTML-like syntax.",
-					"code": ""
-				},
-				{
-					"title": "What are React Hooks and how do they work?",
-					"description": "React Hooks are a set of functions introduced in React 16.8 that allow you to use state and other React features(Lifecycle methods) in functional components.",
-					"code": ""
-				},
-				{
-					"title": "What is the purpose of using React Router?",
-					"description": "React Router is used for declarative routing and navigation in React applications.",
-					"code": ""
-				},
-				{
-					"title": "What is Redux and how does it work with React?",
-					"description": "Redux is a state management library that works with React to manage global state. It provides a predictable and centralized way to manage the state of an application, making it easier to handle complex data flow and state changes in large-scale applications.",
-					"code": ""
-				},
-				{
-					"title": "What are some best practices for performance optimization in React?",
-					"description": "Minimizing unnecessary re-renders, using memoization, code-splitting and optimizing network requests.",
-					"code": ""
-				},
-				{
-					"title": "What is the Virtual DOM and how does it work?",
-					"description": "The Virtial DOM is a lightweight in-memory representation of the actual DOM. When the state of a component changes, React compares the virtual DOM with the actual DOM and only makes changes to the actual DOM wherever necessary. More efficient than re-rendering the whole page.",
-					"code": ""
-				},
-				{
-					"title": "Higher Order Components",
-					"description": "Components that wrap other components to add additional functionality. Allow for abstraction and reusability.",
-					"code": "import React, { Component } from 'react';\n\n// This is a Higher Order Component (HOC)\nconst withLogger = (WrappedComponent) => {\n  class Logger extends Component {\n    componentDidMount() {\n      console.log(`Component ${WrappedComponent.name} is mounted.`);\n    }\n\n    render() {\n      // Pass all props to the wrapped component\n      return <WrappedComponent {...this.props} />;\n    }\n  }\n\n  return Logger;\n};\n\n// A simple component\nconst Greeting = ({ name }) => <div>Hello, {name}!</div>;\n\n// Wrap the Greeting component with the withLogger HOC\nconst GreetingWithLogger = withLogger(Greeting);\n\n// Now, you can use GreetingWithLogger just like any other component\nclass App extends Component {\n  render() {\n    return (\n      <div>\n        <GreetingWithLogger name=\"John\" />\n      </div>\n    );\n  }\n}\n\nexport default App;\n"
-				}
-			]
-		},
-		{
-			"title": "Hooks",
-			"docs": [
-				{
-					"title": "useState",
-					"code": "const [counter, setCounter] = useState(0);\n\nreturn (\n  <div>\n    <p>Counter: {counter}</p>\n    <button onClick={() => setCounter(counter + 1)}>\n      Increment\n    </button>\n  </div>\n);",
-					"description": "Used for managing state variables in functional components."
-				},
-				{
-					"title": "useEffect",
-					"code": "useEffect(() => {\n  // perform side effects here\n});",
-					"description": "Allows you to perform side effects in your components, such as data fetching or DOM manipulation, after rendering or when subscribing to a dependency/"
-				},
-				{
-					"title": "useContext",
-					"code": "const { user } = useContext(UserContext);\n\nreturn (\n  <div>\n    <p>User: {user.name}</p>\n  </div>\n);",
-					"description": "Provides access to the context object created by the React.createContext API, allowing you to share data across the component tree."
-				},
-				{
-					"title": "useReducer",
-					"code": "const initialState = { count: 0 };\nconst reducer = (state, action) => {\n  switch (action.type) {\n    case 'increment':\n      return { count: state.count + 1 };\n    case 'decrement':\n      return { count: state.count - 1 };\n    default:\n      throw new Error();\n  }\n};\n\nconst [state, dispatch] = useReducer(reducer, initialState);\n\nreturn (\n  <div>\n    <p>Count: {state.count}</p>\n    <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>\n    <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>\n  </div>\n);",
-					"description": "A more advanced state management hook that is often used when state transitions are complex or involve multiple sub-states."
-				},
-				{
-					"title": "useRef",
-					"code": "import React, { useRef, useState } from 'react';\nfunction RefExample() {\n  // Create a ref\n  const inputRef = useRef(null);\n  const handleFocus = () => {\n    // Access and focus the input element\n    inputRef.current.focus();\n  };\n  return (\n    <div>\n      <input ref={inputRef} type='text' />\n      <button onClick={handleFocus}>Focus Input</button>\n    </div>\n  );\n}\nexport default RefExample;",
-					"description": "Used for creating mutable refs to access and interact with DOM elements or to persist values across renders without causing re-renders."
-				},
-				{
-					"title": "useCallback",
-					"code": "const memoizedCallback = useCallback(\n  () => {\n    // do something\n  }, [dependencies]\n);",
-					"description": "Similar to useMemo, but it memoizes functions to prevent unnecessary re-renders when the function's dependencies haven't changed."
-				},
-				{
-					"title": "useMemo",
-					"code": "const memoizedValue = useMemo(\n  () => {\n    // calculate expensive value\n  }, [dependencies]\n);",
-					"description": "Helps with memoization by memoizing the result of a function so that it's not recomputed on every render unless its dependencies change."
-				},
-				{
-					"title": "useLayoutEffect",
-					"code": "useLayoutEffect(() => {\n  // perform synchronous DOM mutations here\n});",
-					"description": "Similar to useEffect, but it fires synchronously after all DOM mutations. It's often used for measurements and other tasks that require immediate DOM updates."
-				},
-				{
-					"title": "useEffectWithCleanup",
-					"code": "useEffect(() => { \n // This effect runs after every render \n console.log('Effect ran!'); \n \n // Cleanup function - this runs before the next effect or unmount \n return () => { \n console.log('Cleanup ran!'); \n };});",
-					"description": "A pattern that combines useEffect with a cleanup function to manage side effects and prevent memory leaks."
-				},
-				{
-					"title": "useImperativeHandle",
-					"code": "const ChildComponent = forwardRef((props, ref) => {\n  useImperativeHandle(ref, () => ({\n    // expose child component's imperative API here\n  }));\n  return <div>Child Component</div>;\n});\n\nconst ParentComponent = () => {\n  const childRef = useRef();\n  // call child component's imperative API here\n  return <ChildComponent ref={childRef} />;\n};",
-					"description": "Used to customize the instance value that is exposed when using React.forwardRef."
-				},
-				{
-					"title": "useDebugValue",
-					"code": "useDebugValue(formattedValue)",
-					"description": "Displays custom debugging information in React DevTools."
-				}
-			]
-		},
-		{
-			"title": "Extra",
-			"docs": [
-				{
-					"title": "What is prop drilling in React?",
-					"code": "",
-					"description": "In React, 'prop drilling' refers to the process of passing data (props) from a higher-level component down to a lower-level component through intermediate components that do not actually need the data. "
-				},
-				{
-					"title": "What is the Context API in React and how is it used?",
-					"code": "",
-					"description": "The Context API in React is a mechanism for sharing state and providing a way to pass data through the component tree without having to pass props manually at every level. "
-				},
-				{
-					"title": "What is the difference between state and props in React?",
-					"code": "",
-					"description": "State is used for managing internal component state, while props are used for passing data between components."
-				},
-				{
-					"title": "What are higher-order components (HOCs) in React?",
-					"code": "",
-					"description": "Functions that take a component and return a new component with additional functionality."
-				},
-				{
-					"title": "What is the difference between a controlled and an uncontrolled component in React?",
-					"code": "",
-					"description": "A controlled component has its state managed by React, while an uncontrolled component manages its own state."
-				},
-				{
-					"title": "What is server-side rendering in React?",
-					"code": "",
-					"description": "Rendering React components on the server and sending HTML to the client for faster initial load times and improved SEO."
-				},
-				{
-					"title": "What is the purpose of the shouldComponentUpdate lifecycle method in React?",
-					"code": "",
-					"description": "To optimize performance by preventing unnecessary re-renders of a component."
-				},
-				{
-					"title": "What is the significance of the key prop in React?",
-					"code": "",
-					"description": "A unique identifier used by React to optimize rendering performance when working with lists of components."
-				}
-			]
-		},
-		{
-			"title": "Redux setup",
-			"docs": [
-				{
-					"title": "1. Install",
-					"code": "npm install redux react-redux",
-					"description": "To get started with Redux, you'll need to install both the Redux library and the React bindings for Redux (react-redux)"
-				},
-				{
-					"title": "2. Reducer Setup",
-					"code": "// src/state/reducers/userReducer.js \nconst userReducer = (state = {}, action) => {\n switch (action.type) {  \n// Handle user-related actions here \n default: \n  return state; \n } \n}; \nexport default userReducer;",
-					"description": "In Redux, reducers specify how your application's state changes in response to actions. Begin by creating individual reducers for different parts of your application's state. Here's an example of two reducers:"
-				},
-				{
-					"title": "3. Combine Reducers",
-					"code": "import { combineReducers } from 'redux';\nuserReducer from './userReducer';\ncartReducer from './cartReducer';\nconst rootReducer = combineReducers({\n  user: userReducer,\n  cart: cartReducer,\n  // Add more reducers here if needed\n});\nexport default rootReducer;",
-					"description": "The setup follows a combined reducers structure to mirror a more realistic production environment with multiple reducers and actions based on sections of your application. To manage these individual reducers in your Redux store, create a root reducer by using Redux's combineReducers function:"
-				},
-				{
-					"title": "4. Actions",
-					"code": "export const updateUser = (userData) => ({\n  type: 'UPDATE_USER',\n  payload: userData,\n});",
-					"description": "Actions are payloads of information that send data from your application to your store. Define action types and action creators to describe what should happen in your application."
-				},
-				{
-					"title": "5. Store",
-					"code": "import { createStore } from 'redux';\nimport rootReducer from './reducers';\n\nconst store = createStore(\n  rootReducer,\n  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // Optional\n);\n\nexport default store;",
-					"description": "In your store.js (or equivalent) file, create the Redux store using the combined root reducer and set up Redux DevTools for easier debugging:"
-				},
-				{
-					"title": "6. Configure the Redux Store and Wrap the Application",
-					"code": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Provider } from 'react-redux';\nimport store from './state/store'; // Import your Redux store\nimport App from './App';\n\nReactDOM.render(\n  <Provider store={store}>\n    <App />\n  </Provider>,\n  document.getElementById('root')\n);",
-					"description": "In your index.js file wrap the application with the react-redux Provider."
-				},
-				{
-					"title": "7. Use in your components",
-					"code": "import React, { useState } from 'react';\nimport { useSelector, useDispatch } from 'react-redux';\nimport { updateUser } from '../redux/actions/userActions'; // Import your Redux action\n\nconst UserProfile = () => {\n  // Use useSelector to access the user state from Redux\n  const user = useSelector((state) => state.user);\n\n  // Use useDispatch to get the dispatch function\n  const dispatch = useDispatch();\n\n  const [newName, setNewName] = useState('');\n\n  const handleNameChange = (event) => {\n    setNewName(event.target.value);\n  };\n\n  const handleUpdateUser = () => {\n    // Dispatch the updateUser action to update the user state in Redux\n    dispatch(updateUser({ name: newName }));\n    setNewName('');\n  };\n\n  return (\n    <div>\n      <h2>User Profile</h2>\n      <p>Name: {user.name}</p>\n      <div>\n        <input\n          type=\"text\"\n          placeholder=\"Enter new name\"\n          value={newName}\n          onChange={handleNameChange}\n        />\n        <button onClick={handleUpdateUser}>Update Name</button>\n      </div>\n    </div>\n  );\n};\n\nexport default UserProfile;",
-					"description": "Finally you can start using and manipulating the state in your components."
-				}
-				
-			]
-		},
-		{
-			"title": "Context API Setup",
-			"docs": [
-				{
-					"title": "Setup Context",
-					"code": "import React, { createContext, useReducer, useContext } from 'react';\nimport rootReducer from './rootReducer'; // Import the combined rootReducer\n\n// Create the context\nconst GlobalStateContext = createContext();\n\n// Initial state\nconst initialState = {\n  counter: { count: 0 },\n  user: { isLoggedIn: false, username: null },\n};\n\n// Create the context provider\nexport const GlobalStateProvider = ({ children }) => {\n  const [state, dispatch] = useReducer(rootReducer, initialState);\n  \n  return (\n    <GlobalStateContext.Provider value={{ state, dispatch }}>\n      {children}\n    </GlobalStateContext.Provider>\n  );\n};\n\n// Custom hook to access the global state\nexport const useGlobalState = () => {\n  const context = useContext(GlobalStateContext);\n  if (!context) {\n    throw new Error('useGlobalState must be used within a GlobalStateProvider');\n  }\n  return context;\n};\n",
-					"description": "Create a file where you define your global context. Context can be separated into multiple files as well, this approach follows a global context file and a custom hook for useContext."
-				},
-				{
-					"title": "Reducer Setup",
-					"code": "// counterReducer.js\nconst counterReducer = (state, action) => {\n  switch (action.type) {\n    case 'INCREMENT':\n      return { ...state, count: state.count + 1 };\n    case 'DECREMENT':\n      return { ...state, count: state.count - 1 };\n    default:\n      return state;\n  }\n};\n\nexport default counterReducer;\n\n// userReducer.js\nconst userReducer = (state, action) => {\n  switch (action.type) {\n    case 'LOGIN':\n      return { ...state, isLoggedIn: true, username: action.payload };\n    case 'LOGOUT':\n      return { ...state, isLoggedIn: false, username: null };\n    default:\n      return state;\n  }\n};\n\nexport default userReducer;",
-					"description": "Create your reducer functions into separate files."
-				},
-				{
-					"title": "Combine Reducers",
-					"code": "// rootReducer.js\nimport counterReducer from './counterReducer';\nimport userReducer from './userReducer';\nconst rootReducer = (state, action) => ({\n\tcounter: counterReducer(state.counter, action),\n\tuser: userReducer(state.user, action)\n});\n\nexport default rootReducer;",
-					"description": "Combine all the reducers into a single root reducer"
-				},
-				{
-					"title": "Actions",
-					"code": "// actions.js\nexport const increment = () => {\n  return { type: 'INCREMENT' };\n};\n\nexport const decrement = () => {\n  return { type: 'DECREMENT' };\n};\n\nexport const login = (username) => {\n  return { type: 'LOGIN', payload: username };\n};\n\nexport const logout = () => {\n  return { type: 'LOGOUT' };\n};",
-					"description": "Define separate action functions for different actions related to your global state. For example, create an actions.js file"
-				},
-				{
-					"title": "Wrap Your App with the Provider",
-					"code": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from './App';\nimport { GlobalStateProvider } from './GlobalState'; // Import the provider\n\nReactDOM.render(\n  <GlobalStateProvider>\n    <App />\n  </GlobalStateProvider>,\n  document.getElementById('root')\n);",
-					"description": "Wrap your components or the <App /> component with the GlobalStateProvider in order to have access to the global state."
-				},
-				{
-					"title": "Use in your components",
-					"code": "import React from 'react';\nimport { useGlobalState } from './GlobalState'; // Import the custom hook\nimport { increment, decrement, login, logout } from './actions'; // Import the actions\n\nfunction Counter() {\n  const { state, dispatch } = useGlobalState();\n  \n  return (\n    <div>\n      <p>Count: {state.counter.count}</p>\n      <button onClick={() => dispatch(increment())}>Increment</button>\n      <button onClick={() => dispatch(decrement())}>Decrement</button>\n    </div>\n  );\n}\n\nfunction User() {\n  const { state, dispatch } = useGlobalState();\n  \n  return (\n    <div>\n      {state.user.isLoggedIn ? (\n        <div>\n          <p>Welcome, {state.user.username}!</p>\n          <button onClick={() => dispatch(logout())}>Logout</button>\n        </div>\n     ) : (\n        <div>\n          <p>You are not logged in.</p>\n          <button onClick={() => dispatch(login('John'))}>Login</button>\n        </div>\n      )}\n    </div>\n  );\n}\n",
-					"description": ""
-				}
-			]
-		},
-		{
-			"title":"Custom Hooks",
-			"docs":[
-				{
-					"title":"useLocalStorage",
-					"description":"Easily store and retrieve data from local storage.",
-					"code":"import { useState } from 'react';\n\nfunction useLocalStorage(key, initialValue) {\n  const [value, setValue] = useState(() => {\n    const storedValue = localStorage.getItem(key);\n    return storedValue ? JSON.parse(storedValue) : initialValue;\n  });\n\n  const setStoredValue = (newValue) => {\n    setValue(newValue);\n    localStorage.setItem(key, JSON.stringify(newValue));\n  };\n\n  return [value, setStoredValue];\n}\n\n// Usage:\n// const [name, setName] = useLocalStorage('name', 'John');\n"
-				},
-				{
-					"title":"useMediaQuery",
-					"description":"Detect & add to viewport size changes",
-					"code":"import { useState, useEffect } from 'react';\n\nfunction useMediaQuery(query) {\n  const [matches, setMatches] = useState(false);\n\n  useEffect(() => {\n    const mediaQuery = window.matchMedia(query);\n    setMatches(mediaQuery.matches);\n\n    const handler = (e) => setMatches(e.matches);\n    mediaQuery.addEventListener('change', handler);\n\n    return () => {\n      mediaQuery.removeEventListener('change', handler);\n    };\n  }, [query]);\n\n  return matches;\n}\n\n// Usage:\n// const isMobile = useMediaQuery('(max-width: 768px)');\n"
-				},
-				{
-					"title":"useDebounce",
-					"description":"Debounce user inputs or anything that triggers more than once and needs throttling. Useful on search inputs.",
-					"code":"import { useState, useEffect } from 'react';\n\nfunction useDebounce(value, delay) {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n\n  useEffect(() => {\n    const handler = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    return () => {\n      clearTimeout(handler);\n    };\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n\n// Usage:\n// const debouncedSearchTerm = useDebounce(searchTerm, 300);\n"
-				},
-				{
-					"title":"useFetch",
-					"description":"Simplify & standardize fetching data from an external API.",
-					"code":"import { useState, useEffect } from 'react';\n\nfunction useFetch(url) {\n  const [data, setData] = useState(null);\n  const [isLoading, setIsLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    async function fetchData() {\n      try {\n        const response = await fetch(url);\n        if (!response.ok) {\n          throw new Error('Network response was not ok');\n        }\n        const json = await response.json();\n        setData(json);\n      } catch (err) {\n        setError(err);\n      } finally {\n        setIsLoading(false);\n      }\n    }\n\n    fetchData();\n  }, [url]);\n\n  return { data, isLoading, error };\n}\n\n// Usage:\n// const { data, isLoading, error } = useFetch('https://api.example.com/data');\n"
-				}
-			]
-		}
-		
-	]
+    "collectionName": "reactCheatsheet",
+    "title": "React.js",
+    "icon": "https://api.iconify.design/logos:react.svg",
+    "color": "00D8FF",
+    "highlighter": "tsx",
+    "groups": [
+        {
+            "title": "General",
+            "docs": [
+                {
+                    "title": "What is React and how does it work?",
+                    "description": "React is a JavaScript library for building user interfaces using a virtual DOM. Commonly used for creating interactive and dynamic web applications.",
+                    "code": "",
+                    "id": "25951867-b4d6-463c-951b-32a5e3ff8f57"
+                },
+                {
+                    "title": "Pros of React",
+                    "description": "<ul><li><strong>Component-Based:</strong> React uses a component-based architecture that promotes reusability and maintainability.</li><li><strong>Virtual DOM:</strong> React's Virtual DOM minimizes DOM manipulation, improving performance and efficiency.</li><li><strong>Declarative:</strong> React's declarative syntax makes it easier to describe how a UI should look based on state.</li><li><strong>Large Community:</strong> React has a vast and active community with a wealth of resources and third-party libraries.</li><li><strong>React Hooks:</strong> React Hooks simplify state and lifecycle management in functional components.</li></ul>",
+                    "code": "",
+                    "id": "254ff3b2-ae21-4fa6-be6a-95d280f30c99"
+                },
+                {
+                    "title": "Cons of React",
+                    "description": " <li><strong>Learning Curve:</strong> React has a learning curve, especially for beginners, due to its component-based architecture and JSX syntax.</li><li><strong>Boilerplate:</strong> React projects may require additional setup and boilerplate code, which can be time-consuming.</li><li><strong>Complex State Management:</strong> For complex state management, you might need to integrate external libraries like Redux, adding complexity to the project.</li><li><strong>SEO Challenges:</strong> React applications may require extra effort for search engine optimization (SEO) because search engines may not fully index client-rendered content.</li><li><strong>Tooling Choices:</strong> The React ecosystem offers various tools and libraries, which can be overwhelming when making choices for routing, state management, and other aspects of development.</li>",
+                    "code": "",
+                    "id": "df3d6ff7-d6b1-47d0-b1da-653107dd5b7b"
+                },
+                {
+                    "title": "What are React components?",
+                    "description": "React components are the building blocks of a React application. They are reusable, self-contained, and encapsulate a piece of user interface (UI) or functionality within a web application",
+                    "code": "",
+                    "id": "0458739f-7f59-4a29-aea2-51f34e39ef62"
+                },
+                {
+                    "title": "Class components",
+                    "description": "Class components in React are a type of React component defined using ES6 classes. They are sometimes referred to as 'stateful' or 'smart' components because they can manage their own internal state.",
+                    "code": "import React, { Component } from 'react';\nclass Counter extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      count: 0\n    };\n  }\n\n  incrementCount = () => {\n    this.setState({ count: this.state.count + 1 });\n  }\n\n  render() {\n    return (\n      <div>\n        <p>Count: {this.state.count}</p>\n        <button onClick={this.incrementCount}>Increment</button>\n      </div>\n    );\n  }\n}\n\nexport default Counter;",
+                    "id": "73de6c5d-883c-41fe-bb56-70c810ef1bc7"
+                },
+                {
+                    "title": "Function components",
+                    "description": "Function components in React are a type of component that are defined as JavaScript functions. They are sometimes referred to as 'stateless' or 'dumb' components because they don't manage their own internal state. Function components have become increasingly popular in React development, especially after the introduction of React Hooks in React 16.8.",
+                    "code": "import React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  const incrementCount = () => {\n    setCount(count + 1);\n  };\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={incrementCount}>Increment</button>\n    </div>\n  );\n}\n\nexport default Counter;",
+                    "id": "64b7dce9-bc3d-41b3-86d4-61969c3f545b"
+                },
+                {
+                    "title": "What is JSX and why is it used in React?",
+                    "description": "JSX is a syntax extension for JavaScript that allows React components to be written in a familiar HTML-like syntax.",
+                    "code": "",
+                    "id": "8d60fc7e-a65e-449c-b67d-2be9a3863fc0"
+                },
+                {
+                    "title": "What are React Hooks and how do they work?",
+                    "description": "React Hooks are a set of functions introduced in React 16.8 that allow you to use state and other React features(Lifecycle methods) in functional components.",
+                    "code": "",
+                    "id": "340ae52e-b059-41c2-a02e-22373c2ce15f"
+                },
+                {
+                    "title": "What is the purpose of using React Router?",
+                    "description": "React Router is used for declarative routing and navigation in React applications.",
+                    "code": "",
+                    "id": "078b1284-9cf8-4abb-8235-abac8cfbc50c"
+                },
+                {
+                    "title": "What is Redux and how does it work with React?",
+                    "description": "Redux is a state management library that works with React to manage global state. It provides a predictable and centralized way to manage the state of an application, making it easier to handle complex data flow and state changes in large-scale applications.",
+                    "code": "",
+                    "id": "a0ec181f-d060-4a36-aa3d-df505ad559a5"
+                },
+                {
+                    "title": "What are some best practices for performance optimization in React?",
+                    "description": "Minimizing unnecessary re-renders, using memoization, code-splitting and optimizing network requests.",
+                    "code": "",
+                    "id": "602dc4cb-c453-4441-99fe-4c5619dac249"
+                },
+                {
+                    "title": "What is the Virtual DOM and how does it work?",
+                    "description": "The Virtial DOM is a lightweight in-memory representation of the actual DOM. When the state of a component changes, React compares the virtual DOM with the actual DOM and only makes changes to the actual DOM wherever necessary. More efficient than re-rendering the whole page.",
+                    "code": "",
+                    "id": "27e6d017-0933-4739-b6fe-757bbcf01724"
+                },
+                {
+                    "title": "Higher Order Components",
+                    "description": "Components that wrap other components to add additional functionality. Allow for abstraction and reusability.",
+                    "code": "import React, { Component } from 'react';\n\n// This is a Higher Order Component (HOC)\nconst withLogger = (WrappedComponent) => {\n  class Logger extends Component {\n    componentDidMount() {\n      console.log(`Component ${WrappedComponent.name} is mounted.`);\n    }\n\n    render() {\n      // Pass all props to the wrapped component\n      return <WrappedComponent {...this.props} />;\n    }\n  }\n\n  return Logger;\n};\n\n// A simple component\nconst Greeting = ({ name }) => <div>Hello, {name}!</div>;\n\n// Wrap the Greeting component with the withLogger HOC\nconst GreetingWithLogger = withLogger(Greeting);\n\n// Now, you can use GreetingWithLogger just like any other component\nclass App extends Component {\n  render() {\n    return (\n      <div>\n        <GreetingWithLogger name=\"John\" />\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
+                    "id": "a193e2ab-cdcc-4d9a-b345-f867b3376b04"
+                }
+            ]
+        },
+        {
+            "title": "Hooks",
+            "docs": [
+                {
+                    "title": "useState",
+                    "code": "const [counter, setCounter] = useState(0);\n\nreturn (\n  <div>\n    <p>Counter: {counter}</p>\n    <button onClick={() => setCounter(counter + 1)}>\n      Increment\n    </button>\n  </div>\n);",
+                    "description": "Used for managing state variables in functional components.",
+                    "id": "331a98e1-88f6-4d2f-b22c-4a2d887f016a"
+                },
+                {
+                    "title": "useEffect",
+                    "code": "useEffect(() => {\n  // perform side effects here\n});",
+                    "description": "Allows you to perform side effects in your components, such as data fetching or DOM manipulation, after rendering or when subscribing to a dependency/",
+                    "id": "320866ff-775a-4ea1-87a5-b2d335ee4c00"
+                },
+                {
+                    "title": "useContext",
+                    "code": "const { user } = useContext(UserContext);\n\nreturn (\n  <div>\n    <p>User: {user.name}</p>\n  </div>\n);",
+                    "description": "Provides access to the context object created by the React.createContext API, allowing you to share data across the component tree.",
+                    "id": "901170d7-4544-401d-812e-9bc61c096942"
+                },
+                {
+                    "title": "useReducer",
+                    "code": "const initialState = { count: 0 };\nconst reducer = (state, action) => {\n  switch (action.type) {\n    case 'increment':\n      return { count: state.count + 1 };\n    case 'decrement':\n      return { count: state.count - 1 };\n    default:\n      throw new Error();\n  }\n};\n\nconst [state, dispatch] = useReducer(reducer, initialState);\n\nreturn (\n  <div>\n    <p>Count: {state.count}</p>\n    <button onClick={() => dispatch({ type: 'increment' })}>Increment</button>\n    <button onClick={() => dispatch({ type: 'decrement' })}>Decrement</button>\n  </div>\n);",
+                    "description": "A more advanced state management hook that is often used when state transitions are complex or involve multiple sub-states.",
+                    "id": "c0cfe01e-95c5-464f-af38-3122ace273f0"
+                },
+                {
+                    "title": "useRef",
+                    "code": "import React, { useRef, useState } from 'react';\nfunction RefExample() {\n  // Create a ref\n  const inputRef = useRef(null);\n  const handleFocus = () => {\n    // Access and focus the input element\n    inputRef.current.focus();\n  };\n  return (\n    <div>\n      <input ref={inputRef} type='text' />\n      <button onClick={handleFocus}>Focus Input</button>\n    </div>\n  );\n}\nexport default RefExample;",
+                    "description": "Used for creating mutable refs to access and interact with DOM elements or to persist values across renders without causing re-renders.",
+                    "id": "1c279843-6bc0-44bd-8b7e-c1008ef6d10f"
+                },
+                {
+                    "title": "useCallback",
+                    "code": "const memoizedCallback = useCallback(\n  () => {\n    // do something\n  }, [dependencies]\n);",
+                    "description": "Similar to useMemo, but it memoizes functions to prevent unnecessary re-renders when the function's dependencies haven't changed.",
+                    "id": "ee8eaad4-d704-4dbd-816f-ca322bdc7e1a"
+                },
+                {
+                    "title": "useMemo",
+                    "code": "const memoizedValue = useMemo(\n  () => {\n    // calculate expensive value\n  }, [dependencies]\n);",
+                    "description": "Helps with memoization by memoizing the result of a function so that it's not recomputed on every render unless its dependencies change.",
+                    "id": "b0126db7-762f-4281-b673-52810126a63d"
+                },
+                {
+                    "title": "useLayoutEffect",
+                    "code": "useLayoutEffect(() => {\n  // perform synchronous DOM mutations here\n});",
+                    "description": "Similar to useEffect, but it fires synchronously after all DOM mutations. It's often used for measurements and other tasks that require immediate DOM updates.",
+                    "id": "c2669412-0896-4f00-8ad6-078e852a3c59"
+                },
+                {
+                    "title": "useEffectWithCleanup",
+                    "code": "useEffect(() => { \n // This effect runs after every render \n console.log('Effect ran!'); \n \n // Cleanup function - this runs before the next effect or unmount \n return () => { \n console.log('Cleanup ran!'); \n };});",
+                    "description": "A pattern that combines useEffect with a cleanup function to manage side effects and prevent memory leaks.",
+                    "id": "1e33380e-6850-4840-89bb-ea4e4441e843"
+                },
+                {
+                    "title": "useImperativeHandle",
+                    "code": "const ChildComponent = forwardRef((props, ref) => {\n  useImperativeHandle(ref, () => ({\n    // expose child component's imperative API here\n  }));\n  return <div>Child Component</div>;\n});\n\nconst ParentComponent = () => {\n  const childRef = useRef();\n  // call child component's imperative API here\n  return <ChildComponent ref={childRef} />;\n};",
+                    "description": "Used to customize the instance value that is exposed when using React.forwardRef.",
+                    "id": "aa4b5e70-8c97-45df-91cb-46fd719159df"
+                },
+                {
+                    "title": "useDebugValue",
+                    "code": "useDebugValue(formattedValue)",
+                    "description": "Displays custom debugging information in React DevTools.",
+                    "id": "81d50f0e-a998-4521-95d3-59bc28030bf0"
+                }
+            ]
+        },
+        {
+            "title": "Extra",
+            "docs": [
+                {
+                    "title": "What is prop drilling in React?",
+                    "code": "",
+                    "description": "In React, 'prop drilling' refers to the process of passing data (props) from a higher-level component down to a lower-level component through intermediate components that do not actually need the data. ",
+                    "id": "81ba83f7-d796-440f-bac2-a2af826ab1b5"
+                },
+                {
+                    "title": "What is the Context API in React and how is it used?",
+                    "code": "",
+                    "description": "The Context API in React is a mechanism for sharing state and providing a way to pass data through the component tree without having to pass props manually at every level. ",
+                    "id": "79ea9235-db91-43e4-926a-1a965cd546d7"
+                },
+                {
+                    "title": "What is the difference between state and props in React?",
+                    "code": "",
+                    "description": "State is used for managing internal component state, while props are used for passing data between components.",
+                    "id": "7c1cf59e-6cfc-466c-9023-3d2615d15335"
+                },
+                {
+                    "title": "What are higher-order components (HOCs) in React?",
+                    "code": "",
+                    "description": "Functions that take a component and return a new component with additional functionality.",
+                    "id": "fc36b1ea-92c9-421c-8f7d-637b23271d0f"
+                },
+                {
+                    "title": "What is the difference between a controlled and an uncontrolled component in React?",
+                    "code": "",
+                    "description": "A controlled component has its state managed by React, while an uncontrolled component manages its own state.",
+                    "id": "75925975-402c-4662-8032-2f3857c26930"
+                },
+                {
+                    "title": "What is server-side rendering in React?",
+                    "code": "",
+                    "description": "Rendering React components on the server and sending HTML to the client for faster initial load times and improved SEO.",
+                    "id": "05de88b4-3af7-4094-9313-6469e6a3a143"
+                },
+                {
+                    "title": "What is the purpose of the shouldComponentUpdate lifecycle method in React?",
+                    "code": "",
+                    "description": "To optimize performance by preventing unnecessary re-renders of a component.",
+                    "id": "c5cf1c30-3f50-4ee8-8960-238ddcfe7ba1"
+                },
+                {
+                    "title": "What is the significance of the key prop in React?",
+                    "code": "",
+                    "description": "A unique identifier used by React to optimize rendering performance when working with lists of components.",
+                    "id": "c0725b1f-45c8-4fc7-b966-45f0a620f653"
+                }
+            ]
+        },
+        {
+            "title": "Redux setup",
+            "docs": [
+                {
+                    "title": "1. Install",
+                    "code": "npm install redux react-redux",
+                    "description": "To get started with Redux, you'll need to install both the Redux library and the React bindings for Redux (react-redux)",
+                    "id": "172e8c4c-f4aa-48aa-915e-aa2dddc9726d"
+                },
+                {
+                    "title": "2. Reducer Setup",
+                    "code": "// src/state/reducers/userReducer.js \nconst userReducer = (state = {}, action) => {\n switch (action.type) {  \n// Handle user-related actions here \n default: \n  return state; \n } \n}; \nexport default userReducer;",
+                    "description": "In Redux, reducers specify how your application's state changes in response to actions. Begin by creating individual reducers for different parts of your application's state. Here's an example of two reducers:",
+                    "id": "55b53f6b-936d-4e4d-a296-3936c7c410a7"
+                },
+                {
+                    "title": "3. Combine Reducers",
+                    "code": "import { combineReducers } from 'redux';\nuserReducer from './userReducer';\ncartReducer from './cartReducer';\nconst rootReducer = combineReducers({\n  user: userReducer,\n  cart: cartReducer,\n  // Add more reducers here if needed\n});\nexport default rootReducer;",
+                    "description": "The setup follows a combined reducers structure to mirror a more realistic production environment with multiple reducers and actions based on sections of your application. To manage these individual reducers in your Redux store, create a root reducer by using Redux's combineReducers function:",
+                    "id": "b2090f6c-15b5-495f-9f24-84ac690b3322"
+                },
+                {
+                    "title": "4. Actions",
+                    "code": "export const updateUser = (userData) => ({\n  type: 'UPDATE_USER',\n  payload: userData,\n});",
+                    "description": "Actions are payloads of information that send data from your application to your store. Define action types and action creators to describe what should happen in your application.",
+                    "id": "93ce9627-01c7-4709-95a3-dc15218fdb57"
+                },
+                {
+                    "title": "5. Store",
+                    "code": "import { createStore } from 'redux';\nimport rootReducer from './reducers';\n\nconst store = createStore(\n  rootReducer,\n  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // Optional\n);\n\nexport default store;",
+                    "description": "In your store.js (or equivalent) file, create the Redux store using the combined root reducer and set up Redux DevTools for easier debugging:",
+                    "id": "535e966f-3a0b-43c9-a1ce-bb341c421e89"
+                },
+                {
+                    "title": "6. Configure the Redux Store and Wrap the Application",
+                    "code": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport { Provider } from 'react-redux';\nimport store from './state/store'; // Import your Redux store\nimport App from './App';\n\nReactDOM.render(\n  <Provider store={store}>\n    <App />\n  </Provider>,\n  document.getElementById('root')\n);",
+                    "description": "In your index.js file wrap the application with the react-redux Provider.",
+                    "id": "7663ef49-5abd-4944-ae05-409f1c1344a6"
+                },
+                {
+                    "title": "7. Use in your components",
+                    "code": "import React, { useState } from 'react';\nimport { useSelector, useDispatch } from 'react-redux';\nimport { updateUser } from '../redux/actions/userActions'; // Import your Redux action\n\nconst UserProfile = () => {\n  // Use useSelector to access the user state from Redux\n  const user = useSelector((state) => state.user);\n\n  // Use useDispatch to get the dispatch function\n  const dispatch = useDispatch();\n\n  const [newName, setNewName] = useState('');\n\n  const handleNameChange = (event) => {\n    setNewName(event.target.value);\n  };\n\n  const handleUpdateUser = () => {\n    // Dispatch the updateUser action to update the user state in Redux\n    dispatch(updateUser({ name: newName }));\n    setNewName('');\n  };\n\n  return (\n    <div>\n      <h2>User Profile</h2>\n      <p>Name: {user.name}</p>\n      <div>\n        <input\n          type=\"text\"\n          placeholder=\"Enter new name\"\n          value={newName}\n          onChange={handleNameChange}\n        />\n        <button onClick={handleUpdateUser}>Update Name</button>\n      </div>\n    </div>\n  );\n};\n\nexport default UserProfile;",
+                    "description": "Finally you can start using and manipulating the state in your components.",
+                    "id": "992d7677-4c62-4fc9-b966-19a3a46268b2"
+                }
+            ]
+        },
+        {
+            "title": "Context API Setup",
+            "docs": [
+                {
+                    "title": "Setup Context",
+                    "code": "import React, { createContext, useReducer, useContext } from 'react';\nimport rootReducer from './rootReducer'; // Import the combined rootReducer\n\n// Create the context\nconst GlobalStateContext = createContext();\n\n// Initial state\nconst initialState = {\n  counter: { count: 0 },\n  user: { isLoggedIn: false, username: null },\n};\n\n// Create the context provider\nexport const GlobalStateProvider = ({ children }) => {\n  const [state, dispatch] = useReducer(rootReducer, initialState);\n  \n  return (\n    <GlobalStateContext.Provider value={{ state, dispatch }}>\n      {children}\n    </GlobalStateContext.Provider>\n  );\n};\n\n// Custom hook to access the global state\nexport const useGlobalState = () => {\n  const context = useContext(GlobalStateContext);\n  if (!context) {\n    throw new Error('useGlobalState must be used within a GlobalStateProvider');\n  }\n  return context;\n};\n",
+                    "description": "Create a file where you define your global context. Context can be separated into multiple files as well, this approach follows a global context file and a custom hook for useContext.",
+                    "id": "d11ab7cf-a0a5-4291-b01f-8b2e79a00b87"
+                },
+                {
+                    "title": "Reducer Setup",
+                    "code": "// counterReducer.js\nconst counterReducer = (state, action) => {\n  switch (action.type) {\n    case 'INCREMENT':\n      return { ...state, count: state.count + 1 };\n    case 'DECREMENT':\n      return { ...state, count: state.count - 1 };\n    default:\n      return state;\n  }\n};\n\nexport default counterReducer;\n\n// userReducer.js\nconst userReducer = (state, action) => {\n  switch (action.type) {\n    case 'LOGIN':\n      return { ...state, isLoggedIn: true, username: action.payload };\n    case 'LOGOUT':\n      return { ...state, isLoggedIn: false, username: null };\n    default:\n      return state;\n  }\n};\n\nexport default userReducer;",
+                    "description": "Create your reducer functions into separate files.",
+                    "id": "25ec3c3b-de3f-407d-8133-248b3ed168a3"
+                },
+                {
+                    "title": "Combine Reducers",
+                    "code": "// rootReducer.js\nimport counterReducer from './counterReducer';\nimport userReducer from './userReducer';\nconst rootReducer = (state, action) => ({\n\tcounter: counterReducer(state.counter, action),\n\tuser: userReducer(state.user, action)\n});\n\nexport default rootReducer;",
+                    "description": "Combine all the reducers into a single root reducer",
+                    "id": "11b99330-92e1-44e2-8cf4-7ec0e2925fac"
+                },
+                {
+                    "title": "Actions",
+                    "code": "// actions.js\nexport const increment = () => {\n  return { type: 'INCREMENT' };\n};\n\nexport const decrement = () => {\n  return { type: 'DECREMENT' };\n};\n\nexport const login = (username) => {\n  return { type: 'LOGIN', payload: username };\n};\n\nexport const logout = () => {\n  return { type: 'LOGOUT' };\n};",
+                    "description": "Define separate action functions for different actions related to your global state. For example, create an actions.js file",
+                    "id": "7b55defa-86d0-4e49-83c9-bd2eacc01695"
+                },
+                {
+                    "title": "Wrap Your App with the Provider",
+                    "code": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from './App';\nimport { GlobalStateProvider } from './GlobalState'; // Import the provider\n\nReactDOM.render(\n  <GlobalStateProvider>\n    <App />\n  </GlobalStateProvider>,\n  document.getElementById('root')\n);",
+                    "description": "Wrap your components or the <App /> component with the GlobalStateProvider in order to have access to the global state.",
+                    "id": "26e61b44-3e10-4d42-b7bc-f4ec771a1ba4"
+                },
+                {
+                    "title": "Use in your components",
+                    "code": "import React from 'react';\nimport { useGlobalState } from './GlobalState'; // Import the custom hook\nimport { increment, decrement, login, logout } from './actions'; // Import the actions\n\nfunction Counter() {\n  const { state, dispatch } = useGlobalState();\n  \n  return (\n    <div>\n      <p>Count: {state.counter.count}</p>\n      <button onClick={() => dispatch(increment())}>Increment</button>\n      <button onClick={() => dispatch(decrement())}>Decrement</button>\n    </div>\n  );\n}\n\nfunction User() {\n  const { state, dispatch } = useGlobalState();\n  \n  return (\n    <div>\n      {state.user.isLoggedIn ? (\n        <div>\n          <p>Welcome, {state.user.username}!</p>\n          <button onClick={() => dispatch(logout())}>Logout</button>\n        </div>\n     ) : (\n        <div>\n          <p>You are not logged in.</p>\n          <button onClick={() => dispatch(login('John'))}>Login</button>\n        </div>\n      )}\n    </div>\n  );\n}\n",
+                    "description": "",
+                    "id": "0726201a-ce1e-4ecd-ad3a-7757a99749f6"
+                }
+            ]
+        },
+        {
+            "title": "Custom Hooks",
+            "docs": [
+                {
+                    "title": "useLocalStorage",
+                    "description": "Easily store and retrieve data from local storage.",
+                    "code": "import { useState } from 'react';\n\nfunction useLocalStorage(key, initialValue) {\n  const [value, setValue] = useState(() => {\n    const storedValue = localStorage.getItem(key);\n    return storedValue ? JSON.parse(storedValue) : initialValue;\n  });\n\n  const setStoredValue = (newValue) => {\n    setValue(newValue);\n    localStorage.setItem(key, JSON.stringify(newValue));\n  };\n\n  return [value, setStoredValue];\n}\n\n// Usage:\n// const [name, setName] = useLocalStorage('name', 'John');\n",
+                    "id": "536e4d35-70bd-4f48-85ad-535925db7de6"
+                },
+                {
+                    "title": "useMediaQuery",
+                    "description": "Detect & add to viewport size changes",
+                    "code": "import { useState, useEffect } from 'react';\n\nfunction useMediaQuery(query) {\n  const [matches, setMatches] = useState(false);\n\n  useEffect(() => {\n    const mediaQuery = window.matchMedia(query);\n    setMatches(mediaQuery.matches);\n\n    const handler = (e) => setMatches(e.matches);\n    mediaQuery.addEventListener('change', handler);\n\n    return () => {\n      mediaQuery.removeEventListener('change', handler);\n    };\n  }, [query]);\n\n  return matches;\n}\n\n// Usage:\n// const isMobile = useMediaQuery('(max-width: 768px)');\n",
+                    "id": "53417f89-6a51-4a9e-952c-f8c2bfbe0ea3"
+                },
+                {
+                    "title": "useDebounce",
+                    "description": "Debounce user inputs or anything that triggers more than once and needs throttling. Useful on search inputs.",
+                    "code": "import { useState, useEffect } from 'react';\n\nfunction useDebounce(value, delay) {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n\n  useEffect(() => {\n    const handler = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    return () => {\n      clearTimeout(handler);\n    };\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n\n// Usage:\n// const debouncedSearchTerm = useDebounce(searchTerm, 300);\n",
+                    "id": "297fe05d-fe89-4cb1-b28f-c19e8f1cd2f9"
+                },
+                {
+                    "title": "useFetch",
+                    "description": "Simplify & standardize fetching data from an external API.",
+                    "code": "import { useState, useEffect } from 'react';\n\nfunction useFetch(url) {\n  const [data, setData] = useState(null);\n  const [isLoading, setIsLoading] = useState(true);\n  const [error, setError] = useState(null);\n\n  useEffect(() => {\n    async function fetchData() {\n      try {\n        const response = await fetch(url);\n        if (!response.ok) {\n          throw new Error('Network response was not ok');\n        }\n        const json = await response.json();\n        setData(json);\n      } catch (err) {\n        setError(err);\n      } finally {\n        setIsLoading(false);\n      }\n    }\n\n    fetchData();\n  }, [url]);\n\n  return { data, isLoading, error };\n}\n\n// Usage:\n// const { data, isLoading, error } = useFetch('https://api.example.com/data');\n",
+                    "id": "ffd91b6b-311e-493b-a2b8-a4aa2e3dbab7"
+                }
+            ]
+        }
+    ]
 }

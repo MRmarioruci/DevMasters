@@ -1,209 +1,245 @@
 {
-	"collectionName": "apis",
-	"title": "Apis",
-	"icon": "",
-	"color": "B11C1E",
-	"highlighter": "js",
-	"groups": [
-		{
-			"title": "REST Basics",
-			"docs": [
-				{
-					"title": "What is REST, and what does it stand for?",
-					"description": "REST stands for Representational State Transfer. It is an architectural style for designing networked applications.",
-					"code": ""
-				},
-				{
-					"title": "What are the key principles of RESTful architecture?",
-					"description": "<ul><li>Stateless: Each request from a client to a server must contain all the information needed to understand and fulfill the request.</li><li>Client-Server: Separation of concerns between the client and the server.</li><li>Uniform Interface: A consistent and uniform way to interact with resources.</li><li>Layered System: Components are organized into layers, and each layer has a specific function.</li></ul>",
-					"code": ""
-				},
-				{
-					"title": "What is an HTTP method, and what are the commonly used methods in REST?",
-					"description": "HTTP methods are actions that can be performed on resources. Commonly used methods in REST are GET, POST, PUT, DELETE, PATCH, and more.",
-					"code": ""
-				},
-				{
-					"title": "What is a resource in the context of REST?",
-					"description": "A resource is any data or object that can be accessed via a URI (Uniform Resource Identifier). Resources are the fundamental concept in RESTful APIs.",
-					"code": ""
-				},
-				{
-					"title": "What is the purpose of HTTP status codes in RESTful APIs?",
-					"description": "HTTP status codes indicate the result of an HTTP request. For example, 200 OK indicates success, 404 Not Found indicates the resource doesn't exist, and 500 Internal Server Error indicates a server-side issue.",
-					"code": ""
-				},
-				{
-					"title": "What is the difference between authentication and authorization in the context of RESTful APIs?",
-					"description": "Authentication is the process of verifying the identity of a user or system, while authorization is the process of determining what actions a user or system is allowed to perform.",
-					"code": ""
-				},
-				{
-					"title": "What is CORS, and why is it important in RESTful APIs?",
-					"description": "CORS (Cross-Origin Resource Sharing) is a security feature that controls which domains can access resources on a web page. It's important in RESTful APIs to prevent unauthorized access from different origins.",
-					"code": ""
-				},
-				{
-					"title": "What is the purpose of API versioning, and what are some common versioning strategies?",
-					"description": "API versioning allows for changes in the API while maintaining backward compatibility. Common versioning strategies include using URL versioning (e.g., /v1/resource), custom request headers, or using content negotiation.",
-					"code": ""
-				}
-			]
-		},
-		{
-			"title": "REST HTTP Methods",
-			"docs": [
-				{
-					"title": "GET",
-					"description": "This method is used to retrieve data from the server (Get data). It should not have any side effects on the server's state, meaning it's a safe and idempotent operation.",
-					"code": "fetch('/api/resource', { method: 'GET' })\n.then(response => response.json())\n.then(data => console.log(data))"
-				},
-				{
-					"title": "POST",
-					"description": "POST is used to submit data to be processed to a specified resource (Add data). It often results in the creation of a new resource on the server and may have side effects.",
-					"code": "fetch('/api/resource', { method: 'POST', body: JSON.stringify({ key: 'value' }), headers: { 'Content-Type': 'application/json' } })\n.then(response => response.json())\n.then(data => console.log(data))"
-				},
-				{
-					"title": "PUT",
-					"description": "PUT is used to update a resource or create it if it doesn't exist at the specified URI (Full update). It replaces the entire resource with the new representation provided.",
-					"code": "fetch('/api/resource', { method: 'PUT', body: JSON.stringify({ key: 'new-value' }), headers: { 'Content-Type': 'application/json' } })\n.then(response => response.json())\n.then(data => console.log(data))"
-				},
-				{
-					"title": "PATCH",
-					"description": "PATCH is used to apply partial modifications to a resource (Partial update). It's typically used when you want to update a resource with only the changes provided in the request.",
-					"code": "fetch('/api/resource', { method: 'PATCH', body: JSON.stringify({ key: 'updated-value' }), headers: { 'Content-Type': 'application/json' } })\n.then(response => response.json())\n.then(data => console.log(data))"
-				},
-				{
-					"title": "DELETE",
-					"description": "DELETE is used to remove a resource from the server (Remove data). It should be used to delete the resource at the specified URI.",
-					"code": "fetch('/api/resource', { method: 'DELETE' })\n.then(response => response.json())\n.then(data => console.log(data))"
-				},
-				{
-					"title": "OPTIONS",
-					"description": "OPTIONS is used to describe the communication options for the target resource. It can be used to retrieve information about the communication options available for a resource, such as supported HTTP methods or CORS information.",
-					"code": ""
-				},
-				{
-					"title": "HEAD",
-					"description": "HEAD is similar to GET but requests the headers of the resource, not the actual data. It's often used to check the status of a resource without downloading its content.",
-					"code": ""
-				},
-				{
-					"title": "CONNECT",
-					"description": "CONNECT is typically used for establishing network connections to a resource. It's mainly used for HTTP tunneling through proxies.",
-					"code": ""
-				},
-				{
-					"title": "TRACE",
-					"description": "TRACE is used to retrieve diagnostic information about the server's processing of the request. It's not commonly used in practice and is often disabled for security reasons.",
-					"code": ""
-				}
-			]
-		},
-		{
-			"title": "Websockets",
-			"docs": [
-				{
-					"title": "What is it?",
-					"description": "Websockets are a communication protocol that enables real-time, two-way communication between a client (like a web browser) and a server over a single, long-lived connection. They are often used in web applications where real-time updates, interactive features, or instant messaging are required.",
-					"code": ""
-				},
-				{
-					"title": "Handshake",
-					"description": "The process starts with an initial HTTP handshake between the client and the server, just like when you request a web page. This handshake is used to establish the WebSocket connection. The client sends a WebSocket handshake request, and if the server supports WebSockets, it responds with a WebSocket handshake response, upgrading the connection from HTTP to WebSocket.",
-					"code": ""
-				},
-				{
-					"title": "Persistent Connection",
-					"description": "Unlike traditional HTTP, which is stateless and involves opening a new connection for each request, WebSockets maintain a persistent connection. This means that once the connection is established, both the client and server can send data to each other at any time without the overhead of repeatedly establishing new connections.",
-					"code": ""
-				},
-				{
-					"title": "Bi-Directional Communication",
-					"description": "WebSockets allow both the client and the server to send data to each other whenever they want. This is different from HTTP, where the client initiates requests and the server responds. With WebSockets, data can flow in both directions, enabling real-time updates.",
-					"code": ""
-				},
-				{
-					"title": "WebSocket Messages",
-					"description": "Data sent over a WebSocket connection is encapsulated into messages. Messages can be text or binary data. Each message can be sent as a whole or in smaller chunks for large payloads. The WebSocket protocol ensures that messages are properly framed and delivered reliably.",
-					"code": ""
-				},
-				{
-					"title": "Event Driven",
-					"description": "WebSockets are event-driven. The client and server can define event handlers to process incoming messages or respond to specific events. This makes it easy to create interactive applications that react in real-time to user actions or data changes on the server.",
-					"code": ""
-				},
-				{
-					"title": "Closing the connection",
-					"description": "Either the client or server can initiate the closure of the WebSocket connection when it's no longer needed. This is done through a closing handshake to ensure a graceful termination of the connection.",
-					"code": ""
-				},
-				{
-					"title": "Pros",
-					"description": "Either the client or server can initiate the closure of the WebSocket connection when it's no longer needed. This is done through a closing handshake to ensure a graceful termination of the connection.",
-					"code": ""
-				},
-				{
-					"title": "Server Setup Example (Socket.io)",
-					"description": "We create a basic Express.js web server and an HTTP server.<br>Socket.IO is integrated with the Express server, allowing WebSocket communication.<br>We serve a simple HTML file (index.html) that will be used to interact with the WebSocket.",
-					"code": "const http = require('http');\nconst express = require('express');\nconst socketIo = require('socket.io');\nconst app = express();\nconst server = http.createServer(app);const io = socketIo(server);\napp.get('/', (req, res) => {\n  res.sendFile(__dirname + '/index.html');\n});\nio.on('connection', (socket) => {\n  console.log('A user connected');\n  socket.on('chat message', (msg) => {\n    console.log(`Message: ${msg}`);\n    io.emit('chat message', msg);\n  });\n  socket.on('disconnect', () => {\n    console.log('A user disconnected');\n  });\n});\nserver.listen(3000, () => {\n  console.log('Server is running on http://localhost:3000');\n});"
-				},
-				{
-					"title": "Client Setup Example",
-					"description": "",
-					"code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Socket.IO Chat Example</title>\n  <script src=\"/socket.io/socket.io.js\"></script>\n  <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>\n</head>\n<body>\n  <ul id=\"messages\"></ul>\n  <input id=\"message-input\" autocomplete=\"off\" /><button onclick=\"sendMessage()\">Send</button>\n  <script>\n    // Connect to the WebSocket server\n    const socket = io();\n\n    // Listen for incoming messages\n    socket.on('chat message', (msg) => {\n      const li = document.createElement('li');\n      li.textContent = msg;\n      document.getElementById('messages').appendChild(li);\n    });\n\n    // Function to send a message\n    function sendMessage() {\n      const message = document.getElementById('message-input').value;\n      socket.emit('chat message', message);\n      document.getElementById('message-input').value = '';\n    }\n  </script>\n</body>\n</html>"
-				}
-			]
-		},
-		{
-			"title": "GraphQL Basics",
-			"docs": [
-				{
-					"title": "What is GraphQL?",
-					"description": "GraphQL is a query language for APIs and a runtime environment for executing those queries with existing data. It provides a more efficient, powerful, and flexible alternative to REST.",
-					"code": "type Query {\n  user(id: ID!): User\n}\ntype User {\n  id: ID,\n  name: String,\n  email: String\n}"
-				},
-				{
-					"title": "How does GraphQL differ from REST?",
-					"description": "GraphQL allows clients to request only the data they need, minimizing the over-fetching and under-fetching of data. It also enables real-time data updates using subscriptions, which REST doesn't provide out of the box.",
-					"code": "query {\n  user(id: '123') {\n    name\n  }\n}"
-				},
-				{
-					"title": "What are GraphQL Schemas and Types?",
-					"description": "In GraphQL, a schema defines the structure of the data that clients can request. Types represent the different data structures available in the schema. GraphQL schemas are strongly typed and introspective.",
-					"code": "type Query {\n  user(id: ID!): User\n}\ntype User {\n  id: ID,\n  name: String,\n  email: String\n}"
-				},
-				{
-					"title": "How are Queries and Mutations used in GraphQL?",
-					"description": "Queries in GraphQL are used to read or fetch data, while mutations are used to modify data on the server. Queries and mutations are written in a similar way, allowing clients to specify the exact shape of the response data.",
-					"code": "query {\n  user(id: '123') {\n    name\n  }\n}\nmutation {\n  updateUser(id: '123', name: 'New Name') {\n    id,\n    name\n  }\n}"
-				},
-				{
-					"title": "What are GraphQL Fragments?",
-					"description": "Fragments in GraphQL allow you to define reusable units of fields and include them in multiple queries. Fragments improve query readability, maintainability, and reduce duplication in GraphQL queries.",
-					"code": "fragment UserInfo on User {\n  id,\n  name,\n  email\n}\nquery {\n  user1: user(id: '123') {\n    ...UserInfo\n  }\n  user2: user(id: '456') {\n    ...UserInfo\n  }\n}"
-				},
-				{
-					"title": "What is GraphQL Introspection?",
-					"description": "GraphQL introspection is a powerful feature that enables clients to discover the schema's types and their relationships. It allows tools like GraphQL IDEs and documentation generators to provide rich development experiences.",
-					"code": "__schema {\n  types {\n    name,\n    fields {\n      name,\n      type {\n        name\n      }\n    }\n  }\n}"
-				},
-				{
-					"title": "How does GraphQL handle N+1 query problem?",
-					"description": "GraphQL clients can specify the exact data they need, eliminating the N+1 query problem often found in REST APIs. Clients can request all necessary data in a single query, reducing the number of requests to the server.",
-					"code": "query {\n  users {\n    name,\n    posts {\n      title\n    }\n  }\n}"
-				},
-				{
-					"title": "What are GraphQL Subscriptions?",
-					"description": "GraphQL subscriptions allow clients to receive real-time updates from the server. Subscriptions use WebSockets or other transport protocols to establish a persistent connection between the client and the server, enabling real-time data synchronization.",
-					"code": "subscription {\n  newUser {\n    id,\n    name\n  }\n}"
-				},
-				{
-					"title": "Example Queries",
-					"description": "Here are some example questions and queries related to GraphQL:",
-					"code": "query {\n  user(id: '123') {\n    name,\n    email\n  }\n}\nmutation {\n  createUser(name: 'John', email: 'john@example.com') {\n    id,\n    name,\n    email\n  }\n}"
-				}
-			]
-		}
-	]
+    "collectionName": "apis",
+    "title": "Apis",
+    "icon": "",
+    "color": "B11C1E",
+    "highlighter": "js",
+    "groups": [
+        {
+            "title": "REST Basics",
+            "docs": [
+                {
+                    "title": "What is REST, and what does it stand for?",
+                    "description": "REST stands for Representational State Transfer. It is an architectural style for designing networked applications.",
+                    "code": "",
+                    "id": "5e836345-0858-4bbc-980b-8fc1b1639b6a"
+                },
+                {
+                    "title": "What are the key principles of RESTful architecture?",
+                    "description": "<ul><li>Stateless: Each request from a client to a server must contain all the information needed to understand and fulfill the request.</li><li>Client-Server: Separation of concerns between the client and the server.</li><li>Uniform Interface: A consistent and uniform way to interact with resources.</li><li>Layered System: Components are organized into layers, and each layer has a specific function.</li></ul>",
+                    "code": "",
+                    "id": "ad9a11f8-3339-43fe-8e8e-bae798d5ca75"
+                },
+                {
+                    "title": "What is an HTTP method, and what are the commonly used methods in REST?",
+                    "description": "HTTP methods are actions that can be performed on resources. Commonly used methods in REST are GET, POST, PUT, DELETE, PATCH, and more.",
+                    "code": "",
+                    "id": "c43e2e5f-c19c-4eba-9bb8-efc85f1e46ef"
+                },
+                {
+                    "title": "What is a resource in the context of REST?",
+                    "description": "A resource is any data or object that can be accessed via a URI (Uniform Resource Identifier). Resources are the fundamental concept in RESTful APIs.",
+                    "code": "",
+                    "id": "5d689473-b951-464a-9862-8d88d8a2ec2d"
+                },
+                {
+                    "title": "What is the purpose of HTTP status codes in RESTful APIs?",
+                    "description": "HTTP status codes indicate the result of an HTTP request. For example, 200 OK indicates success, 404 Not Found indicates the resource doesn't exist, and 500 Internal Server Error indicates a server-side issue.",
+                    "code": "",
+                    "id": "4c88bfdb-e56d-4b3d-af2a-2c04dbcf43f6"
+                },
+                {
+                    "title": "What is the difference between authentication and authorization in the context of RESTful APIs?",
+                    "description": "Authentication is the process of verifying the identity of a user or system, while authorization is the process of determining what actions a user or system is allowed to perform.",
+                    "code": "",
+                    "id": "a21bd391-1538-4c9c-9052-8a327624a87a"
+                },
+                {
+                    "title": "What is CORS, and why is it important in RESTful APIs?",
+                    "description": "CORS (Cross-Origin Resource Sharing) is a security feature that controls which domains can access resources on a web page. It's important in RESTful APIs to prevent unauthorized access from different origins.",
+                    "code": "",
+                    "id": "6004dcca-2f7d-48ab-b9d2-a32895b19948"
+                },
+                {
+                    "title": "What is the purpose of API versioning, and what are some common versioning strategies?",
+                    "description": "API versioning allows for changes in the API while maintaining backward compatibility. Common versioning strategies include using URL versioning (e.g., /v1/resource), custom request headers, or using content negotiation.",
+                    "code": "",
+                    "id": "65fac582-6327-4589-974a-b0d04a818ffa"
+                }
+            ]
+        },
+        {
+            "title": "REST HTTP Methods",
+            "docs": [
+                {
+                    "title": "GET",
+                    "description": "This method is used to retrieve data from the server (Get data). It should not have any side effects on the server's state, meaning it's a safe and idempotent operation.",
+                    "code": "fetch('/api/resource', { method: 'GET' })\n.then(response => response.json())\n.then(data => console.log(data))",
+                    "id": "f4fb97fa-c8a2-4abc-9559-fc807226fecc"
+                },
+                {
+                    "title": "POST",
+                    "description": "POST is used to submit data to be processed to a specified resource (Add data). It often results in the creation of a new resource on the server and may have side effects.",
+                    "code": "fetch('/api/resource', { method: 'POST', body: JSON.stringify({ key: 'value' }), headers: { 'Content-Type': 'application/json' } })\n.then(response => response.json())\n.then(data => console.log(data))",
+                    "id": "06225542-c5ad-4dc6-a603-37dec0f09207"
+                },
+                {
+                    "title": "PUT",
+                    "description": "PUT is used to update a resource or create it if it doesn't exist at the specified URI (Full update). It replaces the entire resource with the new representation provided.",
+                    "code": "fetch('/api/resource', { method: 'PUT', body: JSON.stringify({ key: 'new-value' }), headers: { 'Content-Type': 'application/json' } })\n.then(response => response.json())\n.then(data => console.log(data))",
+                    "id": "7b761be6-7441-464b-bff9-1966e01818b0"
+                },
+                {
+                    "title": "PATCH",
+                    "description": "PATCH is used to apply partial modifications to a resource (Partial update). It's typically used when you want to update a resource with only the changes provided in the request.",
+                    "code": "fetch('/api/resource', { method: 'PATCH', body: JSON.stringify({ key: 'updated-value' }), headers: { 'Content-Type': 'application/json' } })\n.then(response => response.json())\n.then(data => console.log(data))",
+                    "id": "32e7f804-caf8-4667-83bc-6ac879dc8941"
+                },
+                {
+                    "title": "DELETE",
+                    "description": "DELETE is used to remove a resource from the server (Remove data). It should be used to delete the resource at the specified URI.",
+                    "code": "fetch('/api/resource', { method: 'DELETE' })\n.then(response => response.json())\n.then(data => console.log(data))",
+                    "id": "a6cdc9a2-32d7-49eb-a63e-e444e01c5c09"
+                },
+                {
+                    "title": "OPTIONS",
+                    "description": "OPTIONS is used to describe the communication options for the target resource. It can be used to retrieve information about the communication options available for a resource, such as supported HTTP methods or CORS information.",
+                    "code": "",
+                    "id": "7e34e17e-fbe2-4d1f-9d20-5b08b9b208dd"
+                },
+                {
+                    "title": "HEAD",
+                    "description": "HEAD is similar to GET but requests the headers of the resource, not the actual data. It's often used to check the status of a resource without downloading its content.",
+                    "code": "",
+                    "id": "8bdb2d86-0d68-4a77-9392-89729600b5a4"
+                },
+                {
+                    "title": "CONNECT",
+                    "description": "CONNECT is typically used for establishing network connections to a resource. It's mainly used for HTTP tunneling through proxies.",
+                    "code": "",
+                    "id": "9b68a724-d0c7-4dff-be3f-3ca300b0be3d"
+                },
+                {
+                    "title": "TRACE",
+                    "description": "TRACE is used to retrieve diagnostic information about the server's processing of the request. It's not commonly used in practice and is often disabled for security reasons.",
+                    "code": "",
+                    "id": "7a94e91a-ad9d-4e10-bebc-0af60ff0b7e8"
+                }
+            ]
+        },
+        {
+            "title": "Websockets",
+            "docs": [
+                {
+                    "title": "What is it?",
+                    "description": "Websockets are a communication protocol that enables real-time, two-way communication between a client (like a web browser) and a server over a single, long-lived connection. They are often used in web applications where real-time updates, interactive features, or instant messaging are required.",
+                    "code": "",
+                    "id": "8709753c-186a-4990-b07d-8fe4c8684b82"
+                },
+                {
+                    "title": "Handshake",
+                    "description": "The process starts with an initial HTTP handshake between the client and the server, just like when you request a web page. This handshake is used to establish the WebSocket connection. The client sends a WebSocket handshake request, and if the server supports WebSockets, it responds with a WebSocket handshake response, upgrading the connection from HTTP to WebSocket.",
+                    "code": "",
+                    "id": "3902c835-92c5-4307-a026-8ed5cad1ef66"
+                },
+                {
+                    "title": "Persistent Connection",
+                    "description": "Unlike traditional HTTP, which is stateless and involves opening a new connection for each request, WebSockets maintain a persistent connection. This means that once the connection is established, both the client and server can send data to each other at any time without the overhead of repeatedly establishing new connections.",
+                    "code": "",
+                    "id": "2d769009-3cfa-468d-9439-a1764deed357"
+                },
+                {
+                    "title": "Bi-Directional Communication",
+                    "description": "WebSockets allow both the client and the server to send data to each other whenever they want. This is different from HTTP, where the client initiates requests and the server responds. With WebSockets, data can flow in both directions, enabling real-time updates.",
+                    "code": "",
+                    "id": "ecfd4960-3338-425e-a782-f645b65e00e9"
+                },
+                {
+                    "title": "WebSocket Messages",
+                    "description": "Data sent over a WebSocket connection is encapsulated into messages. Messages can be text or binary data. Each message can be sent as a whole or in smaller chunks for large payloads. The WebSocket protocol ensures that messages are properly framed and delivered reliably.",
+                    "code": "",
+                    "id": "226d7093-ca86-44dc-9449-4d6d8e8d74fb"
+                },
+                {
+                    "title": "Event Driven",
+                    "description": "WebSockets are event-driven. The client and server can define event handlers to process incoming messages or respond to specific events. This makes it easy to create interactive applications that react in real-time to user actions or data changes on the server.",
+                    "code": "",
+                    "id": "1f0c8140-2483-49b1-b80a-d3e321820dce"
+                },
+                {
+                    "title": "Closing the connection",
+                    "description": "Either the client or server can initiate the closure of the WebSocket connection when it's no longer needed. This is done through a closing handshake to ensure a graceful termination of the connection.",
+                    "code": "",
+                    "id": "737a0bb2-6342-4a85-96c5-04b919f06812"
+                },
+                {
+                    "title": "Pros",
+                    "description": "Either the client or server can initiate the closure of the WebSocket connection when it's no longer needed. This is done through a closing handshake to ensure a graceful termination of the connection.",
+                    "code": "",
+                    "id": "210e3de2-cef7-46a9-ac32-8a6ff2589f33"
+                },
+                {
+                    "title": "Server Setup Example (Socket.io)",
+                    "description": "We create a basic Express.js web server and an HTTP server.<br>Socket.IO is integrated with the Express server, allowing WebSocket communication.<br>We serve a simple HTML file (index.html) that will be used to interact with the WebSocket.",
+                    "code": "const http = require('http');\nconst express = require('express');\nconst socketIo = require('socket.io');\nconst app = express();\nconst server = http.createServer(app);const io = socketIo(server);\napp.get('/', (req, res) => {\n  res.sendFile(__dirname + '/index.html');\n});\nio.on('connection', (socket) => {\n  console.log('A user connected');\n  socket.on('chat message', (msg) => {\n    console.log(`Message: ${msg}`);\n    io.emit('chat message', msg);\n  });\n  socket.on('disconnect', () => {\n    console.log('A user disconnected');\n  });\n});\nserver.listen(3000, () => {\n  console.log('Server is running on http://localhost:3000');\n});",
+                    "id": "9cb52a6b-2d1b-476b-bb6e-fecb190e7eec"
+                },
+                {
+                    "title": "Client Setup Example",
+                    "description": "",
+                    "code": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Socket.IO Chat Example</title>\n  <script src=\"/socket.io/socket.io.js\"></script>\n  <script src=\"https://code.jquery.com/jquery-3.6.0.min.js\"></script>\n</head>\n<body>\n  <ul id=\"messages\"></ul>\n  <input id=\"message-input\" autocomplete=\"off\" /><button onclick=\"sendMessage()\">Send</button>\n  <script>\n    // Connect to the WebSocket server\n    const socket = io();\n\n    // Listen for incoming messages\n    socket.on('chat message', (msg) => {\n      const li = document.createElement('li');\n      li.textContent = msg;\n      document.getElementById('messages').appendChild(li);\n    });\n\n    // Function to send a message\n    function sendMessage() {\n      const message = document.getElementById('message-input').value;\n      socket.emit('chat message', message);\n      document.getElementById('message-input').value = '';\n    }\n  </script>\n</body>\n</html>",
+                    "id": "874bdd6c-c9bf-4542-b087-6e1a362096c0"
+                }
+            ]
+        },
+        {
+            "title": "GraphQL Basics",
+            "docs": [
+                {
+                    "title": "What is GraphQL?",
+                    "description": "GraphQL is a query language for APIs and a runtime environment for executing those queries with existing data. It provides a more efficient, powerful, and flexible alternative to REST.",
+                    "code": "type Query {\n  user(id: ID!): User\n}\ntype User {\n  id: ID,\n  name: String,\n  email: String\n}",
+                    "id": "20bfa9fd-2636-41a1-8d1b-f246f21b307d"
+                },
+                {
+                    "title": "How does GraphQL differ from REST?",
+                    "description": "GraphQL allows clients to request only the data they need, minimizing the over-fetching and under-fetching of data. It also enables real-time data updates using subscriptions, which REST doesn't provide out of the box.",
+                    "code": "query {\n  user(id: '123') {\n    name\n  }\n}",
+                    "id": "7e9fc847-e702-4ddb-a3ab-e9ad81f445b1"
+                },
+                {
+                    "title": "What are GraphQL Schemas and Types?",
+                    "description": "In GraphQL, a schema defines the structure of the data that clients can request. Types represent the different data structures available in the schema. GraphQL schemas are strongly typed and introspective.",
+                    "code": "type Query {\n  user(id: ID!): User\n}\ntype User {\n  id: ID,\n  name: String,\n  email: String\n}",
+                    "id": "8df8b68b-2967-4675-ab53-b46c1c7cc619"
+                },
+                {
+                    "title": "How are Queries and Mutations used in GraphQL?",
+                    "description": "Queries in GraphQL are used to read or fetch data, while mutations are used to modify data on the server. Queries and mutations are written in a similar way, allowing clients to specify the exact shape of the response data.",
+                    "code": "query {\n  user(id: '123') {\n    name\n  }\n}\nmutation {\n  updateUser(id: '123', name: 'New Name') {\n    id,\n    name\n  }\n}",
+                    "id": "12666619-f409-4a4d-aa16-733753741f81"
+                },
+                {
+                    "title": "What are GraphQL Fragments?",
+                    "description": "Fragments in GraphQL allow you to define reusable units of fields and include them in multiple queries. Fragments improve query readability, maintainability, and reduce duplication in GraphQL queries.",
+                    "code": "fragment UserInfo on User {\n  id,\n  name,\n  email\n}\nquery {\n  user1: user(id: '123') {\n    ...UserInfo\n  }\n  user2: user(id: '456') {\n    ...UserInfo\n  }\n}",
+                    "id": "dbcc16c5-9584-435d-85ca-80303273c4d6"
+                },
+                {
+                    "title": "What is GraphQL Introspection?",
+                    "description": "GraphQL introspection is a powerful feature that enables clients to discover the schema's types and their relationships. It allows tools like GraphQL IDEs and documentation generators to provide rich development experiences.",
+                    "code": "__schema {\n  types {\n    name,\n    fields {\n      name,\n      type {\n        name\n      }\n    }\n  }\n}",
+                    "id": "eb2cc969-e3bd-464e-a624-8c384a126749"
+                },
+                {
+                    "title": "How does GraphQL handle N+1 query problem?",
+                    "description": "GraphQL clients can specify the exact data they need, eliminating the N+1 query problem often found in REST APIs. Clients can request all necessary data in a single query, reducing the number of requests to the server.",
+                    "code": "query {\n  users {\n    name,\n    posts {\n      title\n    }\n  }\n}",
+                    "id": "023fbed9-4a7e-487d-b112-5cfba11077f8"
+                },
+                {
+                    "title": "What are GraphQL Subscriptions?",
+                    "description": "GraphQL subscriptions allow clients to receive real-time updates from the server. Subscriptions use WebSockets or other transport protocols to establish a persistent connection between the client and the server, enabling real-time data synchronization.",
+                    "code": "subscription {\n  newUser {\n    id,\n    name\n  }\n}",
+                    "id": "9297033d-5f3b-4c1c-9c6a-cc6d36623c2e"
+                },
+                {
+                    "title": "Example Queries",
+                    "description": "Here are some example questions and queries related to GraphQL:",
+                    "code": "query {\n  user(id: '123') {\n    name,\n    email\n  }\n}\nmutation {\n  createUser(name: 'John', email: 'john@example.com') {\n    id,\n    name,\n    email\n  }\n}",
+                    "id": "ccb49761-9fc6-4bed-8686-ae0173416b77"
+                }
+            ]
+        }
+    ]
 }

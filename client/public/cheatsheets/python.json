@@ -1,24 +1,26 @@
 {
-	"collectionName": "pythonCheatsheet",
-	"title": "Python",
-	"icon": "https://api.iconify.design/logos:python.svg",
-	"color": "3772A3",
-	"highlighter": "bash",
-	"groups": [
+    "collectionName": "pythonCheatsheet",
+    "title": "Python",
+    "icon": "https://api.iconify.design/logos:python.svg",
+    "color": "3772A3",
+    "highlighter": "bash",
+    "groups": [
         {
-			"title": "Basics",
-			"docs": [
+            "title": "Basics",
+            "docs": [
                 {
                     "title": "Virtual Environment",
                     "description": "A virtual environment in Python is a self-contained directory that encapsulates a specific Python interpreter and a set of libraries or packages. It allows you to create isolated environments for different Python projects, each with its own dependencies, without interfering with the global Python environment or other projects. ",
-                    "code": "# Create a new virtual environment\npython -m venv /path/to/virtualenv\n\n# Enable the virtual environment\nsource /path/to/virtualenv/bin/activate\n\n# Install packages if applicable\npip install -r requirements.txt\n\n# Disable the virtual environment\ndeactivate\n"
+                    "code": "# Create a new virtual environment\npython -m venv /path/to/virtualenv\n\n# Enable the virtual environment\nsource /path/to/virtualenv/bin/activate\n\n# Install packages if applicable\npip install -r requirements.txt\n\n# Disable the virtual environment\ndeactivate\n",
+                    "id": "5c9c7818-0af9-481a-85e7-6c4f9a14cc19"
                 },
                 {
                     "title": "Requirements.txt",
                     "description": "The requirements.txt file contains a list of packages that are required to run the project. The list",
-                    "code": "# Generate on your virtual environment\npip freeze > requirements.txt"
+                    "code": "# Generate on your virtual environment\npip freeze > requirements.txt",
+                    "id": "456d546b-390e-4c96-973c-f544270155dc"
                 }
             ]
         }
-	]
+    ]
 }

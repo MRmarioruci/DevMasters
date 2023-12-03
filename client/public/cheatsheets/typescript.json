@@ -1,344 +1,400 @@
 {
-	"collectionName": "typescript",
-	"title": "Typescript",
-	"icon": "https://api.iconify.design/logos:typescript-icon.svg",
-	"color": "3178C6",
-	"highlighter": "ts",
-	"groups": [
-		{
-			"title": "Basics",
-			"docs": [
-				{
-					"title": "What is TypeScript",
-					"description": "TypeScript is a superset of JavaScript that adds static types to the language. It allows developers to write more predictable and maintainable code by catching errors at compile-time rather than runtime. TypeScript code is transpiled to JavaScript, making it compatible with all JavaScript environments.",
-					"code": ""
-				},
-				{
-					"title": "Strong Typing",
-					"description": "TypeScript enforces strong typing, meaning that variables, parameters, and return values must have specific data types. This helps prevent unexpected behaviors and errors in the code. Strong typing also improves code readability and provides better editor support, such as autocompletion and type checking.",
-					"code": ""
-				},
-				{
-					"title": "Static vs. Dynamic Typing",
-					"description": "In TypeScript, types are checked at compile-time, which is known as static typing. This means that type errors are caught before the code is executed. In contrast, dynamic typing in languages like JavaScript checks types at runtime, potentially leading to errors during program execution.",
-					"code": ""
-				},
-				{
-					"title": "Type Annotations",
-					"description": "Type annotations in TypeScript are used to explicitly specify the data type of a variable, parameter, or return value. For example, 'let age: number = 30;' declares a variable 'age' of type 'number'. Type annotations enhance code clarity and enable the TypeScript compiler to catch type-related errors.",
-					"code": ""
-				},
-				{
-					"title": "Type Inference",
-					"description": "TypeScript has a powerful type inference system that automatically deduces the data type of a variable if it is not explicitly specified. This means developers can write concise code without necessarily specifying types everywhere. For example, 'let name = \"John\";' will infer the type of 'name' as 'string'.",
-					"code": ""
-				},
-				{
-					"title": "TypeScript vs. JavaScript",
-					"description": "While JavaScript is a dynamically typed language, TypeScript offers static typing, allowing developers to catch type-related errors during development. TypeScript code is transpiled to JavaScript, making it compatible with all JavaScript environments. TypeScript also supports the latest ECMAScript features, providing developers with modern language features.",
-					"code": ""
-				},
-				{
-					"title": "Benefits of Using TypeScript",
-					"description": "Using TypeScript offers several benefits, including improved code quality due to static typing, enhanced code readability, better editor support with features like autocompletion and refactoring, and early error detection. TypeScript also facilitates easier maintenance of large codebases and provides excellent tooling and community support.",
-					"code": ""
-				},
-				{
-					"title": "Setting Up TypeScript",
-					"description": "To start using TypeScript, developers need to install it globally or locally in their project. They can create a 'tsconfig.json' file to configure TypeScript options, such as target ECMAScript version, module system, and output directory. TypeScript can be compiled using the 'tsc' command, generating JavaScript files from the TypeScript source code.",
-					"code": ""
-				}
-			]
-		},
-		{
-			"title": "Basic Types",
-			"docs": [
-				{
-					"title": "Boolean",
-					"description": "Represents a true or false value.",
-					"code": "let isDone: boolean = true;\nlet isEnabled: boolean = false;"
-				},
-				{
-					"title": "Number",
-					"description": "Represents numeric values.",
-					"code": "let decimal: number = 6;\nlet hex: number = 0xf00d;\nlet binary: number = 0b1010;\nlet octal: number = 0o744;"
-				},
-				{
-					"title": "String",
-					"description": "Represents textual data.",
-					"code": "let firstName: string = 'John';\nlet greeting: string = `Hello, ${firstName}!`;"
-				},
-				{
-					"title": "Array",
-					"description": "Represents a list of values.",
-					"code": "let numbers: number[] = [1, 2, 3];\nlet names: string[] = ['Alice', 'Bob', 'Charlie'];"
-				},
-				{
-					"title": "Tuple",
-					"description": "Represents an array with fixed-length and specific element types.",
-					"code": "let tuple: [string, number] = ['John', 30];"
-				},
-				{
-					"title": "Enum",
-					"description": "A way to give more friendly names to sets of numeric values.",
-					"code": "enum Color {\n    Red,\n    Green,\n    Blue\n}\nlet selectedColor: Color = Color.Green;"
-				},
-				{
-					"title": "Any",
-					"description": "Represents any data type, allowing for dynamic behavior.",
-					"code": "let variable: any = 10;\nvariable = 'Hello';\nvariable = true;"
-				},
-				{
-					"title": "Void",
-					"description": "Represents absence of any type. Typically used as the return type of functions that do not return a value.",
-					"code": "function logMessage(): void {\n    console.log('Hello, World!');\n}"
-				},
-				{
-					"title": "Null and Undefined",
-					"description": "Have their own types 'null' and 'undefined', respectively.",
-					"code": "let nullValue: null = null;\nlet undefinedValue: undefined = undefined;"
-				},
-				{
-					"title": "Never",
-					"description": "Represents the type of values that never occur.",
-					"code": "function throwError(message: string): never {\n    throw new Error(message);\n}"
-				}
-			]
-		},
-		{
-			"title": "Type Annotations and Inference",
-			"docs": [
-				{
-					"title": "Type Annotations",
-					"description": "Explicitly specify the data type of a variable, parameter, or return value.",
-					"code": "let age: number = 30;\nfunction greet(name: string): void {\n    console.log(`Hello, ${name}!`);\n}"
-				},
-				{
-					"title": "Type Inference",
-					"description": "Automatically deduce the data type based on the value assigned.",
-					"code": "let name = 'Alice';\nlet count = 42;\nlet isEnabled = true;\nfunction add(a: number, b: number) {\n    return a + b;\n}"
-				},
-				{
-					"title": "Type Aliases",
-					"description": "Create a new name for a type, making the code more readable.",
-					"code": "type Point = { x: number; y: number };\nlet p: Point = { x: 10, y: 20 };"
-				},
-				{
-					"title": "Intersection Types",
-					"description": "Combine multiple types into one, containing all properties of the merged types.",
-					"code": "type Person = { name: string };\ntype Employee = { job: string };\ntype Worker = Person & Employee;\nlet worker: Worker = { name: 'Alice', job: 'Developer' };"
-				}
-			]
-		},		
-		{
-			"title": "Advanced Types",
-			"docs": [
-				{
-					"title": "Union Types",
-					"description": "Combine multiple types into one, allowing flexibility in variable or parameter types.",
-					"code": "let result: number | string;\nresult = 10;\nresult = 'Hello';"
-				},
-				{
-					"title": "Intersection Types",
-					"description": "Combine multiple types into one, containing all properties of the merged types.",
-					"code": "type Person = { name: string };\ntype Employee = { job: string };\ntype Worker = Person & Employee;\nlet worker: Worker = { name: 'Alice', job: 'Developer' };"
-				},
-				{
-					"title": "Type Guards",
-					"description": "Narrow down the type of a variable within a specific block of code.",
-					"code": "function printId(id: number | string) {\n    if (typeof id === 'string') {\n        console.log(`ID is a string: ${id}`);\n    } else {\n        console.log(`ID is a number: ${id}`);\n    }\n}"
-				},
-				{
-					"title": "Typeof Type Guards",
-					"description": "Narrow down the type of a variable using the 'typeof' operator.",
-					"code": "function printMessage(message: any) {\n    if (typeof message === 'string') {\n        console.log(`Message is a string: ${message.toUpperCase()}`);\n    } else {\n        console.log('Message is not a string.');\n    }\n}"
-				},
-				{
-					"title": "Instanceof Type Guards",
-					"description": "Check if an object is an instance of a specific class or constructor function.",
-					"code": "class Car {\n    drive() {\n        console.log('Driving a car');\n    }\n}\nlet vehicle: Car = new Car();\nif (vehicle instanceof Car) {\n    vehicle.drive();\n}"
-				},
-				{
-					"title": "Mapped Types",
-					"description": "Create new types by transforming each property of an existing type.",
-					"code": "type Person = { name: string; age: number };\ntype PartialPerson = { [K in keyof Person]?: Person[K] };\nlet partialPerson: PartialPerson = { name: 'Bob' };\n"
-				},
-				{
-					"title": "Generics",
-					"description": "Create reusable components that work with a variety of types.",
-					"code": "function identity<T>(arg: T): T {\n    return arg;\n}\n\nlet result: number = identity(5);\n"
-				}
-			]
-		},
-		{
-			"title": "Interfaces and Classes",
-			"docs": [
-				{
-					"title": "Interfaces",
-					"description": "Define the structure of an object, allowing you to specify the types of its properties and methods.",
-					"code": "interface Person {\n    name: string;\n    age: number;\n    greet(): void;\n}\nlet person: Person = {\n    name: 'Alice',\n    age: 30,\n    greet() {\n        console.log(`Hello, ${this.name}!`);\n    }\n};"
-				},
-				{
-					"title": "Class Declaration",
-					"description": "Define a blueprint for creating objects with a constructor and methods.",
-					"code": "class Animal {\n    constructor(public name: string) {}\n    makeSound() {\n        console.log('Some sound');\n    }\n}\nlet dog: Animal = new Animal('Dog');\ndog.makeSound();"
-				},
-				{
-					"title": "Inheritance",
-					"description": "Create a new class based on an existing class, inheriting its properties and methods.",
-					"code": "class Bird extends Animal {\n    fly() {\n        console.log('Bird is flying');\n    }\n}\nlet sparrow: Bird = new Bird('Sparrow');\nsparrow.makeSound();\nsparrow.fly();"
-				},
-				{
-					"title": "Implements",
-					"description": "Implement an interface in a class, ensuring that the class adheres to the interface's structure.",
-					"code": "interface CanFly {\n    fly(): void;\n}\nclass Plane implements CanFly {\n    fly() {\n        console.log('Plane is flying');\n    }\n}\nlet jet: CanFly = new Plane();\njet.fly();"
-				}
-			]
-		},
-		{
-			"title": "Generics",
-			"docs": [
-				{
-					"title": "Generic Functions",
-					"description": "Write functions that work with multiple data types without sacrificing type safety.",
-					"code": "function identity<T>(arg: T): T {\n    return arg;\n}\nlet result: number = identity<number>(42);\nlet name: string = identity<string>('Alice');"
-				},
-				{
-					"title": "Generic Classes",
-					"description": "Create classes with properties and methods that work with a variety of data types.",
-					"code": "class Box<T> {\n    private value: T;\n    constructor(value: T) {\n        this.value = value;\n    }\n    getValue(): T {\n        return this.value;\n    }\n}\nlet numberBox: Box<number> = new Box<number>(42);\nlet stringBox: Box<string> = new Box<string>('Hello');"
-				},
-				{
-					"title": "Generic Constraints",
-					"description": "Restrict the types that can be used with generics based on their properties or methods.",
-					"code": "interface Printable {\n    print(): void;\n}\nfunction printItem<T extends Printable>(item: T): void {\n    item.print();\n}\nclass Book implements Printable {\n    print() {\n        console.log('Printing a book');\n    }\n}\nlet book: Book = new Book();\nprintItem(book);"
-				},
-				{
-					"title": "Generic Utility Types",
-					"description": "Use predefined generic utility types to manipulate and transform types.",
-					"code": "type Partial<T> = { [P in keyof T]?: T[P] };\ntype Person = { name: string; age: number };\nlet partialPerson: Partial<Person> = { name: 'Bob' };"
-				}
-			]
-		},
-		{
-			"title": "Functions",
-			"docs": [
-				{
-					"title": "Function Declaration",
-					"description": "Create a named function with specified parameters and return type.",
-					"code": "function add(a: number, b: number): number {\n    return a + b;\n}"
-				},
-				{
-					"title": "Function Expressions",
-					"description": "Assign a function to a variable, allowing functions to be treated as values.",
-					"code": "let subtract = function(a: number, b: number): number {\n    return a - b;\n};"
-				},
-				{
-					"title": "Arrow Functions",
-					"description": "Create concise anonymous functions using the arrow syntax.",
-					"code": "let multiply = (a: number, b: number): number => a * b;"
-				},
-				{
-					"title": "Optional and Default Parameters",
-					"description": "Specify optional parameters with '?' and default values with '='.",
-					"code": "function greet(name: string, greeting: string = 'Hello'): void {\n    console.log(`${greeting}, ${name}!`);\n}\ngreet('Alice');\ngreet('Bob', 'Hi');"
-				},
-				{
-					"title": "Rest Parameters",
-					"description": "Capture multiple arguments into a single parameter.",
-					"code": "function sum(...numbers: number[]): number {\n    return numbers.reduce((acc, num) => acc + num, 0);\n}\nlet total: number = sum(1, 2, 3, 4, 5);"
-				},
-				{
-					"title": "Function Overloads",
-					"description": "Define multiple function signatures for the same function name.",
-					"code": "function process(input: string): string;\nfunction process(input: number): number;\nfunction process(input: any): any {\n    // Implementation goes here\n    return input;\n}"
-				}
-			]
-		},
-		{
-			"title": "Async Programming",
-			"docs": [
-				{
-					"title": "Promises",
-					"description": "Handle asynchronous operations by using promises, which represent a value that might be available now, or in the future, or never.",
-					"code": "function fetchData(): Promise<string> {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            resolve('Data fetched successfully');\n        }, 2000);\n    });\n}\n\nfetchData().then(data => {\n    console.log(data);\n}).catch(error => {\n    console.error(error);\n});"
-				},
-				{
-					"title": "Async/Await",
-					"description": "Simplify working with asynchronous code using the async/await syntax.",
-					"code": "async function fetchData(): Promise<string> {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            resolve('Data fetched successfully');\n        }, 2000);\n    });\n}\n\nasync function fetchDataWrapper() {\n    try {\n        let data = await fetchData();\n        console.log(data);\n    } catch (error) {\n        console.error(error);\n    }\n}\n\nfetchDataWrapper();"
-				},
-				{
-					"title": "Async Functions",
-					"description": "Declare functions as asynchronous, allowing the use of the 'await' keyword inside them.",
-					"code": "async function process(): Promise<void> {\n    let result = await fetchData();\n    console.log(result);\n}"
-				},
-				{
-					"title": "Error Handling",
-					"description": "Handle errors in asynchronous code using try-catch blocks.",
-					"code": "async function fetchData(): Promise<string> {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            reject('Error: Unable to fetch data');\n        }, 2000);\n    });\n}\n\nasync function fetchDataWrapper() {\n    try {\n        let data = await fetchData();\n        console.log(data);\n    } catch (error) {\n        console.error(error);\n    }\n}\n\nfetchDataWrapper();"
-				}
-			]
-		},
-		{
-			"title": "Modules & Namespaces",
-			"docs": [
-				{
-					"title": "Export and Import Statements",
-					"description": "Share code between files using export and import statements.",
-					"code": "export function greet(name: string): string {\n    return `Hello, ${name}!`;\n}\n\n// In another file:\nimport { greet } from './greeting';\nlet message: string = greet('Alice');\nconsole.log(message);"
-				},
-				{
-					"title": "Default Exports",
-					"description": "Export a single value as the default export from a module.",
-					"code": "// greeting.ts\nexport default function greet(name: string): string {\n    return `Hello, ${name}!`;\n}\n\n// In another file:\nimport greet from './greeting';\nlet message: string = greet('Bob');\nconsole.log(message);"
-				},
-				{
-					"title": "Namespace Declaration",
-					"description": "Organize code into logical groups using namespaces.",
-					"code": "// utilities.ts\nnamespace MathOperations {\n    export function add(a: number, b: number): number {\n        return a + b;\n    }\n}\n\n// In another file:\n/// <reference path='./utilities.ts' />\nlet sum: number = MathOperations.add(5, 10);"
-				},
-				{
-					"title": "Triple-Slash Directives",
-					"description": "Reference other files and dependencies using triple-slash directives.",
-					"code": "// In a TypeScript file:\n/// <reference path='path/to/another/file.ts' />\nimport { SomeClass } from 'external-library';"
-				}
-			]
-		},
-		{
-			"title": "Decorators",
-			"docs": [
-				{
-					"title": "Class Decorators",
-					"description": "Modify or replace class definitions.",
-					"code": "@sealed\nclass Greeter {\n    greeting: string;\n    constructor(message: string) {\n        this.greeting = message;\n    }\n}\n\nfunction sealed(constructor: Function) {\n    Object.seal(constructor);\n    Object.seal(constructor.prototype);\n}"
-				},
-				{
-					"title": "Method Decorators",
-					"description": "Modify or replace methods within a class.",
-					"code": "class Greeter {\n    @log\n    greet(message: string) {\n        console.log(`Hello, ${message}!`);\n    }\n}\n\nfunction log(target: any, key: string, descriptor: PropertyDescriptor) {\n    let originalMethod = descriptor.value;\n    descriptor.value = function(...args: any[]) {\n        console.log(`Calling method with arguments: ${args}`);\n        return originalMethod.apply(this, args);\n    };\n    return descriptor;\n}"
-				},
-				{
-					"title": "Property Decorators",
-					"description": "Modify or replace properties within a class.",
-					"code": "class Person {\n    @validate\n    name: string;\n}\n\nfunction validate(target: any, key: string) {\n    let value = target[key];\n    Object.defineProperty(target, key, {\n        get: () => value,\n        set: (newValue: string) => {\n            if (newValue.length < 3) {\n                throw new Error('Name must be at least 3 characters long');\n            }\n            value = newValue;\n        },\n        enumerable: true,\n        configurable: true\n    });\n}"
-				}
-			]
-		},
-		{
-			"title": "Testing",
-			"docs": [
-				{
-					"title": "Unit Testing with Jest",
-					"description": "Write unit tests for TypeScript code using Jest testing framework.",
-					"code": "// greeting.ts\nexport function greet(name: string): string {\n    return `Hello, ${name}!`;\n}\n\n// greeting.test.ts\nimport { greet } from './greeting';\n\ntest('greet function', () => {\n    const greeting = greet('Alice');\n    expect(greeting).toBe('Hello, Alice!');\n});"
-				},
-				{
-					"title": "Mocking Dependencies with Jest",
-					"description": "Mock external dependencies to isolate unit tests.",
-					"code": "// user.ts\nimport axios from 'axios';\n\nexport async function getUserInfo(userId: number): Promise<string> {\n    const response = await axios.get(`/api/users/${userId}`);\n    return response.data.name;\n}\n\n// user.test.ts\nimport axios from 'axios';\nimport { getUserInfo } from './user';\n\ndescribe('getUserInfo', () => {\n    test('fetches successfully data from an API', async () => {\n        const mockedAxios = axios as jest.Mocked<typeof axios>;\n        mockedAxios.get.mockResolvedValue({ data: { name: 'Alice' } });\n\n        const userInfo = await getUserInfo(1);\n        expect(userInfo).toBe('Alice');\n    });\n});"
-				}
-			]
-		}
-	]
+    "collectionName": "typescript",
+    "title": "Typescript",
+    "icon": "https://api.iconify.design/logos:typescript-icon.svg",
+    "color": "3178C6",
+    "highlighter": "ts",
+    "groups": [
+        {
+            "title": "Basics",
+            "docs": [
+                {
+                    "title": "What is TypeScript",
+                    "description": "TypeScript is a superset of JavaScript that adds static types to the language. It allows developers to write more predictable and maintainable code by catching errors at compile-time rather than runtime. TypeScript code is transpiled to JavaScript, making it compatible with all JavaScript environments.",
+                    "code": "",
+                    "id": "b84328cf-7f7c-4c2d-a545-4a2e28076ca9"
+                },
+                {
+                    "title": "Strong Typing",
+                    "description": "TypeScript enforces strong typing, meaning that variables, parameters, and return values must have specific data types. This helps prevent unexpected behaviors and errors in the code. Strong typing also improves code readability and provides better editor support, such as autocompletion and type checking.",
+                    "code": "",
+                    "id": "266a2422-7b53-4f7e-a15d-4832e3533fa2"
+                },
+                {
+                    "title": "Static vs. Dynamic Typing",
+                    "description": "In TypeScript, types are checked at compile-time, which is known as static typing. This means that type errors are caught before the code is executed. In contrast, dynamic typing in languages like JavaScript checks types at runtime, potentially leading to errors during program execution.",
+                    "code": "",
+                    "id": "ddf1aaef-cdf3-4ca4-8094-2642b8122cf6"
+                },
+                {
+                    "title": "Type Annotations",
+                    "description": "Type annotations in TypeScript are used to explicitly specify the data type of a variable, parameter, or return value. For example, 'let age: number = 30;' declares a variable 'age' of type 'number'. Type annotations enhance code clarity and enable the TypeScript compiler to catch type-related errors.",
+                    "code": "",
+                    "id": "0bbd069e-6a69-4079-80e9-676c78cf54fc"
+                },
+                {
+                    "title": "Type Inference",
+                    "description": "TypeScript has a powerful type inference system that automatically deduces the data type of a variable if it is not explicitly specified. This means developers can write concise code without necessarily specifying types everywhere. For example, 'let name = \"John\";' will infer the type of 'name' as 'string'.",
+                    "code": "",
+                    "id": "e2fd93d6-4711-46ff-a7ee-45d5974745ec"
+                },
+                {
+                    "title": "TypeScript vs. JavaScript",
+                    "description": "While JavaScript is a dynamically typed language, TypeScript offers static typing, allowing developers to catch type-related errors during development. TypeScript code is transpiled to JavaScript, making it compatible with all JavaScript environments. TypeScript also supports the latest ECMAScript features, providing developers with modern language features.",
+                    "code": "",
+                    "id": "5fcf185a-c60f-45ae-a3f6-b213e7db8dd5"
+                },
+                {
+                    "title": "Benefits of Using TypeScript",
+                    "description": "Using TypeScript offers several benefits, including improved code quality due to static typing, enhanced code readability, better editor support with features like autocompletion and refactoring, and early error detection. TypeScript also facilitates easier maintenance of large codebases and provides excellent tooling and community support.",
+                    "code": "",
+                    "id": "69525a5f-086f-4980-9615-26c82e5ec96e"
+                },
+                {
+                    "title": "Setting Up TypeScript",
+                    "description": "To start using TypeScript, developers need to install it globally or locally in their project. They can create a 'tsconfig.json' file to configure TypeScript options, such as target ECMAScript version, module system, and output directory. TypeScript can be compiled using the 'tsc' command, generating JavaScript files from the TypeScript source code.",
+                    "code": "",
+                    "id": "0f360ca4-bd99-4e0e-8cd0-95f550a09937"
+                }
+            ]
+        },
+        {
+            "title": "Basic Types",
+            "docs": [
+                {
+                    "title": "Boolean",
+                    "description": "Represents a true or false value.",
+                    "code": "let isDone: boolean = true;\nlet isEnabled: boolean = false;",
+                    "id": "dbcfb440-c848-4cbb-88d4-8390c503366b"
+                },
+                {
+                    "title": "Number",
+                    "description": "Represents numeric values.",
+                    "code": "let decimal: number = 6;\nlet hex: number = 0xf00d;\nlet binary: number = 0b1010;\nlet octal: number = 0o744;",
+                    "id": "1becad85-54fd-4d9b-bf74-1895696ac862"
+                },
+                {
+                    "title": "String",
+                    "description": "Represents textual data.",
+                    "code": "let firstName: string = 'John';\nlet greeting: string = `Hello, ${firstName}!`;",
+                    "id": "5027a249-8a7f-4e14-9996-6db59685190d"
+                },
+                {
+                    "title": "Array",
+                    "description": "Represents a list of values.",
+                    "code": "let numbers: number[] = [1, 2, 3];\nlet names: string[] = ['Alice', 'Bob', 'Charlie'];",
+                    "id": "38e13929-5bd7-4fbe-b40c-21c3d134908c"
+                },
+                {
+                    "title": "Tuple",
+                    "description": "Represents an array with fixed-length and specific element types.",
+                    "code": "let tuple: [string, number] = ['John', 30];",
+                    "id": "1a110a11-5e65-49d6-8eea-6706d708954d"
+                },
+                {
+                    "title": "Enum",
+                    "description": "A way to give more friendly names to sets of numeric values.",
+                    "code": "enum Color {\n    Red,\n    Green,\n    Blue\n}\nlet selectedColor: Color = Color.Green;",
+                    "id": "31d4b504-6019-4057-93e0-06ad39d8412e"
+                },
+                {
+                    "title": "Any",
+                    "description": "Represents any data type, allowing for dynamic behavior.",
+                    "code": "let variable: any = 10;\nvariable = 'Hello';\nvariable = true;",
+                    "id": "b53ca908-95a2-4e14-9daf-8bbb178ec69b"
+                },
+                {
+                    "title": "Void",
+                    "description": "Represents absence of any type. Typically used as the return type of functions that do not return a value.",
+                    "code": "function logMessage(): void {\n    console.log('Hello, World!');\n}",
+                    "id": "2793428a-6ba6-43e5-84a4-c72f9042c326"
+                },
+                {
+                    "title": "Null and Undefined",
+                    "description": "Have their own types 'null' and 'undefined', respectively.",
+                    "code": "let nullValue: null = null;\nlet undefinedValue: undefined = undefined;",
+                    "id": "4d07cdca-e787-44dd-bda2-d0085e926c30"
+                },
+                {
+                    "title": "Never",
+                    "description": "Represents the type of values that never occur.",
+                    "code": "function throwError(message: string): never {\n    throw new Error(message);\n}",
+                    "id": "85610bd6-6bc9-4a09-befd-d313fef24589"
+                }
+            ]
+        },
+        {
+            "title": "Type Annotations and Inference",
+            "docs": [
+                {
+                    "title": "Type Annotations",
+                    "description": "Explicitly specify the data type of a variable, parameter, or return value.",
+                    "code": "let age: number = 30;\nfunction greet(name: string): void {\n    console.log(`Hello, ${name}!`);\n}",
+                    "id": "769b9b7d-a410-40f2-9fba-d5a0167e7423"
+                },
+                {
+                    "title": "Type Inference",
+                    "description": "Automatically deduce the data type based on the value assigned.",
+                    "code": "let name = 'Alice';\nlet count = 42;\nlet isEnabled = true;\nfunction add(a: number, b: number) {\n    return a + b;\n}",
+                    "id": "8b8d011f-372f-4ff3-b8aa-ea935b2d1b3e"
+                },
+                {
+                    "title": "Type Aliases",
+                    "description": "Create a new name for a type, making the code more readable.",
+                    "code": "type Point = { x: number; y: number };\nlet p: Point = { x: 10, y: 20 };",
+                    "id": "90dc5646-e086-46e0-9c3a-4fc8924aebc0"
+                },
+                {
+                    "title": "Intersection Types",
+                    "description": "Combine multiple types into one, containing all properties of the merged types.",
+                    "code": "type Person = { name: string };\ntype Employee = { job: string };\ntype Worker = Person & Employee;\nlet worker: Worker = { name: 'Alice', job: 'Developer' };",
+                    "id": "c87b01ad-293f-4abb-b833-6f6800797cb2"
+                }
+            ]
+        },
+        {
+            "title": "Advanced Types",
+            "docs": [
+                {
+                    "title": "Union Types",
+                    "description": "Combine multiple types into one, allowing flexibility in variable or parameter types.",
+                    "code": "let result: number | string;\nresult = 10;\nresult = 'Hello';",
+                    "id": "3c7ddc13-8bbf-4572-a580-a5d78a7cd4aa"
+                },
+                {
+                    "title": "Intersection Types",
+                    "description": "Combine multiple types into one, containing all properties of the merged types.",
+                    "code": "type Person = { name: string };\ntype Employee = { job: string };\ntype Worker = Person & Employee;\nlet worker: Worker = { name: 'Alice', job: 'Developer' };",
+                    "id": "d0a7ce88-bc91-4932-81c6-6338317f4820"
+                },
+                {
+                    "title": "Type Guards",
+                    "description": "Narrow down the type of a variable within a specific block of code.",
+                    "code": "function printId(id: number | string) {\n    if (typeof id === 'string') {\n        console.log(`ID is a string: ${id}`);\n    } else {\n        console.log(`ID is a number: ${id}`);\n    }\n}",
+                    "id": "9ac5077b-ece5-479b-ab06-5d06f51dd418"
+                },
+                {
+                    "title": "Typeof Type Guards",
+                    "description": "Narrow down the type of a variable using the 'typeof' operator.",
+                    "code": "function printMessage(message: any) {\n    if (typeof message === 'string') {\n        console.log(`Message is a string: ${message.toUpperCase()}`);\n    } else {\n        console.log('Message is not a string.');\n    }\n}",
+                    "id": "a0a710cc-b642-447e-9f31-21bfe9507eac"
+                },
+                {
+                    "title": "Instanceof Type Guards",
+                    "description": "Check if an object is an instance of a specific class or constructor function.",
+                    "code": "class Car {\n    drive() {\n        console.log('Driving a car');\n    }\n}\nlet vehicle: Car = new Car();\nif (vehicle instanceof Car) {\n    vehicle.drive();\n}",
+                    "id": "41888ad0-b45d-422b-ab68-40b951c62ad1"
+                },
+                {
+                    "title": "Mapped Types",
+                    "description": "Create new types by transforming each property of an existing type.",
+                    "code": "type Person = { name: string; age: number };\ntype PartialPerson = { [K in keyof Person]?: Person[K] };\nlet partialPerson: PartialPerson = { name: 'Bob' };\n",
+                    "id": "d49c3ac3-84d9-49f4-aa8b-8ae52bb90886"
+                },
+                {
+                    "title": "Generics",
+                    "description": "Create reusable components that work with a variety of types.",
+                    "code": "function identity<T>(arg: T): T {\n    return arg;\n}\n\nlet result: number = identity(5);\n",
+                    "id": "85928180-9bbe-419d-b714-07137638e889"
+                }
+            ]
+        },
+        {
+            "title": "Interfaces and Classes",
+            "docs": [
+                {
+                    "title": "Interfaces",
+                    "description": "Define the structure of an object, allowing you to specify the types of its properties and methods.",
+                    "code": "interface Person {\n    name: string;\n    age: number;\n    greet(): void;\n}\nlet person: Person = {\n    name: 'Alice',\n    age: 30,\n    greet() {\n        console.log(`Hello, ${this.name}!`);\n    }\n};",
+                    "id": "4013755c-52e5-499b-95f0-220a2d9d09fa"
+                },
+                {
+                    "title": "Class Declaration",
+                    "description": "Define a blueprint for creating objects with a constructor and methods.",
+                    "code": "class Animal {\n    constructor(public name: string) {}\n    makeSound() {\n        console.log('Some sound');\n    }\n}\nlet dog: Animal = new Animal('Dog');\ndog.makeSound();",
+                    "id": "84378d14-c24e-4de7-aac6-d78f3b002b23"
+                },
+                {
+                    "title": "Inheritance",
+                    "description": "Create a new class based on an existing class, inheriting its properties and methods.",
+                    "code": "class Bird extends Animal {\n    fly() {\n        console.log('Bird is flying');\n    }\n}\nlet sparrow: Bird = new Bird('Sparrow');\nsparrow.makeSound();\nsparrow.fly();",
+                    "id": "2cfd2cfd-d3f1-4236-aca6-a52b385df8e8"
+                },
+                {
+                    "title": "Implements",
+                    "description": "Implement an interface in a class, ensuring that the class adheres to the interface's structure.",
+                    "code": "interface CanFly {\n    fly(): void;\n}\nclass Plane implements CanFly {\n    fly() {\n        console.log('Plane is flying');\n    }\n}\nlet jet: CanFly = new Plane();\njet.fly();",
+                    "id": "34167b0f-0049-4adb-9e40-b06f9757a39e"
+                }
+            ]
+        },
+        {
+            "title": "Generics",
+            "docs": [
+                {
+                    "title": "Generic Functions",
+                    "description": "Write functions that work with multiple data types without sacrificing type safety.",
+                    "code": "function identity<T>(arg: T): T {\n    return arg;\n}\nlet result: number = identity<number>(42);\nlet name: string = identity<string>('Alice');",
+                    "id": "2bc47687-eda4-4808-9001-24c40ff45dbb"
+                },
+                {
+                    "title": "Generic Classes",
+                    "description": "Create classes with properties and methods that work with a variety of data types.",
+                    "code": "class Box<T> {\n    private value: T;\n    constructor(value: T) {\n        this.value = value;\n    }\n    getValue(): T {\n        return this.value;\n    }\n}\nlet numberBox: Box<number> = new Box<number>(42);\nlet stringBox: Box<string> = new Box<string>('Hello');",
+                    "id": "5fe16ea6-eaa1-48ea-9204-9672795e7c87"
+                },
+                {
+                    "title": "Generic Constraints",
+                    "description": "Restrict the types that can be used with generics based on their properties or methods.",
+                    "code": "interface Printable {\n    print(): void;\n}\nfunction printItem<T extends Printable>(item: T): void {\n    item.print();\n}\nclass Book implements Printable {\n    print() {\n        console.log('Printing a book');\n    }\n}\nlet book: Book = new Book();\nprintItem(book);",
+                    "id": "6ee6cbab-9586-435b-b3e5-981712a91b55"
+                },
+                {
+                    "title": "Generic Utility Types",
+                    "description": "Use predefined generic utility types to manipulate and transform types.",
+                    "code": "type Partial<T> = { [P in keyof T]?: T[P] };\ntype Person = { name: string; age: number };\nlet partialPerson: Partial<Person> = { name: 'Bob' };",
+                    "id": "0ee4e16f-b24d-4400-ba56-7d50855bd97a"
+                }
+            ]
+        },
+        {
+            "title": "Functions",
+            "docs": [
+                {
+                    "title": "Function Declaration",
+                    "description": "Create a named function with specified parameters and return type.",
+                    "code": "function add(a: number, b: number): number {\n    return a + b;\n}",
+                    "id": "ee89ca0b-e3c4-44f8-a122-6b4068ed069a"
+                },
+                {
+                    "title": "Function Expressions",
+                    "description": "Assign a function to a variable, allowing functions to be treated as values.",
+                    "code": "let subtract = function(a: number, b: number): number {\n    return a - b;\n};",
+                    "id": "5f40ff2b-1a0f-4f7b-b486-206043d0b140"
+                },
+                {
+                    "title": "Arrow Functions",
+                    "description": "Create concise anonymous functions using the arrow syntax.",
+                    "code": "let multiply = (a: number, b: number): number => a * b;",
+                    "id": "5d89d50f-2420-4240-a146-590b21c05136"
+                },
+                {
+                    "title": "Optional and Default Parameters",
+                    "description": "Specify optional parameters with '?' and default values with '='.",
+                    "code": "function greet(name: string, greeting: string = 'Hello'): void {\n    console.log(`${greeting}, ${name}!`);\n}\ngreet('Alice');\ngreet('Bob', 'Hi');",
+                    "id": "6ea146ce-5a52-4753-b8d0-f35c66c48547"
+                },
+                {
+                    "title": "Rest Parameters",
+                    "description": "Capture multiple arguments into a single parameter.",
+                    "code": "function sum(...numbers: number[]): number {\n    return numbers.reduce((acc, num) => acc + num, 0);\n}\nlet total: number = sum(1, 2, 3, 4, 5);",
+                    "id": "4a87a1cf-88e1-4c8f-b482-ca0c8a13039e"
+                },
+                {
+                    "title": "Function Overloads",
+                    "description": "Define multiple function signatures for the same function name.",
+                    "code": "function process(input: string): string;\nfunction process(input: number): number;\nfunction process(input: any): any {\n    // Implementation goes here\n    return input;\n}",
+                    "id": "3fecd4f5-668f-4d7a-81fd-24a4a4a81ed4"
+                }
+            ]
+        },
+        {
+            "title": "Async Programming",
+            "docs": [
+                {
+                    "title": "Promises",
+                    "description": "Handle asynchronous operations by using promises, which represent a value that might be available now, or in the future, or never.",
+                    "code": "function fetchData(): Promise<string> {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            resolve('Data fetched successfully');\n        }, 2000);\n    });\n}\n\nfetchData().then(data => {\n    console.log(data);\n}).catch(error => {\n    console.error(error);\n});",
+                    "id": "3f899bf9-ef7d-458f-9317-f13a110aa9f7"
+                },
+                {
+                    "title": "Async/Await",
+                    "description": "Simplify working with asynchronous code using the async/await syntax.",
+                    "code": "async function fetchData(): Promise<string> {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            resolve('Data fetched successfully');\n        }, 2000);\n    });\n}\n\nasync function fetchDataWrapper() {\n    try {\n        let data = await fetchData();\n        console.log(data);\n    } catch (error) {\n        console.error(error);\n    }\n}\n\nfetchDataWrapper();",
+                    "id": "c513770d-1bdd-4a34-9540-96feb5fccd10"
+                },
+                {
+                    "title": "Async Functions",
+                    "description": "Declare functions as asynchronous, allowing the use of the 'await' keyword inside them.",
+                    "code": "async function process(): Promise<void> {\n    let result = await fetchData();\n    console.log(result);\n}",
+                    "id": "cb046c64-6e97-4dd1-afc2-51dc3af8719f"
+                },
+                {
+                    "title": "Error Handling",
+                    "description": "Handle errors in asynchronous code using try-catch blocks.",
+                    "code": "async function fetchData(): Promise<string> {\n    return new Promise((resolve, reject) => {\n        setTimeout(() => {\n            reject('Error: Unable to fetch data');\n        }, 2000);\n    });\n}\n\nasync function fetchDataWrapper() {\n    try {\n        let data = await fetchData();\n        console.log(data);\n    } catch (error) {\n        console.error(error);\n    }\n}\n\nfetchDataWrapper();",
+                    "id": "4c8e0c01-b378-499a-8858-5d3bb6a3f1c1"
+                }
+            ]
+        },
+        {
+            "title": "Modules & Namespaces",
+            "docs": [
+                {
+                    "title": "Export and Import Statements",
+                    "description": "Share code between files using export and import statements.",
+                    "code": "export function greet(name: string): string {\n    return `Hello, ${name}!`;\n}\n\n// In another file:\nimport { greet } from './greeting';\nlet message: string = greet('Alice');\nconsole.log(message);",
+                    "id": "218b7b01-e8b9-4ec9-a738-88d158fc5e0e"
+                },
+                {
+                    "title": "Default Exports",
+                    "description": "Export a single value as the default export from a module.",
+                    "code": "// greeting.ts\nexport default function greet(name: string): string {\n    return `Hello, ${name}!`;\n}\n\n// In another file:\nimport greet from './greeting';\nlet message: string = greet('Bob');\nconsole.log(message);",
+                    "id": "562650e0-33b4-42c5-9ee8-97c12da75c9d"
+                },
+                {
+                    "title": "Namespace Declaration",
+                    "description": "Organize code into logical groups using namespaces.",
+                    "code": "// utilities.ts\nnamespace MathOperations {\n    export function add(a: number, b: number): number {\n        return a + b;\n    }\n}\n\n// In another file:\n/// <reference path='./utilities.ts' />\nlet sum: number = MathOperations.add(5, 10);",
+                    "id": "3c0fad47-0337-4a4b-8513-1e0910cb8cb9"
+                },
+                {
+                    "title": "Triple-Slash Directives",
+                    "description": "Reference other files and dependencies using triple-slash directives.",
+                    "code": "// In a TypeScript file:\n/// <reference path='path/to/another/file.ts' />\nimport { SomeClass } from 'external-library';",
+                    "id": "739a945b-8425-404a-beeb-f11e029a55f4"
+                }
+            ]
+        },
+        {
+            "title": "Decorators",
+            "docs": [
+                {
+                    "title": "Class Decorators",
+                    "description": "Modify or replace class definitions.",
+                    "code": "@sealed\nclass Greeter {\n    greeting: string;\n    constructor(message: string) {\n        this.greeting = message;\n    }\n}\n\nfunction sealed(constructor: Function) {\n    Object.seal(constructor);\n    Object.seal(constructor.prototype);\n}",
+                    "id": "62dfcad4-3e2a-427e-96b4-0a614168f0e8"
+                },
+                {
+                    "title": "Method Decorators",
+                    "description": "Modify or replace methods within a class.",
+                    "code": "class Greeter {\n    @log\n    greet(message: string) {\n        console.log(`Hello, ${message}!`);\n    }\n}\n\nfunction log(target: any, key: string, descriptor: PropertyDescriptor) {\n    let originalMethod = descriptor.value;\n    descriptor.value = function(...args: any[]) {\n        console.log(`Calling method with arguments: ${args}`);\n        return originalMethod.apply(this, args);\n    };\n    return descriptor;\n}",
+                    "id": "11fc9bbe-7cd5-4511-98d5-e674a345d9d1"
+                },
+                {
+                    "title": "Property Decorators",
+                    "description": "Modify or replace properties within a class.",
+                    "code": "class Person {\n    @validate\n    name: string;\n}\n\nfunction validate(target: any, key: string) {\n    let value = target[key];\n    Object.defineProperty(target, key, {\n        get: () => value,\n        set: (newValue: string) => {\n            if (newValue.length < 3) {\n                throw new Error('Name must be at least 3 characters long');\n            }\n            value = newValue;\n        },\n        enumerable: true,\n        configurable: true\n    });\n}",
+                    "id": "729b9212-79d6-46c2-b959-d71cf251d5f1"
+                }
+            ]
+        },
+        {
+            "title": "Testing",
+            "docs": [
+                {
+                    "title": "Unit Testing with Jest",
+                    "description": "Write unit tests for TypeScript code using Jest testing framework.",
+                    "code": "// greeting.ts\nexport function greet(name: string): string {\n    return `Hello, ${name}!`;\n}\n\n// greeting.test.ts\nimport { greet } from './greeting';\n\ntest('greet function', () => {\n    const greeting = greet('Alice');\n    expect(greeting).toBe('Hello, Alice!');\n});",
+                    "id": "8a575122-f2f7-4531-a947-495b9cd65e56"
+                },
+                {
+                    "title": "Mocking Dependencies with Jest",
+                    "description": "Mock external dependencies to isolate unit tests.",
+                    "code": "// user.ts\nimport axios from 'axios';\n\nexport async function getUserInfo(userId: number): Promise<string> {\n    const response = await axios.get(`/api/users/${userId}`);\n    return response.data.name;\n}\n\n// user.test.ts\nimport axios from 'axios';\nimport { getUserInfo } from './user';\n\ndescribe('getUserInfo', () => {\n    test('fetches successfully data from an API', async () => {\n        const mockedAxios = axios as jest.Mocked<typeof axios>;\n        mockedAxios.get.mockResolvedValue({ data: { name: 'Alice' } });\n\n        const userInfo = await getUserInfo(1);\n        expect(userInfo).toBe('Alice');\n    });\n});",
+                    "id": "30e19711-6da8-4691-aeed-b16a4a96b045"
+                }
+            ]
+        }
+    ]
 }

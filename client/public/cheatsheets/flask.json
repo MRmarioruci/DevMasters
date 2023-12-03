@@ -11,67 +11,80 @@
                 {
                     "title": "What is Flask, and how does it differ from other web frameworks?",
                     "description": "Flask is a micro web framework for Python that is lightweight and designed to be simple to use. Unlike full-stack frameworks like Django, Flask is minimalistic and gives developers more flexibility in choosing components to build their applications.",
-                    "code": ""
+                    "code": "",
+                    "id": "6409780d-3084-428d-9bc3-67fc256ccb64"
                 },
                 {
                     "title": "Explain the basic structure of a Flask application.",
                     "description": "A Flask application typically consists of a main script (app.py) where you create an instance of the Flask class, define routes, and configure the application. It also includes templates for rendering HTML, static files for assets like CSS and JavaScript, and optionally, a folder for database models.",
-                    "code": ""
+                    "code": "",
+                    "id": "6c478980-04b2-466e-b23d-39e2e05a50cc"
                 },
                 {
                     "title": "Basic setup",
                     "description": "",
-                    "code": "from flask import Flask\n \n # Create a Flask application instance\n app = Flask(__name__)\n \n # Define a route and a view function\n @app.route('/')\n def hello_world():\n      return 'Hello, World!'\n \n # Run the Flask app if this script is the main program\n if __name__ == '__main__':\n    app.run()\n"
+                    "code": "from flask import Flask\n \n # Create a Flask application instance\n app = Flask(__name__)\n \n # Define a route and a view function\n @app.route('/')\n def hello_world():\n      return 'Hello, World!'\n \n # Run the Flask app if this script is the main program\n if __name__ == '__main__':\n    app.run()\n",
+                    "id": "417cc762-7b4d-4ffa-95a8-e7e4266b1cd2"
                 },
                 {
                     "title": "Routing",
                     "description": "A fundamental concept in the Flask web framework that allows you to map URLs (Uniform Resource Locators) to specific functions in your Python application. Routing helps determine how your application responds to different HTTP requests (e.g., GET, POST, PUT, DELETE) and the URL patterns it should match",
-                    "code": ""
+                    "code": "",
+                    "id": "f84acafa-1090-49f2-a0ed-08d0d714f473"
                 },
                 {
                     "title": "Flask-WTF",
                     "description": "Flask-WTF is an extension for Flask that simplifies working with web forms. It provides tools for form creation, validation, and rendering. You would use Flask-WTF to handle forms in your Flask application, making it easier to manage user input.",
-                    "code": "from flask import Flask, render_template, request, flash, redirect, url_for; ... (your Python code here)"
+                    "code": "from flask import Flask, render_template, request, flash, redirect, url_for; ... (your Python code here)",
+                    "id": "8d7c8669-660a-45c2-ba5b-0e701a4777ed"
                 },
                 {
                     "title": "What is the purpose of the Jinja2 template engine in Flask, and how does it work?",
                     "description": "Jinja2 is a template engine used in Flask for rendering dynamic content in HTML templates. It allows you to insert variables and control structures (like loops and conditionals) into your templates. Flask uses Jinja2 to generate HTML responses, making it easy to create dynamic web pages.",
-                    "code": ""
+                    "code": "",
+                    "id": "7dec6dab-41d1-41e7-9f51-c6bdddf2473d"
                 },
                 {
                     "title": "Middleware",
                     "description": "Middleware in Flask is a series of functions or classes that process incoming requests or outgoing responses before they reach the view function or after they leave it. An example of middleware usage is adding custom headers to responses or performing authentication checks before routing to a view function.",
-                    "code": "from flask import Flask, request\n\napp = Flask(__name__)\n\n# Example middleware (before_request)\n@app.before_request\ndef before_request():\n    # Perform actions before each request, e.g., logging\n    print(f'Before Request - Path: {request.path}')\n    \n# Example middleware (after_request)\n@app.after_request\ndef after_request(response):\n    # Perform actions after each request, e.g., modifying the response\n    print(f'After Request - Status Code: {response.status_code}')\n    return response\n    \n# Route for demonstration\n@app.route('/')\ndef hello_world():\n    return 'Hello, World!'\n    \nif __name__ == '__main__':\n    app.run(debug=True)\n"
+                    "code": "from flask import Flask, request\n\napp = Flask(__name__)\n\n# Example middleware (before_request)\n@app.before_request\ndef before_request():\n    # Perform actions before each request, e.g., logging\n    print(f'Before Request - Path: {request.path}')\n    \n# Example middleware (after_request)\n@app.after_request\ndef after_request(response):\n    # Perform actions after each request, e.g., modifying the response\n    print(f'After Request - Status Code: {response.status_code}')\n    return response\n    \n# Route for demonstration\n@app.route('/')\ndef hello_world():\n    return 'Hello, World!'\n    \nif __name__ == '__main__':\n    app.run(debug=True)\n",
+                    "id": "a2e42ab2-c91f-4859-b906-625b7ab42b36"
                 },
                 {
                     "title": "Flask-SQLAlchemy",
                     "description": "Flask-SQLAlchemy is an extension that integrates SQLAlchemy, a powerful Object-Relational Mapping (ORM) library, with Flask. It simplifies database operations by providing a way to define models as Python classes and perform CRUD operations on the database using Python code.",
-                    "code": ""
+                    "code": "",
+                    "id": "1735e580-0f84-429f-a222-13a6274f8159"
                 },
                 {
                     "title": "Error handling",
                     "description": "To set up error handling in Flask, you can define error handlers using `@app.errorhandler(error_code)` decorator. You can create custom error pages by rendering templates or returning JSON responses in these error handler functions. For example, `@app.errorhandler(404)` for handling 404 Not Found errors.",
-                    "code": "from flask import Flask, render_template, request, abort, redirect, url_for\n\napp = Flask(__name__)\n\n# Custom error handling for a specific route\n@app.errorhandler(404)\ndef page_not_found(error):\n    return render_template('404.html'), 404\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n# Simulate a route that raises a custom error\n@app.route('/custom_error')\ndef custom_error():\n    # Simulate a custom error condition\n    abort(500)  # Internal Server Error\n\nif __name__ == '__main__':\n    app.run(debug=True)\n"
+                    "code": "from flask import Flask, render_template, request, abort, redirect, url_for\n\napp = Flask(__name__)\n\n# Custom error handling for a specific route\n@app.errorhandler(404)\ndef page_not_found(error):\n    return render_template('404.html'), 404\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n# Simulate a route that raises a custom error\n@app.route('/custom_error')\ndef custom_error():\n    # Simulate a custom error condition\n    abort(500)  # Internal Server Error\n\nif __name__ == '__main__':\n    app.run(debug=True)\n",
+                    "id": "8d08a95d-97d3-414a-ad09-a098f3db2a18"
                 },
                 {
                     "title": "Flask Blueprints",
                     "description": "Flask Blueprints are a way to organize and modularize your Flask application by grouping related routes and views into separate modules. They are helpful for creating large-scale applications with multiple components, making it easier to manage and maintain the codebase.",
-                    "code": "from flask import Flask, Blueprint, render_template\n\napp = Flask(__name__)\n\n# Create a blueprint\nsample_blueprint = Blueprint('sample', __name__)\n\n# Define routes within the blueprint\n@sample_blueprint.route('/')\ndef index():\n    return 'Sample Blueprint Index'\n\n@sample_blueprint.route('/about')\ndef about():\n    return 'About Us (Sample Blueprint)'\n\n# Register the blueprint with the Flask app\napp.register_blueprint(sample_blueprint, url_prefix='/sample')\n\nif __name__ == '__main__':\n    app.run(debug=True)\n"
+                    "code": "from flask import Flask, Blueprint, render_template\n\napp = Flask(__name__)\n\n# Create a blueprint\nsample_blueprint = Blueprint('sample', __name__)\n\n# Define routes within the blueprint\n@sample_blueprint.route('/')\ndef index():\n    return 'Sample Blueprint Index'\n\n@sample_blueprint.route('/about')\ndef about():\n    return 'About Us (Sample Blueprint)'\n\n# Register the blueprint with the Flask app\napp.register_blueprint(sample_blueprint, url_prefix='/sample')\n\nif __name__ == '__main__':\n    app.run(debug=True)\n",
+                    "id": "27d09939-56bc-4797-84c8-c263606630ab"
                 },
                 {
                     "title": "Sessions",
                     "description": "You can manage sessions in Flask using the `session` object provided by the `Flask-Session` or `Flask-Session-Cache` extensions. This allows you to store and retrieve session data for users as they interact with your application, providing a way to maintain user-specific state.",
-                    "code": "from flask import Flask, request, session\n\napp = Flask(__name__)\n\n# Set a secret key for session security (change this to a secure value)\napp.secret_key = 'your_secret_key'\n\n# Route to set a session variable\n@app.route('/set_session/<value>')\ndef set_session(value):\n    session['username'] = value\n    return f'Session variable username set to {value}'\n\n# Route to retrieve and display the session variable\n@app.route('/get_session')\ndef get_session():\n    username = session.get('username')\n    if username is None:\n        return 'Session variable username is not set.'\n    else:\n        return f'Session variable username is set to {username}'\n\n# Route to clear the session\n@app.route('/clear_session')\ndef clear_session():\n    session.pop('username', None)\n    return 'Session cleared'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n"
+                    "code": "from flask import Flask, request, session\n\napp = Flask(__name__)\n\n# Set a secret key for session security (change this to a secure value)\napp.secret_key = 'your_secret_key'\n\n# Route to set a session variable\n@app.route('/set_session/<value>')\ndef set_session(value):\n    session['username'] = value\n    return f'Session variable username set to {value}'\n\n# Route to retrieve and display the session variable\n@app.route('/get_session')\ndef get_session():\n    username = session.get('username')\n    if username is None:\n        return 'Session variable username is not set.'\n    else:\n        return f'Session variable username is set to {username}'\n\n# Route to clear the session\n@app.route('/clear_session')\ndef clear_session():\n    session.pop('username', None)\n    return 'Session cleared'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n",
+                    "id": "8a0dd9ce-5c31-4ccd-983d-e347db8a3038"
                 },
                 {
                     "title": "Flask-Security",
                     "description": "Flask-Security is an extension for Flask that provides authentication and authorization features out of the box. It allows you to easily handle user registration, login, password management, and role-based access control in your Flask application.",
-                    "code": "from flask import Flask\nfrom flask_sqlalchemy import SQLAlchemy\nfrom flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required\n\napp = Flask(__name__)\napp.config['SECRET_KEY'] = 'your_secret_key'  # Change this to a secure value\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'  # Change this to your database URI\ndb = SQLAlchemy(app)\n\n# Define User and Role models\nclass Role(db.Model, RoleMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), unique=True)\n    description = db.Column(db.String(255))\n\nclass User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    email = db.Column(db.String(255), unique=True)\n    password = db.Column(db.String(255))\n    active = db.Column(db.Boolean)\n    roles = db.relationship('Role', secondary='user_roles', backref=db.backref('users', lazy='dynamic'))\n\n# Create database tables\ndb.create_all()\n\n# Create an instance of Flask-Security\nuser_datastore = SQLAlchemyUserDatastore(db, User, Role)\nsecurity = Security(app, user_datastore)\n\n# Routes\n@app.route('/')\ndef index():\n    return 'Home Page'\n\n@app.route('/protected')\n@login_required\ndef protected():\n    return 'Protected Page'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n"
+                    "code": "from flask import Flask\nfrom flask_sqlalchemy import SQLAlchemy\nfrom flask_security import Security, SQLAlchemyUserDatastore, UserMixin, RoleMixin, login_required\n\napp = Flask(__name__)\napp.config['SECRET_KEY'] = 'your_secret_key'  # Change this to a secure value\napp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'  # Change this to your database URI\ndb = SQLAlchemy(app)\n\n# Define User and Role models\nclass Role(db.Model, RoleMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), unique=True)\n    description = db.Column(db.String(255))\n\nclass User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    email = db.Column(db.String(255), unique=True)\n    password = db.Column(db.String(255))\n    active = db.Column(db.Boolean)\n    roles = db.relationship('Role', secondary='user_roles', backref=db.backref('users', lazy='dynamic'))\n\n# Create database tables\ndb.create_all()\n\n# Create an instance of Flask-Security\nuser_datastore = SQLAlchemyUserDatastore(db, User, Role)\nsecurity = Security(app, user_datastore)\n\n# Routes\n@app.route('/')\ndef index():\n    return 'Home Page'\n\n@app.route('/protected')\n@login_required\ndef protected():\n    return 'Protected Page'\n\nif __name__ == '__main__':\n    app.run(debug=True)\n",
+                    "id": "8da969c1-f2a8-442a-832e-852fe0becd20"
                 },
                 {
                     "title": "What is the role of the Flask CLI, and how can you create custom CLI commands?",
                     "description": "The Flask CLI (Command Line Interface) provides a way to interact with your Flask application from the command line. You can create custom CLI commands by defining functions and decorating them with `@app.cli.command`. These commands can be used for tasks like database migrations, data seeding, and more.",
-                    "code": ""
+                    "code": "",
+                    "id": "9095473d-bb9c-4d94-8a89-e61c9eff853f"
                 }
             ]
         },
@@ -81,22 +94,26 @@
                 {
                     "title": "Defining Routes",
                     "description": "You use decorators provided by Flask, such as @app.route(), to define routes in your application. These decorators specify which URL pattern should trigger a particular Python function",
-                    "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n@app.route('/contact')\ndef contact():\n    return 'Contact us'\n"
+                    "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n@app.route('/contact')\ndef contact():\n    return 'Contact us'\n",
+                    "id": "4c278fee-22a7-40d4-8e9f-d07c9a2a5d04"
                 },
                 {
                     "title": "Dynamic Routes",
                     "description": "Flask allows you to define dynamic routes that can accept variable values. You can specify dynamic parts of a URL by enclosing them in angle brackets ",
-                    "code": "@app.route('/user/<username>')\ndef show_user(username):\n    return f'User Profile: {username}'\n"
+                    "code": "@app.route('/user/<username>')\ndef show_user(username):\n    return f'User Profile: {username}'\n",
+                    "id": "98dec4ad-9d40-4f1f-b0e0-d3e650ca9dc0"
                 },
                 {
                     "title": "HTTP Methods",
                     "description": "You can specify which HTTP methods a route should respond to using the methods argument in the @app.route() decorator. For example, to handle both GET and POST requests",
-                    "code": "@app.route('/submit', methods=['GET', 'POST'])\ndef submit_form():\n    if request.method == 'POST':\n        # Handle form submission\n    else:\n        # Display the form\n"
+                    "code": "@app.route('/submit', methods=['GET', 'POST'])\ndef submit_form():\n    if request.method == 'POST':\n        # Handle form submission\n    else:\n        # Display the form\n",
+                    "id": "a775d8cc-1ee2-435c-af7a-2a5682cad5ec"
                 },
                 {
                     "title": "URL Building",
                     "description": "Flask provides a convenient way to generate URLs in your templates and code using the url_for() function. This function takes the name of the route and any variables it expects and generates the corresponding URL.",
-                    "code": "from flask import url_for\n\nurl = url_for('home')\n"
+                    "code": "from flask import url_for\n\nurl = url_for('home')\n",
+                    "id": "69fe6124-4787-4276-8207-d46bd70432e6"
                 }
             ]
         },
@@ -106,7 +123,8 @@
                 {
                     "title": "Defining Routes",
                     "description": "You use decorators provided by Flask, such as @app.route(), to define routes in your application. These decorators specify which URL pattern should trigger a particular Python function",
-                    "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n@app.route('/contact')\ndef contact():\n    return 'Contact us'\n"
+                    "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n@app.route('/contact')\ndef contact():\n    return 'Contact us'\n",
+                    "id": "aa96df39-3e25-4111-9e1d-b51a70d00334"
                 }
             ]
         },
@@ -116,32 +134,38 @@
                 {
                     "title": "Models",
                     "description": "In Flask-SQLAlchemy, a model refers to a Python class that defines the structure and behavior of a database table. These models are used to interact with the database and represent the data in your application.\nRepresent Database Tables\nDefine Table Schema\nObject-Relational Mapping\nData Validation & Type Casting\nRelationships",
-                    "code": "from flask_sqlalchemy import SQLAlchemy\ndb = SQLAlchemy()\n\n# Define the User model\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)  # Primary key for the User table\n    username = db.Column(db.String(80), unique=True, nullable=False)  # Username column\n    email = db.Column(db.String(120), unique=True, nullable=False)  # Email column\n    bio = db.Column(db.Text)  # Biography column\n    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())  # Timestamp of user creation\n    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())  # Timestamp of last update\n\n# Define the Post model\nclass Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)  # Primary key for the Post table\n    title = db.Column(db.String(255), nullable=False)  # Title column\n    content = db.Column(db.Text)  # Content column\n    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  # Foreign key relationship to User\n    author = db.relationship('User', backref='posts')  # Relationship with User model to access author\n    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())  # Timestamp of post creation\n    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())  # Timestamp of last update\n"
+                    "code": "from flask_sqlalchemy import SQLAlchemy\ndb = SQLAlchemy()\n\n# Define the User model\nclass User(db.Model):\n    id = db.Column(db.Integer, primary_key=True)  # Primary key for the User table\n    username = db.Column(db.String(80), unique=True, nullable=False)  # Username column\n    email = db.Column(db.String(120), unique=True, nullable=False)  # Email column\n    bio = db.Column(db.Text)  # Biography column\n    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())  # Timestamp of user creation\n    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())  # Timestamp of last update\n\n# Define the Post model\nclass Post(db.Model):\n    id = db.Column(db.Integer, primary_key=True)  # Primary key for the Post table\n    title = db.Column(db.String(255), nullable=False)  # Title column\n    content = db.Column(db.Text)  # Content column\n    author_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  # Foreign key relationship to User\n    author = db.relationship('User', backref='posts')  # Relationship with User model to access author\n    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())  # Timestamp of post creation\n    updated_at = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())  # Timestamp of last update\n",
+                    "id": "f29b6d9d-8d47-4f1d-9ad4-50f2340a7d9b"
                 },
                 {
                     "title": "Create",
                     "description": "Basic setup for creating a new object in your database",
-                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n# Create a new item\n@app.route('/items', methods=['POST'])\ndef create_item():\n    data = request.json\n    if 'name' not in data:\n        return jsonify({'message': 'Name is required'}), 400\n\n    new_item = Item(name=data['name'])\n    db.session.add(new_item)\n    db.session.commit()\n    return jsonify({'message': 'Item created successfully'}), 201\n"
+                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n# Create a new item\n@app.route('/items', methods=['POST'])\ndef create_item():\n    data = request.json\n    if 'name' not in data:\n        return jsonify({'message': 'Name is required'}), 400\n\n    new_item = Item(name=data['name'])\n    db.session.add(new_item)\n    db.session.commit()\n    return jsonify({'message': 'Item created successfully'}), 201\n",
+                    "id": "a6def9af-896a-4304-99f3-2beccf656c60"
                 },
                 {
                     "title": "Update",
                     "description": "Basic setup for updating an object in your database",
-                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n # Update an item by ID\n@app.route('/items/<int:item_id>', methods=['PUT'])\ndef update_item(item_id):\n    data = request.json\n    item = Item.query.get(item_id)\n    if not item:\n        return jsonify({'message': 'Item not found'}), 404\n\n    if 'name' in data:\n        item.name = data['name']\n\n    db.session.commit()\n    return jsonify({'message': 'Item updated successfully'})\n"
+                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n # Update an item by ID\n@app.route('/items/<int:item_id>', methods=['PUT'])\ndef update_item(item_id):\n    data = request.json\n    item = Item.query.get(item_id)\n    if not item:\n        return jsonify({'message': 'Item not found'}), 404\n\n    if 'name' in data:\n        item.name = data['name']\n\n    db.session.commit()\n    return jsonify({'message': 'Item updated successfully'})\n",
+                    "id": "b5532fe1-9609-47bb-9d34-ac77b1b37e0f"
                 },
                 {
                     "title": "Delete",
                     "description": "Basic setup for deleting an object in your database",
-                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n # Delete an item by ID\n@app.route('/items/<int:item_id>', methods=['DELETE'])\ndef delete_item(item_id):\n    item = Item.query.get(item_id)\n    if not item:\n        return jsonify({'message': 'Item not found'}), 404\n\n    db.session.delete(item)\n    db.session.commit()\n    return jsonify({'message': 'Item deleted successfully'})\n"
+                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n # Delete an item by ID\n@app.route('/items/<int:item_id>', methods=['DELETE'])\ndef delete_item(item_id):\n    item = Item.query.get(item_id)\n    if not item:\n        return jsonify({'message': 'Item not found'}), 404\n\n    db.session.delete(item)\n    db.session.commit()\n    return jsonify({'message': 'Item deleted successfully'})\n",
+                    "id": "6c11a5da-afcb-4656-a606-cccf48731d9c"
                 },
                 {
                     "title": "Get",
                     "description": "Basic setup for deleting an object in your database",
-                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n  # Get all items\n@app.route('/items', methods=['GET'])\ndef get_items():\n    items = Item.query.all()\n    item_list = [{'id': item.id, 'name': item.name} for item in items]\n    return jsonify(item_list)\n"
+                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n  # Get all items\n@app.route('/items', methods=['GET'])\ndef get_items():\n    items = Item.query.all()\n    item_list = [{'id': item.id, 'name': item.name} for item in items]\n    return jsonify(item_list)\n",
+                    "id": "c78d5b3e-5cc9-405a-a9f4-7b9fac4b109f"
                 },
                 {
                     "title": "Get",
                     "description": "Basic setup for deleting an object in your database",
-                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n  # Get all items\n@app.route('/items', methods=['GET'])\ndef get_items():\n    items = Item.query.all()\n    item_list = [{'id': item.id, 'name': item.name} for item in items]\n    return jsonify(item_list)\n"
+                    "code": "class Item(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(80), nullable=False)\n\n  # Get all items\n@app.route('/items', methods=['GET'])\ndef get_items():\n    items = Item.query.all()\n    item_list = [{'id': item.id, 'name': item.name} for item in items]\n    return jsonify(item_list)\n",
+                    "id": "5b37520b-8dbb-4de8-84e2-8d92ed76041d"
                 }
             ]
         },
@@ -151,7 +175,8 @@
                 {
                     "title": "Defining Routes",
                     "description": "You use decorators provided by Flask, such as @app.route(), to define routes in your application. These decorators specify which URL pattern should trigger a particular Python function",
-                    "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n@app.route('/contact')\ndef contact():\n    return 'Contact us'\n"
+                    "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route('/')\ndef home():\n    return 'Hello, World!'\n\n@app.route('/about')\ndef about():\n    return 'About page'\n\n@app.route('/contact')\ndef contact():\n    return 'Contact us'\n",
+                    "id": "7e24d2f1-f5c1-48e2-86ff-8ea75eb0d5c2"
                 }
             ]
         }

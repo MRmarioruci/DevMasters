@@ -1,99 +1,113 @@
 {
-	"collectionName": "fpCheatsheet",
-	"title": "Functional Programming",
-	"icon": "https://api.iconify.design/material-symbols:function.svg",
-	"color": "08CE87",
-	"highlighter": "tsx",
-	"groups": [
-		{
-			"title": "General",
-			"docs": [
-				{
-					"title": "What is Functional Programming",
-					"description": "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing state and mutable data. It emphasizes immutability, pure functions, and declarative coding.",
-					"code": "// Example of a pure function\nfunction add(a, b) {\n  return a + b;\n}\n\nconst result = add(2, 3); // Result is 5\n"
-				},
-				{
-					"title": "What are Pure Functions?",
-					"description": "Pure functions are functions that always produce the same output for the same input and have no side effects. They don't modify external state or variables and are deterministic.",
-					"code": "// Example of a pure function\nfunction multiply(a, b) {\n  return a * b;\n}\n\nconst result = multiply(4, 5); // Result is 20\n"
-				},
-				{
-					"title": "What is Immutability?",
-					"description": "Immutability means that once data is created, it cannot be changed. In functional programming, data is typically immutable to avoid unexpected side effects.",
-					"code": "// Creating an immutable list using spread operator\nconst list1 = [1, 2, 3];\nconst list2 = [...list1, 4]; // Creates a new list\n"
-				},
-				{
-					"title": "What is First-Class and Higher-Order Functions?",
-					"description": "First-class functions can be treated as values and passed as arguments or returned from other functions. Higher-order functions take one or more functions as arguments or return a function as a result.",
-					"code": "// Example of a higher-order function\nfunction applyOperation(operation, a, b) {\n  return operation(a, b);\n}\n\nconst add = (a, b) => a + b;\nconst result = applyOperation(add, 2, 3); // Result is 5\n"
-				},
-				{
-					"title": "What is Recursion?",
-					"description": "Recursion is a technique where a function calls itself to solve a problem. It's commonly used in functional programming to replace loops.",
-					"code": "// Recursive function to calculate factorial\nfunction factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\n\nconst result = factorial(5); // Result is 120\n"
-				}
-			]
-		},
-		{
-			"title": "Common Higher-Order Functions",
-			"docs": [
-				{
-					"title": "map",
-					"description": "The `map` function applies a given function to each element of an array and returns a new array with the results.",
-					"code": "// Using map to double each element in an array\nconst numbers = [1, 2, 3, 4, 5];\nconst doubled = numbers.map((num) => num * 2);\n"
-				},
-				{
-					"title": "filter",
-					"description": "The `filter` function creates a new array with all elements that pass a test specified by a given function.",
-					"code": "// Using filter to get even numbers from an array\nconst numbers = [1, 2, 3, 4, 5];\nconst evenNumbers = numbers.filter((num) => num % 2 === 0);\n"
-				},
-				{
-					"title": "reduce",
-					"description": "The `reduce` function accumulates the values of an array into a single value using a provided function.",
-					"code": "// Using reduce to calculate the sum of an array\nconst numbers = [1, 2, 3, 4, 5];\nconst sum = numbers.reduce((acc, num) => acc + num, 0);\n"
-				}
-			]
-		},
-		{
-			"title": "Immutable Data Structures",
-			"docs": [
-				{
-					"title": "List",
-					"description": "An immutable list is a collection of values where the structure cannot be changed after creation. Operations like adding or removing elements return new lists.",
-					"code": "// Creating an immutable list using spread operator\nconst list1 = [1, 2, 3];\nconst list2 = [...list1, 4]; // Creates a new list\n"
-				},
-				{
-					"title": "Map",
-					"description": "An immutable map is a collection of key-value pairs where the structure cannot be changed. Operations like adding or updating key-value pairs return new maps.",
-					"code": "// Creating an immutable map using object spread\nconst map1 = { key1: 'value1', key2: 'value2' };\nconst map2 = { ...map1, key3: 'value3' }; // Creates a new map\n"
-				},
-				{
-					"title": "Set",
-					"description": "An immutable set is a collection of unique values. Operations like adding or removing elements return new sets.",
-					"code": "// Creating an immutable set using spread operator\nconst set1 = new Set([1, 2, 3]);\nconst set2 = new Set([...set1, 4]); // Creates a new set\n"
-				}
-			]
-		},
-		{
-			"title": "Additional Concepts",
-			"docs": [
-				{
-					"title": "Closures",
-					"description": "Closures allow functions to remember and access their lexical scope even after they have finished executing. They are essential for creating private variables and data encapsulation.",
-					"code": "// Example of a closure\nfunction outer() {\n  const x = 10;\n  function inner() {\n    console.log(x);\n  }\n  return inner;\n}\n\nconst closureFn = outer();\nclosureFn(); // Outputs 10\n"
-				},
-				{
-					"title": "Currying",
-					"description": "Currying is a technique that transforms a function with multiple arguments into a series of unary functions. It allows partial application and can be used for creating reusable function compositions.",
-					"code": "// Example of currying\nfunction add(a) {\n  return function(b) {\n    return a + b;\n  };\n}\n\nconst addFive = add(5);\nconst result = addFive(3); // Result is 8\n"
-				},
-				{
-					"title": "Monads",
-					"description": "Monads are a design pattern in functional programming that provides a way to handle computations with side effects in a predictable and composable manner.",
-					"code": "// Example of using a monad (Promise)\nconst fetchData = () => {\n  return new Promise((resolve, reject) => {\n    // Asynchronous operation\n    setTimeout(() => {\n      resolve('Data fetched');\n    }, 1000);\n  });\n};\n\nfetchData()\n  .then((data) => console.log(data))\n  .catch((error) => console.error(error));\n"
-				}
-			]
-		}
-	]
+    "collectionName": "fpCheatsheet",
+    "title": "Functional Programming",
+    "icon": "https://api.iconify.design/material-symbols:function.svg",
+    "color": "08CE87",
+    "highlighter": "tsx",
+    "groups": [
+        {
+            "title": "General",
+            "docs": [
+                {
+                    "title": "What is Functional Programming",
+                    "description": "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing state and mutable data. It emphasizes immutability, pure functions, and declarative coding.",
+                    "code": "// Example of a pure function\nfunction add(a, b) {\n  return a + b;\n}\n\nconst result = add(2, 3); // Result is 5\n",
+                    "id": "6204b92b-3049-486a-ae68-c6eb7870be81"
+                },
+                {
+                    "title": "What are Pure Functions?",
+                    "description": "Pure functions are functions that always produce the same output for the same input and have no side effects. They don't modify external state or variables and are deterministic.",
+                    "code": "// Example of a pure function\nfunction multiply(a, b) {\n  return a * b;\n}\n\nconst result = multiply(4, 5); // Result is 20\n",
+                    "id": "ff5e5472-c50e-4dc5-affb-b9a4ee254234"
+                },
+                {
+                    "title": "What is Immutability?",
+                    "description": "Immutability means that once data is created, it cannot be changed. In functional programming, data is typically immutable to avoid unexpected side effects.",
+                    "code": "// Creating an immutable list using spread operator\nconst list1 = [1, 2, 3];\nconst list2 = [...list1, 4]; // Creates a new list\n",
+                    "id": "ca6d0983-df12-42c2-bc7d-3a9dcf41520f"
+                },
+                {
+                    "title": "What is First-Class and Higher-Order Functions?",
+                    "description": "First-class functions can be treated as values and passed as arguments or returned from other functions. Higher-order functions take one or more functions as arguments or return a function as a result.",
+                    "code": "// Example of a higher-order function\nfunction applyOperation(operation, a, b) {\n  return operation(a, b);\n}\n\nconst add = (a, b) => a + b;\nconst result = applyOperation(add, 2, 3); // Result is 5\n",
+                    "id": "9368ac2d-004d-4c94-86f0-a0218fce5937"
+                },
+                {
+                    "title": "What is Recursion?",
+                    "description": "Recursion is a technique where a function calls itself to solve a problem. It's commonly used in functional programming to replace loops.",
+                    "code": "// Recursive function to calculate factorial\nfunction factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\n\nconst result = factorial(5); // Result is 120\n",
+                    "id": "7090fec3-f754-4b9b-b697-236cc44d0be7"
+                }
+            ]
+        },
+        {
+            "title": "Common Higher-Order Functions",
+            "docs": [
+                {
+                    "title": "map",
+                    "description": "The `map` function applies a given function to each element of an array and returns a new array with the results.",
+                    "code": "// Using map to double each element in an array\nconst numbers = [1, 2, 3, 4, 5];\nconst doubled = numbers.map((num) => num * 2);\n",
+                    "id": "e192911a-301f-48d3-b222-76a1eb124773"
+                },
+                {
+                    "title": "filter",
+                    "description": "The `filter` function creates a new array with all elements that pass a test specified by a given function.",
+                    "code": "// Using filter to get even numbers from an array\nconst numbers = [1, 2, 3, 4, 5];\nconst evenNumbers = numbers.filter((num) => num % 2 === 0);\n",
+                    "id": "f9fb00ef-3fad-4766-a967-aa04bd62e9da"
+                },
+                {
+                    "title": "reduce",
+                    "description": "The `reduce` function accumulates the values of an array into a single value using a provided function.",
+                    "code": "// Using reduce to calculate the sum of an array\nconst numbers = [1, 2, 3, 4, 5];\nconst sum = numbers.reduce((acc, num) => acc + num, 0);\n",
+                    "id": "cc191e8c-f902-4f43-a017-4a8ad9fa5330"
+                }
+            ]
+        },
+        {
+            "title": "Immutable Data Structures",
+            "docs": [
+                {
+                    "title": "List",
+                    "description": "An immutable list is a collection of values where the structure cannot be changed after creation. Operations like adding or removing elements return new lists.",
+                    "code": "// Creating an immutable list using spread operator\nconst list1 = [1, 2, 3];\nconst list2 = [...list1, 4]; // Creates a new list\n",
+                    "id": "dd2915b9-6146-4032-82dc-442c754b2b15"
+                },
+                {
+                    "title": "Map",
+                    "description": "An immutable map is a collection of key-value pairs where the structure cannot be changed. Operations like adding or updating key-value pairs return new maps.",
+                    "code": "// Creating an immutable map using object spread\nconst map1 = { key1: 'value1', key2: 'value2' };\nconst map2 = { ...map1, key3: 'value3' }; // Creates a new map\n",
+                    "id": "c0ca4d8f-28db-4673-a2c7-8b8a4b4408f7"
+                },
+                {
+                    "title": "Set",
+                    "description": "An immutable set is a collection of unique values. Operations like adding or removing elements return new sets.",
+                    "code": "// Creating an immutable set using spread operator\nconst set1 = new Set([1, 2, 3]);\nconst set2 = new Set([...set1, 4]); // Creates a new set\n",
+                    "id": "478c356d-7f28-44ab-8381-af1747dfac44"
+                }
+            ]
+        },
+        {
+            "title": "Additional Concepts",
+            "docs": [
+                {
+                    "title": "Closures",
+                    "description": "Closures allow functions to remember and access their lexical scope even after they have finished executing. They are essential for creating private variables and data encapsulation.",
+                    "code": "// Example of a closure\nfunction outer() {\n  const x = 10;\n  function inner() {\n    console.log(x);\n  }\n  return inner;\n}\n\nconst closureFn = outer();\nclosureFn(); // Outputs 10\n",
+                    "id": "799353e7-9084-4cb6-b45c-a03a2e26bb54"
+                },
+                {
+                    "title": "Currying",
+                    "description": "Currying is a technique that transforms a function with multiple arguments into a series of unary functions. It allows partial application and can be used for creating reusable function compositions.",
+                    "code": "// Example of currying\nfunction add(a) {\n  return function(b) {\n    return a + b;\n  };\n}\n\nconst addFive = add(5);\nconst result = addFive(3); // Result is 8\n",
+                    "id": "5193f4cd-0f0f-46d7-b49c-af14061134f4"
+                },
+                {
+                    "title": "Monads",
+                    "description": "Monads are a design pattern in functional programming that provides a way to handle computations with side effects in a predictable and composable manner.",
+                    "code": "// Example of using a monad (Promise)\nconst fetchData = () => {\n  return new Promise((resolve, reject) => {\n    // Asynchronous operation\n    setTimeout(() => {\n      resolve('Data fetched');\n    }, 1000);\n  });\n};\n\nfetchData()\n  .then((data) => console.log(data))\n  .catch((error) => console.error(error));\n",
+                    "id": "a67fe10a-e4b5-44fa-9769-0d96dce577cb"
+                }
+            ]
+        }
+    ]
 }

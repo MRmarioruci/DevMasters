@@ -4,7 +4,8 @@ export type Cheatsheet = {
     "title": string,
     "description"?: any,
     "code"?: string,
-    "image"?: string
+    "image"?: string,
+    "id"?: string
 }
 export type CheatSheetGroup = {
     "title": string,

@@ -1,209 +1,246 @@
 {
-	"collectionName": "securityCheatsheet",
-	"title": "Security",
-	"icon": "https://api.iconify.design/fluent-emoji-high-contrast:locked-with-key.svg",
-	"color": "08C052",
-	"highlighter": "tsx",
-	"groups": [
-		{
-			"title": "Web",
-			"docs": [
-				{
-					"title": "Authentication",
-					"description": "Authentication is the process of verifying the identity of users, ensuring they are who they claim to be. It is typically achieved through methods like passwords, multi-factor authentication (MFA), or biometrics.",
-					"code": ""
-				},
-				{
-					"title": "Authorization",
-					"description": "Authorization determines what actions and resources a user is allowed to access after they've been authenticated. This is often managed using role-based access control (RBAC) and permissions.",
-					"code": ""
-				},
-				{
-					"title": "Encryption",
-					"description": "Encryption converts data into a secure format to prevent unauthorized access. SSL/TLS is used for encrypting data transmitted over the network. For example, <code>https://</code> in a URL indicates a secure connection.",
-					"code": ""
-				},
-				{
-					"title": "Cross-Site Scripting (XSS) Prevention",
-					"description": "XSS prevention involves measures to prevent attackers from injecting malicious scripts into web pages viewed by other users. Input validation and output encoding are key techniques to mitigate this risk.",
-					"code": ""
-				},
-				{
-					"title": "Cross-Site Request Forgery (CSRF) Protection",
-					"description": "CSRF protection safeguards against attackers tricking users into performing unwanted actions on a different website without their knowledge or consent. It often involves using tokens in forms.",
-					"code": ""
-				},
-				{
-					"title": "SQL Injection Prevention",
-					"description": "SQL injection prevention protects against malicious SQL queries by sanitizing user inputs and using parameterized queries or prepared statements. For example, in PHP: <code>$stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username');</code>",
-					"code": ""
-				},
-				{
-					"title": "Security Headers",
-					"description": "Security headers like Content Security Policy (CSP), X-Content-Type-Options, and X-Frame-Options help mitigate various web security risks by setting policies for how the browser should handle content and requests.",
-					"code": ""
-				},
-				{
-					"title": "Session Management",
-					"description": "Proper session management involves using secure tokens and ensuring session data is not exposed or tampered with. For example, storing session data securely on the server.",
-					"code": ""
-				},
-				{
-					"title": "Input Validation",
-					"description": "Input validation validates and sanitizes all user inputs to prevent malicious data from being processed by the application. For example, validating email addresses and filtering out harmful characters.",
-					"code": ""
-				},
-				{
-					"title": "Error Handling",
-					"description": "Error handling mechanisms should be in place to avoid exposing sensitive information and providing attackers with clues about the system's architecture. For example, displaying generic error messages.",
-					"code": ""
-				},
-				{
-					"title": "File Upload Security",
-					"description": "File upload security involves scanning uploaded files for malware, restricting allowed file types, and storing them in secure locations to prevent security vulnerabilities. For example, using antivirus software to scan uploads.",
-					"code": ""
-				},
-				{
-					"title": "API Security",
-					"description": "API security protects APIs against unauthorized access and abuse using techniques like API keys, OAuth, and rate limiting. For example, using API tokens for authentication.",
-					"code": ""
-				},
-				{
-					"title": "Security Patch Management",
-					"description": "Security patch management entails keeping all software and libraries up to date with the latest security patches to prevent known vulnerabilities from being exploited. For example, regularly updating server software.",
-					"code": ""
-				},
-				{
-					"title": "Logging and Monitoring",
-					"description": "Robust logging and monitoring systems help detect and respond to security incidents in real-time. For example, using intrusion detection systems to monitor network traffic.",
-					"code": ""
-				},
-				{
-					"title": "Password Security",
-					"description": "Password security involves enforcing strong password policies, hashing and salting passwords, and providing users with password recovery mechanisms. For example, storing passwords securely using bcrypt.",
-					"code": ""
-				},
-				{
-					"title": "Security Training and Awareness",
-					"description": "Security training and awareness programs educate developers, users, and administrators about security best practices and potential risks.",
-					"code": ""
-				},
-				{
-					"title": "Security Audits and Penetration Testing",
-					"description": "Security audits and penetration testing are conducted regularly to identify and address vulnerabilities proactively. For example, hiring ethical hackers to assess system security.",
-					"code": ""
-				},
-				{
-					"title": "Data Privacy and Compliance",
-					"description": "Ensuring compliance with data protection regulations (e.g., GDPR, HIPAA) and safeguarding sensitive user information is critical. For example, implementing data encryption and user consent mechanisms.",
-					"code": ""
-				},
-				{
-					"title": "Firewalls and Intrusion Detection/Prevention Systems",
-					"description": "Implementing firewalls and intrusion detection/prevention systems at the network level helps filter and monitor incoming and outgoing traffic to protect against external threats.",
-					"code": ""
-				},
-				{
-					"title": "Business Continuity and Disaster Recovery",
-					"description": "Developing plans and procedures for business continuity and disaster recovery ensures system availability and data integrity in the event of a security breach or disaster. For example, regular data backups and offsite storage.",
-					"code": ""
-				}
-			]
-		},
-		{
-			"title": "Session Auth",
-			"docs": [
-				{
-					"title": "What is it?",
-					"description": "Sessions are one of the most common methods of handling user authentication and maintaining user state in web applications. Especially helpful for applications where security is a top priority. However, they require server-side storage, which can be a challenge in distributed or horizontally scaled systems",
-					"code": ""
-				},
-				{
-					"title": "User Authentication",
-					"description": "When a user logs in, their credentials (usually a username and password) are verified by the server. If the credentials are correct, the server creates a unique session identifier, often called a session ID.",
-					"code": ""
-				},
-				{
-					"title": "Session Creation",
-					"description": "The server stores the user's session ID and any relevant user data in a session store. This can be an in-memory store, a database, or an external caching system. The session ID is sent to the client and stored in a cookie or as a URL parameter.",
-					"code": ""
-				},
-				{
-					"title": "Session Management",
-					"description": "For each subsequent request, the client sends the session ID back to the server. The server uses the session ID to look up the corresponding user session in the session store. This allows the server to identify the user and maintain their state across multiple requests.",
-					"code": ""
-				},
-				{
-					"title": "Session Expiration",
-					"description": "Sessions have a limited lifespan. They can expire after a certain period of inactivity or be set to expire after a specific duration, such as 30 minutes or 24 hours. When a session expires, the user is typically required to log in again to create a new session.",
-					"code": ""
-				},
-				{
-					"title": "Logout",
-					"description": "When a user logs out, the server invalidates the session associated with the user. Any subsequent requests with the expired session ID will not be authenticated.",
-					"code": ""
-				},
-				{
-					"title": "Python Sample Code",
-					"description": "",
-					"code": "from flask import Flask, request, session, redirect, url_for\napp = Flask(__name__)\napp.secret_key = 'your_secret_key_here'\n@app.route('/login', methods=['POST'])\ndef login():\n    username = request.form['username']\n    password = request.form['password']\n    if username == 'example' and password == 'password':\n        session['username'] = username\n        return redirect(url_for('dashboard'))\n    else:\n        return 'Invalid credentials'\n@app.route('/dashboard')\ndef dashboard():\n    if 'username' in session:\n        username = session['username']\n        return f'Welcome, {username}! This is your dashboard.'\n    else:\n        return redirect(url_for('login'))\n@app.route('/logout')\ndef logout():\n    session.pop('username', None)\n    return redirect(url_for('login'))\nif __name__ == '__main__':\n    app.run(debug=True)"
-				},
-				{
-					"title": "Javascript Sample Code",
-					"description": "",
-					"code": "const express = require('express');\nconst session = require('express-session');\nconst app = express();\napp.use(session({ secret: 'your_secret_key_here', resave: false, saveUninitialized: true }));\napp.post('/login', (req, res) => {\n    const { username, password } = req.body;\n    if (username === 'example' && password === 'password') {\n        req.session.username = username;\n        res.redirect('/dashboard');\n    } else {\n        res.send('Invalid credentials');\n    }\n});\napp.get('/dashboard', (req, res) => {\n    if (req.session.username) {\n        res.send(`Welcome, ${req.session.username}! This is your dashboard.`);\n    } else {\n        res.redirect('/login');\n    }\n});\napp.get('/logout', (req, res) => {\n    req.session.destroy(() => {\n        res.redirect('/login');\n    });\n});\napp.listen(3000, () => {\n    console.log('Server is running on port 3000');\n});"
-				}
-			]
-		},
-		{
-			"title": "JWT Auth",
-			"docs": [
-				{
-					"title": "What is it?",
-					"description": "JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties. They are often used for authentication and information exchange in web development.",
-					"code": ""
-				},
-				{
-					"title": "Token Structure",
-					"description": "A JWT is a string that consists of three parts: a header, a payload, and a signature. These parts are separated by dots, and the final token looks like 'xxxxx.yyyyy.zzzzz'.",
-					"code": ""
-				},
-				{
-					"title": "User Authentication",
-					"description": "When a user logs in, the server creates a JWT containing user-specific information (claims) and signs it using a secret key. This token is then sent to the client.",
-					"code": "// Code related to user authentication with JWT\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  console.error('Token verification failed:', error.message);\n}"
-				},
-				{
-					"title": "Token Storage",
-					"description": "The client typically stores the JWT, often in a browser cookie or local storage. On each subsequent request, the client includes the JWT in the request headers for authentication.",
-					"code": ""
-				},
-				{
-					"title": "Token Verification",
-					"description": "Upon receiving a request, the server verifies the integrity of the received JWT using the secret key. If the verification is successful, the server extracts the claims and processes the request.",
-					"code": "// Code related to JWT verification on the server side\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\nconst verifyToken = (token) => {\n  try {\n    const decoded = jwt.verify(token, secretKey);\n    console.log('Decoded Token:', decoded);\n    return decoded;\n  } catch (error) {\n    console.error('Token verification failed:', error.message);\n    return null;\n  }\n};\n\n// Example usage\nconst tokenFromClient = 'xxxxx.yyyyy.zzzzz';\nconst decodedToken = verifyToken(tokenFromClient);\nif (decodedToken) {\n  // Process the request\n} else {\n  // Handle authentication failure\n}"
-				},
-				{
-					"title": "Token Expiration",
-					"description": "JWTs can have an expiration time, after which they are no longer considered valid. This helps in enhancing security by limiting the time a token is valid.",
-					"code": "// Code related to JWT expiration handling\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token with expiration time\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token with expiration check\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  if (error.name === 'TokenExpiredError') {\n    console.error('Token has expired');\n  } else {\n    console.error('Token verification failed:', error.message);\n  }\n}"
-				},
-				{
-					"title": "Logout (Token Revocation)",
-					"description": "Unlike traditional session-based authentication, JWTs are stateless. To invalidate a JWT and force reauthentication, the server can either use token revocation lists or short expiration times.",
-					"code": ""
-				},
-				{
-					"title": "Sample Code - Node.js (jsonwebtoken)",
-					"description": "",
-					"code": "// Code example using 'jsonwebtoken' library in Node.js\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  console.error('Token verification failed:', error.message);\n}"
-				},
-				{
-					"title": "Sample Code - Python (PyJWT)",
-					"description": "",
-					"code": "import jwt\nsecret_key = 'your_secret_key_here'\n\n# Create a token\ntoken = jwt.encode({'userId': '123', 'username': 'example'}, secret_key, algorithm='HS256')\n\n# Verify a token\ntry:\n    decoded = jwt.decode(token, secret_key, algorithms=['HS256'])\n    print('Decoded Token:', decoded)\nexcept jwt.ExpiredSignatureError:\n    print('Token has expired')\nexcept jwt.InvalidTokenError as e:\n    print('Token verification failed:', str(e))"
-				}
-			]
-		}
-	]
+    "collectionName": "securityCheatsheet",
+    "title": "Security",
+    "icon": "https://api.iconify.design/fluent-emoji-high-contrast:locked-with-key.svg",
+    "color": "08C052",
+    "highlighter": "tsx",
+    "groups": [
+        {
+            "title": "Web",
+            "docs": [
+                {
+                    "title": "Authentication",
+                    "description": "Authentication is the process of verifying the identity of users, ensuring they are who they claim to be. It is typically achieved through methods like passwords, multi-factor authentication (MFA), or biometrics.",
+                    "code": "",
+                    "id": "a3d3b9bd-ca3d-42f9-8e29-2c48d1870858"
+                },
+                {
+                    "title": "Authorization",
+                    "description": "Authorization determines what actions and resources a user is allowed to access after they've been authenticated. This is often managed using role-based access control (RBAC) and permissions.",
+                    "code": "",
+                    "id": "bd8a8574-d9d9-4deb-88a4-aa3c7fde5040"
+                },
+                {
+                    "title": "Encryption",
+                    "description": "Encryption converts data into a secure format to prevent unauthorized access. SSL/TLS is used for encrypting data transmitted over the network. For example, <code>https://</code> in a URL indicates a secure connection.",
+                    "code": "",
+                    "id": "e3f5f974-f65d-4cf2-a908-c4d5403f21df"
+                },
+                {
+                    "title": "Cross-Site Scripting (XSS) Prevention",
+                    "description": "XSS prevention involves measures to prevent attackers from injecting malicious scripts into web pages viewed by other users. Input validation and output encoding are key techniques to mitigate this risk.",
+                    "code": "",
+                    "id": "e0a74d4c-da6c-44f8-be2b-db5edc06a52f"
+                },
+                {
+                    "title": "Cross-Site Request Forgery (CSRF) Protection",
+                    "description": "CSRF protection safeguards against attackers tricking users into performing unwanted actions on a different website without their knowledge or consent. It often involves using tokens in forms.",
+                    "code": "",
+                    "id": "05dedac5-c748-42a2-a46b-c70f4f6be08d"
+                },
+                {
+                    "title": "SQL Injection Prevention",
+                    "description": "SQL injection prevention protects against malicious SQL queries by sanitizing user inputs and using parameterized queries or prepared statements. For example, in PHP: <code>$stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username');</code>",
+                    "code": "",
+                    "id": "4b7b430f-ebc2-4a4f-93b3-40c914dbe3f1"
+                },
+                {
+                    "title": "Security Headers",
+                    "description": "Security headers like Content Security Policy (CSP), X-Content-Type-Options, and X-Frame-Options help mitigate various web security risks by setting policies for how the browser should handle content and requests.",
+                    "code": "",
+                    "id": "650a2f9d-4d13-423c-9825-275f7207df96"
+                },
+                {
+                    "title": "Session Management",
+                    "description": "Proper session management involves using secure tokens and ensuring session data is not exposed or tampered with. For example, storing session data securely on the server.",
+                    "code": "",
+                    "id": "d42ff3ab-8201-4cbb-ba76-e37e96afae33"
+                },
+                {
+                    "title": "Input Validation",
+                    "description": "Input validation validates and sanitizes all user inputs to prevent malicious data from being processed by the application. For example, validating email addresses and filtering out harmful characters.",
+                    "code": "",
+                    "id": "9e8d997e-9a72-466e-89c8-415aec0fe514"
+                },
+                {
+                    "title": "Error Handling",
+                    "description": "Error handling mechanisms should be in place to avoid exposing sensitive information and providing attackers with clues about the system's architecture. For example, displaying generic error messages.",
+                    "code": "",
+                    "id": "dbd003bb-f959-4908-af06-bfd676673462"
+                },
+                {
+                    "title": "File Upload Security",
+                    "description": "File upload security involves scanning uploaded files for malware, restricting allowed file types, and storing them in secure locations to prevent security vulnerabilities. For example, using antivirus software to scan uploads.",
+                    "code": "",
+                    "id": "dfbd1722-e6ac-433b-a1df-5d2d27bae6ee"
+                },
+                {
+                    "title": "API Security",
+                    "description": "API security protects APIs against unauthorized access and abuse using techniques like API keys, OAuth, and rate limiting. For example, using API tokens for authentication.",
+                    "code": "",
+                    "id": "ff07e4f7-af08-47f5-ab58-64609a7bbb82"
+                },
+                {
+                    "title": "Security Patch Management",
+                    "description": "Security patch management entails keeping all software and libraries up to date with the latest security patches to prevent known vulnerabilities from being exploited. For example, regularly updating server software.",
+                    "code": "",
+                    "id": "2ae4d3b0-c546-4ade-91dd-2574702e905a"
+                },
+                {
+                    "title": "Logging and Monitoring",
+                    "description": "Robust logging and monitoring systems help detect and respond to security incidents in real-time. For example, using intrusion detection systems to monitor network traffic.",
+                    "code": "",
+                    "id": "7fd39116-2d0e-44ea-9e6b-05cee08d27e1"
+                },
+                {
+                    "title": "Password Security",
+                    "description": "Password security involves enforcing strong password policies, hashing and salting passwords, and providing users with password recovery mechanisms. For example, storing passwords securely using bcrypt.",
+                    "code": "",
+                    "id": "0fa6f8e7-9180-4cb6-a721-fcbdd930c20f"
+                },
+                {
+                    "title": "Security Training and Awareness",
+                    "description": "Security training and awareness programs educate developers, users, and administrators about security best practices and potential risks.",
+                    "code": "",
+                    "id": "494472e9-c6e2-411a-b975-5ae360903b8c"
+                },
+                {
+                    "title": "Security Audits and Penetration Testing",
+                    "description": "Security audits and penetration testing are conducted regularly to identify and address vulnerabilities proactively. For example, hiring ethical hackers to assess system security.",
+                    "code": "",
+                    "id": "3607da61-94c3-41b4-bb42-2923fc7a6e0c"
+                },
+                {
+                    "title": "Data Privacy and Compliance",
+                    "description": "Ensuring compliance with data protection regulations (e.g., GDPR, HIPAA) and safeguarding sensitive user information is critical. For example, implementing data encryption and user consent mechanisms.",
+                    "code": "",
+                    "id": "371cf497-a0c6-4dfc-a887-b18bed0658d5"
+                },
+                {
+                    "title": "Firewalls and Intrusion Detection/Prevention Systems",
+                    "description": "Implementing firewalls and intrusion detection/prevention systems at the network level helps filter and monitor incoming and outgoing traffic to protect against external threats.",
+                    "code": "",
+                    "id": "7646e6c0-c3a4-4107-89a1-4c7dca91bb42"
+                },
+                {
+                    "title": "Business Continuity and Disaster Recovery",
+                    "description": "Developing plans and procedures for business continuity and disaster recovery ensures system availability and data integrity in the event of a security breach or disaster. For example, regular data backups and offsite storage.",
+                    "code": "",
+                    "id": "1f782d75-3568-4b96-845d-f903e9e03f6b"
+                }
+            ]
+        },
+        {
+            "title": "Session Auth",
+            "docs": [
+                {
+                    "title": "What is it?",
+                    "description": "Sessions are one of the most common methods of handling user authentication and maintaining user state in web applications. Especially helpful for applications where security is a top priority. However, they require server-side storage, which can be a challenge in distributed or horizontally scaled systems",
+                    "code": "",
+                    "id": "43f0e352-6ccd-4125-9b4a-6b11e0da35ba"
+                },
+                {
+                    "title": "User Authentication",
+                    "description": "When a user logs in, their credentials (usually a username and password) are verified by the server. If the credentials are correct, the server creates a unique session identifier, often called a session ID.",
+                    "code": "",
+                    "id": "9d924e9a-a3ec-49eb-b0e8-0e6038d22de8"
+                },
+                {
+                    "title": "Session Creation",
+                    "description": "The server stores the user's session ID and any relevant user data in a session store. This can be an in-memory store, a database, or an external caching system. The session ID is sent to the client and stored in a cookie or as a URL parameter.",
+                    "code": "",
+                    "id": "f0fe36c5-7b84-4657-aeb6-2dae79fae87a"
+                },
+                {
+                    "title": "Session Management",
+                    "description": "For each subsequent request, the client sends the session ID back to the server. The server uses the session ID to look up the corresponding user session in the session store. This allows the server to identify the user and maintain their state across multiple requests.",
+                    "code": "",
+                    "id": "fd7fcc62-e25b-47d4-8b6c-4af25d75fa50"
+                },
+                {
+                    "title": "Session Expiration",
+                    "description": "Sessions have a limited lifespan. They can expire after a certain period of inactivity or be set to expire after a specific duration, such as 30 minutes or 24 hours. When a session expires, the user is typically required to log in again to create a new session.",
+                    "code": "",
+                    "id": "0a34cd92-b31c-4a0d-acb8-91cbc13bd512"
+                },
+                {
+                    "title": "Logout",
+                    "description": "When a user logs out, the server invalidates the session associated with the user. Any subsequent requests with the expired session ID will not be authenticated.",
+                    "code": "",
+                    "id": "d6479cf6-1682-47fe-8ebf-5e27a24c2c38"
+                },
+                {
+                    "title": "Python Sample Code",
+                    "description": "",
+                    "code": "from flask import Flask, request, session, redirect, url_for\napp = Flask(__name__)\napp.secret_key = 'your_secret_key_here'\n@app.route('/login', methods=['POST'])\ndef login():\n    username = request.form['username']\n    password = request.form['password']\n    if username == 'example' and password == 'password':\n        session['username'] = username\n        return redirect(url_for('dashboard'))\n    else:\n        return 'Invalid credentials'\n@app.route('/dashboard')\ndef dashboard():\n    if 'username' in session:\n        username = session['username']\n        return f'Welcome, {username}! This is your dashboard.'\n    else:\n        return redirect(url_for('login'))\n@app.route('/logout')\ndef logout():\n    session.pop('username', None)\n    return redirect(url_for('login'))\nif __name__ == '__main__':\n    app.run(debug=True)",
+                    "id": "abccbcef-93d9-4544-94b3-5bcdc18b4ea8"
+                },
+                {
+                    "title": "Javascript Sample Code",
+                    "description": "",
+                    "code": "const express = require('express');\nconst session = require('express-session');\nconst app = express();\napp.use(session({ secret: 'your_secret_key_here', resave: false, saveUninitialized: true }));\napp.post('/login', (req, res) => {\n    const { username, password } = req.body;\n    if (username === 'example' && password === 'password') {\n        req.session.username = username;\n        res.redirect('/dashboard');\n    } else {\n        res.send('Invalid credentials');\n    }\n});\napp.get('/dashboard', (req, res) => {\n    if (req.session.username) {\n        res.send(`Welcome, ${req.session.username}! This is your dashboard.`);\n    } else {\n        res.redirect('/login');\n    }\n});\napp.get('/logout', (req, res) => {\n    req.session.destroy(() => {\n        res.redirect('/login');\n    });\n});\napp.listen(3000, () => {\n    console.log('Server is running on port 3000');\n});",
+                    "id": "5c61c179-5e54-4b45-95ee-c2799cc04bdc"
+                }
+            ]
+        },
+        {
+            "title": "JWT Auth",
+            "docs": [
+                {
+                    "title": "What is it?",
+                    "description": "JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties. They are often used for authentication and information exchange in web development.",
+                    "code": "",
+                    "id": "d7b1f28d-620a-4ef3-a89f-d18ca2eea511"
+                },
+                {
+                    "title": "Token Structure",
+                    "description": "A JWT is a string that consists of three parts: a header, a payload, and a signature. These parts are separated by dots, and the final token looks like 'xxxxx.yyyyy.zzzzz'.",
+                    "code": "",
+                    "id": "3b29b37f-c8e8-4828-9e56-b71b68436d35"
+                },
+                {
+                    "title": "User Authentication",
+                    "description": "When a user logs in, the server creates a JWT containing user-specific information (claims) and signs it using a secret key. This token is then sent to the client.",
+                    "code": "// Code related to user authentication with JWT\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  console.error('Token verification failed:', error.message);\n}",
+                    "id": "a63f48a3-4a65-4dc5-aa8a-72a6112873a0"
+                },
+                {
+                    "title": "Token Storage",
+                    "description": "The client typically stores the JWT, often in a browser cookie or local storage. On each subsequent request, the client includes the JWT in the request headers for authentication.",
+                    "code": "",
+                    "id": "d3add76b-9617-4a57-b6d3-2abd2cee35d0"
+                },
+                {
+                    "title": "Token Verification",
+                    "description": "Upon receiving a request, the server verifies the integrity of the received JWT using the secret key. If the verification is successful, the server extracts the claims and processes the request.",
+                    "code": "// Code related to JWT verification on the server side\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\nconst verifyToken = (token) => {\n  try {\n    const decoded = jwt.verify(token, secretKey);\n    console.log('Decoded Token:', decoded);\n    return decoded;\n  } catch (error) {\n    console.error('Token verification failed:', error.message);\n    return null;\n  }\n};\n\n// Example usage\nconst tokenFromClient = 'xxxxx.yyyyy.zzzzz';\nconst decodedToken = verifyToken(tokenFromClient);\nif (decodedToken) {\n  // Process the request\n} else {\n  // Handle authentication failure\n}",
+                    "id": "483d575b-979a-478a-8017-a61eeb4ba305"
+                },
+                {
+                    "title": "Token Expiration",
+                    "description": "JWTs can have an expiration time, after which they are no longer considered valid. This helps in enhancing security by limiting the time a token is valid.",
+                    "code": "// Code related to JWT expiration handling\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token with expiration time\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token with expiration check\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  if (error.name === 'TokenExpiredError') {\n    console.error('Token has expired');\n  } else {\n    console.error('Token verification failed:', error.message);\n  }\n}",
+                    "id": "78b3791f-8a85-4c9f-a3bc-c5a899c46110"
+                },
+                {
+                    "title": "Logout (Token Revocation)",
+                    "description": "Unlike traditional session-based authentication, JWTs are stateless. To invalidate a JWT and force reauthentication, the server can either use token revocation lists or short expiration times.",
+                    "code": "",
+                    "id": "e3930806-22b2-467a-add0-a4278615e4b7"
+                },
+                {
+                    "title": "Sample Code - Node.js (jsonwebtoken)",
+                    "description": "",
+                    "code": "// Code example using 'jsonwebtoken' library in Node.js\nconst jwt = require('jsonwebtoken');\nconst secretKey = 'your_secret_key_here';\n\n// Create a token\nconst token = jwt.sign({ userId: '123', username: 'example' }, secretKey, { expiresIn: '1h' });\n\n// Verify a token\ntry {\n  const decoded = jwt.verify(token, secretKey);\n  console.log('Decoded Token:', decoded);\n} catch (error) {\n  console.error('Token verification failed:', error.message);\n}",
+                    "id": "2f4c8821-5dfe-41b5-af77-1ecc34a3cd85"
+                },
+                {
+                    "title": "Sample Code - Python (PyJWT)",
+                    "description": "",
+                    "code": "import jwt\nsecret_key = 'your_secret_key_here'\n\n# Create a token\ntoken = jwt.encode({'userId': '123', 'username': 'example'}, secret_key, algorithm='HS256')\n\n# Verify a token\ntry:\n    decoded = jwt.decode(token, secret_key, algorithms=['HS256'])\n    print('Decoded Token:', decoded)\nexcept jwt.ExpiredSignatureError:\n    print('Token has expired')\nexcept jwt.InvalidTokenError as e:\n    print('Token verification failed:', str(e))",
+                    "id": "3636c1cc-9681-461f-917a-5f68ee821871"
+                }
+            ]
+        }
+    ]
 }
