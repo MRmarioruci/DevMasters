@@ -122,6 +122,59 @@
                 }
             ]
         },
+		{
+			"title": "Advanced",
+			"docs": [
+				{
+					"title": "Inheritance",
+					"description": "JavaScript implements prototypal inheritance, a unique and flexible mechanism that allows objects to inherit properties and methods directly from other objects. In this model, each object has an internal link to another object called its prototype, forming a chain of prototypes.",
+					"code": "// Example of Inheritance\nfunction Animal(name) {\n  this.name = name;\n}\n\nAnimal.prototype.sayHello = function() {\n  console.log('Hello, I am ' + this.name);\n};\n\nfunction Dog(name, breed) {\n  Animal.call(this, name);\n  this.breed = breed;\n}\n\nDog.prototype = Object.create(Animal.prototype);\n\nDog.prototype.bark = function() {\n  console.log('Woof!');\n};\n\nvar myDog = new Dog('Buddy', 'Labrador');\nmyDog.sayHello(); // Outputs: Hello, I am Buddy\nmyDog.bark(); // Outputs: Woof!",
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46b690cd6"
+				},
+				{
+					"title": "Prototype Chaining",
+					"description": "In JavaScript, objects can inherit properties and methods from other objects forming a chain of prototypes.",
+					"code": "// Example of Prototype Chaining\nfunction Vehicle(make, model) {\n  this.make = make;\n  this.model = model;\n}\n\nVehicle.prototype.drive = function() {\n  console.log('Vroom!');\n};\n\nfunction Car(make, model, color) {\n  Vehicle.call(this, make, model);\n  this.color = color;\n}\n\nCar.prototype = Object.create(Vehicle.prototype);\n\nCar.prototype.honk = function() {\n  console.log('Honk!');\n};\n\nvar myCar = new Car('Toyota', 'Camry', 'Blue');\nmyCar.drive(); // Outputs: Vroom!\nmyCar.honk(); // Outputs: Honk!",
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46b690c23"
+				},
+				{
+					"title": "Garbage Collection in JavaScript",
+					"description": "Garbage collection is the automatic process of reclaiming memory occupied by objects that are no longer in use or reachable in the program.",
+					"code": "// Example of Automatic Garbage Collection\nfunction createObjects() {\n  var obj1 = { data: 'Object 1' };\n  var obj2 = { data: 'Object 2' };\n  var obj3 = { data: 'Object 3' };\n\n  // No longer need obj1\n  obj1 = null;\n\n  // obj2 and obj3 still in use\n  console.log(obj2.data);\n  console.log(obj3.data);\n}\n\ncreateObjects(); // After execution, obj1 is eligible for garbage collection.",
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46b690234"
+				},
+				{
+					"title": "Memory Management in JavaScript",
+					"description": "JavaScript uses automatic memory management through garbage collection to handle memory allocation and deallocation.",
+					"code": "// Garbage Collection Cycle\n// 1. Mark - Identify objects in use\n// 2. Sweep - Remove unreferenced objects\n\n// Example with Circular Reference\nfunction createCircularReference() {\n  var objA = { data: 'Object A' };\n  var objB = { data: 'Object B' };\n\n  objA.reference = objB;\n  objB.reference = objA;\n\n  // Circular reference, but both objects are unreachable\n  objA = null;\n  objB = null;\n}\n\ncreateCircularReference(); // After execution, both objA and objB are eligible for garbage collection.",
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46b690cd623423"
+				},
+				{
+					"title": "Concurrency Models in JavaScript",
+					"description": "JavaScript follows a concurrency model based on an event loop, which allows asynchronous execution and handling of multiple tasks without blocking the main thread.",
+					"code": "// Example of Asynchronous Execution\nfunction asynchronousTask() {\n  console.log('Start task');\n\n  setTimeout(function() {\n    console.log('Task completed after 2 seconds');\n  }, 2000);\n\n  console.log('Continuing with other tasks');\n}\n\nasynchronousTask(); // Outputs: Start task, Continuing with other tasks, Task completed after 2 seconds",
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46b690234"
+				},
+				{
+					"title": "Event Loop in JavaScript",
+					"description": "The event loop is a fundamental part of the JavaScript concurrency model, managing the execution of code by continuously checking the call stack and the message queue.",
+					"code": "// Example of Event Loop\nconsole.log('Start script');\n\nsetTimeout(function() {\n  console.log('Timeout callback executed');\n}, 0);\n\nconsole.log('End script');\n\n// Outputs: Start script, End script, Timeout callback executed (after the main thread is free)",
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46b234"
+				},
+				{
+					"title": "Enumerability of Properties in JavaScript",
+					"description": "In JavaScript, enumerability determines whether a property will be iterated over in certain operations, like for...in loops. By default, properties added directly to an object are enumerable, but some built-in properties and methods may not be.",
+					"code": "// Example of Enumerability\nvar person = { name: 'John', age: 30 };\n\n// Making 'age' property non-enumerable\nObject.defineProperty(person, 'age', { enumerable: false });\n\n// Iterating over properties\nfor (var prop in person) {\n  console.log(prop); // Outputs: name\n}\n\nconsole.log(Object.keys(person)); // Outputs: ['name']",
+					"id": "e4243a7b88-4eb5-4739-aa65-1ef46b690324"
+				},
+				{
+					"title": "Ownership of Properties in JavaScript",
+					"description": "In JavaScript, property ownership refers to whether a property is directly defined on an object or inherited from its prototype chain. Understanding ownership is crucial when working with objects and their prototypes.",
+					"code": "// Example of Property Ownership\nfunction Animal() {\n  this.legs = 4;\n}\n\nAnimal.prototype.tail = true;\n\nvar cat = new Animal();\ncat.sound = 'Meow';\n\n// Checking property ownership\nconsole.log(cat.hasOwnProperty('legs')); // Outputs: true\nconsole.log(cat.hasOwnProperty('tail')); // Outputs: false\nconsole.log(cat.hasOwnProperty('sound')); // Outputs: true",
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46b690332cd6"
+				}
+			]
+		},
         {
             "title": "Promises/Async",
             "docs": [
