@@ -13,6 +13,7 @@ function useLocalStorage() {
 		}else{
 			if(saved) storage = storage.filter((savedElement: string) => savedElement !== id)
 		}
+		console.log(storage);
 		localStorage.setItem(container, JSON.stringify(storage));
 	}
 	return {
