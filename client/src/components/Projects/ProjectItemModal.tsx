@@ -5,9 +5,43 @@ import html2canvas from "html2canvas";
 
 function ProjectItemModal(props: IProjectModalItemProps) {
     const {item, toggleProject, highlighter, highlighterTheme} = props;
+	const [instructions, setInstructions] = useState(null);
 	const [downloading, setDownloading] = useState<boolean>(false);
 	const myRef = useRef<HTMLDivElement | null>(null);
     if(!item) return;
+
+	const get = async () => {
+		const apiUrl = 'http://127.0.0.1:5000/api/devmasters/chatgpt/get_project_instructions';
+		// Make the POST request using Fetch
+		fetch(apiUrl, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json', // Set the content type to JSON
+				// Add any additional headers if needed
+			},
+			body: JSON.stringify({
+				project: item.title +' \n'+ item.description,
+				api_key: "asd"
+			}), // Convert the data to JSON format
+		})
+		.then(response => {
+			// Check if the request was successful (status code 2xx)
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			// Parse the response JSON
+			return response.json();
+		})
+		.then(data => {
+			setInstructions(data.data);
+			// Handle the response data
+			console.log('Response data:', data);
+		})
+		.catch(error => {
+			// Handle errors during the fetch
+			console.error('Error during fetch:', error);
+		});
+	}
 
 	const handleClickTakeScreenShot = () => {
 		if(!myRef.current) return;
@@ -46,7 +80,7 @@ function ProjectItemModal(props: IProjectModalItemProps) {
 					<div className="modal__header">
 						<div className="modal__header-title">
 						</div>
-						<span className="material-icons font__40 modal__project-download" onClick={handleClickTakeScreenShot}>
+						<span className="material-icons font__40 modal__project-download" onClick={get}>
 							download
 						</span>
 						<div className="close-modal modal__x">
@@ -61,6 +95,9 @@ function ProjectItemModal(props: IProjectModalItemProps) {
                     <div className="modal__body">
 						<div ref={myRef}>
 							<ProjectItem item={item} toggleProject={toggleProject} highlighter={highlighter} highlighterTheme={highlighterTheme} />
+							<div dangerouslySetInnerHTML={{ __html: instructions! }}>
+
+							</div>
 						</div>
                     </div>
                 </div>

@@ -67,7 +67,7 @@ function CheatsheetComponent() {
 		const s = jsonData.find( groupItem => groupItem.id === group);
 		if(!s) return jsonData[0]
 		return s;
-	}, [id, group, jsonData])
+	}, [group, jsonData, localStoragePath, getFromLocalStorage])
 
 	useEffect(() => {
 		if(!id) return;
