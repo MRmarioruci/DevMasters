@@ -5,9 +5,11 @@ export type Cheatsheet = {
     "description"?: any,
     "code"?: string,
     "image"?: string,
-    "id"?: string
+    "id"?: string,
+    "saved"?: boolean
 }
 export type CheatSheetGroup = {
+    "id"?: string,
     "title": string,
     "docs": Cheatsheet[]
 }
@@ -31,6 +33,7 @@ export interface CheatsheetItemProps {
 	toggleCheatsheet: ToggleCheatsheetFunction,
     groupIndex?: number | null,
     index?: number | null,
+    localStoragePath?: string
 }
 export interface CheatsheetModalItemProps {
 	item: Cheatsheet | null,

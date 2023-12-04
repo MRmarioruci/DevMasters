@@ -2,6 +2,7 @@ import HighlighterThemeSelector from "../HighlighterThemeSelector";
 import LayoutSelector from "../LayoutSelector";
 import ShareModal from "./ShareModal";
 import { IDoc } from "../../types";
+import { Link } from "react-router-dom";
 
 interface IPageNavMetaProps{
     doc: IDoc,
@@ -18,9 +19,6 @@ function PageNavMeta({
     showShareModal
 }: IPageNavMetaProps) {
     const {icon, title} = doc
-    const goBack = () => {
-		window.history.back();
-	}
 	return (
         <div className="page__menu-meta">
             <div className="page__menu-metaInner">
@@ -34,12 +32,12 @@ function PageNavMeta({
                 </div>
                 <div className='flex flex__row mtop--20'>
                     <div>
-                        <div className="btn btn__secondary btn__md doc__back" onClick={goBack}>
+                        <Link to={'/'} className="btn btn__secondary btn__md doc__back">
                             <i className="material-icons font__20">
                                 arrow_back_ios
                             </i>
                             <span>Back</span>
-                        </div>
+                        </Link>
                     </div>
                     <div className="float--right">
                         { showThemeSelector && <HighlighterThemeSelector /> }

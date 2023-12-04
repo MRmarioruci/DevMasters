@@ -14,19 +14,24 @@ import ProjectItemModal from './ProjectItemModal';
 import PageNav from '../utils/PageNav';
 import PageNavMeta from '../utils/PageNavMeta';
 import usePageTheme from '../utils/usePageTheme';
+import useLocalStorage from '../../utils/useLocalStorage';
 
 function Projects() {
-	const { id } = useParams();
+	const { id, group } = useParams();
+	const {getFromLocalStorage} = useLocalStorage();
 	const {setTheme} = usePageTheme();
 	const {state} = useCustomContext();
 	const [project, setProject] = useState<any>(null);
 	const [jsonData, setJsonData] = useState<any[]>([]);
-	const [selectedGroup, setSelectedGroup] = useState<any | null>(null);
-	const [selectedGroupIndex, setSelectedGroupIndex] = useState<number>(0);
 	const [highlighter, setHighlighter] = useState<Highlighter>('js');
 	const [showModal, setShowModal] = useState<boolean>(false);
 	const [selectedProject, setSelectedProject] = useState<IProjectItem | null>(null);
 	const [loading, setLoading] = useState<boolean>(true);
+
+	const localStoragePath = useMemo(() => {
+		const parts = window.location.pathname.split('/');
+		return `${parts[2]}_${parts[1]}`;
+	}, [id, group])
 
 	const fetchData = useCallback(async () => {
 		setLoading(true);
@@ -46,25 +51,34 @@ function Projects() {
 		setSelectedProject(project);
 	}
 
+	const selectedGroup = useMemo(() => {
+		if(!jsonData.length) return null;
+		if(group === 'myboard'){
+			const docs = jsonData.reduce((acc: IProjectItem[], currentValue: any) => {
+				const docs = currentValue?.docs?.filter((item: IProjectItem) => getFromLocalStorage(localStoragePath, item.id!))
+				return [...acc, ...docs]
+			}, [])
+			return {
+				id: 'myboard',
+				title: 'My Board',
+				docs: docs
+			}
+		}
+		const s = jsonData.find( groupItem => groupItem.id === group);
+		if(!s) return jsonData[0]
+		return s;
+	}, [id, group, jsonData])
+
 	useEffect(() => {
 		if(!id) return;
 		const m = menu.find( (menuItem) => menuItem.title === 'Project Based Learning');
 		const c = m?.items.find( item => item.href === id);
 		if(!c) throw new Error(`Could not find the requested ${id} menu item`);
 		setJsonData([]);
-		setSelectedGroup(null);
 		setProject(c);
 		fetchData();
 	}, [id, fetchData])
 
-	useEffect(() => {
-		if(!selectedGroup){
-			setSelectedGroup(jsonData?.[0]);
-		}else{
-			const groupIdx = jsonData.indexOf(selectedGroup);
-			if(groupIdx !== -1) setSelectedGroupIndex(groupIdx);
-		}
-	}, [jsonData, selectedGroup])
 
 	return (
 		<div className="projects">
@@ -78,7 +92,7 @@ function Projects() {
 						showThemeSelector={true}
 						showShareModal={true}
 					/>
-					<PageNav items={jsonData} selectedItem={selectedGroup} setSelectedItem={setSelectedGroup}/>
+					<PageNav pageId={id} items={jsonData} selectedItem={selectedGroup}/>
 				</>
 			}
 			{ selectedGroup && 
@@ -86,12 +100,14 @@ function Projects() {
 					<div className="text__center">
 						<div className="btn btn__primary-soft text__normal btn__rounded timeline__label">Start here</div>
 					</div>
-					<section id="cd-timeline" className="cd-container">
+					<section id="cd-timeline" className="cd-container" key={`${selectedGroup.id}`}>
 						{selectedGroup?.docs?.map((item:IProjectItem, idx:number) => {
 							return <ProjectItem
+								key={`project_${item?.id}_${idx}`}
 								item={item}
 								index={idx}
 								toggleProject={toggleProject}
+								localStoragePath={localStoragePath}
 							/>
 						})}
 					</section>

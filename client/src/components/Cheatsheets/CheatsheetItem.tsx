@@ -1,27 +1,21 @@
 import React from 'react'
 import { Highlight, themes } from "prism-react-renderer";
 import { CheatsheetItemProps } from '../../types/index';
-/* import useLocalStorage from '../utils/useLocalStorage'; */
+import CardItemHeader from './CardItemHeader';
 
 function CheatsheetItem(props: CheatsheetItemProps) {
-	/* const {getFromLocalStorage, addToLocalStorage} = useLocalStorage(null); */
-	const {toggleCheatsheet, item, highlighter, highlighterTheme /* groupIndex, index */} = props;
+	const {toggleCheatsheet, item, highlighter, highlighterTheme, localStoragePath} = props;
 	const highlighterThemeKey = highlighterTheme as keyof typeof themes
 	const createMarkup = (htmlContent:string) => {
 		return { __html: htmlContent };
 	};
-	
     return (
         <div className={`card cheatsheets__board-item`}>
-			<div className="cheatsheets__board-itemHeader">
-				<div className="cheatsheets__board-itemHeaderControl">
-					{/* <input type="checkbox"/> */}
-					<span className="material-icons" onClick={() => toggleCheatsheet(item)}>
-						fullscreen
-					</span>
-				</div>
-				<code className="text__bold font__16 cheatsheets__board-itemHeaderText" dangerouslySetInnerHTML={createMarkup(item.title)}></code>
-			</div>
+			<CardItemHeader 
+				id={item.id!}
+				title={item.title}
+				localStoragePath={localStoragePath!}
+			/>
 			<div className="cheatsheets__board-itemBody">
 				<div className="text__muted" dangerouslySetInnerHTML={createMarkup(item.description)}></div>
 				{item.image &&
@@ -50,16 +44,16 @@ function CheatsheetItem(props: CheatsheetItemProps) {
 						</Highlight>
 					</pre>
 				}
-				
 			</div>
-			<div className="cheatsheets__board-itemFooter">
-				{/* {(index && (groupIndex !== undefined)) ?
-					<button className="btn btn__secondary text__muted btn__md" onClick={() => addToLocalStorage(groupIndex, index) }>
-						<span className="material-icons">
-							favorite_border
-						</span>
-					</button> : ''
-				} */}
+			<div className="cheatsheets__board-itemFooter mtop--10">
+				<button className="btn btn__inverted btn__rounded btn__sm">
+					<span>Ask GPT</span>
+				</button>
+				<div className="cheatsheets__board-itemFooterActions">
+					<span className="material-icons" onClick={() => toggleCheatsheet(item)}>
+						fullscreen
+					</span>
+				</div>
 			</div>
 		</div>
     )

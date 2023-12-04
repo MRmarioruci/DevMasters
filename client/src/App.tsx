@@ -16,8 +16,8 @@ function App() {
 				<Nav />
 				<Routes>
 					<Route index element={<Main />} />
-					<Route path="/cheatsheets/:id" element={<Cheatsheet />} />
-					<Route path="/projects/:id" element={<Projects />} />
+					<Route path="/cheatsheets/:id/:group?" element={<Cheatsheet />} />
+					<Route path="/projects/:id/:group?" element={<Projects />} />
 				</Routes>
 			</BrowserRouter>
 			<Community />

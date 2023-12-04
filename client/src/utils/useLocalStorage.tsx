@@ -1,55 +1,22 @@
-import {useEffect, useRef} from 'react'
-
-type StorageGroupItem = number;
-type StorageGroup = {
-	[key:string]: StorageGroupItem[]
-}
-type Storage = StorageGroup[]
-
-function useLocalStorage(container:string | undefined |  null) {
-	const storage = useRef<Storage | null>(null);
-
-	const getFromLocalStorage = (groupIndex:number | null, itemIdx:number | null) => {
-		if(!storage) return null;
-
-		console.log(storage);
+function useLocalStorage() {
+	const getFromLocalStorage = (container: string, id: string) => {
+		const storage = JSON.parse(localStorage.getItem(container) || '[]');
+		const d = id ? !!storage.find((element: string) => element === id) : storage;
+		return d;
 	}
-	const addToLocalStorage = (groupIndex:number | null, itemIdx:number | null) => {
-		if(!groupIndex || !itemIdx || !container) return;
-		
-		let newStorage: StorageGroup = {};
-		/* Create if not available */
-		if(!storage){
-			newStorage[groupIndex] = [itemIdx];
+	const saveItemToLocalStorage = (container: string, id: string, checked: boolean) => {
+		let storage = JSON.parse(localStorage.getItem(container) || '[]');
+		const saved = getFromLocalStorage(container, id);
+		if(checked){
+			if(!saved) storage.push(id)
 		}else{
-			/* newStorage = storage.map((g, gIdx) => {
-				if(gIdx === groupIndex){
-
-				}
-				return g
-			}) */
+			if(saved) storage = storage.filter((savedElement: string) => savedElement !== id)
 		}
-		localStorage.setItem(container, JSON.stringify(newStorage));
-		console.log(localStorage.getItem(container));
+		localStorage.setItem(container, JSON.stringify(storage));
 	}
-	useEffect(() => {
-		if(!container) return;
-
-		const s = localStorage.getItem(container);
-		if(s){
-			console.log(JSON.parse(s));
-			//storage.current = JSON.parse(s);
-		}else{
-			/* Create container */
-			const defaultStorage = {
-				'0': []
-			};
-			localStorage.setItem(container, JSON.stringify(defaultStorage));
-		}
-	}, [container])
 	return {
 		getFromLocalStorage: getFromLocalStorage,
-		addToLocalStorage: addToLocalStorage
+		saveItemToLocalStorage: saveItemToLocalStorage
 	}
 }
 export default useLocalStorage

@@ -1,8 +1,9 @@
 import React from 'react'
 import { IProjectItemProps } from './Projects.types';
+import CardItemHeader from '../Cheatsheets/CardItemHeader';
 
 function ProjectItem(props: IProjectItemProps) {
-	const {toggleProject, item, index, highlighter, highlighterTheme} = props;
+	const {toggleProject, item, index, highlighter, highlighterTheme, localStoragePath} = props;
 	const createMarkup = (htmlContent:string) => {
 		return { __html: htmlContent };
 	};
@@ -15,7 +16,11 @@ function ProjectItem(props: IProjectItemProps) {
 				</div>
 			}
 			<div className="cd-timeline-content" style={{width: '100% !important'}}>
-				<h4>{item.title}</h4>
+				<CardItemHeader 
+					id={item.id!}
+					title={item.title}
+					localStoragePath={localStoragePath!}
+				/>
 				<br />
 				<div>{item.description}</div>
 				<span className="text__muted">

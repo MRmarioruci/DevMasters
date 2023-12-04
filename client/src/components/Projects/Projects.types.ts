@@ -1,22 +1,24 @@
 import { Highlighter } from "../../types";
 export type IToggleProject = (project: IProjectItem | null) => void;
 export interface IProjectItemProps{
-	item: IProjectItem,
+	item: IProjectItem;
     index?: number,
-	toggleProject: IToggleProject,
-    highlighter?: Highlighter,
-    highlighterTheme?: string,
+	toggleProject: IToggleProject;
+    highlighter?: Highlighter;
+    highlighterTheme?: string;
+    localStoragePath?:string;
 }
 export interface IProjectItem{
-	title: string,
-    description: string,
-    technologies: string,
-    concepts: string,
-    instructions: string,
+    id?:string;
+	title: string;
+    description: string;
+    technologies: string;
+    concepts: string;
+    instructions: string;
 }
 export interface IProjectModalItemProps {
-	item: IProjectItem | null,
-    highlighter?: Highlighter,
-    highlighterTheme?: string,
+	item: IProjectItem | null;
+    highlighter?: Highlighter;
+    highlighterTheme?: string;
 	toggleProject: IToggleProject
 }
