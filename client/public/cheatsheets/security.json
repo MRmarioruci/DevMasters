@@ -6,6 +6,7 @@
     "highlighter": "tsx",
     "groups": [
         {
+            "id": "web",
             "title": "Web",
             "docs": [
                 {
@@ -131,6 +132,7 @@
             ]
         },
         {
+            "id": "sessions",
             "title": "Session Auth",
             "docs": [
                 {
@@ -184,6 +186,7 @@
             ]
         },
         {
+            "id": "jwt",
             "title": "JWT Auth",
             "docs": [
                 {

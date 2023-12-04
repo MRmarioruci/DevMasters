@@ -6,6 +6,7 @@
     "highlighter": "js",
     "groups": [
         {
+            "id": "basics",
             "title": "Basics",
             "docs": [
                 {
@@ -83,6 +84,7 @@
             ]
         },
         {
+            "id": "images",
             "title": "Docker Images",
             "docs": [
                 {
@@ -124,6 +126,7 @@
             ]
         },
         {
+            "id": "container",
             "title": "Docker Containers",
             "docs": [
                 {
@@ -147,6 +150,7 @@
             ]
         },
         {
+            "id": "compose",
             "title": "Docker Compose",
             "docs": [
                 {
@@ -201,6 +205,7 @@
             ]
         },
         {
+            "id": "networking",
             "title": "Docker Networking",
             "docs": [
                 {
@@ -212,6 +217,7 @@
             ]
         },
         {
+            "id": "registry",
             "title": "Docker Registry and Repositories",
             "docs": [
                 {
@@ -223,6 +229,7 @@
             ]
         },
         {
+            "id": "swarm",
             "title": "Docker Swarm (optional)",
             "docs": [
                 {
@@ -234,6 +241,7 @@
             ]
         },
         {
+            "id": "security",
             "title": "Security and Best Practices",
             "docs": [
                 {
@@ -245,6 +253,7 @@
             ]
         },
         {
+            "id": "monitoring",
             "title": "Monitoring and Logging (optional)",
             "docs": [
                 {
@@ -256,6 +265,7 @@
             ]
         },
         {
+            "id": "cloud",
             "title": "Docker on Cloud Platforms (optional)",
             "docs": [
                 {

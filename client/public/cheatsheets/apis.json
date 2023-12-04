@@ -6,6 +6,7 @@
     "highlighter": "js",
     "groups": [
         {
+            "id": "basics",
             "title": "REST Basics",
             "docs": [
                 {
@@ -59,6 +60,7 @@
             ]
         },
         {
+            "id": "methods",
             "title": "REST HTTP Methods",
             "docs": [
                 {
@@ -118,6 +120,7 @@
             ]
         },
         {
+            "id": "websockets",
             "title": "Websockets",
             "docs": [
                 {
@@ -183,6 +186,7 @@
             ]
         },
         {
+            "id": "graphql",
             "title": "GraphQL Basics",
             "docs": [
                 {

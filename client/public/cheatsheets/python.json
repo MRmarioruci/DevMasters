@@ -6,6 +6,7 @@
     "highlighter": "bash",
     "groups": [
         {
+            "id": "basics",
             "title": "Basics",
             "docs": [
                 {

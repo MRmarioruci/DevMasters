@@ -6,6 +6,7 @@
     "highlighter": "js",
     "groups": [
         {
+            "id": "basics",
             "title": "Basics",
             "docs": [
                 {
@@ -123,6 +124,7 @@
             ]
         },
 		{
+            "id": "advanced",
 			"title": "Advanced",
 			"docs": [
 				{
@@ -141,7 +143,7 @@
 					"title": "Garbage Collection in JavaScript",
 					"description": "Garbage collection is the automatic process of reclaiming memory occupied by objects that are no longer in use or reachable in the program.",
 					"code": "// Example of Automatic Garbage Collection\nfunction createObjects() {\n  var obj1 = { data: 'Object 1' };\n  var obj2 = { data: 'Object 2' };\n  var obj3 = { data: 'Object 3' };\n\n  // No longer need obj1\n  obj1 = null;\n\n  // obj2 and obj3 still in use\n  console.log(obj2.data);\n  console.log(obj3.data);\n}\n\ncreateObjects(); // After execution, obj1 is eligible for garbage collection.",
-					"id": "e49a7b88-4eb5-4739-aa65-1ef46b690234"
+					"id": "e49a7b88-4eb5-4739-aa65-1ef46bwe690234"
 				},
 				{
 					"title": "Memory Management in JavaScript",
@@ -176,6 +178,7 @@
 			]
 		},
         {
+            "id": "promises-async",
             "title": "Promises/Async",
             "docs": [
                 {
@@ -289,6 +292,7 @@
             ]
         },
         {
+            "id": "arraymethods",
             "title": "Array Methods",
             "docs": [
                 {
@@ -372,6 +376,7 @@
             ]
         },
         {
+            "id": "stringmethods",
             "title": "String Methods",
             "docs": [
                 {
@@ -437,6 +442,7 @@
             ]
         },
         {
+            "id": "objectmethods",
             "title": "Object Methods",
             "docs": [
                 {

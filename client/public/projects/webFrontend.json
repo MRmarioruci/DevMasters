@@ -6,9 +6,11 @@
     "highlighter": "js",
     "groups": [
         {
+            "id": "junior",
             "title": "Junior",
             "docs": [
                 {
+                    "id": "portfolio",
                     "title": "Personal Portfolio Website",
                     "description": "Create a personal portfolio website to showcase your projects and skills. Include sections for an about me, projects, skills, and contact information.",
                     "technologies": "HTML, CSS, JavaScript",
@@ -16,6 +18,7 @@
                     "instructions": "<ol><li>Start by designing wireframes and layouts for each section.</li><li>Code the HTML structure, adding semantic tags.</li><li>Apply CSS styles to make it visually appealing and responsive.</li><li>Add JavaScript for interactivity, such as smooth scrolling and hover effects.</li></ol>"
                 },
                 {
+                    "id": "todo",
                     "title": "To-Do List Web App",
                     "description": "Build a to-do list application with features like adding, editing, and deleting tasks. Make it user-friendly and visually appealing.",
                     "technologies": "HTML, CSS, JavaScript",
@@ -23,6 +26,7 @@
                     "instructions": "<ol><li>Create a structured HTML layout for the app.</li><li>Style it using CSS, focusing on user-friendly design.</li><li>Implement JavaScript for task manipulation (adding, editing, deleting).</li><li>Add event listeners for user interactions and validation.</li></ol>"
                 },
                 {
+                    "id": "weatherapp",
                     "title": "Weather App",
                     "description": "Create a weather app that fetches and displays weather information for a user's location, including temperature, humidity, and forecasts.",
                     "technologies": "HTML, CSS, JavaScript, API integration",
@@ -30,6 +34,7 @@
                     "instructions": "<ol><li>Choose a weather API (e.g., OpenWeatherMap).</li><li>Build a simple HTML layout for displaying weather information.</li><li>Use JavaScript to make API requests and update the UI dynamically.</li><li>Add geolocation to automatically detect the user's location.</li></ol>"
                 },
                 {
+                    "id": "blog",
                     "title": "Simple Blog",
                     "description": "Develop a basic blog platform where users can read and create blog posts. Include features like adding, editing, and deleting posts.",
                     "technologies": "HTML, CSS, JavaScript",
@@ -37,6 +42,7 @@
                     "instructions": "<ol><li>Create HTML templates for displaying blog posts and forms for creating/editing posts.</li><li>Use JavaScript to handle CRUD operations and update the JSON data.</li><li>Implement validation and error handling for the forms.</li></ol>"
                 },
                 {
+                    "id": "quiz",
                     "title": "Interactive Quiz Game",
                     "description": "Build a quiz game with multiple-choice questions and a scoring system. Include a timer for each question.",
                     "technologies": "HTML, CSS, JavaScript",
@@ -46,9 +52,11 @@
             ]
         },
         {
+            "id": "mid",
             "title": "Mid",
             "docs": [
                 {
+                    "id": "ecommerce",
                     "title": "E-commerce Website",
                     "description": "Develop an e-commerce platform with product listings, a shopping cart, and checkout functionality. Implement user accounts and order history.",
                     "technologies": "HTML, CSS, JavaScript, React.js",
@@ -56,6 +64,7 @@
                     "instructions": "<ol><li>Create a React app structure with components for product listings, cart, and user profile.</li><li>Implement state management for cart items and user authentication.</li><li>Add a checkout process with payment processing.</li></ol>"
                 },
                 {
+                    "id": "dashboard",
                     "title": "Social Media Dashboard",
                     "description": "Create a social media dashboard that aggregates data from various social platforms (e.g., Twitter, Instagram). Display user metrics, trends, and posts.",
                     "technologies": "HTML, CSS, JavaScript, React.js, APIs",
@@ -63,6 +72,7 @@
                     "instructions": "<ol><li>Build React components for each social platform's data.</li><li>Fetch data from social media APIs and display it in charts and graphs.</li><li>Implement user authentication for accessing personal data.</li></ol>"
                 },
                 {
+                    "id": "auth",
                     "title": "User Authentication System",
                     "description": "Develop a user authentication system with features like registration, login, password reset, and email verification. Use JWT for token-based authentication.",
                     "technologies": "HTML, CSS, JavaScript, React.js",
@@ -70,6 +80,7 @@
                     "instructions": "<ol><li>Create React forms for registration, login, and password reset.</li><li>Implement JWT for secure authentication.</li><li>Add frontend validation and error handling for user interactions.</li></ol>"
                 },
                 {
+                    "id": "chat",
                     "title": "Real-time Chat Application",
                     "description": "Build a chat application that allows users to chat in real-time. Include features like private messaging, typing indicators, and notifications.",
                     "technologies": "HTML, CSS, JavaScript, React.js, WebSocket",
@@ -77,6 +88,7 @@
                     "instructions": "<ol><li>Create a React-based frontend with components for chat rooms and private messages.</li><li>Set up a WebSocket server for real-time communication.</li><li>Implement user authentication and private messaging features.</li><li>Add real-time notifications.</li></ol>"
                 },
                 {
+                    "id": "tasks",
                     "title": "Task Management System",
                     "description": "Develop a task management system with features like task creation, assignment, deadlines, and priority levels. Include a dashboard for tracking tasks.",
                     "technologies": "HTML, CSS, JavaScript, React.js, Node.js",
@@ -86,9 +98,11 @@
             ]
         },
         {
+            "id": "senior",
             "title": "Senior",
             "docs": [
                 {
+                    "id": "cms",
                     "title": "Content Management System (CMS)",
                     "description": "Create a CMS for managing website content, including articles, images, and user roles. Implement role-based access control (admin, editor, contributor).",
                     "technologies": "HTML, CSS, JavaScript, React.js",
@@ -96,6 +110,7 @@
                     "instructions": "<ol><li>Design a user-friendly admin interface for content management.</li><li>Implement user roles and permissions.</li><li>Use React for building the frontend and focus on frontend-related tasks.</li><li>Add features for creating, editing, and publishing content.</li></ol>"
                 },
                 {
+                    "id": "ecommerce2",
                     "title": "E-commerce Platform Enhancement",
                     "description": "Enhance your e-commerce platform with advanced features like product reviews, recommendations, and payment gateways. Implement user-generated content.",
                     "technologies": "HTML, CSS, JavaScript, React.js",
@@ -103,6 +118,7 @@
                     "instructions": "<ol><li>Add advanced frontend features such as product reviews, recommendations, and user-generated content.</li></ol>"
                 },
                 {
+                    "id": "pwa",
                     "title": "Progressive Web App (PWA)",
                     "description": "Convert an existing web application into a Progressive Web App that works offline. Implement caching strategies for assets and data.",
                     "technologies": "HTML, CSS, JavaScript, React.js, Service Workers",
@@ -110,6 +126,7 @@
                     "instructions": "<ol><li>Focus on frontend tasks such as adding service workers to cache assets, enable offline functionality, and manifest files to make your app installable on users' devices.</li></ol>"
                 },
                 {
+                    "id": "dvb",
                     "title": "Data Visualization Dashboard",
                     "description": "Build a data visualization dashboard that displays real-time data from multiple sources. Include interactive charts and graphs.",
                     "technologies": "HTML, CSS, JavaScript, React.js",
@@ -117,6 +134,7 @@
                     "instructions": "<ol><li>Create interactive frontend components for data visualization.</li><li>Display data in real-time using frontend technologies.</li></ol>"
                 },
                 {
+                    "id": "fullblog",
                     "title": "Full-Stack Blog Platform",
                     "description": "Create a full-stack blog platform with advanced features like comments, user profiles, and rich text editing. Use Markdown for content formatting.",
                     "technologies": "HTML, CSS, JavaScript, React.js, Node.js",
@@ -126,9 +144,11 @@
             ]
         },
         {
+            "id": "jedi",
             "title": "Jedi",
             "docs": [
                 {
+                    "id": "ml",
                     "title": "Machine Learning Integration",
                     "description": "Integrate machine learning models into your web application to provide personalized recommendations or predictions.",
                     "technologies": "HTML, CSS, JavaScript, React.js",
@@ -136,6 +156,7 @@
                     "instructions": "<ol><li>Integrate machine learning models into the frontend of your web application to provide personalized recommendations or predictions.</li></ol>"
                 },
                 {
+                    "id": "blockchain",
                     "title": "Blockchain-Based Application",
                     "description": "Develop a decentralized application (DApp) using blockchain technology for data storage or smart contracts.",
                     "technologies": "HTML, CSS, JavaScript, React.js",

@@ -6,6 +6,7 @@
     "highlighter": "tsx",
     "groups": [
         {
+            "id": "general",
             "title": "General",
             "docs": [
                 {
@@ -89,6 +90,7 @@
             ]
         },
         {
+            "id": "hooks",
             "title": "Hooks",
             "docs": [
                 {
@@ -160,6 +162,7 @@
             ]
         },
         {
+            "id": "extra",
             "title": "Extra",
             "docs": [
                 {
@@ -213,6 +216,7 @@
             ]
         },
         {
+            "id": "redux",
             "title": "Redux setup",
             "docs": [
                 {
@@ -260,6 +264,7 @@
             ]
         },
         {
+            "id": "context",
             "title": "Context API Setup",
             "docs": [
                 {
@@ -301,6 +306,7 @@
             ]
         },
         {
+            "id": "customhooks",
             "title": "Custom Hooks",
             "docs": [
                 {

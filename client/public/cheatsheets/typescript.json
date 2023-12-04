@@ -6,6 +6,7 @@
     "highlighter": "ts",
     "groups": [
         {
+            "id": "basics",
             "title": "Basics",
             "docs": [
                 {
@@ -59,6 +60,7 @@
             ]
         },
         {
+            "id": "types",
             "title": "Basic Types",
             "docs": [
                 {
@@ -124,6 +126,7 @@
             ]
         },
         {
+            "id": "inference",
             "title": "Type Annotations and Inference",
             "docs": [
                 {
@@ -153,6 +156,7 @@
             ]
         },
         {
+            "id": "advanced",
             "title": "Advanced Types",
             "docs": [
                 {
@@ -200,6 +204,7 @@
             ]
         },
         {
+            "id": "interfaces",
             "title": "Interfaces and Classes",
             "docs": [
                 {
@@ -229,6 +234,7 @@
             ]
         },
         {
+            "id": "generics",
             "title": "Generics",
             "docs": [
                 {
@@ -258,6 +264,7 @@
             ]
         },
         {
+            "id": "functions",
             "title": "Functions",
             "docs": [
                 {
@@ -299,6 +306,7 @@
             ]
         },
         {
+            "id": "async",
             "title": "Async Programming",
             "docs": [
                 {
@@ -328,6 +336,7 @@
             ]
         },
         {
+            "id": "modules",
             "title": "Modules & Namespaces",
             "docs": [
                 {
@@ -357,6 +366,7 @@
             ]
         },
         {
+            "id": "decorators",
             "title": "Decorators",
             "docs": [
                 {
@@ -380,6 +390,7 @@
             ]
         },
         {
+            "id": "testing",
             "title": "Testing",
             "docs": [
                 {

@@ -6,6 +6,7 @@
     "highlighter": "tsx",
     "groups": [
         {
+            "id": "general",
             "title": "General",
             "docs": [
                 {
@@ -77,6 +78,7 @@
             ]
         },
         {
+            "id": "matchers",
             "title": "Matchers",
             "docs": [
                 {

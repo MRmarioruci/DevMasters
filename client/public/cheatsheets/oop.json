@@ -6,6 +6,7 @@
     "highlighter": "tsx",
     "groups": [
         {
+            "id": "general",
             "title": "General",
             "docs": [
                 {
@@ -35,6 +36,7 @@
             ]
         },
         {
+            "id": "principles",
             "title": "Four Fundamental OOP Principles",
             "docs": [
                 {
@@ -64,6 +66,7 @@
             ]
         },
         {
+            "id": "solid",
             "title": "SOLID Principles",
             "docs": [
                 {

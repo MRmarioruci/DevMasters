@@ -6,6 +6,7 @@
     "highlighter": "js",
     "groups": [
         {
+            "id": "basics",
             "title": "Git Basics",
             "docs": [
                 {
@@ -35,6 +36,7 @@
             ]
         },
         {
+            "id": "commands",
             "title": "Git Commands",
             "docs": [
                 {

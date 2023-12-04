@@ -6,6 +6,7 @@
     "highlighter": "tsx",
     "groups": [
         {
+            "id": "general",
             "title": "General",
             "docs": [
                 {
@@ -41,6 +42,7 @@
             ]
         },
         {
+            "id": "hoc",
             "title": "Common Higher-Order Functions",
             "docs": [
                 {
@@ -64,6 +66,7 @@
             ]
         },
         {
+            "id": "immutable",
             "title": "Immutable Data Structures",
             "docs": [
                 {
@@ -87,6 +90,7 @@
             ]
         },
         {
+            "id": "concepts",
             "title": "Additional Concepts",
             "docs": [
                 {
