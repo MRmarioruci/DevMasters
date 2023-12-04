@@ -1,6 +1,7 @@
 function useLocalStorage() {
 	const getFromLocalStorage = (container: string, id: string) => {
 		const storage = JSON.parse(localStorage.getItem(container) || '[]');
+		console.log(storage);
 		const d = id ? !!storage?.find((element: string) => element === id) : storage;
 		return d;
 	}
