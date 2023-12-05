@@ -3,7 +3,7 @@
     "title": "Flask",
     "icon": "https://api.iconify.design/logos:flask.svg",
     "color": "CB66A3",
-    "highlighter": "js",
+    "highlighter": "python",
     "groups": [
         {
             "id": "basics",

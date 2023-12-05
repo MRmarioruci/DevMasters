@@ -1,25 +1,283 @@
 {
-    "collectionName": "pythonCheatsheet",
+    "collectionName": "python",
     "title": "Python",
     "icon": "https://api.iconify.design/logos:python.svg",
-    "color": "3772A3",
-    "highlighter": "bash",
+    "color": "3776AB",
+    "highlighter": "python",
     "groups": [
         {
-            "id": "basics",
-            "title": "Basics",
+            "id": "language_basics",
+            "title": "Language Basics",
             "docs": [
                 {
-                    "title": "Virtual Environment",
-                    "description": "A virtual environment in Python is a self-contained directory that encapsulates a specific Python interpreter and a set of libraries or packages. It allows you to create isolated environments for different Python projects, each with its own dependencies, without interfering with the global Python environment or other projects. ",
-                    "code": "# Create a new virtual environment\npython -m venv /path/to/virtualenv\n\n# Enable the virtual environment\nsource /path/to/virtualenv/bin/activate\n\n# Install packages if applicable\npip install -r requirements.txt\n\n# Disable the virtual environment\ndeactivate\n",
-                    "id": "5c9c7818-0af9-481a-85e7-6c4f9a14cc19"
+                    "id": "what_is_python",
+                    "title": "What is Python?",
+                    "description": "Python is a high-level, interpreted programming language known for its readability and simplicity. It supports multiple programming paradigms and is widely used in web development, data science, artificial intelligence, and more. Python 2 vs. Python 3, and the importance of Python in various industries."
                 },
                 {
-                    "title": "Requirements.txt",
-                    "description": "The requirements.txt file contains a list of packages that are required to run the project. The list",
-                    "code": "# Generate on your virtual environment\npip freeze > requirements.txt",
-                    "id": "456d546b-390e-4c96-973c-f544270155dc"
+                    "id": "variables_and_data_types",
+                    "title": "Variables and Data Types",
+                    "description": "Python has various data types, including int, float, str, list, tuple, dict, etc. Understanding how to declare and use variables is fundamental. Explaining dynamic typing, type() function, and common data type conversion methods."
+                },
+                {
+                    "id": "variable_declaration",
+                    "title": "Variable Declaration",
+                    "description": "Examples of variable declarations for different data types.",
+                    "code": "# Variable declaration\nname = 'John'\nage = 25\nheight = 5.9\nis_student = False"
+                },
+                {
+                    "id": "dynamic_typing",
+                    "title": "Dynamic Typing",
+                    "description": "The type of a variable is determined at runtime. Showing an example of changing the type of a variable.",
+                    "code": "# Dynamic typing\nname = 42  # Valid, name can now hold an integer"
+                },
+                {
+                    "id": "type_function",
+                    "title": "Type Function",
+                    "description": "Using the type() function to determine the data type of a variable. Illustrating how to check the type of a variable.",
+                    "code": "# Type function\nprint(type(name))  # Output: <class 'int'>"
+                },
+                {
+                    "id": "data_type_conversion",
+                    "title": "Data Type Conversion",
+                    "description": "Common methods for converting data types in Python. Examples of converting between int, float, and str.",
+                    "code": "# Common data type conversions\nfloat_age = float(age)\nstr_height = str(height)\nint_string = int('123')"
+                },
+                {
+                    "id": "control_flow",
+                    "title": "Control Flow",
+                    "description": "Covering concepts like if statements, loops (for, while), and conditional expressions. Discussing the ternary operator, range() function, and break/continue statements."
+                },
+                {
+                    "id": "functions",
+                    "title": "Functions",
+                    "description": "Understanding function definitions, arguments, return values, and lambda functions. Explaining the scope of variables, default arguments, and keyword arguments. Importance of docstrings and function annotations.",
+                    "code": "# Creating a basic function\n\ndef greet(name):\n    return f'Hello, {name}!'\n\n# Function with default argument\n\ndef greet_with_default(name='Guest'):\n    return f'Hello, {name}!'\n\n# Function with variable number of arguments\n\ndef calculate_sum(*args):\n    return sum(args)\n\n# Function with keyword arguments\n\ndef print_person_info(**kwargs):\n    print(f'Name: {kwargs.get('name')}, Age: {kwargs.get('age')}, City: {kwargs.get('city')}')\n\n# Lambda function\n\nmultiply = lambda x, y: x * y\n"
+                },
+                {
+                    "id": "exceptions_handling",
+                    "title": "Exceptions Handling",
+                    "description": "Handling errors and exceptions using try, except, finally blocks. Discussing common built-in exceptions, raising exceptions, and creating custom exception classes.",
+                    "code": "# Handling errors using try and except blocks\ntry:\n    result = 10 / 0  # This will raise a ZeroDivisionError\nexcept ZeroDivisionError as e:\n    print(f'Error: {e}')\n\n# Handling multiple exceptions\ntry:\n    value = int('abc')  # This will raise a ValueError\nexcept (ValueError, TypeError) as e:\n    print(f'Error: {e}')\n\n# Adding a finally block for cleanup\ntry:\n    file = open('example.txt', 'r')\n    # Perform operations on the file\nexcept FileNotFoundError as e:\n    print(f'File not found: {e}')\nfinally:\n    file.close() if 'file' in locals() else None\n\n# Raising custom exceptions\nclass CustomError(Exception):\n    def __init__(self, message='Custom error occurred.'):\n        self.message = message\n        super().__init__(self.message)\n\ntry:\n    raise CustomError('This is a custom exception')\nexcept CustomError as e:\n    print(f'Custom Error: {e}')"
+                }
+            ]
+        },
+        {
+            "id": "data_structures",
+            "title": "Data Structures",
+            "docs": [
+                {
+                    "id": "lists_and_tuples",
+                    "title": "Lists and Tuples",
+                    "description": "Understanding the differences between lists (mutable) and tuples (immutable). Exploring common operations and methods, list comprehensions, slicing, and when to use each data structure.",
+                    "code": "# List comprehension\nsquared_numbers = [x**2 for x in my_list]\n\n# Slicing\nsubset_of_tuple = my_tuple[1:4]\n\n# Adding elements to a list\nmy_list.append(6)\n\n# Modifying an element\nmy_list[2] = 10\n\n# Removing an element by value\nmy_list.remove(4)\n\n# Removing an element by index\ndel my_list[0]\n\n# Concatenating lists\nnew_list = my_list + [7, 8, 9]\n\n# Checking membership\nis_present = 3 in my_list"
+                },
+                {
+                    "id": "dictionaries",
+                    "title": "Dictionaries",
+                    "description": "Exploring key-value pairs, dictionary methods, and common use cases. Handling missing keys, dictionary comprehension, and performance considerations.",
+                    "code": "# Dictionary comprehension\nuppercased_keys = {key.upper(): value for key, value in my_dict.items()}\n\n# Handling missing keys\nprint(my_dict.get('gender', 'Not specified'))\n\n# Adding a new key-value pair\nmy_dict['occupation'] = 'Engineer'\n\n# Modifying the value of a key\nmy_dict['age'] = 31\n\n# Removing a key-value pair\ndel my_dict['city']\n\n# Iterating through keys and values\nfor key, value in my_dict.items():\n    print(key, value)"
+                },                
+                {
+                    "id": "sets",
+                    "title": "Sets",
+                    "description": "Understanding unordered collections of unique elements. Exploring set operations and methods, practical examples of using sets for common programming tasks.",
+                    "code": "# Set operations\nunion_set = set_a | set_b\nintersection_set = set_a & set_b\n\n# Practical example\nunique_words = set(['apple', 'orange', 'apple', 'banana', 'kiwi'])\n\n# Adding elements to a set\nset_a.add(6)\n\n# Removing an element from a set\nset_b.remove(8)\n\n# Checking intersection\ncommon_elements = set_a.intersection(set_b)\n\n# Difference between sets\ndifference_set = set_a - set_b"
+                },
+                {
+                    "id": "queues_stacks",
+                    "title": "Queues and Stacks",
+                    "description": "Understanding first-in, first-out (FIFO) queues and last-in, first-out (LIFO) stacks. Exploring implementations using lists or collections.deque.",
+                    "code": "# Using collections.deque for a queue\nfrom collections import deque\n\nmy_queue = deque([1, 2, 3])\nmy_queue.append(4)  # Enqueue\nfirst_item = my_queue.popleft()  # Dequeue\n\n# Using lists for a stack\nmy_stack = [1, 2, 3]\nmy_stack.append(4)  # Push\nlast_item = my_stack.pop()  # Pop"
+                },
+                {
+                    "id": "linked_lists",
+                    "title": "Linked Lists",
+                    "description": "Exploring the concept of linked lists, a data structure consisting of nodes where each node points to the next node in the sequence. Understanding singly linked lists and doubly linked lists.",
+                    "code": "# Node class for a singly linked list\n\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\n# Creating a linked list\nnode1 = Node(1)\nnode2 = Node(2)\nnode3 = Node(3)\n\nnode1.next = node2\nnode2.next = node3"
+                }
+            ]
+        },
+        {
+            "id": "classes_and_oop",
+            "title": "Classes and Object-Oriented Programming (OOP)",
+            "docs": [
+                {
+                    "id": "class_definition_instantiation",
+                    "title": "Class Definition and Instantiation",
+                    "description": "Understanding how to define classes in Python, create class attributes and methods, and instantiate objects from those classes.",
+                    "code": "# Class definition\n\nclass Dog:\n    def __init__(self, name: str, age: int):\n        self.name = name\n        self.age = age\n\n    def bark(self) -> None:\n        print('Woof!')"
+                },
+                {
+                    "id": "inheritance_polymorphism",
+                    "title": "Inheritance and Polymorphism",
+                    "description": "Exploring the concepts of inheritance, where a class can inherit attributes and methods from another class, and polymorphism, where objects can take on multiple forms through method overriding.",
+                    "code": "# Inheritance example\n\nclass Cat(Animal):\n    def meow(self) -> None:\n        print('Meow!')"
+                },
+                {
+                    "id": "encapsulation",
+                    "title": "Encapsulation",
+                    "description": "Encapsulation involves bundling the data (attributes) and methods that operate on the data into a single unit known as a class. It helps in hiding the internal implementation details from the outside world.",
+                    "code": "# Encapsulation example\n\nclass BankAccount:\n    def __init__(self, balance: float):\n        self._balance = balance  # Using a single underscore to indicate a protected attribute\n\n    def deposit(self, amount: float) -> None:\n        self._balance += amount\n\n    def withdraw(self, amount: float) -> None:\n        self._balance -= amount"
+                },
+                {
+                    "id": "abstract_classes_interfaces",
+                    "title": "Abstract Classes and Interfaces",
+                    "description": "Abstract classes and interfaces provide a way to define a common structure for multiple classes. Abstract classes may contain abstract methods that must be implemented by concrete subclasses.",
+                    "code": "# Abstract class example\n\nfrom abc import ABC, abstractmethod\n\nclass Shape(ABC):\n    @abstractmethod\n    def area(self) -> float:\n        pass\n\n# Concrete subclass\n\nclass Circle(Shape):\n    def __init__(self, radius: float):\n        self.radius = radius\n\n    def area(self) -> float:\n        return 3.14 * self.radius**2"
+                },
+                {
+                    "id": "class_methods_static_methods",
+                    "title": "Class Methods and Static Methods",
+                    "description": "Understanding the difference between class methods, which have access to the class itself, and static methods, which do not have access to the class or instance.",
+                    "code": "# Class method example\n\nclass MyClass:\n    class_variable = 10\n\n    @classmethod\n    def print_class_variable(cls) -> None:\n        print(cls.class_variable)\n\n# Static method example\n\nclass MathOperations:\n    @staticmethod\n    def add(a: int, b: int) -> int:\n        return a + b"
+                }
+            ]
+        },
+        {
+            "id": "advanced_topics",
+            "title": "Advanced Topics",
+            "docs": [
+                {
+                    "id": "decorators",
+                    "title": "Decorators",
+                    "description": "Decorators are a powerful and flexible tool in Python, allowing the modification of functions or methods at the time they are defined. They are often used for tasks such as logging, timing, or access control.",
+                    "code": "def my_decorator(func):\n    def wrapper():\n        print('Something is happening before the function is called.')\n        func()\n        print('Something is happening after the function is called.')\n    return wrapper\n\n@my_decorator\n    def say_hello():\n        print('Hello!')\n\nsay_hello()"
+                },
+                {
+                    "id": "generators_and_iterators",
+                    "title": "Generators and Iterators",
+                    "description": "Generators provide a convenient way to implement simple iterators. They allow you to iterate over a potentially large set of data without creating the entire set in memory.",
+                    "code": "def countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\n\nfor i in countdown(5):\n    print(i)"
+                },
+                {
+                    "id": "concurrency_parallelism",
+                    "title": "Concurrency and Parallelism",
+                    "description": "Understanding concepts like threads, processes, and asynchronous programming. The asyncio module is often used for asynchronous programming, and the multiprocessing module for parallelism.",
+                    "code": "import asyncio\n\nasync def foo():\n    print('Start foo')\n    await asyncio.sleep(2)\n    print('End foo')\n\nasync def bar():\n    print('Start bar')\n    await asyncio.sleep(1)\n    print('End bar')\n\nasyncio.run(asyncio.gather(foo(), bar()))"
+                },
+                {
+                    "id": "metaclasses",
+                    "title": "Metaclasses",
+                    "description": "Metaclasses are a class of classes. They define how classes themselves are created and behave. Metaclasses can be a powerful tool for code customization and validation.",
+                    "code": "class MyMeta(type):\n    def __new__(cls, name, bases, dct):\n        # Modify or validate class attributes before class creation\n        return super().__new__(cls, name, bases, dct)\n\nclass MyClass(metaclass=MyMeta):\n    pass"
+                },
+                {
+                    "id": "descriptors",
+                    "title": "Descriptors",
+                    "description": "Descriptors allow you to customize attribute access in classes. They are used to define how getting, setting, and deleting of an attribute should behave.",
+                    "code": "class DescriptorExample:\n    def __get__(self, instance, owner):\n        print('Getting the attribute')\n        return instance._value\n\n    def __set__(self, instance, value):\n        print('Setting the attribute')\n        instance._value = value\n\nclass MyClass:\n    descriptor = DescriptorExample()\n\nobj = MyClass()\nobj.descriptor = 42  # Calls the __set__ method\nprint(obj.descriptor)  # Calls the __get__ method"
+                },
+                {
+                    "id": "context_managers",
+                    "title": "Context Managers",
+                    "description": "Context managers allow you to allocate and release resources precisely when you want to. They are often used with the 'with' statement.",
+                    "code": "class MyContextManager:\n    def __enter__(self):\n        print('Entering the context')\n\n    def __exit__(self, exc_type, exc_value, traceback):\n        print('Exiting the context')\n\nwith MyContextManager():\n    print('Inside the context')"
+                }
+            ]
+        },
+        {
+            "id": "type_safety",
+            "title": "Type safety",
+            "docs": [
+                {
+                    "id": "type_hints",
+                    "title": "Type Hints",
+                    "description": "Type hints provide a way to indicate the expected types of values within your Python code. They can be used for function arguments, return values, and variable annotations to enhance code readability and enable static type checking.",
+                    "code": "# Function with type hints\n\ndef greet(name: str) -> str:\n    return f'Hello, {name}!'\n\n# Type hints for variables\n\ndef calculate_sum(a: int, b: int) -> int:\n    return a + b"
+                },
+                {
+                    "id": "static_type_checking",
+                    "title": "Static Type Checking with MyPy",
+                    "description": "MyPy is a third-party tool that performs static type checking for Python code. It helps catch type-related errors early in development, providing a way to enforce type safety in your code.",
+                    "code": "# Example mypy command\n# Install mypy using pip: pip install mypy\n# Run mypy on a Python file: mypy filename.py"
+                },
+                {
+                    "id": "type_aliases",
+                    "title": "Type Aliases",
+                    "description": "Type aliases allow you to create a shorthand name for complex types, improving code readability. They are particularly useful when dealing with long and intricate type annotations.",
+                    "code": "# Type alias for a complex data structure\n\nfrom typing import List, Tuple\n\nCoordinates = Tuple[float, float]\n\ndef move_to(coordinate: Coordinates) -> None:\n    pass"
+                },
+                {
+                    "id": "union_optional_types",
+                    "title": "Union and Optional Types",
+                    "description": "Union types allow a variable or parameter to accept values of multiple types. Optional types indicate that a variable can be of a certain type or 'None'. These concepts enhance flexibility while maintaining type safety.",
+                    "code": "# Union type example\n\nfrom typing import Union, Optional\n\ndef square_root(number: Union[int, float]) -> float:\n    return number ** 0.5\n\n# Optional type example\n\ndef find_element(my_list: List[int], target: Optional[int] = None) -> int:\n    return my_list.index(target) if target is not None else -1"
+                },
+                {
+                    "id": "type_checking_unit_tests",
+                    "title": "Type Checking in Unit Tests",
+                    "description": "Incorporating type checking into unit tests ensures that your functions and methods adhere to the specified types. This helps catch potential type-related issues during the testing phase.",
+                    "code": "# Example unit test with type checking\n\nfrom typing import List\nimport unittest\n\nclass MyTest(unittest.TestCase):\n    def test_calculate_sum(self):\n        result: int = calculate_sum(3, 5)\n        self.assertEqual(result, 8)"
+                }
+            ]
+        },
+        {
+            "id": "libraries_and_frameworks",
+            "title": "Libraries and Frameworks",
+            "docs": [
+                {
+                    "id": "python_standard_library",
+                    "title": "Python Standard Library",
+                    "description": "Overview of commonly used modules in the Python standard library. Examples with modules like os, sys, datetime, and more. Importance of knowing the standard library for efficient programming.",
+                    "code": "import os\nimport sys\nimport datetime\n\n# Using the os module\ncurrent_directory = os.getcwd()\n\n# Using the sys module\nprint(sys.version)\n\n# Using the datetime module\ncurrent_time = datetime.datetime.now()"
+                },
+                {
+                    "id": "popular_frameworks",
+                    "title": "Popular Frameworks",
+                    "description": "Introduction to frameworks like Django, Flask, and others. Discussing their use cases, advantages, and when to choose one over the other. Understanding the MVC architecture.",
+                    "code": "# Example using Flask\nfrom flask import Flask\napp = Flask(__name__)\n\n@app.route('/')\ndef hello_world():\n    return 'Hello, Flask!'\n\nif __name__ == '__main__':\n    app.run(debug=True)"
+                },
+                {
+                    "id": "data_science_libraries",
+                    "title": "Data Science Libraries",
+                    "description": "Brief overview of libraries like NumPy, Pandas, and Matplotlib. Common operations in data science using Python and the importance of data visualization.",
+                    "code": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Using NumPy for numerical operations\narray = np.array([1, 2, 3, 4, 5])\n\n# Using Pandas for data manipulation\ndf = pd.DataFrame({'Column1': [1, 2, 3], 'Column2': ['A', 'B', 'C']})\n\n# Using Matplotlib for data visualization\nplt.plot([1, 2, 3, 4, 5], [2, 4, 6, 8, 10])\nplt.xlabel('X-axis')\nplt.ylabel('Y-axis')\nplt.show()"
+                }
+            ]
+        },
+        {
+            "id": "best_practices",
+            "title": "Best Practices",
+            "docs": [
+                {
+                    "id": "coding_style_guide",
+                    "title": "Coding Style Guide",
+                    "description": "Following PEP 8 conventions and writing clean, readable code. Tools like pylint and flake8 for code analysis. The importance of consistent coding styles in team projects.",
+                    "code": "# Sample code following PEP 8 conventions\ndef greet(name: str) -> str:\n    \"\"\"Greet the user.\"\"\"\n    return f'Hello, {name}!'\n\n# Code analysis using pylint\n# pylint: disable=missing-function-docstring\nresult = greet('Alice')"
+                },
+                {
+                    "id": "testing",
+                    "title": "Testing",
+                    "description": "Writing unit tests, using frameworks like unittest or pytest. Test-driven development (TDD) practices, mocking, and continuous integration for testing automation.",
+                    "code": "# Example using pytest\n# test_example.py\n\ndef test_greet():\n    result = greet('Bob')\n    assert result == 'Hello, Bob!'\n\n# Run tests using the command: pytest test_example.py"
+                },
+                {
+                    "id": "documentation",
+                    "title": "Documentation",
+                    "description": "Importance of documenting code using docstrings and other tools. Generating documentation with tools like Sphinx. Best practices for writing comprehensive and clear documentation.",
+                    "code": "# Example using docstrings\n\ndef add_numbers(a, b):\n    \"\"\"\n    Add two numbers.\n\n    Parameters:\n    - a (int): The first number.\n    - b (int): The second number.\n\n    Returns:\n    int: The sum of the two numbers.\n    \"\"\"\n    return a + b"
+                }
+            ]
+        },
+        {
+            "id": "interview_preparation",
+            "title": "Interview Preparation",
+            "docs": [
+                {
+                    "id": "algorithms_and_data_structures",
+                    "title": "Algorithms and Data Structures",
+                    "description": "Review common algorithms (sorting, searching) and data structures (stacks, queues). Discuss time and space complexity analysis."
+                },
+                {
+                    "id": "web_development_basics",
+                    "title": "Web Development Basics",
+                    "description": "Understand the basics of web development if relevant to the position. Concepts like HTTP, RESTful APIs, and web frameworks."
+                },
+                {
+                    "id": "database_interaction",
+                    "title": "Database Interaction",
+                    "description": "Review database concepts and interaction in Python. SQL basics, ORM frameworks, and common database operations."
                 }
             ]
         }
