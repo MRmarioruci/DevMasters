@@ -40,7 +40,7 @@ function PageNavMeta({
                         </Link>
                     </div>
                     <div className="float--right">
-                        { showThemeSelector && <HighlighterThemeSelector /> }
+                        {/* { showThemeSelector && <HighlighterThemeSelector /> } */}
                         { showLayoutSelector && <LayoutSelector />}
                         { showShareModal && <ShareModal url={window.location.href} /> }
                     </div>

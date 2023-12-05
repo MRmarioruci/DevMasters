@@ -1,11 +1,13 @@
 import React from 'react'
-import { Highlight, themes } from "prism-react-renderer";
+/* import { Highlight, themes } from "prism-react-renderer"; */
 import { CheatsheetItemProps } from '../../types/index';
 import CardItemHeader from './CardItemHeader';
+import CodeHighlighter from '../utils/CodeHighlighter';
 
 function CheatsheetItem(props: CheatsheetItemProps) {
 	const {toggleCheatsheet, item, highlighter, highlighterTheme, localStoragePath} = props;
-	const highlighterThemeKey = highlighterTheme as keyof typeof themes
+	//const highlighterThemeKey = highlighterTheme as keyof typeof themes
+
 	const createMarkup = (htmlContent:string) => {
 		return { __html: htmlContent };
 	};
@@ -25,23 +27,12 @@ function CheatsheetItem(props: CheatsheetItemProps) {
 				}
 				{item.code && 
 					<pre className="cheatsheets__board-itemBodyCode">
-						<Highlight
-							theme={themes[highlighterThemeKey]}
+						<CodeHighlighter
+							//theme={themes[highlighterThemeKey]}
 							code={item.code}
 							language={highlighter}
-						>
-							{({ style, tokens, getLineProps, getTokenProps }) => (
-								<pre style={style} className="cheatsheets__board-itemBodyCodeInner">
-									{tokens.map((line, i) => (
-									<div key={i} {...getLineProps({ line })}>
-										{line.map((token, key) => (
-											<span key={key} {...getTokenProps({ token })} />
-										))}
-									</div>
-									))}
-								</pre>
-							)}
-						</Highlight>
+							theme={'monokai'}
+						/>
 					</pre>
 				}
 			</div>

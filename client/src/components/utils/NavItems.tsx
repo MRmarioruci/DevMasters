@@ -7,115 +7,134 @@ export const menu = [
 				title: 'Javascript',
 				href: 'javascript',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'React.js',
 				href: 'react',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: ['javascript'],
 			},
 			{
 				title: 'Flask',
 				href: 'flask',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: ['python'],
 			},
 			{
 				title: 'APIs',
 				href: 'apis',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'Typescript',
 				href: 'typescript',
 				icon: '',
-				hasContent: true
-			},
-			{
-				title: 'Next.js',
-				href: 'next',
-				icon: '',
-				hasContent: false
+				hasContent: true,
+				related: ['javascript'],
 			},
 			{
 				title: 'Python',
 				href: 'python',
 				icon: '',
-				hasContent: false
+				hasContent: true,
+				related: ['flask', 'oop'],
+			},
+			{
+				title: 'Next.js',
+				href: 'next',
+				icon: '',
+				hasContent: false,
+				related: ['javascript', 'react'],
 			},
 			{
 				title: 'Node.js',
 				href: 'node',
 				icon: '',
-				hasContent: false
+				hasContent: false,
+				related: ['javascript'],
 			},
 			{
 				title: 'PHP',
 				href: 'php',
 				icon: '',
-				hasContent: false
+				hasContent: false,
+				related: [],
 			},
 			{
 				title: 'Docker',
 				href: 'docker',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'Css',
 				href: 'css',
 				icon: '',
-				hasContent: false
+				hasContent: false,
+				related: ['sass'],
 			},
 			{
 				title: 'Sass(Scss)',
 				href: 'sass',
 				icon: '',
-				hasContent: false
+				hasContent: false,
+				related: ['css'],
 			},
 			{
 				title: 'Angular',
 				href: 'angular',
 				icon: '',
-				hasContent: false
+				hasContent: false,
+				related: ['javascript'],
 			},
 			{
 				title: 'HTML',
 				href: 'html',
 				icon: '',
-				hasContent: false
+				hasContent: false,
+				related: [],
 			},
 			{
 				title: 'Security',
 				href: 'security',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'Jest',
 				href: 'jest',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'OOP',
 				href: 'oop',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'Functional Programming',
 				href: 'fp',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'Git',
 				href: 'git',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 		]
 	},
@@ -127,13 +146,15 @@ export const menu = [
 				title: 'Web Frontend Master',
 				href: 'webFrontend',
 				icon: '',
-				hasContent: true
+				hasContent: true,
+				related: [],
 			},
 			{
 				title: 'Web Backend Master',
 				href: 'webBackend',
 				icon: '',
-				hasContent: false
+				hasContent: false,
+				related: [],
 			}
 		]
 	},
