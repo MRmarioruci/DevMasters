@@ -7,6 +7,7 @@ import StaticNavigation from '../utils/StaticNavigation';
 import { getProjects } from '../../api/Projectsapi';
 import Lottie from 'react-lottie-player';
 import rocketAnimation from '../../animations/rocket.json';
+import bookmarkAnimation from '../../animations/bookmark.json';
 import ProjectItem from './ProjectItem';
 import { IProjectItem, IToggleProject } from './Projects.types';
 import { Highlighter } from '../../types';
@@ -67,7 +68,7 @@ function Projects() {
 		const s = jsonData.find( groupItem => groupItem.id === group);
 		if(!s) return jsonData[0]
 		return s;
-	}, [id, group, jsonData])
+	}, [group, jsonData, localStoragePath, getFromLocalStorage])
 
 	useEffect(() => {
 		if(!id) return;
@@ -114,6 +115,18 @@ function Projects() {
 					<div className="text__center">
 						<div className="btn btn__primary-soft text__normal btn__rounded timeline__label">End</div>
 					</div>
+					{((selectedGroup?.id === 'myboard') && (!selectedGroup?.docs.length)) &&
+						<div className="text__center">
+							<Lottie
+								loop
+								animationData={bookmarkAnimation}
+								play
+								style={{ width: '250px', height: '250px', margin: 'auto' }}
+							/>
+							<h4>Add your first item here...</h4>
+							<br/>
+						</div>
+					}
 				</>
 			}
 			{jsonData.length === 0 &&
