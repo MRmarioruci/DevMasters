@@ -1,0 +1,9 @@
+@use '../../scss/partials/vars.scss';
+.related__content{
+    width: 1200px;
+	margin: auto;
+	max-width: 100%;
+	overflow-x: auto;
+	overflow-y: none;
+	flex-wrap: nowrap;
+}

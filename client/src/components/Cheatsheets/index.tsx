@@ -15,6 +15,7 @@ import PageNav from '../utils/PageNav';
 import PageNavMeta from '../utils/PageNavMeta';
 import usePageTheme from '../utils/usePageTheme';
 import useLocalStorage from '../../utils/useLocalStorage';
+import Related from '../utils/Related';
 
 function CheatsheetComponent() {
 	const { id, group } = useParams();
@@ -93,6 +94,7 @@ function CheatsheetComponent() {
 						showShareModal={true}
 					/>
 					<PageNav pageId={id} items={jsonData} selectedItem={selectedGroup}/>
+					<Related/>
 				</>
 			}
 			{ selectedGroup &&
