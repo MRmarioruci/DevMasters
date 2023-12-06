@@ -24,7 +24,7 @@ function CheatsheetComponent() {
 	const {state} = useCustomContext();
 	const [cheatsheet, setCheatsheet] = useState<any>(null);
 	const [jsonData, setJsonData] = useState<CheatSheetGroup[]>([]);
-	const [selectedGroupIndex, setSelectedGroupIndex] = useState<number>(0);
+	const [selectedGroupIndex] = useState<number>(0);
 	const [showModal, setShowModal] = useState<boolean>(false);
 	const [highlighter, setHighlighter] = useState<Highlighter>('js');
 	const [selectedCheatSheet, setSelectedCheatsheet] = useState<null | Cheatsheet>(null);
@@ -33,7 +33,7 @@ function CheatsheetComponent() {
 	const localStoragePath = useMemo(() => {
 		const parts = window.location.pathname.split('/');
 		return `${parts[2]}_${parts[1]}`;
-	}, [id, group])
+	}, [])
 
 	const fetchData = useCallback(async () => {
 		setLoading(true);
@@ -46,7 +46,7 @@ function CheatsheetComponent() {
 		setHighlighter(data.highlighter);
 		setTheme(data.color);
 		setTimeout(() => setLoading(false), 1000);
-	}, [id]);
+	}, [id, setTheme]);
 	const toggleCheatsheet:ToggleCheatsheetFunction = (cheatsheet: Cheatsheet | null) => {
 		setShowModal( prev => !prev);
 		setSelectedCheatsheet(cheatsheet);

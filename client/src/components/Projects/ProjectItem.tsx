@@ -3,7 +3,7 @@ import { IProjectItemProps } from './Projects.types';
 import CardItemHeader from '../Cheatsheets/CardItemHeader';
 
 function ProjectItem(props: IProjectItemProps) {
-	const {toggleProject, item, index, highlighter, highlighterTheme, localStoragePath} = props;
+	const {toggleProject, item, index, localStoragePath} = props;
 	const createMarkup = (htmlContent:string) => {
 		return { __html: htmlContent };
 	};

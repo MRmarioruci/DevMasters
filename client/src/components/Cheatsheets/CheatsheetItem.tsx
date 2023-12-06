@@ -5,7 +5,7 @@ import CardItemHeader from './CardItemHeader';
 import CodeHighlighter from '../utils/CodeHighlighter';
 
 function CheatsheetItem(props: CheatsheetItemProps) {
-	const {toggleCheatsheet, item, highlighter, highlighterTheme, localStoragePath} = props;
+	const {toggleCheatsheet, item, highlighter, /* highlighterTheme, */ localStoragePath} = props;
 	//const highlighterThemeKey = highlighterTheme as keyof typeof themes
 
 	const createMarkup = (htmlContent:string) => {

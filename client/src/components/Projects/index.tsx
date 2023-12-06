@@ -24,7 +24,7 @@ function Projects() {
 	const {state} = useCustomContext();
 	const [project, setProject] = useState<any>(null);
 	const [jsonData, setJsonData] = useState<any[]>([]);
-	const [highlighter, setHighlighter] = useState<Highlighter>('js');
+	const [highlighter, /* setHighlighter */] = useState<Highlighter>('js');
 	const [showModal, setShowModal] = useState<boolean>(false);
 	const [selectedProject, setSelectedProject] = useState<IProjectItem | null>(null);
 	const [loading, setLoading] = useState<boolean>(true);
@@ -32,7 +32,7 @@ function Projects() {
 	const localStoragePath = useMemo(() => {
 		const parts = window.location.pathname.split('/');
 		return `${parts[2]}_${parts[1]}`;
-	}, [id, group])
+	}, [])
 
 	const fetchData = useCallback(async () => {
 		setLoading(true);
@@ -45,7 +45,7 @@ function Projects() {
 		setJsonData(data.groups);
 		setTheme(data.color);
 		setTimeout(() => setLoading(false), 1000);
-	}, [id]);
+	}, [id, setTheme]);
 
 	const toggleProject: IToggleProject = (project: IProjectItem | null) => {
 		setShowModal( prev => !prev);

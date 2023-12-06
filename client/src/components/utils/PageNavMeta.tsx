@@ -1,4 +1,4 @@
-import HighlighterThemeSelector from "../HighlighterThemeSelector";
+/* import HighlighterThemeSelector from "../HighlighterThemeSelector"; */
 import LayoutSelector from "../LayoutSelector";
 import ShareModal from "./ShareModal";
 import { IDoc } from "../../types";
@@ -14,7 +14,7 @@ interface IPageNavMetaProps{
 function PageNavMeta({
 	doc,
 	selectedGroup,
-	showThemeSelector,
+	/* showThemeSelector, */
 	showLayoutSelector,
 	showShareModal
 }: IPageNavMetaProps) {

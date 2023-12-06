@@ -2,10 +2,11 @@ import React, {useMemo} from 'react'
 import '../scss/pages/Footer.scss';
 import logoDark from '../images/logo_dark.png';
 import logoLight from '../images/logo_light.png';
-import { useCustomContext, ThemeType } from '../contexts/theme-context';
+import { useCustomContext} from '../contexts/theme-context';
 
 function Footer() {
-	const {state, dispatch} = useCustomContext();
+	const {state} = useCustomContext();
+
 	const isLight = useMemo(() => {
 		return state.theme === 'theme-light';
 	}, [state.theme])

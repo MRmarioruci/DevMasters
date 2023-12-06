@@ -1,12 +1,12 @@
 import React, {useState, useRef} from 'react'
 import {IProjectModalItemProps} from './Projects.types';
 import ProjectItem from './ProjectItem';
-import html2canvas from "html2canvas";
+//import html2canvas from "html2canvas";
 
 function ProjectItemModal(props: IProjectModalItemProps) {
     const {item, toggleProject, highlighter, highlighterTheme} = props;
 	const [instructions, setInstructions] = useState(null);
-	const [downloading, setDownloading] = useState<boolean>(false);
+	const [downloading, /* setDownloading */] = useState<boolean>(false);
 	const myRef = useRef<HTMLDivElement | null>(null);
     if(!item) return;
 
@@ -43,7 +43,7 @@ function ProjectItemModal(props: IProjectModalItemProps) {
 		});
 	}
 
-	const handleClickTakeScreenShot = () => {
+	/* const handleClickTakeScreenShot = () => {
 		if(!myRef.current) return;
 		
 		const { cropPositionTop, cropPositionLeft, cropWidth, cropHeigth } = {
@@ -72,7 +72,7 @@ function ProjectItemModal(props: IProjectModalItemProps) {
 		.finally(() => {
 			setDownloading(false);
 		})
-	};
+	}; */
 	return (
 		<div className="modal__overlay active modal__project">
             <div className="modal active animate__animated animate__zoomIn modal__md">

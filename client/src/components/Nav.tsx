@@ -1,8 +1,8 @@
-import {useEffect, useMemo} from 'react'
+import {useCallback, useEffect, useMemo} from 'react'
 import logoDark from '../images/logo_dark.png';
 import logoLight from '../images/logo_light.png';
 import { useCustomContext, ThemeType } from '../contexts/theme-context';
-import ShareModal from './utils/ShareModal';
+/* import ShareModal from './utils/ShareModal'; */
 
 function Nav() {
 	const {state, dispatch} = useCustomContext();
@@ -12,16 +12,16 @@ function Nav() {
 	const switchTheme = () => {
 		setAndStoreTheme(isLight? 'theme-dark' : 'theme-light');
 	}
-	const setAndStoreTheme = (newTheme:ThemeType) => {
+	const setAndStoreTheme = useCallback((newTheme:ThemeType) => {
 		const body = document.querySelector('body')!;
 		body.dataset.theme = newTheme;
 		localStorage.setItem('theme', newTheme)
 		dispatch({type: 'SET_THEME', payload: newTheme})
-	}
+	}, [dispatch])
 	useEffect(() => {
 		const initialTheme: ThemeType = localStorage.getItem('theme') === 'theme-light' ? 'theme-light' : 'theme-dark';
 		setAndStoreTheme(initialTheme);
-	}, [])
+	}, [setAndStoreTheme])
 	return (
 		<nav className="nav">
 			<div className="nav__inner">
