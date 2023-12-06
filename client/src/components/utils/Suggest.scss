@@ -1,0 +1,16 @@
+@use '../../scss/partials/vars.scss';
+.suggest{
+    display: inline-block;
+
+	.suggest__modal{
+		background: RGBA(var(--background-rgb) / 85%);
+		backdrop-filter: blur(20px);
+		padding: 20px;
+
+		.modal__footer{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+}

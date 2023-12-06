@@ -534,6 +534,10 @@ a.btn.disabled,fieldset:disabled a.btn {
 	background-color: transparent;
 	border-color: var(--textColor);
 	color: var(--textColor);
+
+	&:hover{
+		color: RGBA(var(--textColor-rgb) / 70%)
+	}
 }
 .btn__inverted-shadow{
 	box-shadow: RGBA(var(--textColor-rgb) / 10%) 0px 10px 15px -3px, RGBA(var(--textColor-rgb) / 50%) 0px 4px 6px -2px;

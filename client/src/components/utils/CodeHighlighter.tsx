@@ -11,7 +11,7 @@ interface ICodeHighlighterProps {
 const CodeHighlighter = ({ code, language, theme }: ICodeHighlighterProps) => {
   const codeRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
-	hljs.highlightAll();
+	  hljs.highlightAll();
   }, [])
 
   /* useEffect(() => {

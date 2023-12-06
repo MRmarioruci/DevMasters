@@ -6,6 +6,15 @@ interface INewsletterDocument{
 	category:  'Cheatsheets' | 'Projects' | 'Anti-patterns' | 'Leetcode' | string
 	creationDate?: FieldValue,
 }
+interface ISuggestionDocument{
+	type: string;
+	group: string;
+	title: string;
+	description: string;
+	code?: string;
+	linkedin?: string;
+	creationDate?: FieldValue;
+}
 
 function useDatabase(targetCollection: string) {
 	const currentCollection = collection(db, targetCollection);
@@ -49,9 +58,21 @@ function useDatabase(targetCollection: string) {
 		}
 		return null;
 	}
+	async function addSuggestion(newDocument:ISuggestionDocument){
+		try {
+			newDocument.creationDate = serverTimestamp();
+			const newDocRef = await addDoc(currentCollection, newDocument);
+			console.log('Suggestion item added with ID:', newDocRef.id);
+			return 'success';
+		} catch (error) {
+			console.error('Error adding suggestion item:', error);
+		}
+		return null;
+	}
 	return {
 		getFromDatabase,
-		addNewsletter
+		addNewsletter,
+		addSuggestion
 	}
 }
 export default useDatabase
