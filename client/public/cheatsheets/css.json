@@ -1,0 +1,14 @@
+{
+    "collectionName": "css",
+    "title": "Css",
+    "icon": "",
+    "color": "B11C1E",
+    "highlighter": "css",
+    "groups": [
+        {
+            "id": "",
+            "title": "",
+            "docs": [{}]
+        }
+    ]
+}

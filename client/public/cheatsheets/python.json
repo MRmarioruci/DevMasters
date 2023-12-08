@@ -44,21 +44,82 @@
                     "code": "# Common data type conversions\nfloat_age = float(age)\nstr_height = str(height)\nint_string = int('123')"
                 },
                 {
-                    "id": "control_flow",
-                    "title": "Control Flow",
-                    "description": "Covering concepts like if statements, loops (for, while), and conditional expressions. Discussing the ternary operator, range() function, and break/continue statements."
+                    "id": "for_loop",
+                    "title": "For Loop",
+                    "description": "Iterates through elements in an iterable using the Python for loop.",
+                    "code": "\n# Syntax\nfor variable in iterable:\n    # Code block\n\n# Example\nnumbers = [1, 2, 3, 4, 5]\nfor num in numbers:\n    print(num)\n"
                 },
+                {
+                    "id": "while_loop",
+                    "title": "While Loop",
+                    "description": "Executes a code block repeatedly as long as a specified condition is true with the Python while loop.",
+                    "code": "\n# Syntax\nwhile condition:\n    # Code block\n\n# Example\ncount = 0\nwhile count < 5:\n    print(count)\n    count += 1\n"
+                },
+                {
+                    "id": "ternary_operator",
+                    "title": "Ternary Operator",
+                    "description": "Provides a concise way to express conditional statements in Python.",
+                    "code": "\n# Syntax\nresult = value_if_true if condition else value_if_false\n\n# Example\nx = 10\ny = 20\nmax_value = x if x > y else y\n"
+                },
+                {
+                    "id": "range_function",
+                    "title": "range() Function",
+                    "description": "Generates a sequence of numbers in a specified range with optional start, stop, and step parameters.",
+                    "code": "\n# Syntax\nrange(start, stop, step)\n\n# Example\nfor i in range(1, 6, 2):\n    print(i)\n# Output: 1, 3, 5\n"
+                },
+                {
+                    "id": "enumerate",
+                    "title": "Enumerate",
+                    "description": "Pairs each element in an iterable with its corresponding index using the Python enumerate() function.",
+                    "code": "\n# Syntax\nfor index, value in enumerate(iterable):\n    # Code block\n\n# Example\nfruits = ['apple', 'banana', 'orange']\nfor index, fruit in enumerate(fruits):\n    print(f'Index: {index}, Value: {fruit}')\n"
+                },                                                                
                 {
                     "id": "functions",
                     "title": "Functions",
-                    "description": "Understanding function definitions, arguments, return values, and lambda functions. Explaining the scope of variables, default arguments, and keyword arguments. Importance of docstrings and function annotations.",
-                    "code": "# Creating a basic function\n\ndef greet(name):\n    return f'Hello, {name}!'\n\n# Function with default argument\n\ndef greet_with_default(name='Guest'):\n    return f'Hello, {name}!'\n\n# Function with variable number of arguments\n\ndef calculate_sum(*args):\n    return sum(args)\n\n# Function with keyword arguments\n\ndef print_person_info(**kwargs):\n    print(f'Name: {kwargs.get('name')}, Age: {kwargs.get('age')}, City: {kwargs.get('city')}')\n\n# Lambda function\n\nmultiply = lambda x, y: x * y\n"
+                    "description": "Encapsulates a block of code with a specific purpose, allowing for code reuse and organization in Python.",
+                    "code": "\n# Syntax\n# Defining a function\n# Example\n# Calling a function\n"
                 },
                 {
-                    "id": "exceptions_handling",
-                    "title": "Exceptions Handling",
-                    "description": "Handling errors and exceptions using try, except, finally blocks. Discussing common built-in exceptions, raising exceptions, and creating custom exception classes.",
-                    "code": "# Handling errors using try and except blocks\ntry:\n    result = 10 / 0  # This will raise a ZeroDivisionError\nexcept ZeroDivisionError as e:\n    print(f'Error: {e}')\n\n# Handling multiple exceptions\ntry:\n    value = int('abc')  # This will raise a ValueError\nexcept (ValueError, TypeError) as e:\n    print(f'Error: {e}')\n\n# Adding a finally block for cleanup\ntry:\n    file = open('example.txt', 'r')\n    # Perform operations on the file\nexcept FileNotFoundError as e:\n    print(f'File not found: {e}')\nfinally:\n    file.close() if 'file' in locals() else None\n\n# Raising custom exceptions\nclass CustomError(Exception):\n    def __init__(self, message='Custom error occurred.'):\n        self.message = message\n        super().__init__(self.message)\n\ntry:\n    raise CustomError('This is a custom exception')\nexcept CustomError as e:\n    print(f'Custom Error: {e}')"
+                    "id": "lambda_functions",
+                    "title": "Lambda Functions",
+                    "description": "Creates anonymous functions using the lambda keyword for short-lived operations in Python.",
+                    "code": "\n# Syntax\nlambda arguments: expression\n\n# Example\nsquare = lambda x: x**2\nresult = square(4)\n# Output: 16\n"
+                },
+                {
+                    "id": "default_arguments",
+                    "title": "Default Arguments",
+                    "description": "Assigns default values to function parameters, allowing for optional arguments in Python.",
+                    "code": "\n# Syntax\ndef greet(name, greeting='Hello'):\n    # Code block\n\n# Example\ngreet('John')\n# Output: Hello, John!\n"
+                },                                                
+                {
+                    "id": "try_except",
+                    "title": "Try-Except Block",
+                    "description": "Catches and handles exceptions in Python, preventing program crashes due to errors.",
+                    "code": "\n# Syntax\ntry:\n    # Code block with potential error\nexcept ExceptionType as e:\n    # Code block to handle the exception\n"
+                },
+                {
+                    "id": "finally_block",
+                    "title": "Finally Block",
+                    "description": "Defines a block of code that will be executed regardless of whether an exception occurs or not in Python.",
+                    "code": "\n# Syntax\ntry:\n    # Code block with potential error\nexcept ExceptionType as e:\n    # Code block to handle the exception\nfinally:\n    # Code block to execute always\n"
+                },
+                {
+                    "id": "custom_exceptions",
+                    "title": "Custom Exceptions",
+                    "description": "Creates user-defined exception classes to handle specific error conditions in Python.",
+                    "code": "\n# Syntax\nclass CustomError(Exception):\n    # Code block\n\n# Example\nraise CustomError('This is a custom error')\n"
+                },
+                {
+                    "id": "except_else",
+                    "title": "Except-Else Block",
+                    "description": "Executes a block of code if no exceptions are raised in the try block in Python.",
+                    "code": "\n# Syntax\ntry:\n    # Code block with potential error\nexcept ExceptionType as e:\n    # Code block to handle the exception\nelse:\n    # Code block to execute if no exception\n"
+                },                
+                {
+                    "id": "except_multiple_exceptions",
+                    "title": "Handling Multiple Exceptions",
+                    "description": "Catches and handles multiple types of exceptions in a single except block in Python.",
+                    "code": "\n# Syntax\ntry:\n    # Code block with potential error\nexcept (ExceptionType1, ExceptionType2) as e:\n    # Code block to handle the exceptions\n"
                 }
             ]
         },
@@ -67,35 +128,125 @@
             "title": "Data Structures",
             "docs": [
                 {
-                    "id": "lists_and_tuples",
-                    "title": "Lists and Tuples",
-                    "description": "Understanding the differences between lists (mutable) and tuples (immutable). Exploring common operations and methods, list comprehensions, slicing, and when to use each data structure.",
-                    "code": "# List comprehension\nsquared_numbers = [x**2 for x in my_list]\n\n# Slicing\nsubset_of_tuple = my_tuple[1:4]\n\n# Adding elements to a list\nmy_list.append(6)\n\n# Modifying an element\nmy_list[2] = 10\n\n# Removing an element by value\nmy_list.remove(4)\n\n# Removing an element by index\ndel my_list[0]\n\n# Concatenating lists\nnew_list = my_list + [7, 8, 9]\n\n# Checking membership\nis_present = 3 in my_list"
+                    "id": "lists",
+                    "title": "Lists",
+                    "description": "Stores ordered and mutable collections of items in Python, allowing for dynamic data manipulation.",
+                    "code": "\n# Syntax\nmy_list = [item1, item2, item3]\n\n# Example\nnumbers = [1, 2, 3, 4, 5]\nprint(numbers)\n# Output: [1, 2, 3, 4, 5]\n"
                 },
+                {
+                    "id": "list_comprehensions",
+                    "title": "List Comprehensions",
+                    "description": "Creates concise lists using a single line of code, providing a readable and efficient way to generate lists in Python.",
+                    "code": "\n# Syntax\nnew_list = [expression for item in iterable if condition]\n\n# Example\nsquares = [x**2 for x in range(1, 6)]\nprint(squares)\n# Output: [1, 4, 9, 16, 25]\n"
+                },
+                {
+                    "id": "tuples",
+                    "title": "Tuples",
+                    "description": "Represents ordered and immutable collections of items in Python, providing data integrity and security.",
+                    "code": "\n# Syntax\nmy_tuple = (item1, item2, item3)\n\n# Example\ncolors = ('red', 'green', 'blue')\nprint(colors)\n# Output: ('red', 'green', 'blue')\n"
+                },
+                {
+                    "id": "tuple_unpacking",
+                    "title": "Tuple Unpacking",
+                    "description": "Assigns individual elements of a tuple to multiple variables in a single statement, enhancing code readability in Python.",
+                    "code": "\n# Syntax\nvariable1, variable2, variable3 = my_tuple\n\n# Example\ncoordinates = (3, 7, 9)\nx, y, z = coordinates\nprint(x, y, z)\n# Output: 3 7 9\n"
+                },
+                {
+                    "id": "nested_lists_tuples",
+                    "title": "Nested Lists and Tuples",
+                    "description": "Allows the creation of multi-dimensional structures by embedding lists or tuples within one another in Python.",
+                    "code": "\n# Syntax\nnested_list = [[item11, item12], [item21, item22]]\nnested_tuple = ((item11, item12), (item21, item22))\n\n# Example\nmatrix = [[1, 2], [3, 4]]\nprint(matrix[0][1])\n# Output: 2\n"
+                },                                                                                
                 {
                     "id": "dictionaries",
                     "title": "Dictionaries",
-                    "description": "Exploring key-value pairs, dictionary methods, and common use cases. Handling missing keys, dictionary comprehension, and performance considerations.",
-                    "code": "# Dictionary comprehension\nuppercased_keys = {key.upper(): value for key, value in my_dict.items()}\n\n# Handling missing keys\nprint(my_dict.get('gender', 'Not specified'))\n\n# Adding a new key-value pair\nmy_dict['occupation'] = 'Engineer'\n\n# Modifying the value of a key\nmy_dict['age'] = 31\n\n# Removing a key-value pair\ndel my_dict['city']\n\n# Iterating through keys and values\nfor key, value in my_dict.items():\n    print(key, value)"
-                },                
+                    "description": "Stores unordered and mutable collections of key-value pairs in Python, providing fast data retrieval through unique keys.",
+                    "code": "\n# Syntax\nmy_dict = {'key1': value1, 'key2': value2, 'key3': value3}\n\n# Example\nstudent = {'name': 'John', 'age': 25, 'grade': 'A'}\nprint(student)\n# Output: {'name': 'John', 'age': 25, 'grade': 'A'}\n"
+                },
+                {
+                    "id": "dictionary_methods",
+                    "title": "Dictionary Methods",
+                    "description": "Offers various built-in methods for performing operations on dictionaries, enhancing functionality and ease of use in Python.",
+                    "code": "\n# Syntax\n# Example\n# Dictionary methods: keys(), values(), items(), get(), update(), pop(), popitem(), clear(), etc.\n"
+                },                                
                 {
                     "id": "sets",
                     "title": "Sets",
-                    "description": "Understanding unordered collections of unique elements. Exploring set operations and methods, practical examples of using sets for common programming tasks.",
-                    "code": "# Set operations\nunion_set = set_a | set_b\nintersection_set = set_a & set_b\n\n# Practical example\nunique_words = set(['apple', 'orange', 'apple', 'banana', 'kiwi'])\n\n# Adding elements to a set\nset_a.add(6)\n\n# Removing an element from a set\nset_b.remove(8)\n\n# Checking intersection\ncommon_elements = set_a.intersection(set_b)\n\n# Difference between sets\ndifference_set = set_a - set_b"
+                    "description": "Stores unordered and unique elements in Python, providing mathematical set operations like union, intersection, and difference.",
+                    "code": "\n# Syntax\nmy_set = {element1, element2, element3}\n\n# Example\nfruits = {'apple', 'banana', 'orange'}\nprint(fruits)\n# Output: {'apple', 'banana', 'orange'}\n"
                 },
                 {
-                    "id": "queues_stacks",
-                    "title": "Queues and Stacks",
-                    "description": "Understanding first-in, first-out (FIFO) queues and last-in, first-out (LIFO) stacks. Exploring implementations using lists or collections.deque.",
-                    "code": "# Using collections.deque for a queue\nfrom collections import deque\n\nmy_queue = deque([1, 2, 3])\nmy_queue.append(4)  # Enqueue\nfirst_item = my_queue.popleft()  # Dequeue\n\n# Using lists for a stack\nmy_stack = [1, 2, 3]\nmy_stack.append(4)  # Push\nlast_item = my_stack.pop()  # Pop"
+                    "id": "set_methods",
+                    "title": "Set Methods",
+                    "description": "Offers various built-in methods for performing operations on sets, including adding, removing, and checking for membership in Python.",
+                    "code": "\n# Syntax\n# Example\n# Set methods: add(), remove(), discard(), pop(), clear(), union(), intersection(), difference(), etc.\n"
                 },
+                {
+                    "id": "set_operations",
+                    "title": "Set Operations",
+                    "description": "Performs mathematical set operations like union, intersection, and difference, allowing for efficient manipulation of sets in Python.",
+                    "code": "\n# Syntax\n# Example\nset1 = {1, 2, 3}\nset2 = {3, 4, 5}\nunion_set = set1 | set2\nprint(union_set)\n# Output: {1, 2, 3, 4, 5}\n"
+                },
+                {
+                    "id": "frozensets",
+                    "title": "Frozensets",
+                    "description": "Represents an immutable version of sets in Python, allowing for use as keys in dictionaries and elements in other sets.",
+                    "code": "\n# Syntax\nmy_frozenset = frozenset({element1, element2, element3})\n\n# Example\nfrozen_numbers = frozenset({1, 2, 3})\nprint(frozen_numbers)\n# Output: frozenset({1, 2, 3})\n"
+                },                                                                
+                {
+                    "id": "queues",
+                    "title": "Queues",
+                    "description": "Implements a first-in, first-out (FIFO) data structure in Python, allowing elements to be added to the back and removed from the front.",
+                    "code": "\n# Syntax\nfrom collections import deque\nqueue = deque()\nqueue.append(element)  # Enqueue\nelement = queue.popleft()  # Dequeue\n\n# Example\nfrom collections import deque\nqueue = deque([1, 2, 3])\nqueue.append(4)\nprint(queue.popleft())\n# Output: 1\n"
+                },
+                {
+                    "id": "stacks",
+                    "title": "Stacks",
+                    "description": "Implements a last-in, first-out (LIFO) data structure in Python, allowing elements to be added to the top and removed from the top.",
+                    "code": "\n# Syntax\nstack = []\nstack.append(element)  # Push\nelement = stack.pop()  # Pop\n\n# Example\nstack = [1, 2, 3]\nstack.append(4)\nprint(stack.pop())\n# Output: 4\n"
+                },
+                {
+                    "id": "priority_queues",
+                    "title": "Priority Queues",
+                    "description": "Implements a queue where elements have associated priorities, ensuring elements with higher priorities are dequeued first in Python.",
+                    "code": "\n# Syntax\nfrom queue import PriorityQueue\npriority_queue = PriorityQueue()\npriority_queue.put((priority, element))  # Enqueue\nelement = priority_queue.get()  # Dequeue\n\n# Example\nfrom queue import PriorityQueue\npriority_queue = PriorityQueue()\npriority_queue.put((2, 'Task 1'))\npriority_queue.put((1, 'Task 2'))\nprint(priority_queue.get())\n# Output: (1, 'Task 2')\n"
+                },
+                {
+                    "id": "lifo_queues",
+                    "title": "LIFO Queues",
+                    "description": "Implements a last-in, first-out (LIFO) queue in Python, providing a more convenient interface than the regular queue.",
+                    "code": "\n# Syntax\nfrom queue import LifoQueue\nlifo_queue = LifoQueue()\nlifo_queue.put(element)  # Push\nelement = lifo_queue.get()  # Pop\n\n# Example\nfrom queue import LifoQueue\nlifo_queue = LifoQueue()\nlifo_queue.put(1)\nlifo_queue.put(2)\nprint(lifo_queue.get())\n# Output: 2\n"
+                },                                                                
                 {
                     "id": "linked_lists",
                     "title": "Linked Lists",
-                    "description": "Exploring the concept of linked lists, a data structure consisting of nodes where each node points to the next node in the sequence. Understanding singly linked lists and doubly linked lists.",
-                    "code": "# Node class for a singly linked list\n\nclass Node:\n    def __init__(self, data):\n        self.data = data\n        self.next = None\n\n# Creating a linked list\nnode1 = Node(1)\nnode2 = Node(2)\nnode3 = Node(3)\n\nnode1.next = node2\nnode2.next = node3"
-                }
+                    "description": "Implements a data structure where elements are stored in nodes, and each node points to the next node, forming a sequence in Python.",
+                    "code": "\n# Node class\nclass Node:\n    def __init__(self, data=None, next=None):\n        self.data = data\n        self.next = next\n\n# Example\nnode1 = Node(1)\nnode2 = Node(2)\nnode1.next = node2\n"
+                },
+                {
+                    "id": "singly_linked_lists",
+                    "title": "Singly Linked Lists",
+                    "description": "Represents a linked list where each node points to the next node, allowing for efficient traversal in one direction in Python.",
+                    "code": "\n# Node class\n# Example\n# Singly Linked List operations: insert, delete, search, traverse, etc.\n"
+                },
+                {
+                    "id": "doubly_linked_lists",
+                    "title": "Doubly Linked Lists",
+                    "description": "Enhances a linked list by each node pointing to both the next and previous nodes, facilitating bidirectional traversal in Python.",
+                    "code": "\n# Node class with 'prev' attribute\n# Example\n# Doubly Linked List operations: insert, delete, search, traverse, etc.\n"
+                },
+                {
+                    "id": "doubly_linked_lists",
+                    "title": "Doubly Linked Lists",
+                    "description": "Enhances a linked list by each node pointing to both the next and previous nodes, facilitating bidirectional traversal in Python.",
+                    "code": "\n# Node class with 'prev' attribute\n# Example\n# Doubly Linked List operations: insert, delete, search, traverse, etc.\n"
+                },
+                {
+                    "id": "circular_linked_lists",
+                    "title": "Circular Linked Lists",
+                    "description": "Forms a closed loop by having the last node point to the first node, allowing for continuous traversal in Python.",
+                    "code": "\n# Node class\n# Example\n# Circular Linked List operations: insert, delete, search, traverse, etc.\n"
+                }                                                                                
             ]
         },
         {
@@ -103,35 +254,41 @@
             "title": "Classes and Object-Oriented Programming (OOP)",
             "docs": [
                 {
-                    "id": "class_definition_instantiation",
-                    "title": "Class Definition and Instantiation",
-                    "description": "Understanding how to define classes in Python, create class attributes and methods, and instantiate objects from those classes.",
-                    "code": "# Class definition\n\nclass Dog:\n    def __init__(self, name: str, age: int):\n        self.name = name\n        self.age = age\n\n    def bark(self) -> None:\n        print('Woof!')"
+                    "id": "class_definition",
+                    "title": "Class Definition",
+                    "description": "Defines a blueprint for creating objects in Python, encapsulating data and behavior within a single unit.",
+                    "code": "\n# Syntax\nclass ClassName:\n    def __init__(self, parameter1, parameter2):\n        # Constructor\n        # Define attributes\n    \n    def method_name(self, parameter3):\n        # Method definition\n\n# Example\nclass Dog:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n    \n    def bark(self):\n        print('Woof!')\n"
                 },
+                {
+                    "id": "class_instantiation",
+                    "title": "Class Instantiation",
+                    "description": "Creates instances of a class, representing specific objects with unique attributes and behaviors in Python.",
+                    "code": "\n# Syntax\nobject_name = ClassName(argument1, argument2)\n\n# Example\ndog1 = Dog('Buddy', 3)\ndog2 = Dog('Max', 5)\n"
+                },                                
                 {
                     "id": "inheritance_polymorphism",
                     "title": "Inheritance and Polymorphism",
-                    "description": "Exploring the concepts of inheritance, where a class can inherit attributes and methods from another class, and polymorphism, where objects can take on multiple forms through method overriding.",
-                    "code": "# Inheritance example\n\nclass Cat(Animal):\n    def meow(self) -> None:\n        print('Meow!')"
+                    "description": "Allows a class to inherit attributes and methods from another class, promoting code reuse, and supports polymorphism in Python.",
+                    "code": "\n# Syntax\n# Example\n# Inheritance: class SubClass(ParentClass)\n# Polymorphism: overriding methods, using interfaces, etc.\n"
                 },
                 {
                     "id": "encapsulation",
                     "title": "Encapsulation",
-                    "description": "Encapsulation involves bundling the data (attributes) and methods that operate on the data into a single unit known as a class. It helps in hiding the internal implementation details from the outside world.",
-                    "code": "# Encapsulation example\n\nclass BankAccount:\n    def __init__(self, balance: float):\n        self._balance = balance  # Using a single underscore to indicate a protected attribute\n\n    def deposit(self, amount: float) -> None:\n        self._balance += amount\n\n    def withdraw(self, amount: float) -> None:\n        self._balance -= amount"
-                },
+                    "description": "Bundles data and methods that operate on the data within a single unit, restricting access to the internal details of an object in Python.",
+                    "code": "\n# Syntax\n# Example\n# Encapsulation: private attributes, getters and setters, property decorators, etc.\n"
+                },                                
                 {
                     "id": "abstract_classes_interfaces",
                     "title": "Abstract Classes and Interfaces",
-                    "description": "Abstract classes and interfaces provide a way to define a common structure for multiple classes. Abstract classes may contain abstract methods that must be implemented by concrete subclasses.",
-                    "code": "# Abstract class example\n\nfrom abc import ABC, abstractmethod\n\nclass Shape(ABC):\n    @abstractmethod\n    def area(self) -> float:\n        pass\n\n# Concrete subclass\n\nclass Circle(Shape):\n    def __init__(self, radius: float):\n        self.radius = radius\n\n    def area(self) -> float:\n        return 3.14 * self.radius**2"
+                    "description": "Defines abstract classes with abstract methods, providing a blueprint for concrete classes to implement, and interfaces in Python.",
+                    "code": "\n# Syntax\nfrom abc import ABC, abstractmethod\n\nclass AbstractClass(ABC):\n    @abstractmethod\n    def abstract_method(self):\n        pass\n\n# Example\n# Abstract Classes: defining abstract methods\n# Interfaces: using abstract base classes (ABC)\n"
                 },
                 {
                     "id": "class_methods_static_methods",
                     "title": "Class Methods and Static Methods",
-                    "description": "Understanding the difference between class methods, which have access to the class itself, and static methods, which do not have access to the class or instance.",
-                    "code": "# Class method example\n\nclass MyClass:\n    class_variable = 10\n\n    @classmethod\n    def print_class_variable(cls) -> None:\n        print(cls.class_variable)\n\n# Static method example\n\nclass MathOperations:\n    @staticmethod\n    def add(a: int, b: int) -> int:\n        return a + b"
-                }
+                    "description": "Defines methods that are bound to the class rather than an instance, allowing for class-level behavior and utility methods in Python.",
+                    "code": "\n# Syntax\nclass ClassName:\n    @classmethod\n    def class_method(cls, parameter1, parameter2):\n        # Class method definition\n\n    @staticmethod\n    def static_method(parameter3):\n        # Static method definition\n\n# Example\n# Class Methods: accessing class-level variables\n# Static Methods: utility functions independent of class instances\n"
+                }                                
             ]
         },
         {
@@ -153,9 +310,9 @@
                 {
                     "id": "concurrency_parallelism",
                     "title": "Concurrency and Parallelism",
-                    "description": "Understanding concepts like threads, processes, and asynchronous programming. The asyncio module is often used for asynchronous programming, and the multiprocessing module for parallelism.",
-                    "code": "import asyncio\n\nasync def foo():\n    print('Start foo')\n    await asyncio.sleep(2)\n    print('End foo')\n\nasync def bar():\n    print('Start bar')\n    await asyncio.sleep(1)\n    print('End bar')\n\nasyncio.run(asyncio.gather(foo(), bar()))"
-                },
+                    "description": "Enables the execution of multiple tasks simultaneously, enhancing program performance by dividing workloads in Python.",
+                    "code": "\n# Concurrency: Concurrent execution of multiple tasks without necessarily running them in parallel.\n# Parallelism: Simultaneous execution of multiple tasks using multiple processors or cores.\n\n# Example\n# Concurrency: Using threads or asyncio\n# Parallelism: Using multiprocessing\n"
+                },                
                 {
                     "id": "metaclasses",
                     "title": "Metaclasses",
@@ -237,6 +394,48 @@
             ]
         },
         {
+            "id": "async",
+            "title": "Asynchronous Programming",
+            "docs": [
+                {
+                    "id": "async",
+                    "title": "Asynchronous Programming",
+                    "description": "Facilitates the execution of non-blocking code, allowing tasks to run concurrently and enhancing the efficiency of I/O-bound operations in Python.",
+                    "code": "\n# Syntax\nimport asyncio\n\nasync def async_function():\n    # Asynchronous function definition\n    \n# Example\n# Using asyncio library for asynchronous programming\n"
+                },
+                {
+                    "id": "coroutines",
+                    "title": "Coroutines",
+                    "description": "Special types of functions used in asynchronous programming that allow suspending and resuming their execution, enhancing concurrency in Python.",
+                    "code": "\n# Syntax\nimport asyncio\n\nasync def my_coroutine():\n    # Coroutine definition\n    \n# Example\n# Using asyncio library for coroutines\n"
+                },
+                {
+                    "id": "event_loop",
+                    "title": "Event Loop",
+                    "description": "Manages and coordinates the execution of asynchronous tasks, ensuring proper scheduling and handling of events in Python.",
+                    "code": "\n# Syntax\nimport asyncio\nloop = asyncio.get_event_loop()\n\n# Example\n# Setting up and running the event loop\n"
+                },
+                {
+                    "id": "await",
+                    "title": "await Keyword",
+                    "description": "Suspends the execution of an asynchronous coroutine until the awaited task is complete, allowing other tasks to run in the meantime in Python.",
+                    "code": "\n# Syntax\nresult = await some_async_function()\n\n# Example\n# Using the await keyword in an asynchronous function\n"
+                },
+                {
+                    "id": "asyncio_tasks",
+                    "title": "Asyncio Tasks",
+                    "description": "Represents units of work in an event loop, allowing the execution of multiple asynchronous tasks concurrently in Python.",
+                    "code": "\n# Syntax\nimport asyncio\n\nasync def main():\n    task1 = asyncio.create_task(coroutine1())\n    task2 = asyncio.create_task(coroutine2())\n    \n    await asyncio.gather(task1, task2)\n\n# Example\n# Creating and executing asyncio tasks\n"
+                },
+                {
+                    "id": "asyncio_gather",
+                    "title": "Asyncio Gather",
+                    "description": "Collects and waits for the results of multiple asynchronous tasks, enabling efficient coordination and synchronization in Python.",
+                    "code": "\n# Syntax\nawait asyncio.gather(task1, task2, task3)\n\n# Example\n# Gathering results from multiple asyncio tasks\n"
+                }                               
+            ]
+        },
+        {
             "id": "best_practices",
             "title": "Best Practices",
             "docs": [
@@ -257,27 +456,6 @@
                     "title": "Documentation",
                     "description": "Importance of documenting code using docstrings and other tools. Generating documentation with tools like Sphinx. Best practices for writing comprehensive and clear documentation.",
                     "code": "# Example using docstrings\n\ndef add_numbers(a, b):\n    \"\"\"\n    Add two numbers.\n\n    Parameters:\n    - a (int): The first number.\n    - b (int): The second number.\n\n    Returns:\n    int: The sum of the two numbers.\n    \"\"\"\n    return a + b"
-                }
-            ]
-        },
-        {
-            "id": "interview_preparation",
-            "title": "Interview Preparation",
-            "docs": [
-                {
-                    "id": "algorithms_and_data_structures",
-                    "title": "Algorithms and Data Structures",
-                    "description": "Review common algorithms (sorting, searching) and data structures (stacks, queues). Discuss time and space complexity analysis."
-                },
-                {
-                    "id": "web_development_basics",
-                    "title": "Web Development Basics",
-                    "description": "Understand the basics of web development if relevant to the position. Concepts like HTTP, RESTful APIs, and web frameworks."
-                },
-                {
-                    "id": "database_interaction",
-                    "title": "Database Interaction",
-                    "description": "Review database concepts and interaction in Python. SQL basics, ORM frameworks, and common database operations."
                 }
             ]
         }
