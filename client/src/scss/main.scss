@@ -258,3 +258,36 @@ a {
 		}
 	}
 }
+.gpt__response{
+	border: 1px dashed RGBA(var(--textColor-rgb) / 90%);
+	padding: 30px 10px;
+	position: relative;
+	border-radius: 15px;
+	margin-top: 20px;
+
+	.gpt__response-header{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100px;
+		font-size: 11px;
+		background-color: var(--textColor);
+		color: var(--background);
+		padding: 5px 10px;
+		border-radius: 20px;
+
+	}
+
+	h1{
+		font-size: 1.3em;
+	}
+	h2{
+		font-size: 1.2em;
+	}
+	h3{
+		font-size: 1.1em;
+	}
+	h4{
+		font-size: 1em;
+	}
+}

@@ -29,6 +29,11 @@ function CheatsheetComponent() {
 	const [highlighter, setHighlighter] = useState<Highlighter>('js');
 	const [selectedCheatSheet, setSelectedCheatsheet] = useState<null | Cheatsheet>(null);
 	const [loading, setLoading] = useState<boolean>(true);
+	const [allCollapsed, setAllCollapsed] = useState<boolean>(false);
+
+	useEffect(() => {
+		console.log(allCollapsed);
+	}, [allCollapsed, setAllCollapsed])
 
 	const localStoragePath = useMemo(() => {
 		const parts = window.location.pathname.split('/');
@@ -92,6 +97,8 @@ function CheatsheetComponent() {
 						showThemeSelector={true}
 						showLayoutSelector={true}
 						showShareModal={true}
+						allCollapsed={allCollapsed}
+						setAllCollapsed={setAllCollapsed}
 					/>
 					<PageNav pageId={id} items={jsonData} selectedItem={selectedGroup}/>
 					<Related/>
@@ -111,6 +118,7 @@ function CheatsheetComponent() {
 										index={idx}	
 										groupIndex={selectedGroupIndex}
 										localStoragePath={localStoragePath}
+										allCollapsed={allCollapsed}
 									/>
 								</div>
 							)
