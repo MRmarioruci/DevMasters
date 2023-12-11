@@ -86,3 +86,29 @@
 		box-shadow: .2em -.2em 0 0 currentcolor;
 	}
 }
+
+
+
+.btn__loader{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	left: 0;
+	top: 0;
+	background-color: RGBA(var(--background-rgb) / 30%);
+	width: 100%;
+	height: 100%;
+	
+	/* HTML: <div class="loader"></div> */
+	.ld {
+		width: 20px;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		border: 2px solid;
+		border-color: var(--primary) var(--background);
+		animation: l1 1s infinite;
+	}
+	@keyframes l1 {to{transform: rotate(.5turn)}}
+}

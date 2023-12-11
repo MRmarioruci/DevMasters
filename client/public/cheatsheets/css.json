@@ -1,14 +1,174 @@
 {
     "collectionName": "css",
-    "title": "Css",
-    "icon": "",
+    "title": "CSS",
+    "icon": "https://api.iconify.design/vscode-icons/file-type-css.svg",
     "color": "B11C1E",
     "highlighter": "css",
     "groups": [
         {
-            "id": "",
-            "title": "",
-            "docs": [{}]
+            "id": "common",
+            "title": "Common",
+            "docs": [
+                {
+                    "title": "What is the difference between inline and block-level elements?",
+                    "description": "Inline elements flow within the content and do not start on a new line. Block-level elements start on a new line and take the full width of the parent container.",
+                    "image": "",
+                    "code": "",
+                    "id": "10"
+                },
+                {
+                    "title": "Explain the 'float' property in CSS.",
+                    "description": "The 'float' property in CSS is used to push an element to the left or right, allowing other elements to wrap around it. It is commonly used for creating layouts.",
+                    "image": "",
+                    "code": "",
+                    "id": "11"
+                },
+                {
+                    "title": "How does CSS handle inheritance?",
+                    "description": "In CSS, inheritance is the process by which styles are applied to an element from its parent and ancestor elements. If a property is not set on an element, it inherits the value from its parent.",
+                    "image": "",
+                    "code": "",
+                    "id": "12"
+                },
+                {
+                    "title": "What is the 'z-index' property in CSS?",
+                    "description": "The 'z-index' property in CSS controls the stacking order of positioned elements. Elements with a higher 'z-index' value are displayed in front of elements with lower values.",
+                    "image": "",
+                    "code": "",
+                    "id": "13"
+                },
+                {
+                    "title": "Explain the difference between 'em' and 'rem' units in CSS.",
+                    "description": "Both 'em' and 'rem' are relative length units. 'em' is relative to the font-size of its closest parent, while 'rem' is relative to the font-size of the root element (html).",
+                    "image": "",
+                    "code": "",
+                    "id": "14"
+                },
+                {
+                    "title": "What is the CSS 'clearfix' hack used for?",
+                    "description": "The 'clearfix' hack is used to clear floated elements within a container. It prevents the container from collapsing due to the floated elements and ensures proper layout.",
+                    "image": "",
+                    "code": "",
+                    "id": "15"
+                },
+                {
+                    "title": "How can you center an element horizontally and vertically in CSS?",
+                    "description": "To center an element horizontally, you can use 'margin: auto;' on a block-level element. To center vertically, you may use a combination of 'display: flex;' and 'align-items: center;' or 'position: absolute;' with 'top: 50%;' and 'transform: translateY(-50%);'.",
+                    "image": "",
+                    "code": "",
+                    "id": "16"
+                },
+                {
+                    "title": "What is the purpose of the 'media query' in CSS?",
+                    "description": "Media queries in CSS allow you to apply styles based on the characteristics of the device, such as screen size, resolution, or orientation. They are commonly used for responsive web design.",
+                    "image": "",
+                    "code": "",
+                    "id": "17"
+                },
+                {
+                    "title": "Explain the 'nth-child' selector in CSS.",
+                    "description": "The 'nth-child' selector in CSS allows you to select elements based on their position in a parent container. It is often used to apply styles to every nth child element.",
+                    "image": "",
+                    "code": "",
+                    "id": "18"
+                },
+                {
+                    "title": "What is the 'transition' property in CSS used for?",
+                    "description": "The 'transition' property in CSS is used to create smooth transitions between different property values. It allows you to specify the duration, timing function, and other transition-related properties.",
+                    "image": "",
+                    "code": "",
+                    "id": "19"
+                },
+                {
+                    "title": "How can you optimize the performance of a webpage in terms of CSS?",
+                    "description": "Optimizing CSS performance involves minimizing the number of HTTP requests, using efficient selectors, and reducing the overall size of the CSS file. Techniques like CSS minification and compression can be employed.",
+                    "image": "",
+                    "code": "",
+                    "id": "20"
+                }
+            ]
+        },
+        {
+            "id": "intermediate",
+            "title": "Intermediate",
+            "docs": [
+                {
+                    "title": "Explain the 'flexbox' layout in CSS and its main properties.",
+                    "description": "Flexbox is a layout model in CSS that allows you to design complex layouts more efficiently. Key properties include 'display: flex;' on the container, 'justify-content,' 'align-items,' and 'flex' on the items.",
+                    "image": "",
+                    "code": "",
+                    "id": "21"
+                },
+                {
+                    "title": "What is the 'box-sizing' property in CSS, and how does it affect layout?",
+                    "description": "The 'box-sizing' property in CSS determines how the total width and height of an element are calculated. Setting it to 'border-box' includes padding and border in the total width and height, making it easier to create consistent layouts.",
+                    "image": "",
+                    "code": "",
+                    "id": "22"
+                },
+                {
+                    "title": "Explain the concept of CSS specificity and how it impacts style application.",
+                    "description": "CSS specificity determines which styles are applied to an element when multiple conflicting styles exist. It is based on the combination of selectors used. The more specific the selector, the higher its specificity.",
+                    "image": "",
+                    "code": "",
+                    "id": "23"
+                },
+                {
+                    "title": "What is the purpose of the 'position' property in CSS?",
+                    "description": "The 'position' property in CSS is used to specify the positioning method of an element. Values include 'static,' 'relative,' 'absolute,' 'fixed,' and 'sticky.' Each has different behavior regarding the element's placement.",
+                    "image": "",
+                    "code": "",
+                    "id": "24"
+                },
+                {
+                    "title": "Explain the 'grid' layout in CSS and its main properties.",
+                    "description": "CSS Grid is a layout system that allows you to create two-dimensional layouts with rows and columns. Key properties include 'display: grid;' on the container, 'grid-template-columns,' 'grid-template-rows,' and 'grid-gap.'",
+                    "image": "",
+                    "code": "",
+                    "id": "25"
+                }
+            ]
+        },
+        {
+            "id": "advanced",
+            "title": "Advanced",
+            "docs": [
+                {
+                    "title": "What are CSS preprocessors, and how do they enhance CSS?",
+                    "description": "CSS preprocessors like Sass or Less extend the capabilities of standard CSS by adding features like variables, nesting, and functions. They make CSS more maintainable and efficient by allowing developers to write cleaner and modular code.",
+                    "image": "",
+                    "code": "",
+                    "id": "26"
+                },
+                {
+                    "title": "Explain the 'will-change' property in CSS and when to use it.",
+                    "description": "The 'will-change' property in CSS hints to the browser that an element's properties are expected to change, allowing the browser to optimize rendering. It is used to enhance performance in animations or transitions.",
+                    "image": "",
+                    "code": "",
+                    "id": "27"
+                },
+                {
+                    "title": "What is the 'rem' unit in CSS, and how does it differ from 'em'?",
+                    "description": "'rem' (root em) is a relative length unit in CSS that is relative to the font-size of the root element (html). It differs from 'em,' which is relative to the font-size of its closest parent element with a font size.",
+                    "image": "",
+                    "code": "",
+                    "id": "28"
+                },
+                {
+                    "title": "Explain the 'object-fit' property in CSS and its use with images.",
+                    "description": "The 'object-fit' property in CSS is used to control how an image or video scales and positions itself inside its containing element. It is helpful for maintaining aspect ratios and controlling the appearance of media.",
+                    "image": "",
+                    "code": "",
+                    "id": "29"
+                },
+                {
+                    "title": "What is the 'currentColor' keyword in CSS?",
+                    "description": "The 'currentColor' keyword in CSS is used to refer to the computed value of the 'color' property. It is particularly useful for ensuring that an element's border or outline color matches its text color.",
+                    "image": "",
+                    "code": "",
+                    "id": "30"
+                }
+            ]
         }
     ]
 }

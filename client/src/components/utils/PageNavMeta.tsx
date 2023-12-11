@@ -5,18 +5,22 @@ import { IDoc } from "../../types";
 import { Link } from "react-router-dom";
 import Suggest from "./Suggest";
 interface IPageNavMetaProps{
-	doc: IDoc,
-	selectedGroup: any,
-	showThemeSelector?: boolean,
-	showLayoutSelector?: boolean,
-	showShareModal?: boolean
+	doc: IDoc;
+	selectedGroup: any;
+	showThemeSelector?: boolean;
+	showLayoutSelector?: boolean;
+	showShareModal?: boolean;
+	allCollapsed?: boolean;
+	setAllCollapsed?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 function PageNavMeta({
 	doc,
 	selectedGroup,
 	/* showThemeSelector, */
 	showLayoutSelector,
-	showShareModal
+	showShareModal,
+	allCollapsed,
+	setAllCollapsed
 }: IPageNavMetaProps) {
 	const {icon, title} = doc
 	return (
@@ -41,6 +45,13 @@ function PageNavMeta({
 					</div>
 					<div className="float--right">
 						{/* { showThemeSelector && <HighlighterThemeSelector /> } */}
+						{setAllCollapsed && 
+							<div className="btn btn_transparent btn__sm text__primary" title="Collapse all" onClick={() => setAllCollapsed(!allCollapsed)}>
+								<span className="material-icons">
+									{allCollapsed ? 'unfold_more_double' : 'unfold_less_double'}
+								</span>
+							</div>
+						}
 						{ showLayoutSelector && <LayoutSelector />}
 						{ showShareModal && <ShareModal url={window.location.href} /> }
 						<Suggest />

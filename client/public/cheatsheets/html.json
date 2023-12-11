@@ -1,0 +1,167 @@
+{
+    "collectionName": "html",
+    "title": "Html",
+    "icon": "https://api.iconify.design/vscode-icons/file-type-html.svg",
+    "color": "E44D26",
+    "highlighter": "html",
+    "groups": [
+        {
+            "id": "common",
+            "title": "Common",
+            "docs": [
+                {
+                    "title": "What is HTML?",
+                    "description": "HTML (Hypertext Markup Language) is the standard markup language used for structuring and presenting content on the World Wide Web. It defines the structure of web pages using a markup system of tags.",
+                    "image": "",
+                    "code": "",
+                    "id": "41"
+                },
+                {
+                    "title": "What are the new semantic elements introduced in HTML?",
+                    "description": "HTML introduces semantic elements like 'header,' 'nav,' 'article,' 'section,' 'aside,' and 'footer' to improve the document structure and provide more meaningful information about content.",
+                    "image": "",
+                    "code": "",
+                    "id": "42"
+                },
+                {
+                    "title": "Explain the 'canvas' element in HTML and its uses.",
+                    "description": "The 'canvas' element in HTML provides a drawing surface for graphics using JavaScript. It is commonly used for creating charts, graphs, animations, and interactive games on the web.",
+                    "image": "",
+                    "code": "",
+                    "id": "43"
+                },
+                {
+                    "title": "What is the 'localStorage' in HTML, and how is it different from 'sessionStorage'?",
+                    "description": "'localStorage' is a web storage feature in HTML that allows web applications to store data with no expiration time. It persists even after the browser is closed and reopened. 'sessionStorage' is similar but only persists for the duration of the page session.",
+                    "image": "",
+                    "code": "",
+                    "id": "44"
+                },
+                {
+                    "title": "How does HTML support offline web applications?",
+                    "description": "HTML provides features like the 'Application Cache' (AppCache) and 'Service Workers' to enable offline web applications. These technologies allow resources to be cached and served even when the user is offline.",
+                    "image": "",
+                    "code": "",
+                    "id": "45"
+                },
+                {
+                    "title": "Explain the 'video' and 'audio' elements in HTML.",
+                    "description": "The 'video' and 'audio' elements in HTML allow embedding media content directly into web pages. They provide native support for playing video and audio files without requiring third-party plugins.",
+                    "image": "",
+                    "code": "",
+                    "id": "46"
+                },
+                {
+                    "title": "What is the purpose of the 'progress' element in HTML?",
+                    "description": "The 'progress' element in HTML is used to represent the completion progress of a task. It can be used to display the progress of file uploads, form submissions, or any other task with measurable progress.",
+                    "image": "",
+                    "code": "",
+                    "id": "47"
+                },
+                {
+                    "title": "Explain the 'contenteditable' attribute in HTML.",
+                    "description": "The 'contenteditable' attribute in HTML makes the content of an element editable by the user. It is often used in conjunction with JavaScript to create interactive and editable elements.",
+                    "image": "",
+                    "code": "",
+                    "id": "48"
+                },
+                {
+                    "title": "What is the purpose of the 'autocomplete' attribute in HTML?",
+                    "description": "The 'autocomplete' attribute in HTML is used to control whether a form should have autocomplete enabled or disabled. It can be applied to form elements such as 'input' and 'form.'",
+                    "image": "",
+                    "code": "",
+                    "id": "49"
+                },
+                {
+                    "title": "Explain the 'picture' element and 'srcset' attribute in HTML for responsive images.",
+                    "description": "The 'picture' element and 'srcset' attribute in HTML provide a way to serve different images based on the user's device and screen size. This enables developers to create responsive and optimized image delivery.",
+                    "image": "",
+                    "code": "",
+                    "id": "50"
+                }
+            ]
+        },
+        {
+            "id": "intermediate",
+            "title": "Intermediate",
+            "docs": [
+                {
+                    "title": "Explain the 'Web Storage' API in HTML.",
+                    "description": "The 'Web Storage' API in HTML provides two mechanisms, 'localStorage' and 'sessionStorage,' for storing key/value pairs locally in a web browser. It allows developers to store data persistently or for the duration of a session.",
+                    "image": "",
+                    "code": "",
+                    "id": "51"
+                },
+                {
+                    "title": "What are the new form input types introduced in HTML?",
+                    "description": "HTML introduces new form input types like 'email,' 'url,' 'tel,' 'number,' 'date,' and more. These types enhance user input validation and provide a better user experience on different devices.",
+                    "image": "",
+                    "code": "",
+                    "id": "52"
+                },
+                {
+                    "title": "Explain the 'Web Workers' in HTML and their use cases.",
+                    "description": "Web Workers in HTML allow running scripts in the background to perform tasks without affecting the user interface. They are useful for parallelizing tasks and improving overall web application performance.",
+                    "image": "",
+                    "code": "",
+                    "id": "53"
+                },
+                {
+                    "title": "What is the 'details' and 'summary' elements in HTML used for?",
+                    "description": "The 'details' and 'summary' elements in HTML are used to create interactive disclosure widgets. 'details' contains additional information, and 'summary' provides a visible heading for the details that can be toggled.",
+                    "image": "",
+                    "code": "",
+                    "id": "54"
+                },
+                {
+                    "title": "Explain the 'defer' and 'async' attributes when including a script in HTML.",
+                    "description": "The 'defer' and 'async' attributes in a script tag control how the script is executed. 'defer' defers execution until after the HTML document is parsed, while 'async' loads and executes the script asynchronously.",
+                    "image": "",
+                    "code": "",
+                    "id": "55"
+                }
+            ]
+        },
+        {
+            "id": "advanced",
+            "title": "Advanced",
+            "docs": [
+                {
+                    "title": "What is the 'WebRTC' API in HTML, and how is it used?",
+                    "description": "The 'WebRTC' (Web Real-Time Communication) API in HTML enables real-time communication between browsers, allowing features like audio/video calling and peer-to-peer data sharing without the need for plugins or third-party applications.",
+                    "image": "",
+                    "code": "",
+                    "id": "56"
+                },
+                {
+                    "title": "Explain the 'Shadow DOM' in HTML and its use in web components.",
+                    "description": "The 'Shadow DOM' in HTML provides encapsulation for DOM and CSS within a specific element, known as a shadow tree. It is essential for building modular and reusable web components with isolated styles and functionality.",
+                    "image": "",
+                    "code": "",
+                    "id": "57"
+                },
+                {
+                    "title": "What are 'data attributes' in HTML, and how are they used?",
+                    "description": "'Data attributes' in HTML allow developers to store extra information on HTML elements using custom attributes starting with 'data-'. They are often used to associate additional data with DOM elements for JavaScript or CSS purposes.",
+                    "image": "",
+                    "code": "",
+                    "id": "58"
+                },
+                {
+                    "title": "Explain the 'Service Workers' in HTML and their role in progressive web apps.",
+                    "description": "'Service Workers' in HTML are scripts that run in the background and enable features like push notifications, offline functionality, and background synchronization. They play a crucial role in building progressive web apps.",
+                    "image": "",
+                    "code": "",
+                    "id": "59"
+                },
+                {
+                    "title": "What is the 'picture-in-picture' mode in HTML, and how can it be implemented?",
+                    "description": "The 'picture-in-picture' mode in HTML allows video elements to be popped out into a separate window that can be freely moved and resized. It enhances the user experience by providing a flexible video viewing option.",
+                    "image": "",
+                    "code": "",
+                    "id": "60"
+                }
+            ]
+        }
+    ]
+}
