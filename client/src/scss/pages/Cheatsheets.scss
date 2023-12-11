@@ -169,6 +169,10 @@
 		background-size: 400% 400%;
 		animation: gradient 15s ease infinite;
 	}
+	.card__board-itemHeaderText{
+		border-left: none;
+		font-size: 24px;
+	}
 	.card__board-itemHeader{
 		border-left: 4px solid RGBA(var(--primary-rgb) / 50%);
 		padding: 10px;
@@ -176,6 +180,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		font-size: 22px !important;
 
 		input{
 			display: none;
@@ -204,6 +209,15 @@
 		&:hover{
 			opacity: 0.5;
 		}
+	}
+	.cheatsheets__board-itemBody{
+		margin-top: 20px;
+		.text__muted{
+			font-size: 17px;
+		}
+	}
+	.btn__inverted{
+		display: none;
 	}
 	.cheatsheets__board-itemFooterActions{
 		display: none;

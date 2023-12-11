@@ -77,7 +77,7 @@ export const menu = [
 				title: 'Css',
 				href: 'css',
 				icon: '',
-				hasContent: false,
+				hasContent: true,
 				related: ['sass'],
 			},
 			{
@@ -98,7 +98,7 @@ export const menu = [
 				title: 'HTML',
 				href: 'html',
 				icon: '',
-				hasContent: false,
+				hasContent: true,
 				related: [],
 			},
 			{
