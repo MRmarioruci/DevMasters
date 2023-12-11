@@ -12,6 +12,8 @@ const files = [
     './cheatsheets/react.json',
     './cheatsheets/security.json',
     './cheatsheets/typescript.json',
+    './cheatsheets/css.json',
+    './cheatsheets/html.json',
 ]
 
 function generateUID() {
