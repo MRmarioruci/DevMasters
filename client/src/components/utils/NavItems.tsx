@@ -1,6 +1,7 @@
 export const menu = [
 	{
 		"title": "Interview Cheatsheets",
+		"description": "Interview specific cheatsheets. Concepts and general interview material to brush up before the big day.",
 		"id": 'cheatsheets',
 		"items": [
 			{
@@ -140,6 +141,7 @@ export const menu = [
 	},
 	{
 		"title": "Project Based Learning",
+		"description": "Learn by doing. Project based learning is the way to go in this profession <br/>and here you will find a list of projects to complete with instructions, based on your level",
 		"id": 'pbl',
 		"items": [
 			{
@@ -159,18 +161,22 @@ export const menu = [
 		]
 	},
 	{
-		"title": "Junior Mistakes",
-		"id": 'juniormistakes',
+		"title": "Mistakes / Best Practices",
+		"description": "Here you will find anti-patterns and coding mistakes every junior falls into. Don't worry, we've got you.",
+		"id": 'bestpractices',
 		"items": [
-			/* {
-				title: 'Web Frontend Master',
-				href: 'webFrontend',
+			{
+				title: 'Javascript',
+				href: 'javascript',
 				icon: '',
-			}, */
+				hasContent: true,
+				related: [],
+			},
 		]
 	},
 	{
 		"title": "Leetcode",
+		"description": "Practice for the leetcode-style problems. Learn DSA, Algorithms and Solving patterns. Be a pro.",
 		"id": 'leetcode',
 		"items": [
 			/* {

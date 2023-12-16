@@ -2,32 +2,15 @@ import {useEffect, useState} from 'react';
 import mainAnimation from '../animations/main.json';
 import Lottie from 'react-lottie-player'
 import {menu} from './utils/NavItems';
-import { Link } from 'react-router-dom';
 import Newsletter from './Newsletter';
 import NewsletterModal from './NewsletterModal';
-
-type MenuItem = {
-	title: string;
-	href: string;
-	icon: string;
-	hasContent: boolean
-}
-type MenuGroup = {
-	title: string;
-	items: MenuItem[];
-}
+import MainGroup from './Main/MainGroup';
+import { TMenuGroup } from './Main/Main.types';
 
 function Main() {
 	const [loading, setLoading] = useState<boolean>(true);
-	console.log(!!localStorage.getItem('devmasters__newsletter-modal'));
 	const [newsletterModal, setNewsletterModal] = useState<boolean>(!(!!localStorage.getItem('devmasters__newsletter-modal')) ?? true);
 	
-	const interviewMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Interview Cheatsheets');
-	const projectsMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Project Based Learning');
-	/* 
-	const juniorMistakesMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Junior Mistakes');
-	const leetcodeMenu = menu.find( (menuItem:MenuGroup) => menuItem.title === 'Leetcode'); */
-
 	useEffect(() => {
 		setTimeout(() => setLoading(false), 1000 );
 	}, [])
@@ -63,52 +46,14 @@ function Main() {
 						/>
 					</div>
 				</div>
-				<div className="main__contents">
-					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Interview Cheatsheets</div>
-					<div className="text__center text__muted">
-						Interview specific cheatsheets. Concepts and general interview material to brush up before the big day.	
-					</div>
-					<div className="main__contents-menu">
-						{interviewMenu?.items.map((item:MenuItem, index) => {
-							return (
-								<Link to={`/cheatsheets/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
-									<b className="text__primary font__10">{'/'}</b> {item.title}
-									{!item.hasContent && <div className="main__contents-cardUnderConstruction">Under Construction</div>}
-								</Link>
-							)
-						})}
-					</div>
-				</div>
-				<div className="main__contents">
-					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Project Based Learning</div>
-					<div className="text__center text__muted mtop--20 mbottom--20">
-						Learn by doing. Project based learning is the way to go in this profession <br/>and here you will find a list of projects to complete with instructions, based on your level
-					</div>
-					<div className="main__contents-menu">
-						{projectsMenu?.items.map((item:MenuItem, index) => {
-							return (
-								<Link to={`/projects/${item.href}`} className="card main__contents-card" key={`menu__${index}`}>
-									<b className="text__primary font__10">{'/'}</b> {item.title}
-									{!item.hasContent && <div className="main__contents-cardUnderConstruction">Under Construction</div>}
-								</Link>
-							)
-						})}
-					</div>
-				</div>
-				<div className="main__contents">
-					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Junior Mistakes</div>
-					<div className="text__center text__muted mtop--20 mbottom--20">
-						Here you will find anti-patterns and coding mistakes every junior falls into. Don't worry, we've got you.
-					</div>
-					<h4 className="text__center">Coming soon</h4>
-				</div>
-				<div className="main__contents">
-					<div className="btn btn__primary-soft text__normal btn__rounded btn__md main__contents-label">Leetcode</div>
-					<div className="text__center text__muted mtop--20 mbottom--20">
-						Practice for the leetcode-style problems. Learn DSA, Algorithms and Solving patterns. Be a pro.
-					</div>
-					<h4 className="text__center">Coming soon</h4>
-				</div>
+				{menu.map((item: TMenuGroup) => {
+					return <MainGroup
+						id={item.id}
+						title={item.title}
+						description={item.description}
+						baseLink={item.id}
+					/>
+				})}
 				<Newsletter />
 			</div>
 			{ newsletterModal && <NewsletterModal setModal={setNewsletterModal}/>}
