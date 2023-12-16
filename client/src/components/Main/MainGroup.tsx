@@ -23,7 +23,11 @@ function MainGroup({
 							className="card main__contents-card"
 							key={`menu__${index}`}
 						>
-							<b className="text__primary font__10">{"/"}</b> {item.title}
+							<div className="flex flex__row" style={{gap: '5px'}}>
+								{!item?.icon && <b className="text__primary font__10">{"/"}</b>}
+								{item?.icon && <img src={item.icon} width={20} alt={item.icon} />}
+								<div style={{marginTop: '-3px'}}>{item.title}</div>
+							</div>
 							{!item.hasContent && (
 								<div className="main__contents-cardUnderConstruction">
 									Under Construction

@@ -77,7 +77,8 @@ function CheatsheetComponent() {
 
 	useEffect(() => {
 		if(!id) return;
-		const m = menu.find( (menuItem) => menuItem.title === 'Interview Cheatsheets');
+		const m = menu.find((menuItem) => menuItem.id === 'cheatsheets');
+		console.log(m);
 		const c = m?.items.find( item => item.href === id);
 		if(!c) throw new Error(`Could not find the requested ${id} menu item`);
 		setJsonData([]);

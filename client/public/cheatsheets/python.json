@@ -1,7 +1,7 @@
 {
     "collectionName": "python",
     "title": "Python",
-    "icon": "https://api.iconify.design/logos:python.svg",
+    "icon": "",
     "color": "3776AB",
     "highlighter": "python",
     "groups": [
@@ -433,30 +433,6 @@
                     "description": "Collects and waits for the results of multiple asynchronous tasks, enabling efficient coordination and synchronization in Python.",
                     "code": "\n# Syntax\nawait asyncio.gather(task1, task2, task3)\n\n# Example\n# Gathering results from multiple asyncio tasks\n"
                 }                               
-            ]
-        },
-        {
-            "id": "best_practices",
-            "title": "Best Practices",
-            "docs": [
-                {
-                    "id": "coding_style_guide",
-                    "title": "Coding Style Guide",
-                    "description": "Following PEP 8 conventions and writing clean, readable code. Tools like pylint and flake8 for code analysis. The importance of consistent coding styles in team projects.",
-                    "code": "# Sample code following PEP 8 conventions\ndef greet(name: str) -> str:\n    \"\"\"Greet the user.\"\"\"\n    return f'Hello, {name}!'\n\n# Code analysis using pylint\n# pylint: disable=missing-function-docstring\nresult = greet('Alice')"
-                },
-                {
-                    "id": "testing",
-                    "title": "Testing",
-                    "description": "Writing unit tests, using frameworks like unittest or pytest. Test-driven development (TDD) practices, mocking, and continuous integration for testing automation.",
-                    "code": "# Example using pytest\n# test_example.py\n\ndef test_greet():\n    result = greet('Bob')\n    assert result == 'Hello, Bob!'\n\n# Run tests using the command: pytest test_example.py"
-                },
-                {
-                    "id": "documentation",
-                    "title": "Documentation",
-                    "description": "Importance of documenting code using docstrings and other tools. Generating documentation with tools like Sphinx. Best practices for writing comprehensive and clear documentation.",
-                    "code": "# Example using docstrings\n\ndef add_numbers(a, b):\n    \"\"\"\n    Add two numbers.\n\n    Parameters:\n    - a (int): The first number.\n    - b (int): The second number.\n\n    Returns:\n    int: The sum of the two numbers.\n    \"\"\"\n    return a + b"
-                }
             ]
         }
     ]

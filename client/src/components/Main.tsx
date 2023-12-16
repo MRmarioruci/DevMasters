@@ -48,6 +48,7 @@ function Main() {
 				</div>
 				{menu.map((item: TMenuGroup) => {
 					return <MainGroup
+						key={item.id}
 						id={item.id}
 						title={item.title}
 						description={item.description}

@@ -9,4 +9,15 @@
 	backdrop-filter: blur(12px);
 	padding: 100px 20px;
 	text-align: center;
+
+	.community__monkey {
+		width: 300px;
+		position: absolute;
+		right: 0;
+		bottom:-10px;
+
+		.main__header-rightLottie{
+			width: 100%;
+		}
+	}
 }

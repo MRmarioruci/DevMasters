@@ -84,3 +84,9 @@ export type IDoc = {
     "highlighter": Highlighter,
     "href": string
 }
+export type IDocGroup = {
+    "id"?: string,
+    "title": string,
+    "docs": any[]
+}
+export type THighlighter = 'js' | 'tsx' | 'py'

@@ -1,7 +1,7 @@
 {
     "collectionName": "typescript",
     "title": "Typescript",
-    "icon": "https://api.iconify.design/logos:typescript-icon.svg",
+    "icon": "",
     "color": "3178C6",
     "highlighter": "ts",
     "groups": [

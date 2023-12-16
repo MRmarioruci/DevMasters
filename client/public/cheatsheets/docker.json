@@ -1,7 +1,7 @@
 {
     "collectionName": "docker",
     "title": "Docker",
-    "icon": "https://api.iconify.design/logos:docker-icon.svg",
+    "icon": "",
     "color": "2396ED",
     "highlighter": "js",
     "groups": [

@@ -1,9 +1,7 @@
-import { CheatsheetDoc } from "../types";
+import { IDoc } from "../types";
+import { BASE, BACKEND_API_ENDPOINT } from "./Constants";
 
-const BASE = window.location.origin;
-const BACKEND_API_ENDPOINT = process.env.REACT_APP_BACKEND_API_ENDPOINT;
-
-const getCheatsheet = async (id: string): Promise<CheatsheetDoc> => {
+const getCheatsheet = async (id: string): Promise<IDoc> => {
 	const res = await fetch(`${BASE}/cheatsheets/${id}.json`);
 	return await res.json();
 }

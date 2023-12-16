@@ -22,7 +22,8 @@ function PageNavMeta({
 	allCollapsed,
 	setAllCollapsed
 }: IPageNavMetaProps) {
-	const {icon, title} = doc
+	const { icon, title } = doc
+	console.log(icon);
 	return (
 		<div className="page__menu-meta">
 			<div className="page__menu-metaInner">

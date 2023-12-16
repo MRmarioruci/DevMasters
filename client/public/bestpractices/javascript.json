@@ -1,0 +1,218 @@
+{
+    "collectionName": "javascript",
+    "title": "Javascript",
+    "icon": "https://api.iconify.design/logos:javascript.svg",
+    "color": "F7DF1E",
+    "highlighter": "js",
+    "groups": [
+        {
+            "id": "bestpractices",
+            "title": "Best Practices",
+            "docs": [
+                {
+                    "id": "687e47d5-644d-4e31-9727-9cbe7e048d78",
+                    "title": "Use const and let instead of var",
+                    "description": "Using const for constants and variables that should not be reassigned, and let for variables that may change, enhances code readability and reduces the risk of accidental reassignments. ",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Good practice: Use const for variables that won't be reassigned\nconst pi = 3.14159;\nconst greeting = 'Hello, John Doe!';\n\n// Bad practice: Using var for constants or variables that shouldn't be reassigned\nvar temperature = 25; // This variable might be unintentionally reassigned later\n\n// Use let for variables that will be reassigned\nlet counter = 0;\n\n// Example of using let in a loop\nfor (let i = 0; i < 5; i++) {\n  // Code inside the loop can access the 'i' variable without any issues\n  counter += i;\n}\n\n// Attempting to reassign a const will result in an error\n// pi = 3; // Uncommenting this line would cause an error\n// Constants and let variables help in writing more predictable and maintainable code"
+                        }
+                    ]
+                },
+                {
+                    "id": "c1fb0c5d-9a10-4fc2-aef7-4a8e60b3fd7e",
+                    "title": "Equality Comparisons",
+                    "description": "Always use '===' for equality comparisons to avoid type coercion. For example, use '===', not '=='.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using strict equality\nconst isEqual = (a, b) => a === b;\nconst result = isEqual(5, '5'); // Returns false"
+                        }
+                    ]
+                },
+                {
+                    "id": "f8a78e2e-6d2e-4c87-aa69-3c36c5e28c82",
+                    "title": "Avoid Global Variables",
+                    "description": "Avoid using global variables. They can lead to unexpected behavior and make the code harder to maintain. Use modules or functions to encapsulate your code.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "To avoid global variables, encapsulate your code in a function or module. Here's an example:",
+                            "code": "// Example of avoiding global variables\n(function() {\n  const localVar = 'I am local';\n  // Rest of your code here\n})();"
+                        }
+                    ]
+                },
+                {
+                    "id": "159d0347-bc04-4168-8e8a-2e287c4d5f99",
+                    "title": "Arrow Functions",
+                    "description": "Consider using arrow functions for concise and clear syntax, especially for short anonymous functions.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using arrow function\nconst add = (a, b) => a + b;"
+                        }
+                    ]
+                },
+                {
+                    "id": "1f1f24c5-4648-4f76-9b3b-01d37f5e57c0",
+                    "title": "Template Literals",
+                    "description": "Use template literals for string interpolation instead of concatenation. It improves readability and makes the code more concise.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using template literals\nconst name = 'John Doe';\nconst greeting = `Hello, ${name}!`;"
+                        }
+                    ]
+                },
+                {
+                    "id": "7a4cf3a7-5387-4d07-bb9a-1e2bf3732d63",
+                    "title": "Avoid Magic Numbers",
+                    "description": "Avoid using magic numbers directly in your code. Declare them as constants with meaningful names to improve code readability.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of avoiding magic numbers\nconst MAX_COUNT = 10;\nlet counter = 0;\nwhile (counter < MAX_COUNT) {\n  // Your code here\n  counter++;\n}"
+                        }
+                    ]
+                },
+                {
+                    "id": "c9115042-042c-4aa5-a64c-77a5a74c855f",
+                    "title": "Use Descriptive Variable and Function Names",
+                    "description": "Choose clear and descriptive names for variables and functions to enhance code readability and understanding.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using descriptive names\nconst calculateArea = (radius) => Math.PI * radius * radius;\nconst circleRadius = 5;\nconst area = calculateArea(circleRadius);"
+                        }
+                    ]
+                },
+                {
+                    "id": "bce57014-7f1d-4f5c-9bf0-9631711cf477",
+                    "title": "Error Handling",
+                    "description": "Handle errors gracefully by using try-catch blocks. Provide meaningful error messages to aid debugging.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of error handling with try-catch\ntry {\n  // Code that may throw an error\n  throw new Error('This is an error');\n} catch (error) {\n  console.error(error.message);\n}"
+                        }
+                    ]
+                },
+                {
+                    "id": "fe5c3f97-e7f1-4f15-a225-306eac6bf832",
+                    "title": "Use Strict Mode",
+                    "description": "Always use 'use strict' at the beginning of your scripts. It helps catch common coding mistakes and prevents the use of undeclared variables.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using strict mode\n\"use strict\";\n// Your code here"
+                        }
+                    ]
+                },
+                {
+                    "id": "3dbfe9e2-88d7-4e44-94d2-2e49304f5ac2",
+                    "title": "Avoid Callback Hell",
+                    "description": "Use promises or async/await to avoid callback hell and write asynchronous code in a more readable and maintainable way.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using async/await\nconst fetchData = async () => {\n  try {\n    const result = await fetch('https://api.example.com/data');\n    const data = await result.json();\n    console.log(data);\n  } catch (error) {\n    console.error(error);\n  }\n}"
+                        }
+                    ]
+                },
+                {
+                    "id": "508ad36e-39b2-42cd-93e2-5a9eaab8aa2b",
+                    "title": "Modularize Your Code",
+                    "description": "Break your code into modular components. This enhances code organization, reusability, and maintainability.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of modularizing code\n// module1.js\nexport const add = (a, b) => a + b;\n// module2.js\nexport const multiply = (a, b) => a * b;\n// main.js\nimport { add, multiply } from './module1';\nconst result = add(2, 3) + multiply(4, 5);"
+                        }
+                    ]
+                },
+                {
+                    "id": "e9073c63-95f9-47aa-97c7-3c9c6ccce0c9",
+                    "title": "Document Your Code",
+                    "description": "Add comments and documentation to your code. It helps other developers (and your future self) understand the purpose and functionality of your code.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of documenting code\n/**\n * Calculates the area of a circle.\n * @param {number} radius - The radius of the circle.\n * @returns {number} - The area of the circle.\n */\nconst calculateArea = (radius) => Math.PI * radius * radius;"
+                        }
+                    ]
+                },
+                {
+                    "id": "9e1e2df4-2413-4e11-9c61-1d0bb9e8d8c1",
+                    "title": "Prefer Object Destructuring",
+                    "description": "Use object destructuring to extract values from objects. It makes your code more concise and readable.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using object destructuring\nconst person = { name: 'John', age: 30 };\nconst { name, age } = person;"
+                        }
+                    ]
+                },
+                {
+                    "id": "de5a07a5-c60b-4af0-81de-03ec409b1a8b",
+                    "title": "Avoid Using eval()",
+                    "description": "Avoid using the eval() function as it can introduce security vulnerabilities and make the code harder to understand and maintain.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of avoiding eval()\nconst expression = '2 + 2';\nconst result = eval(expression); // Avoid using eval()"
+                        }
+                    ]
+                },
+                {
+                    "id": "a9a35a67-c0d1-4ba3-803e-8569d72db034",
+                    "title": "Use Map, Filter, and Reduce",
+                    "description": "Prefer using array methods like map, filter, and reduce for concise and expressive code when working with arrays.",
+                    "items": [
+                        {
+                            "type": "normal",
+                            "text": "",
+                            "code": "// Example of using array methods\nconst numbers = [1, 2, 3, 4, 5];\nconst squaredNumbers = numbers.map((num) => num ** 2);"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mistakes",
+            "title": "Mistakes",
+            "docs": [
+                {
+                    "id": "687e47d5-644d-4e31-9727-9cbe7e048d712",
+                    "title": "Coming soon",
+                    "description": "",
+                    "items": [
+                        {
+                            "type": "incorrect",
+                            "text": "Mistake",
+                            "code": ""
+                        },
+                        {
+                            "type": "correct",
+                            "text": "Correction",
+                            "code": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

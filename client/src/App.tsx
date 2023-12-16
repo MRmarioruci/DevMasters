@@ -18,8 +18,8 @@ function App() {
 				<Routes>
 					<Route index element={<Main />} />
 					<Route path="/cheatsheets/:id/:group?" element={<Cheatsheet />} />
-					<Route path="/projects/:id/:group?" element={<Projects />} />
-          <Route path="/bestpractices/:id/:group?" element={<BestPractices />} />
+					<Route path="/pbl/:id/:group?" element={<Projects />} />
+          			<Route path="/bestpractices/:id/:group?" element={<BestPractices />} />
 				</Routes>
 			</BrowserRouter>
 			<Community />

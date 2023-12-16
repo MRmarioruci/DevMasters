@@ -1,7 +1,7 @@
 {
     "collectionName": "flask",
     "title": "Flask",
-    "icon": "https://api.iconify.design/logos:flask.svg",
+    "icon": "",
     "color": "CB66A3",
     "highlighter": "python",
     "groups": [

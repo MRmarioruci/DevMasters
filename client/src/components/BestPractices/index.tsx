@@ -3,12 +3,21 @@ import { useParams } from 'react-router-dom';
 import { menu } from '../utils/NavItems';
 import rocketAnimation from '../../animations/rocket.json';
 import bookmarkAnimation from '../../animations/bookmark.json';
-import '../../scss/pages/Cheatsheets.scss';
-import { getCheatsheet } from '../../api/Cheatsheetsapi';
+import '../../scss/pages/Board.scss';
+import { getData } from '../../api/BestPracticesapi';
 import Lottie from 'react-lottie-player';
-import CheatsheetItem from './CheatsheetItem';
-import CheatsheetItemModal from './CheatsheetItemModal';
-import { Cheatsheet, CheatsheetDoc, CheatSheetGroup, Highlighter, ToggleCheatsheetFunction } from '../../types/index';
+import CardItem from './CardItem';
+/* import CheatsheetItem from './CheatsheetItem';
+import CheatsheetItemModal from './CheatsheetItemModal'; */
+import {
+	IDoc,
+	IDocGroup,
+	THighlighter
+} from '../../types/index';
+import {
+	IBestItem,
+	TToggleItem
+} from './BestPractices.types';
 import { useCustomContext } from '../../contexts/theme-context';
 import StaticNavigation from '../utils/StaticNavigation';
 import PageNav from '../utils/PageNav';
@@ -22,12 +31,12 @@ function BestPractices() {
 	const {getFromLocalStorage} = useLocalStorage();
 	const {setTheme} = usePageTheme();
 	const {state} = useCustomContext();
-	const [cheatsheet, setCheatsheet] = useState<any>(null);
-	const [jsonData, setJsonData] = useState<CheatSheetGroup[]>([]);
+	const [data, setData] = useState<any>(null);
+	const [jsonData, setJsonData] = useState<IDocGroup[]>([]);
 	const [selectedGroupIndex] = useState<number>(0);
 	const [showModal, setShowModal] = useState<boolean>(false);
-	const [highlighter, setHighlighter] = useState<Highlighter>('js');
-	const [selectedCheatSheet, setSelectedCheatsheet] = useState<null | Cheatsheet>(null);
+	const [highlighter, setHighlighter] = useState<THighlighter>('js');
+	const [selectedItem, setSelectedItem] = useState<null | IBestItem>(null);
 	const [loading, setLoading] = useState<boolean>(true);
 	const [allCollapsed, setAllCollapsed] = useState<boolean>(false);
 
@@ -42,26 +51,27 @@ function BestPractices() {
 
 	const fetchData = useCallback(async () => {
 		setLoading(true);
-		const data: void | CheatsheetDoc = await getCheatsheet(id || '').catch(() => setLoading(false));
-		if(!data){
+		const responseData: void | IDoc = await getData(id || '').catch(() => setLoading(false));
+		if(!responseData){
 			setLoading(false);
 			return;
 		}
-		setJsonData(data.groups);
-		setHighlighter(data.highlighter);
-		setTheme(data.color);
+		setJsonData(responseData.groups);
+		setHighlighter(responseData.highlighter);
+		setTheme(responseData.color);
 		setTimeout(() => setLoading(false), 1000);
 	}, [id, setTheme]);
-	const toggleCheatsheet:ToggleCheatsheetFunction = (cheatsheet: Cheatsheet | null) => {
+	
+	const toggleItem:TToggleItem = (item: IBestItem | null) => {
 		setShowModal( prev => !prev);
-		setSelectedCheatsheet(cheatsheet);
+		setSelectedItem(item);
 	}
 
 	const selectedGroup = useMemo(() => {
 		if(!jsonData.length) return null;
 		if(group === 'myboard'){
-			const docs = jsonData.reduce((acc: Cheatsheet[], currentValue: CheatSheetGroup) => {
-				const docs = currentValue?.docs?.filter((item: Cheatsheet) => getFromLocalStorage(localStoragePath, item.id!))
+			const docs = jsonData.reduce((acc: IBestItem[], currentValue: IDocGroup) => {
+				const docs = currentValue?.docs?.filter((item: IBestItem) => getFromLocalStorage(localStoragePath, item.id!))
 				return [...acc, ...docs]
 			}, [])
 			return {
@@ -77,11 +87,11 @@ function BestPractices() {
 
 	useEffect(() => {
 		if(!id) return;
-		const m = menu.find( (menuItem) => menuItem.title === 'Interview Cheatsheets');
+		const m = menu.find( (menuItem) => menuItem.id === 'bestpractices');
 		const c = m?.items.find( item => item.href === id);
 		if(!c) throw new Error(`Could not find the requested ${id} menu item`);
 		setJsonData([]);
-		setCheatsheet(c);
+		setData(c);
 		fetchData();
 	}, [id, fetchData])
 
@@ -89,10 +99,10 @@ function BestPractices() {
 		<div className="bestpractices">
 			{loading && <div className="loader__full"><div className="loader"></div></div>}
 			<StaticNavigation />
-			{/* { !!jsonData.length &&
+			{ !!jsonData.length &&
 				<>
 					<PageNavMeta
-						doc={cheatsheet}
+						doc={data}
 						selectedGroup={selectedGroup}
 						showThemeSelector={true}
 						showLayoutSelector={true}
@@ -106,13 +116,13 @@ function BestPractices() {
 			}
 			{ selectedGroup &&
 				<>
-					<div key={`${selectedGroup.id}`} className='cheatsheets__board' style={{columns: state.columns}}>
-						{selectedGroup?.docs?.map((item:Cheatsheet, idx:number) => {
+					<div key={`${selectedGroup.id}`} className='board' style={{columns: state.columns}}>
+						{selectedGroup?.docs?.map((item:IBestItem, idx:number) => {
 							return (
 								<div className="animate__animated animate__fadeIn" style={{ animationDelay: `${idx * 30}ms` }} key={`group_item_${item?.id}${idx}`}>
-									<CheatsheetItem 
+									<CardItem 
 										item={item}
-										toggleCheatsheet={toggleCheatsheet}
+										toggleItem={toggleItem}
 										highlighter={highlighter}
 										highlighterTheme={state.highlighterTheme}
 										index={idx}	
@@ -150,7 +160,7 @@ function BestPractices() {
 					<h5 className="text__muted">Please be patient my lord.</h5>
 				</div>
 			}
-			{showModal && <CheatsheetItemModal
+			{/* {showModal && <CheatsheetItemModal
 				item={selectedCheatSheet}
 				toggleCheatsheet={toggleCheatsheet}
 				highlighter={highlighter}
