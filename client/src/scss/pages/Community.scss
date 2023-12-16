@@ -9,15 +9,47 @@
 	backdrop-filter: blur(12px);
 	padding: 100px 20px;
 	text-align: center;
+	position: relative; /* Add this to make sure absolute positioning works */
 
+	/* Adjust the monkey position for mobile */
 	.community__monkey {
 		width: 300px;
 		position: absolute;
 		right: 0;
-		bottom:-10px;
+		bottom: -10px;
+	}
 
-		.main__header-rightLottie{
-			width: 100%;
+	/* Media query for smaller screens (e.g., phones) */
+	@media screen and (max-width: 768px) {
+		.community__monkey {
+			position: static; /* Change position to static for it to appear below .community */
+			margin-top: 10 px; /* Add margin or adjust as needed */
 		}
 	}
 }
+
+
+
+// @import "../partials/vars";
+
+// .community {
+// 	width: 100%;
+// 	display: flex;
+// 	flex-direction: column;
+// 	background-color: var(--textColor);
+// 	color: var(--background);
+// 	backdrop-filter: blur(12px);
+// 	padding: 100px 20px;
+// 	text-align: center;
+
+// 	.community__monkey {
+// 		width: 300px;
+// 		position: absolute;
+// 		right: 0;
+// 		bottom:-10px;
+
+// 		.main__header-rightLottie{
+// 			width: 100%;
+// 		}
+// 	}
+// }
