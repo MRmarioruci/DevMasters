@@ -1,6 +1,6 @@
 # Devmasters.pro
 
-![DevMasters Logo](./client/src/images/logo_black.png)
+![DevMasters Logo](https://devmasters.pro/logo192.png)
 
 Welcome to Devmasters.pro, your go-to platform for becoming a pro software engineer. This open-source project is designed to provide a comprehensive educational experience, covering everything from quick revisions to in-depth topics based on your unique learning path.
 
@@ -36,10 +36,6 @@ For support or to connect with the Devmasters.pro community:
 
 - Visit our [website](https://devmasters.pro).
 - Follow us on [Linkedin](https://www.linkedin.com/company/98981147/) for updates.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE.md) - see the [LICENSE.md](LICENSE.md) file for details.
 
 ---
 
