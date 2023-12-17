@@ -167,8 +167,8 @@
                     "id": "dictionary_methods",
                     "title": "Dictionary Methods",
                     "description": "Offers various built-in methods for performing operations on dictionaries, enhancing functionality and ease of use in Python.",
-                    "code": "\n# Syntax\n# Example\n# Dictionary methods: keys(), values(), items(), get(), update(), pop(), popitem(), clear(), etc.\n"
-                },                                
+                    "code": "# Dictionary methods: keys(), values(), items(), get(), update(), pop(), popitem(), clear(), etc.\n\n# Creating a sample dictionary\nmy_dict = {'name': 'John', 'age': 25, 'city': 'New York'}\n\n# Using keys() method to get the keys of the dictionary\nkeys = my_dict.keys()\nprint('Keys:', keys)\n\n# Using values() method to get the values of the dictionary\nvalues = my_dict.values()\nprint('Values:', values)\n\n# Using items() method to get key-value pairs of the dictionary\nitems = my_dict.items()\nprint('Items:', items)\n\n# Using get() method to retrieve the value associated with a key\nage = my_dict.get('age')\nprint('Age:', age)\n\n# Using update() method to merge two dictionaries\nadditional_info = {'gender': 'Male', 'occupation': 'Engineer'}\nmy_dict.update(additional_info)\nprint('Updated Dictionary:', my_dict)\n\n# Using pop() method to remove an item by key\nremoved_item = my_dict.pop('city')\nprint('Removed Item:', removed_item)\nprint('Updated Dictionary after pop:', my_dict)\n\n# Using popitem() method to remove and return the last item as a tuple\nlast_item = my_dict.popitem()\nprint('Removed Last Item:', last_item)\nprint('Updated Dictionary after popitem:', my_dict)\n\n# Using clear() method to remove all items from the dictionary\nmy_dict.clear()\nprint('Cleared Dictionary:', my_dict)"
+                },                
                 {
                     "id": "sets",
                     "title": "Sets",
@@ -179,7 +179,7 @@
                     "id": "set_methods",
                     "title": "Set Methods",
                     "description": "Offers various built-in methods for performing operations on sets, including adding, removing, and checking for membership in Python.",
-                    "code": "\n# Syntax\n# Example\n# Set methods: add(), remove(), discard(), pop(), clear(), union(), intersection(), difference(), etc.\n"
+                    "code": "# Set methods: add(), remove(), discard(), pop(), clear(), union(), intersection(), difference(), etc.\n\n# Creating two sample sets\nset1 = {1, 2, 3, 4, 5}\nset2 = {4, 5, 6, 7, 8}\n\n# Using add() method to add an element to the set\nset1.add(6)\nprint('After add(6):', set1)\n\n# Using remove() method to remove an element from the set\nset1.remove(3)\nprint('After remove(3):', set1)\n\n# Using discard() method to remove an element, if present, from the set\nset1.discard(2)\nprint('After discard(2):', set1)\n\n# Using pop() method to remove and return an arbitrary element from the set\npopped_element = set1.pop()\nprint('Popped element:', popped_element)\nprint('Set after pop:', set1)\n\n# Using clear() method to remove all elements from the set\nset1.clear()\nprint('Cleared set:', set1)\n\n# Using union() method to get the union of two sets\nunion_set = set2.union({9, 10})\nprint('Union set:', union_set)\n\n# Using intersection() method to get the intersection of two sets\nintersection_set = set2.intersection({4, 5, 6})\nprint('Intersection set:', intersection_set)\n\n# Using difference() method to get the difference between two sets\ndifference_set = set2.difference({6, 7, 8})\nprint('Difference set:', difference_set)"
                 },
                 {
                     "id": "set_operations",
@@ -221,32 +221,26 @@
                     "id": "linked_lists",
                     "title": "Linked Lists",
                     "description": "Implements a data structure where elements are stored in nodes, and each node points to the next node, forming a sequence in Python.",
-                    "code": "\n# Node class\nclass Node:\n    def __init__(self, data=None, next=None):\n        self.data = data\n        self.next = next\n\n# Example\nnode1 = Node(1)\nnode2 = Node(2)\nnode1.next = node2\n"
+                    "code": "\nclass Node:\n    def __init__(self, data=None, next=None):\n        self.data = data\n        self.next = next\n\n# Example\nnode1 = Node(1)\nnode2 = Node(2)\nnode1.next = node2\n"
                 },
                 {
                     "id": "singly_linked_lists",
                     "title": "Singly Linked Lists",
                     "description": "Represents a linked list where each node points to the next node, allowing for efficient traversal in one direction in Python.",
-                    "code": "\n# Node class\n# Example\n# Singly Linked List operations: insert, delete, search, traverse, etc.\n"
+                    "code": "\n# Singly Linked List operations: insert, delete, search, traverse, etc.\n\nclass Node:\n    def __init__(self, data=None, next_node=None):\n        self.data = data\n        self.next_node = next_node\n\n# Example usage\nnode1 = Node(1)\nnode2 = Node(2)\nnode3 = Node(3)\n\nnode1.next_node = node2\nnode2.next_node = node3\n"
                 },
                 {
                     "id": "doubly_linked_lists",
                     "title": "Doubly Linked Lists",
                     "description": "Enhances a linked list by each node pointing to both the next and previous nodes, facilitating bidirectional traversal in Python.",
-                    "code": "\n# Node class with 'prev' attribute\n# Example\n# Doubly Linked List operations: insert, delete, search, traverse, etc.\n"
-                },
-                {
-                    "id": "doubly_linked_lists",
-                    "title": "Doubly Linked Lists",
-                    "description": "Enhances a linked list by each node pointing to both the next and previous nodes, facilitating bidirectional traversal in Python.",
-                    "code": "\n# Node class with 'prev' attribute\n# Example\n# Doubly Linked List operations: insert, delete, search, traverse, etc.\n"
+                    "code": "\n# Example\n# Doubly Linked List operations: insert, delete, search, traverse, etc.\n\nclass Node:\n    def __init__(self, data=None, next_node=None, prev_node=None):\n        self.data = data\n        self.next_node = next_node\n        self.prev_node = prev_node\n\n# Example usage\nnode1 = Node(1)\nnode2 = Node(2)\nnode3 = Node(3)\n\nnode1.next_node = node2\nnode2.next_node = node3\nnode2.prev_node = node1\nnode3.prev_node = node2\n"
                 },
                 {
                     "id": "circular_linked_lists",
                     "title": "Circular Linked Lists",
                     "description": "Forms a closed loop by having the last node point to the first node, allowing for continuous traversal in Python.",
-                    "code": "\n# Node class\n# Example\n# Circular Linked List operations: insert, delete, search, traverse, etc.\n"
-                }                                                                                
+                    "code": "\n# Circular Linked List operations: insert, delete, search, traverse, etc.\n\nclass Node:\n    def __init__(self, data=None, next_node=None):\n        self.data = data\n        self.next_node = next_node\n\n# Example usage\nnode1 = Node(1)\nnode2 = Node(2)\nnode3 = Node(3)\n\nnode1.next_node = node2\nnode2.next_node = node3\nnode3.next_node = node1\n"
+                }                                                                                                                
             ]
         },
         {
