@@ -23,10 +23,11 @@ The project installation is fairly simple.
 
 2. Make your changes
 3. Commit convention. When writing your commits please use one of the following structure depending on the type of work you did:
-**feature: short message**  (A new feature addition to the platform)
-**refactor: short message** (A code refactoring change)
-**doc: short message** (A documentation change)
-**bug: short message** (A bug fix)
+
+- **feature: short message**  (A new feature addition to the platform)
+- **refactor: short message** (A code refactoring change)
+- **doc: short message** (A documentation change)
+- **bug: short message** (A bug fix)
 
 
 4. Create a pull request and we will review it.
