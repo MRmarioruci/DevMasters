@@ -8,7 +8,7 @@ The project installation is fairly simple.
 1. Clone the repo
 2. Have nodejs/npm installed
 3. cd <b>local_project_directory/client</b>
-4. Run <b>npm install</b>
+4. Run <b>npm install --legcay-peer-deps</b>
 
 ## Running the app
 1. cd <b>local_project_directory/client</b>
