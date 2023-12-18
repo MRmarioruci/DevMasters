@@ -9,15 +9,30 @@
 	backdrop-filter: blur(12px);
 	padding: 100px 20px;
 	text-align: center;
+	position: relative; 
+}
+
+.community__monkey {
+	width: 300px;
+	height: auto;
+	position: absolute;
+	right: 0;
+	bottom: -10px;
+	
+}
+
+@media screen and (max-width: 768px) {
+	.community {
+		padding-bottom: 150px;
+		position: relative;
+	}
 
 	.community__monkey {
-		width: 300px;
 		position: absolute;
-		right: 0;
-		bottom:-10px;
-
-		.main__header-rightLottie{
-			width: 100%;
-		}
+		right: 50%;
+		transform: translateX(50%);
+		bottom: -10px; 
+		
 	}
+
 }
