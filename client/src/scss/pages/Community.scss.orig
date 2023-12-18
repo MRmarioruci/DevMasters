@@ -9,6 +9,19 @@
 	backdrop-filter: blur(12px);
 	padding: 100px 20px;
 	text-align: center;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+
+	.community__monkey {
+		width: 300px;
+		position: absolute;
+		right: 0;
+		bottom:-10px;
+
+		.main__header-rightLottie{
+			width: 100%;
+		}
+=======
 	position: relative; 
 	
 	.community__monkey {
@@ -16,12 +29,26 @@
 		height: auto;
 		position: absolute;
 		right: 0;
+=======
+	position: relative; 
+	
+	.community__monkey {
+		width: 300px;
+		height: auto;
+		position: absolute;
+		right: 0;
+>>>>>>> Stashed changes
 		bottom: -10px;
+		
 	}
 	@media(max-width: 1000px){
 		padding-bottom: 150px;
 	}
 	@media(max-width: 428px){
 		padding-bottom: 230px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 	}
 }
